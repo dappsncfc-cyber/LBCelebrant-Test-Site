@@ -570,6 +570,7 @@
             </div>
         </section>
 
+        <!-- Secure Client Portal Workspace Dashboard Panel -->
         <section id="portal-dashboard" class="hidden transition-all duration-300 min-h-screen py-6 sm:py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -885,21 +886,39 @@
 
         // Global configuration bindings fallback safely if variables are unset
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined'
-            ? JSON.parse(__firebase_config)
-            : {
-                apiKey: "",
-                authDomain: "lb-celebrant.firebaseapp.com",
-                projectId: "lb-celebrant",
-                storageBucket: "lb-celebrant.appspot.com",
-                messagingSenderId: "mock-sender-id",
-                appId: "mock-app-id"
-            };
 
-        // Initialise Firebase instances
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+        // Core variables with safety fallbacks
+        let app = null;
+        let auth = null;
+        let db = null;
+        let useFirebase = false;
+
+        // SAFE FIREBASE INITIALIZATION SHIELD: Prevents compilation and execution stops in offline/sandbox preview
+        try {
+            const firebaseConfig = typeof __firebase_config !== 'undefined'
+                ? JSON.parse(__firebase_config)
+                : {
+                    apiKey: "",
+                    authDomain: "lb-celebrant.firebaseapp.com",
+                    projectId: "lb-celebrant",
+                    storageBucket: "lb-celebrant.appspot.com",
+                    messagingSenderId: "mock-sender-id",
+                    appId: "mock-app-id"
+                };
+
+            // Only initialize Firebase services if valid credentials exist
+            if (firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey !== "") {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                useFirebase = true;
+                console.log("Firebase initialized successfully in database sync mode.");
+            } else {
+                console.log("No Firebase API key provided. Running securely in offline local storage sandbox mode.");
+            }
+        } catch (err) {
+            console.warn("Failed to boot Firebase SDK. Defaulting gracefully to offline interactive sandbox mode.", err);
+        }
 
         // Core memory templates used as structural templates for first-time cloud users
         const MOCK_FIREBASE_CLIENTS = {
@@ -992,7 +1011,7 @@
                 ],
                 comments: [
                     { name: "LB Celebrant", text: "Robert, I have laid out the tribute script structure above. Please read the post-war summer paragraph to make sure the historical context aligns.", time: "4 hours ago" },
-                    { name: "Robert Thompson", text: "This captures our mother exactly. She did love Sussex dearly. I have uploaded the family garden photo.", time: "3 hours ago" }
+                    { name: "Robert Thompson", text: "This captures our mother exactly. She did love Sussex dearly. I have uploaded the family garden photo.", time: "3 ago" }
                 ],
                 questions: {
                     q1: "Eleanor spent her youth exploring the rolling Sussex Downs. She was happiest with soil on her hands and a cup of tea by her side.",
@@ -1069,6 +1088,10 @@
 
         // Auto-auth initialization sequence (Adhering to RULE 3)
         const initAuth = async () => {
+            if (!useFirebase || !auth) {
+                console.log("Offline mode: Skipping Firebase auth initialization.");
+                return;
+            }
             try {
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     await signInWithCustomToken(auth, __initial_auth_token);
@@ -1082,20 +1105,22 @@
         };
 
         // Bind listener tracking user credentials
-        onAuthStateChanged(auth, (user) => {
-            firebaseUserRef = user;
-            if (user) {
-                console.log("Firebase Secure Auth Successful:", user.uid);
-                // If a user has logged into a sandbox ceremony previous to auth complete, trigger sync
-                if (currentClientType) {
-                    establishFirestoreSync(currentClientType);
+        if (useFirebase && auth) {
+            onAuthStateChanged(auth, (user) => {
+                firebaseUserRef = user;
+                if (user) {
+                    console.log("Firebase Secure Auth Successful:", user.uid);
+                    // If a user has logged into a sandbox ceremony previous to auth complete, trigger sync
+                    if (currentClientType) {
+                        establishFirestoreSync(currentClientType);
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // Setup real-time listeners under strict user-row bounds (Adhering to RULE 1 & RULE 2)
         async function establishFirestoreSync(ceremonyType) {
-            if (!firebaseUserRef) return; // Guard logic assertion (Rule 3)
+            if (!useFirebase || !db || !auth || !firebaseUserRef) return; // Guard logic assertion (Rule 3)
             
             if (firestoreDocListener) {
                 firestoreDocListener(); // Teardown active listeners
@@ -1130,7 +1155,7 @@
 
         // Push structural updates to user vault document (Rule 1 & Rule 3)
         async function saveStateToFirestore() {
-            if (!firebaseUserRef || !currentClientType || !activeClientState) return;
+            if (!useFirebase || !db || !auth || !firebaseUserRef || !currentClientType || !activeClientState) return;
             const docRef = doc(db, 'artifacts', appId, 'users', firebaseUserRef.uid, 'ceremonies', currentClientType);
             try {
                 await setDoc(docRef, activeClientState);
@@ -1219,8 +1244,9 @@
             closePortalAuthModal();
             showNotification(`Generating cryptographically signed Magic Sign-In Link... Sent to ${email}.`, 'info');
             
+            // Autologin simulating sandbox entry
             setTimeout(() => {
-                showNotification(`Verifying Firebase authentication credentials... Access Granted!`, 'success');
+                showNotification("Verifying credentials... Secure Sandbox workspace established.", "success");
                 simulatePortalLogin('wedding');
             }, 1600);
         }
@@ -1229,7 +1255,7 @@
             currentClientType = ceremonyType;
             
             // If offline, load raw sandbox structures in-memory. If authenticated, establish listeners.
-            if (firebaseUserRef) {
+            if (useFirebase && firebaseUserRef) {
                 establishFirestoreSync(ceremonyType);
             } else {
                 activeClientState = JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType]));
@@ -1259,7 +1285,7 @@
             if (!activeClientState) return;
             
             document.getElementById('portal-user-names').innerText = activeClientState.names;
-            document.getElementById('portal-user-uid').innerText = firebaseUserRef ? firebaseUserRef.uid : activeClientState.uid;
+            document.getElementById('portal-user-uid').innerText = (useFirebase && firebaseUserRef) ? firebaseUserRef.uid : activeClientState.uid;
             document.getElementById('portal-ceremony-type-badge').innerText = activeClientState.ceremonyType;
             document.getElementById('portal-user-icon').className = `fa-solid ${activeClientState.ceremonyIcon}`;
             
@@ -1338,7 +1364,7 @@
             
             activeClientState.vault.forEach((file, index) => {
                 const tr = document.createElement('tr');
-                tr.className = "border-b border-stone-100 hover:bg-stone-50/50";
+                tr.className = "border-b border-stone-100 bg-white/40 text-stone-500 uppercase tracking-wider font-semibold";
                 tr.innerHTML = `
                     <td class="p-3 font-semibold text-emerald-950">${file.name}</td>
                     <td class="p-3">${file.category}</td>
@@ -1498,7 +1524,10 @@
                         </button>
                     </div>
                 `;
-                document.getElementById('lock-btn').addEventListener('click', approveCeremonyScript);
+                const btn = document.getElementById('lock-btn');
+                if (btn) {
+                    btn.addEventListener('click', approveCeremonyScript);
+                }
             }
         }
 
