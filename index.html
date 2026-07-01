@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LB Celebrant - Custom Ceremonies & Client Portal</title>
+    <title>Lisa B Celebrant - Custom Ceremonies & Client Portal</title>
     
-    <!-- Meta description optimized for conversational semantic search / AEO / GEO -->
+    <!-- Meta description optimised for conversational semantic search / AEO / GEO -->
     <meta name="description" content="Award-winning modern independent celebrant crafting bespoke weddings, respectful celebration of life memorials, and family naming ceremonies across East Anglia, Norfolk, Suffolk, Essex, and Cambridgeshire. Featuring a collaborative, secure client portal.">
     
     <!-- Google Fonts: Playfair Display for storytelling headings, Inter for modern interface reading -->
@@ -21,7 +21,7 @@
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "LB Celebrant",
+      "name": "Lisa B Celebrant",
       "image": "LisaB.png",
       "description": "Bespoke modern celebrant service specialising in custom template-free weddings, personalised memorials, and family naming ceremonies in East Anglia, Norfolk, Suffolk, and Cambridgeshire.",
       "@id": "https://lb-celebrant.co.uk/#celebrant-service",
@@ -194,7 +194,7 @@
                         <span class="font-serif text-base text-gold-200 font-bold tracking-wider">LB</span>
                     </div>
                     <div>
-                        <h1 class="font-serif text-xl tracking-wide text-emerald-950 font-bold leading-none">LB Celebrant</h1>
+                        <h1 class="font-serif text-xl tracking-wide text-emerald-950 font-bold leading-none">Lisa B Celebrant</h1>
                         <span class="text-[9px] uppercase tracking-widest text-gold-600 font-bold block mt-1.5">Modern Custom Ceremonies</span>
                     </div>
                 </div>
@@ -275,11 +275,11 @@
                     <div class="lg:w-5/12 mb-10 lg:mb-0 relative">
                         <div class="absolute -inset-2 bg-gradient-to-tr from-gold-500 to-emerald-200 rounded-3xl blur-xl opacity-20"></div>
                         <div class="relative bg-white/40 backdrop-blur-md rounded-3xl p-3 border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.03)] aspect-[4/5] w-full max-w-[450px] mx-auto lg:max-w-none overflow-hidden">
-                            <img src="LisaB.png" onerror="this.onerror=null; this.src='https://placehold.co/500x625/e6f5ee/08523c?text=Lisa+B';" alt="LB Celebrant - Lisa B" class="w-full h-full object-cover object-center rounded-2xl shadow-inner">
+                            <img src="LisaB.png" onerror="this.onerror=null; this.src='https://placehold.co/500x625/e6f5ee/08523c?text=Lisa+B';" alt="Lisa B Celebrant - Lisa B" class="w-full h-full object-cover object-center rounded-2xl shadow-inner">
                         </div>
                     </div>
                     <div class="lg:w-7/12">
-                        <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Hello, I'm LB Celebrant</span>
+                        <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Hello, I'm Lisa B Celebrant</span>
                         <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-6">Telling life stories that bring communities closer</h3>
                         
                         <!-- Rich, high-EEAT trust quotes and stats targeted for GEO indexing -->
@@ -570,7 +570,6 @@
             </div>
         </section>
 
-        <!-- Secure Client Portal Workspace Dashboard Panel -->
         <section id="portal-dashboard" class="hidden transition-all duration-300 min-h-screen py-6 sm:py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -671,7 +670,7 @@
                                         <i class="fa-solid fa-shield-halved text-emerald-800"></i>
                                         <span>Ceremony Doc & Photo Vault</span>
                                     </h4>
-                                    <p class="text-stone-500 text-xs">Files are locked securely under private folder rules, readable only by you & LB Celebrant.</p>
+                                    <p class="text-stone-500 text-xs">Files are locked securely under private folder rules, readable only by you & Lisa B Celebrant.</p>
                                 </div>
                                 <span class="text-[10px] uppercase tracking-wider bg-emerald-100/50 text-emerald-900 px-2.5 py-1 rounded border border-emerald-900/10 font-bold self-start">GDPR Compliant</span>
                             </div>
@@ -861,7 +860,7 @@
                         <span class="font-serif text-xs text-gold-200 font-bold">LB</span>
                     </div>
                     <div>
-                        <h4 class="font-serif text-lg tracking-wide text-emerald-950 font-bold">LB Celebrant</h4>
+                        <h4 class="font-serif text-lg tracking-wide text-emerald-950 font-bold">Lisa B Celebrant</h4>
                         <span class="text-[9px] uppercase tracking-widest text-gold-600 font-bold block">Modern Custom Ceremonies</span>
                     </div>
                 </div>
@@ -872,7 +871,7 @@
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-stone-500 gap-4">
-                <p>&copy; 2026 LB Celebrant. All rights reserved. Created securely on GitHub Pages & Firebase by Offscript Labs.</p>
+                <p>&copy; 2026 Lisa B Celebrant. All rights reserved. Created securely on GitHub Pages & Firebase by Offscript Labs.</p>
                 <p class="flex items-center gap-1"><i class="fa-solid fa-shield text-gold-500 text-[10px]"></i> Secure Static Vault System &bull; East Anglia</p>
             </div>
         </div>
@@ -886,6 +885,16 @@
 
         // Global configuration bindings fallback safely if variables are unset
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined'
+            ? JSON.parse(__firebase_config)
+            : {
+                apiKey: "",
+                authDomain: "lb-celebrant.firebaseapp.com",
+                projectId: "lb-celebrant",
+                storageBucket: "lb-celebrant.appspot.com",
+                messagingSenderId: "mock-sender-id",
+                appId: "mock-app-id"
+            };
 
         // Core variables with safety fallbacks
         let app = null;
@@ -895,24 +904,12 @@
 
         // SAFE FIREBASE INITIALIZATION SHIELD: Prevents compilation and execution stops in offline/sandbox preview
         try {
-            const firebaseConfig = typeof __firebase_config !== 'undefined'
-                ? JSON.parse(__firebase_config)
-                : {
-                    apiKey: "",
-                    authDomain: "lb-celebrant.firebaseapp.com",
-                    projectId: "lb-celebrant",
-                    storageBucket: "lb-celebrant.appspot.com",
-                    messagingSenderId: "mock-sender-id",
-                    appId: "mock-app-id"
-                };
-
-            // Only initialize Firebase services if valid credentials exist
             if (firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey !== "") {
                 app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
                 db = getFirestore(app);
                 useFirebase = true;
-                console.log("Firebase initialized successfully in database sync mode.");
+                console.log("Firebase initialised successfully in database sync mode.");
             } else {
                 console.log("No Firebase API key provided. Running securely in offline local storage sandbox mode.");
             }
@@ -938,7 +935,7 @@
                     { id: "tk6", title: "Approve & lock final wedding script", done: false }
                 ],
                 script: `<h2>Celebrant Wedding Script Draft</h2>
-<p class="italic text-stone-500 mt-2">Prepared by LB Celebrant for Sarah & James</p>
+<p class="italic text-stone-500 mt-2">Prepared by Lisa B Celebrant for Sarah & James</p>
 <div class="border-b border-stone-200 my-4"></div>
 
 <h3>I. THE ENTRANCE & WELCOME</h3>
@@ -952,13 +949,13 @@
                 orderOfService: [
                     { step: 1, title: "Prelude & Seating of Families", details: "A Thousand Years - Piano Instrumental" },
                     { step: 2, title: "The Entrance Processional", details: "Canon in D - Pachelbel" },
-                    { step: 3, title: "Welcome, Love Story & Address", details: "LB Celebrant officiating" },
+                    { step: 3, title: "Welcome, Love Story & Address", details: "Lisa B Celebrant officiating" },
                     { step: 4, title: "The Handfasting Ritual", details: "Binding with emerald silk cords" },
                     { step: 5, title: "Exchange of Vows & Ring Ceremony", details: "Spoken promises" },
                     { step: 6, title: "Closing Remarks & Recessional", details: "Happy Together - The Turtles" }
                 ],
                 comments: [
-                    { name: "LB Celebrant", text: "I have added your initial flower shop story to Section II. Let me know if that represents that beautiful morning properly!", time: "2 hours ago" },
+                    { name: "Lisa B Celebrant", text: "I have added your initial flower shop story to Section II. Let me know if that represents that beautiful morning properly!", time: "2 hours ago" },
                     { name: "James", text: "This is breathtaking. It instantly brought us back to that flower shop queue. We are working on the vow wording tonight!", time: "1 hour ago" }
                 ],
                 questions: {
@@ -990,7 +987,7 @@
                     { id: "tk5", title: "Approve & lock final tribute script", done: false }
                 ],
                 script: `<h2>Eleanor Thompson Tribute Wording Draft</h2>
-<p class="italic text-stone-500 mt-2">Prepared by LB Celebrant with love for the Thompson Family</p>
+<p class="italic text-stone-500 mt-2">Prepared by Lisa B Celebrant with love for the Thompson Family</p>
 <div class="border-b border-stone-200 my-4"></div>
 
 <h3>I. OPENING THOUGHTS & CONDOLENCES</h3>
@@ -1003,15 +1000,15 @@
 <p>[The room will descend into silent recollection, accompanied by Eleanor's beloved composition by Debussy.]</p>`,
                 orderOfService: [
                     { step: 1, title: "Gathering & Entrance Music", details: "Clair de Lune - Claude Debussy" },
-                    { step: 2, title: "Introductory Words & Poem Recitation", details: "Officiant LB Celebrant" },
+                    { step: 2, title: "Introductory Words & Poem Recitation", details: "Officiant Lisa B Celebrant" },
                     { step: 3, title: "The Life Journey Tribute", details: "Eulogy delivered by brother Robert" },
                     { step: 4, title: "Photo Memories Slide Presentation", details: "Fields of Gold - Eva Cassidy" },
                     { step: 5, title: "A Moment of Silent Reflection", details: "Quiet gathering" },
                     { step: 6, title: "Closing Words & Committal", details: "Recessional: Sailing - Rod Stewart" }
                 ],
                 comments: [
-                    { name: "LB Celebrant", text: "Robert, I have laid out the tribute script structure above. Please read the post-war summer paragraph to make sure the historical context aligns.", time: "4 hours ago" },
-                    { name: "Robert Thompson", text: "This captures our mother exactly. She did love Sussex dearly. I have uploaded the family garden photo.", time: "3 ago" }
+                    { name: "Lisa B Celebrant", text: "Robert, I have laid out the tribute script structure above. Please read the post-war summer paragraph to make sure the historical context aligns.", time: "4 hours ago" },
+                    { name: "Robert Thompson", text: "This captures our mother exactly. She did love Sussex dearly. I have uploaded the family garden photo.", time: "3 hours ago" }
                 ],
                 questions: {
                     q1: "Eleanor spent her youth exploring the rolling Sussex Downs. She was happiest with soil on her hands and a cup of tea by her side.",
@@ -1042,7 +1039,7 @@
                     { id: "tk5", title: "Approve & lock final naming day script", done: false }
                 ],
                 script: `<h2>Baby Leo's Naming Day Draft</h2>
-<p class="italic text-stone-500 mt-2">Prepared by LB Celebrant for the Harrison Family</p>
+<p class="italic text-stone-500 mt-2">Prepared by Lisa B Celebrant for the Harrison Family</p>
 <div class="border-b border-stone-200 my-4"></div>
 
 <h3>I. THE GATHERING & INTRODUCTION</h3>
@@ -1055,14 +1052,14 @@
 <p>[We will coordinate guideparents promises here, asking them to pledge to be mentors, adventure partners, and supportive anchors for Leo throughout his life's journey.]</p>`,
                 orderOfService: [
                     { step: 1, title: "Welcoming Assembly & Refreshments", details: "Acoustic Folk Selection" },
-                    { step: 2, title: "Opening Address & Signposts", details: "LB Celebrant officiating" },
+                    { step: 2, title: "Opening Address & Signposts", details: "Lisa B Celebrant officiating" },
                     { step: 3, title: "Reading: 'I Wish You More' by Amy K.R.", details: "Read by Aunt Jessica" },
                     { step: 4, title: "The Naming Declaration & Blessing", details: "A symbolic water sprinkling of rosewater" },
                     { step: 5, title: "Guideparent Commitments & Covenants", details: "Group declaration" },
                     { step: 6, title: "Certificate Signing & Closing Toast", details: "Here Comes The Sun - The Beatles" }
                 ],
                 comments: [
-                    { name: "LB Celebrant", text: "Clara, I've outlined the guideparent commitments block. Make sure Aunt Jessica knows the reading is scheduled right after the opening address.", time: "1 day ago" },
+                    { name: "Lisa B Celebrant", text: "Clara, I've outlined the guideparent commitments block. Make sure Aunt Jessica knows the reading is scheduled right after the opening address.", time: "1 day ago" },
                     { name: "Clara Harrison", text: "I have shared this with Jessica! Guideparent commitments look beautiful, thank you so much.", time: "18 hours ago" }
                 ],
                 questions: {
@@ -1447,7 +1444,7 @@
             
             activeClientState.comments.forEach(comment => {
                 const commentBox = document.createElement('div');
-                const isCelebrant = comment.name === "LB Celebrant";
+                const isCelebrant = comment.name === "Lisa B Celebrant";
                 
                 commentBox.className = `flex flex-col p-3.5 rounded-xl max-w-[85%] ${
                     isCelebrant 
@@ -1483,7 +1480,7 @@
             input.value = "";
             renderCommentsLog();
             saveStateToFirestore();
-            showNotification(`Comment logged directly to LB Celebrant's Firestore feedback stream.`, 'success');
+            showNotification(`Comment logged directly to Lisa B Celebrant's Firestore feedback stream.`, 'success');
         }
 
         function updateScriptStatusUI() {
@@ -1524,10 +1521,7 @@
                         </button>
                     </div>
                 `;
-                const btn = document.getElementById('lock-btn');
-                if (btn) {
-                    btn.addEventListener('click', approveCeremonyScript);
-                }
+                document.getElementById('lock-btn').addEventListener('click', approveCeremonyScript);
             }
         }
 
@@ -1641,7 +1635,7 @@
 
             content.innerHTML = `
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <h2 style="font-family: Playfair Display, serif; font-size: 1.6rem; color: #08523c; margin: 0 0 5px 0;">LB Celebrant</h2>
+                    <h2 style="font-family: Playfair Display, serif; font-size: 1.6rem; color: #08523c; margin: 0 0 5px 0;">Lisa B Celebrant</h2>
                     <h1 style="font-family: Playfair Display, serif; font-size: 2.1rem; color: #08523c; margin: 0 0 5px 0;">${activeClientState.names}</h1>
                     <div style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; color: #b59023; font-weight: bold;">Order of Service Sequence</div>
                     <div style="font-size: 0.85rem; color: #6b7280; margin-top: 5px;">Ceremony Date: ${new Date(activeClientState.date).toLocaleDateString()}</div>
@@ -1650,7 +1644,7 @@
                     ${stepsHTML}
                 </div>
                 <div style="text-align: center; margin-top: 40px; font-size: 0.75rem; color: #9ca3af; font-family: Inter, sans-serif;">
-                    Thank you for letting us shape your landmark day. &copy; LB Celebrant
+                    Thank you for letting us shape your landmark day. &copy; Lisa B Celebrant
                 </div>
             `;
 
@@ -1673,7 +1667,7 @@
 
         function handleContactSubmit(event) {
             event.preventDefault();
-            showNotification(`Enquiry received! LB Celebrant will check the calendar dates and reply shortly.`, 'success');
+            showNotification(`Enquiry received! Lisa B Celebrant will check the calendar dates and reply shortly.`, 'success');
             event.target.reset();
         }
 
