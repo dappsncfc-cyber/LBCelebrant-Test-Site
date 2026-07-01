@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LB Celebrant - Custom Ceremonies & Client Portal</title>
+    
+    <!-- Meta description optimized for conversational semantic search / AEO / GEO -->
+    <meta name="description" content="Award-winning modern independent celebrant crafting bespoke weddings, respectful celebration of life memorials, and family naming ceremonies across East Anglia, Norfolk, Suffolk, Essex, and Cambridgeshire. Featuring a collaborative, secure client portal.">
+    
+    <!-- Google Fonts: Playfair Display for storytelling headings, Inter for modern interface reading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for high-quality icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data 1: LocalBusiness Schema (JSON-LD) for Local GEO Entity Recognition -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "LB Celebrant",
+      "image": "https://placehold.co/500x600/064e3b/ffffff?text=LB+Celebrant",
+      "description": "Bespoke modern celebrant service specialising in custom template-free weddings, personalised memorials, and family naming ceremonies in East Anglia, Norfolk, Suffolk, and Cambridgeshire.",
+      "@id": "https://lb-celebrant.co.uk/#celebrant-service",
+      "url": "https://lb-celebrant.co.uk",
+      "telephone": "+447700900077",
+      "priceRange": "££",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Norfolk Creative Hub, Cathedral Close",
+        "addressLocality": "Norwich",
+        "addressRegion": "Norfolk",
+        "postalCode": "NR1 4DH",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.6309,
+        "longitude": 1.3017
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Norfolk"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Suffolk"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Essex"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Cambridgeshire"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "East Anglia"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "150"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      }
+    }
+    </script>
+
+    <!-- Structured Data 2: FAQPage Schema (JSON-LD) for AEO/RAG Machine Reading -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can an independent celebrant legally marry us in the UK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, in England and Wales, an independent celebrant cannot perform the legal marriage registration. Couples typically complete their legal registration (the 'administrative script') at a local register office before or after their personalised, bespoke celebrant ceremony. However, your celebrant-led ceremony is where you share your real vows, exchange rings, and perform custom symbolic rituals (like handfasting) in front of all your family and friends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far in advance of the ceremony must our script be finalised?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To ensure smooth choreography, coordinate cue timings with venue suppliers, and allow standard time for stationery or Order of Service layout printing, all scripts must be approved and locked in your Secure Client Portal at least 14 days before the ceremony date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What custom symbolic rituals can we include in our ceremony?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As independent celebrants, we can incorporate a wide range of symbolic rituals, including traditional handfasting (binding of wrists with silk cords), ring-warming (where guests pass your rings to infuse them with good wishes), memory wish-trees, candle-lighting, or sand-blending rituals. All of these can be customised to match your family values."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f4faf6',
+                            100: '#e6f5ee',
+                            200: '#ccebe1',
+                            500: '#10b981',
+                            800: '#08523c',
+                            900: '#053d2d',
+                            950: '#022418',
+                        },
+                        gold: {
+                            50: '#fdfbeb',
+                            100: '#fcf6cd',
+                            500: '#d4af37',
+                            600: '#b59023',
+                            700: '#8c6d11',
+                        },
+                        sand: {
+                            50: '#faf8f5',
+                            100: '#f4efe9',
+                            200: '#ebdcd0',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #fdfbf7;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #08523c;
+            border-radius: 4px;
+        }
+        /* Custom ambient glowing meshes to create a whimsical botanical atmosphere */
+        .ambient-glow-1 {
+            background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, rgba(253,251,247,0) 70%);
+        }
+        .ambient-glow-2 {
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(253,251,247,0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-tr from-gold-50 via-sand-50 to-emerald-50/50 text-stone-800 font-sans min-h-screen flex flex-col selection:bg-emerald-200 selection:text-emerald-950 relative overflow-x-hidden">
+
+    <!-- Ambient floating blobs for organic depth -->
+    <div class="absolute top-20 left-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none ambient-glow-1 z-0"></div>
+    <div class="absolute top-[40%] right-[-10%] w-[600px] h-[600px] rounded-full pointer-events-none ambient-glow-2 z-0"></div>
+
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3 max-w-sm pointer-events-none"></div>
+
+    <header class="sticky top-0 z-40 bg-white/40 backdrop-blur-md border-b border-white/50 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand logo with custom serif monogram -->
+                <div class="flex items-center space-x-3 cursor-pointer group" onclick="showSection('marketing-home')">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 group-hover:from-emerald-900 group-hover:to-emerald-950 flex items-center justify-center border border-gold-200/50 shadow-md transition-all duration-300">
+                        <span class="font-serif text-base text-gold-200 font-bold tracking-wider">LB</span>
+                    </div>
+                    <div>
+                        <h1 class="font-serif text-xl tracking-wide text-emerald-950 font-bold leading-none">LB Celebrant</h1>
+                        <span class="text-[9px] uppercase tracking-widest text-gold-600 font-bold block mt-1.5">Modern Custom Ceremonies</span>
+                    </div>
+                </div>
+
+                <!-- Desktop navigation menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <button onclick="showSection('marketing-home')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Home</button>
+                    <button onclick="scrollToSection('services-showcase')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Ceremonies</button>
+                    <button onclick="scrollToSection('faq-accordion-section')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">FAQs</button>
+                    <button onclick="scrollToSection('about-celebrant')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">About</button>
+                    <button onclick="scrollToSection('contact-form')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Contact</button>
+                    <div class="h-6 w-[1px] bg-emerald-900/10"></div>
+                    <!-- Portal Entry Trigger -->
+                    <button onclick="openPortalAuthModal()" class="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white px-5 py-2.5 rounded-full border border-gold-200/30 transition-all duration-300 font-semibold shadow-[0_4px_15px_rgba(8,82,60,0.12)]">
+                        <i class="fa-solid fa-folder-open text-xs text-gold-200"></i>
+                        <span>Secure Client Portal</span>
+                    </button>
+                </nav>
+
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-emerald-900 hover:text-gold-700 focus:outline-none p-2 rounded-lg bg-white/40 border border-white/50">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown drawer navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/80 backdrop-blur-lg border-t border-emerald-900/10 text-emerald-950 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-3">
+                <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Home</button>
+                <button onclick="scrollToSection('services-showcase'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Ceremonies</button>
+                <button onclick="scrollToSection('faq-accordion-section'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">FAQs</button>
+                <button onclick="scrollToSection('about-celebrant'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">About</button>
+                <button onclick="scrollToSection('contact-form'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Contact</button>
+                <div class="py-2"></div>
+                <button onclick="openPortalAuthModal(); toggleMobileMenu()" class="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white py-3.5 rounded-full shadow-md font-semibold">
+                    <i class="fa-solid fa-lock text-gold-200"></i>
+                    <span>Secure Client Portal</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow z-10 relative">
+        
+        <section id="marketing-home" class="block transition-all duration-300">
+            
+            <!-- Hero Showcase with airy warm gradient canvas -->
+            <div class="relative py-20 sm:py-28 overflow-hidden flex flex-col items-center justify-center text-stone-800">
+                <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-white text-emerald-800 text-[10px] uppercase tracking-widest font-bold mb-8 shadow-sm">
+                        <i class="fa-solid fa-feather-pointed text-gold-500"></i>
+                        <span>Heartfelt, Bespoke Storytelling</span>
+                    </div>
+                    <h2 class="font-serif text-4xl sm:text-6xl tracking-tight text-emerald-950 mb-8 leading-[1.1] font-bold">
+                        Crafting ceremonies that feel entirely, <span class="text-gold-600 italic block sm:inline">beautifully yours.</span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-stone-600 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                        Creating modern, meaningful, and deeply personal ceremonies across weddings, celebrations of life, and baby namings—honouring life's major milestones with warmth, dignity, and authentic connection.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                        <button onclick="scrollToSection('services-showcase')" class="w-full sm:w-auto bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-semibold py-4 px-8 rounded-full transition duration-300 shadow-[0_10px_25px_rgba(8,82,60,0.15)] flex items-center justify-center space-x-2 tracking-wide">
+                            <span>Explore Ceremonies</span>
+                            <i class="fa-solid fa-arrow-down text-gold-200"></i>
+                        </button>
+                        <button onclick="openPortalAuthModal()" class="w-full sm:w-auto bg-white/70 hover:bg-white text-emerald-900 font-semibold py-4 px-8 rounded-full border border-stone-200 transition duration-300 shadow-md flex items-center justify-center space-x-2 tracking-wide">
+                            <i class="fa-solid fa-lock text-emerald-800"></i>
+                            <span>Enter Client Portal</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section directly underneath the Hero section -->
+            <div id="about-celebrant" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="lg:flex lg:items-center lg:space-x-16">
+                    <div class="lg:w-5/12 mb-10 lg:mb-0 relative">
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-gold-500 to-emerald-200 rounded-3xl blur-xl opacity-20"></div>
+                        <div class="relative bg-white/40 backdrop-blur-md rounded-3xl p-3 border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.03)]">
+                            <img src="https://placehold.co/500x600/e6f5ee/08523c?text=LB+Celebrant" alt="LB Celebrant" class="w-full h-[320px] sm:h-[450px] object-cover rounded-2xl shadow-inner">
+                        </div>
+                    </div>
+                    <div class="lg:w-7/12">
+                        <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Hello, I'm LB Celebrant</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-6">Telling life stories that bring communities closer</h3>
+                        
+                        <!-- Rich, high-EEAT trust quotes and stats targeted for GEO indexing -->
+                        <div class="bg-gradient-to-r from-emerald-50/50 to-gold-50/50 rounded-2xl p-6 border-l-4 border-emerald-500 mb-8 italic text-stone-700 text-xs sm:text-sm leading-relaxed shadow-sm">
+                            "With over <strong class="text-emerald-950 font-semibold">150+ bespoke ceremonies</strong> performed and a perfect <strong class="text-emerald-950 font-semibold">5-star rating</strong> across Norfolk, Suffolk, Essex, and Cambridgeshire, we hold our service to an absolute standard of personalisation. Every script is created 100% template-free, written entirely from scratch to capture individual life journeys."
+                        </div>
+
+                        <p class="text-stone-600 leading-relaxed mb-6 text-sm">
+                            Life is structured by transitions—some joyous and planned, others delicate and sudden. As an independent, modern celebrant, I don't use stale, recycled templates. I spend time learning who you are, what values guide you, and what milestones define you.
+                        </p>
+                        <p class="text-stone-600 leading-relaxed mb-8 text-sm">
+                            Whether we are planning a wedding full of romance and laughter, a naming day welcoming your child into family circles, or a tribute honoring the deep legacy of a loved one—my goal is to deliver words that feel entirely, beautifully yours.
+                        </p>
+                        
+                        <div class="grid grid-cols-3 gap-4 border-t border-stone-200/50 pt-8">
+                            <div>
+                                <h5 class="font-serif text-3xl text-emerald-800 font-bold">150+</h5>
+                                <p class="text-[9px] text-stone-500 uppercase tracking-widest mt-1.5 font-bold">Unique Ceremonies</p>
+                            </div>
+                            <div class="border-l border-stone-200/50 pl-4 sm:pl-8">
+                                <h5 class="font-serif text-3xl text-emerald-800 font-bold">100%</h5>
+                                <p class="text-[9px] text-stone-500 uppercase tracking-widest mt-1.5 font-bold">Bespoke Scripts</p>
+                            </div>
+                            <div class="border-l border-stone-200/50 pl-4 sm:pl-8">
+                                <h5 class="font-serif text-3xl text-emerald-800 font-bold">5★</h5>
+                                <p class="text-[9px] text-stone-500 uppercase tracking-widest mt-1.5 font-bold">Google Rated</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="services-showcase" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-b from-white/10 to-emerald-50/20 border-t border-white/50">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Our Offerings</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-4">Milestone Ceremonies</h3>
+                    <div class="w-16 h-0.5 bg-gold-500 mx-auto rounded mb-4"></div>
+                    <p class="text-stone-600">Every life chapter has its own rhythm and tone. Select a pathway below to see how we approach your specific landmark celebration.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Weddings Service card details -->
+                    <div class="bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg overflow-hidden group hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 bg-emerald-900/10 relative flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/e6f5ee/08523c?text=Weddings');"></div>
+                                <div class="relative z-10 w-14 h-14 rounded-full bg-white border border-gold-200 flex items-center justify-center text-emerald-800 text-xl shadow-sm">
+                                    <i class="fa-solid fa-heart animate-pulse"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-serif text-2xl text-emerald-950 font-bold mb-3">Weddings</h4>
+                                <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+                                    Joyful, romantic, and completely bespoke. Perfect for couples who wish to bypass generic templates and create a custom script bursting with your unique love story and custom rituals.
+                                </p>
+                                <ul class="space-y-2 mb-4">
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Custom script-writing collaboration
+                                    </li>
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Support with custom vow structures
+                                    </li>
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Symbolic handfasting or ring-warming
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="scrollToSection('contact-form')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                Enquire for Wedding
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Funerals Service card -->
+                    <div class="bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg overflow-hidden group hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 bg-stone-900/10 relative flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/ebdcd0/1c1917?text=Funerals');"></div>
+                                <div class="relative z-10 w-14 h-14 rounded-full bg-white border border-stone-300/40 flex items-center justify-center text-stone-500 text-xl shadow-sm">
+                                    <i class="fa-solid fa-cloud-sun text-gold-500"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-serif text-2xl text-emerald-950 font-bold mb-3">Funerals & Memorials</h4>
+                                <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+                                    Empathetic, deeply respectful, and comforting. Designed to capture the absolute essence of a loved one's unique personality and achievements, offering solace during delicate times.
+                                </p>
+                                <ul class="space-y-2 mb-4">
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Rapid planning alignment (7-14 days)
+                                    </li>
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Liaison with Funeral Directors
+                                    </li>
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Authentic eulogy & tribute delivery
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="scrollToSection('contact-form')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                Get In Touch Respectfully
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Naming Day Service card -->
+                    <div class="bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg overflow-hidden group hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 bg-teal-900/10 relative flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/dcfce7/065f46?text=Naming+Days');"></div>
+                                <div class="relative z-10 w-14 h-14 rounded-full bg-white border border-gold-200 flex items-center justify-center text-gold-500 text-xl shadow-sm">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-serif text-2xl text-emerald-950 font-bold mb-3">Naming Days</h4>
+                                <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+                                    Bright, welcoming, and family-focused. Created to officially introduce infants, adopted children, or older siblings to your loved ones, with meaningful guideparent commitments.
+                                </p>
+                                <ul class="space-y-2 mb-4">
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Heartwarming custom promises
+                                    </li>
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Symbolic wish-tree or sand ritual
+                                    </li>
+                                    <li class="flex items-center text-stone-700 text-xs">
+                                        <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Commemorative naming certificates
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="scrollToSection('contact-form')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                Enquire for Naming Day
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-emerald-50/60 via-gold-50/40 to-teal-50/50 py-20 border-t border-b border-white/60">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="lg:flex lg:items-center lg:justify-between gap-12">
+                        <div class="lg:w-1/2 mb-10 lg:mb-0">
+                            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white border border-emerald-900/10 text-emerald-900 text-[10px] font-bold mb-4 shadow-sm">
+                                <i class="fa-solid fa-shield-halved text-gold-500"></i>
+                                <span>Collaborative Planning System</span>
+                            </div>
+                            <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-4">The Secure Client Portal</h3>
+                            <p class="text-stone-600 leading-relaxed mb-6 text-sm">
+                                Once booked with me, you will receive secure access to your private digital workspace. Together we will manage files, build checklists, write reflection details, co-edit the drafts, and arrange your final Order of Service sequence—all in a fully secure cloud environment.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-emerald-800 shadow-sm border border-emerald-100 flex-shrink-0">
+                                        <i class="fa-solid fa-file-pdf text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-emerald-950 text-sm">Doc & Photo Vault</h5>
+                                        <p class="text-[11px] text-stone-500">Secure uploader for readings, music logs, and event pictures.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-emerald-800 shadow-sm border border-emerald-100 flex-shrink-0">
+                                        <i class="fa-solid fa-pen-nib text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-emerald-950 text-sm">Co-Editing Console</h5>
+                                        <p class="text-[11px] text-stone-500">Edit draft scripts and lock your final printed versions securely.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xl relative">
+                            <div class="absolute -top-3 -right-3 w-20 h-20 bg-gold-200/10 rounded-full blur-xl"></div>
+                            <h4 class="font-serif text-xl text-emerald-950 mb-4 font-bold">Demo our Secure Workspace</h4>
+                            <p class="text-stone-600 text-xs sm:text-sm mb-6 font-light">Explore how the portal behaves under specific ceremony planning frameworks with our pre-loaded sandbox models:</p>
+                            <div class="space-y-3">
+                                <button onclick="simulatePortalLogin('wedding')" class="w-full flex items-center justify-between bg-white hover:bg-emerald-50/50 p-4 rounded-xl border border-stone-200/60 transition duration-200 text-left shadow-sm">
+                                    <span class="text-xs sm:text-sm font-semibold text-emerald-950"><i class="fa-solid fa-heart text-rose-500 mr-2"></i> Sarah & James (Wedding Planner)</span>
+                                    <i class="fa-solid fa-chevron-right text-emerald-800 text-xs"></i>
+                                </button>
+                                <button onclick="simulatePortalLogin('funeral')" class="w-full flex items-center justify-between bg-white hover:bg-emerald-50/50 p-4 rounded-xl border border-stone-200/60 transition duration-200 text-left shadow-sm">
+                                    <span class="text-xs sm:text-sm font-semibold text-emerald-950"><i class="fa-solid fa-cloud-sun text-stone-400 mr-2"></i> Eleanor Thompson (Celebration of Life)</span>
+                                    <i class="fa-solid fa-chevron-right text-emerald-800 text-xs"></i>
+                                </button>
+                                <button onclick="simulatePortalLogin('naming')" class="w-full flex items-center justify-between bg-white hover:bg-emerald-50/50 p-4 rounded-xl border border-stone-200/60 transition duration-200 text-left shadow-sm">
+                                    <span class="text-xs sm:text-sm font-semibold text-emerald-950"><i class="fa-solid fa-seedling text-teal-500 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
+                                    <i class="fa-solid fa-chevron-right text-emerald-800 text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="faq-accordion-section" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-white/50">
+                <div class="text-center mb-16">
+                    <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Answering Your Questions</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-4">Frequently Asked Questions</h3>
+                    <div class="w-16 h-0.5 bg-gold-500 mx-auto rounded"></div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-white/60 backdrop-blur-md rounded-2xl border border-white/80 shadow-sm overflow-hidden">
+                        <button onclick="toggleFaqAccordion(1)" class="w-full px-6 py-5 text-left flex justify-between items-center text-emerald-950 font-serif font-bold text-base sm:text-lg hover:bg-emerald-50/30 transition duration-150">
+                            <span>Can an independent celebrant legally marry us in the UK?</span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-emerald-800 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-body-1" class="hidden px-6 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3">
+                            Currently, in England and Wales, an independent celebrant cannot perform the legal marriage registration. Couples typically complete their legal registration (the "administrative script") at a local register office before or after their personalised, bespoke celebrant ceremony. However, your celebrant-led ceremony is where you share your real vows, exchange rings, and perform custom symbolic rituals (like handfasting) in front of all your family and friends.
+                        </div>
+                    </div>
+
+                    <div class="bg-white/60 backdrop-blur-md rounded-2xl border border-white/80 shadow-sm overflow-hidden">
+                        <button onclick="toggleFaqAccordion(2)" class="w-full px-6 py-5 text-left flex justify-between items-center text-emerald-950 font-serif font-bold text-base sm:text-lg hover:bg-emerald-50/30 transition duration-150">
+                            <span>How far in advance of the ceremony must our script be finalised?</span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-emerald-800 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-body-2" class="hidden px-6 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3">
+                            To ensure smooth choreography, coordinate cue timings with venue suppliers, and allow standard time for stationery or Order of Service layout printing, all scripts must be approved and locked in your Secure Client Portal at least 14 days before the ceremony date.
+                        </div>
+                    </div>
+
+                    <div class="bg-white/60 backdrop-blur-md rounded-2xl border border-white/80 shadow-sm overflow-hidden">
+                        <button onclick="toggleFaqAccordion(3)" class="w-full px-6 py-5 text-left flex justify-between items-center text-emerald-950 font-serif font-bold text-base sm:text-lg hover:bg-emerald-50/30 transition duration-150">
+                            <span>What custom symbolic rituals can we include in our ceremony?</span>
+                            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-emerald-800 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-body-3" class="hidden px-6 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3">
+                            As independent celebrants, we can incorporate a wide range of symbolic rituals, including traditional handfasting (binding of wrists with silk cords), ring-warming (where guests pass your rings to infuse them with good wishes), memory wish-trees, candle-lighting, or sand-blending rituals. All of these can be customised to match your family values.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="contact-form" class="py-20 border-t border-white/50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white/50 backdrop-blur-md rounded-3xl shadow-xl p-6 sm:p-12 border border-white/80 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-900/5 rounded-full -mr-16 -mt-16"></div>
+                        <div class="text-center mb-10">
+                            <h3 class="font-serif text-3xl text-emerald-950 font-bold mb-3">Enquire About Your Date</h3>
+                            <p class="text-stone-600 text-xs sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
+                        </div>
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-emerald-950 uppercase tracking-wider mb-2">Your Name(s)</label>
+                                    <input type="text" required class="w-full px-4 py-3 text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition" placeholder="Sarah & James">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-emerald-950 uppercase tracking-wider mb-2">Email Address</label>
+                                    <input type="email" required class="w-full px-4 py-3 text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition" placeholder="name@domain.com">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-emerald-950 uppercase tracking-wider mb-2">Ceremony Type</label>
+                                    <select class="w-full px-4 py-3 text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-600">
+                                        <option value="wedding">Wedding Ceremony</option>
+                                        <option value="funeral">Funeral or Memorial Tribute</option>
+                                        <option value="naming">Naming Ceremony</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-emerald-950 uppercase tracking-wider mb-2">Planned Date</label>
+                                    <input type="date" required class="w-full px-4 py-3 text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-600">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-semibold text-emerald-950 uppercase tracking-wider mb-2">Ceremony Vision & Requests</label>
+                                <textarea rows="4" class="w-full px-4 py-3 text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-700" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
+                            </div>
+                            <div class="pt-2">
+                                <button type="submit" class="w-full py-4 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-semibold rounded-xl transition duration-300 shadow-md flex items-center justify-center space-x-2 border border-gold-200/30">
+                                    <i class="fa-regular fa-paper-plane text-gold-200"></i>
+                                    <span>Send Consultation Enquiry</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portal-dashboard" class="hidden transition-all duration-300 min-h-screen py-6 sm:py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Client Portal Top Info Banner -->
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-white/50 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md mb-8">
+                    <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 border border-gold-200 flex items-center justify-center text-gold-200 text-xl shadow">
+                            <i id="portal-user-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest text-gold-600 font-bold" id="portal-ceremony-type-badge">Wedding</span>
+                            <h2 class="font-serif text-2xl font-bold text-emerald-950" id="portal-user-names">Sarah & James</h2>
+                            <p class="text-xs text-stone-500">Secure Client Vault ID: <span class="font-mono text-emerald-800 select-all font-semibold" id="portal-user-uid">cl-wedding-01</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 justify-between md:justify-start w-full md:w-auto">
+                        <div class="text-left md:text-right">
+                            <span class="text-[9px] text-stone-400 uppercase tracking-widest block font-bold">Timeline Remaining</span>
+                            <span class="font-serif text-base sm:text-lg font-bold text-emerald-900" id="portal-countdown-display">Calculating...</span>
+                        </div>
+                        <button onclick="logoutPortal()" class="px-4 py-2.5 text-stone-500 hover:text-red-700 hover:bg-red-50/50 rounded-xl text-xs font-semibold transition duration-150 border border-stone-200 flex items-center space-x-1.5 active:scale-95 bg-white/80">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Exit Portal</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation Bar for Dashboard Sections (Hides on Desktop lg) -->
+                <div class="lg:hidden flex overflow-x-auto space-x-2 pb-4 mb-6 border-b border-stone-200 scrollbar-none scroll-smooth">
+                    <button data-tab="checklist" onclick="switchPortalTab('checklist')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white text-xs font-semibold rounded-full shadow-sm">
+                        <i class="fa-solid fa-list-check mr-1"></i> Planner Tasks
+                    </button>
+                    <button data-tab="questionnaire" onclick="switchPortalTab('questionnaire')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <i class="fa-solid fa-pen-fancy mr-1"></i> Story
+                    </button>
+                    <button data-tab="vault" onclick="switchPortalTab('vault')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Vault
+                    </button>
+                    <button data-tab="script" onclick="switchPortalTab('script')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <i class="fa-solid fa-scroll mr-1"></i> Script
+                    </button>
+                    <button data-tab="oos" onclick="switchPortalTab('oos')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <i class="fa-solid fa-list-ol mr-1"></i> Order of Service
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Left-Hand Sidebar (Task List + Interactive Questions) -->
+                    <div class="lg:col-span-4 space-y-6">
+                        
+                        <!-- Real-time Tasks list connected to state -->
+                        <div id="portal-checklist-section" class="portal-section bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <h4 class="font-serif text-lg text-emerald-950 font-bold">Your Planning Tasks</h4>
+                                    <span id="checklist-progress-percent" class="text-[10px] font-bold bg-emerald-100/50 text-emerald-800 px-2.5 py-1 rounded-full">0% Done</span>
+                                </div>
+                                <div class="w-full bg-stone-100 rounded-full h-1.5 mb-6 overflow-hidden">
+                                    <div id="checklist-progress-bar" class="bg-gradient-to-r from-emerald-500 to-emerald-800 h-1.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                                <div id="portal-tasks-container" class="space-y-3">
+                                    <!-- Dynamic checklist tasks injected on auth -->
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-stone-200/50 flex items-center justify-between text-[11px] text-stone-400">
+                                <span><i class="fa-regular fa-clock text-gold-600 mr-1"></i> Script locks 14 days prior</span>
+                                <button onclick="resetChecklist()" class="text-emerald-800 hover:underline font-bold">Reset Demo</button>
+                            </div>
+                        </div>
+
+                        <div id="portal-questionnaire-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
+                            <h4 class="font-serif text-lg text-emerald-950 font-bold mb-1">Story Questionnaire</h4>
+                            <p class="text-stone-500 text-xs mb-4">Reflective prompts that help shape your final script. Progress saves as you type.</p>
+                            <div class="space-y-4">
+                                <div>
+                                    <label id="q-prompt-1" class="block text-xs font-semibold text-stone-600 mb-1.5 leading-relaxed">Prompt 1</label>
+                                    <textarea id="q-ans-1" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-white/70 border border-stone-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-800" rows="3" placeholder="Write your thoughts here..."></textarea>
+                                </div>
+                                <div>
+                                    <label id="q-prompt-2" class="block text-xs font-semibold text-stone-600 mb-1.5 leading-relaxed">Prompt 2</label>
+                                    <textarea id="q-ans-2" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-white/70 border border-stone-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-800" rows="3" placeholder="Write details here..."></textarea>
+                                </div>
+                                <div class="flex items-center justify-between text-[10px] text-emerald-900 font-bold pt-1">
+                                    <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Saved to Cloud Firestore</span>
+                                    <button onclick="clearStoryAnswers()" class="text-stone-400 hover:text-stone-600 font-bold font-sans">Clear Fields</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right-Hand Workspace (File Uploader, Script Co-editing, Order of Service) -->
+                    <div class="lg:col-span-8 space-y-6">
+                        
+                        <div id="portal-vault-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                                <div>
+                                    <h4 class="font-serif text-lg text-emerald-950 font-bold flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-halved text-emerald-800"></i>
+                                        <span>Ceremony Doc & Photo Vault</span>
+                                    </h4>
+                                    <p class="text-stone-500 text-xs">Files are locked securely under private folder rules, readable only by you & LB Celebrant.</p>
+                                </div>
+                                <span class="text-[10px] uppercase tracking-wider bg-emerald-100/50 text-emerald-900 px-2.5 py-1 rounded border border-emerald-900/10 font-bold self-start">GDPR Compliant</span>
+                            </div>
+
+                            <!-- File drop zone -->
+                            <div id="drop-zone" class="border-2 border-dashed border-emerald-100 hover:border-emerald-800/50 rounded-xl p-6 text-center bg-emerald-50/20 hover:bg-emerald-50/50 transition duration-150 cursor-pointer mb-6" onclick="triggerFileInput()">
+                                <input type="file" id="file-input" class="hidden" multiple accept="image/*,application/pdf" onchange="handleFileSelection(event)">
+                                <i class="fa-solid fa-cloud-arrow-up text-3xl text-emerald-800/60 mb-3 block"></i>
+                                <span class="block text-xs font-semibold text-emerald-950">Drag planning files here or browse folder</span>
+                                <span class="block text-[10px] text-stone-400 mt-1">Accepts readings documents, music cue lists, venue layouts, and ceremony photos (Max 10MB)</span>
+                            </div>
+
+                            <!-- Uploading Sim block -->
+                            <div id="upload-progress-container" class="hidden mb-6 bg-white p-4 rounded-xl border border-stone-200">
+                                <div class="flex justify-between items-center text-xs text-stone-600 mb-1.5 font-medium">
+                                    <span id="uploading-file-name">Processing upload...</span>
+                                    <span id="upload-progress-pct">0%</span>
+                                </div>
+                                <div class="w-full bg-stone-100 rounded-full h-1.5 overflow-hidden">
+                                    <div id="upload-progress-bar" class="bg-gradient-to-r from-emerald-500 to-emerald-800 h-1.5 rounded-full" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Vault Files table layout -->
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs text-stone-600 border-collapse">
+                                    <thead>
+                                        <tr class="border-b border-stone-100 bg-white/40 text-stone-500 uppercase tracking-wider font-semibold">
+                                            <th class="p-3">File Reference</th>
+                                            <th class="p-3">Category</th>
+                                            <th class="p-3">State</th>
+                                            <th class="p-3">Size</th>
+                                            <th class="p-3 text-right">Download</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="uploaded-files-body">
+                                        <!-- Injected rows based on state -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="portal-script-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                                <div>
+                                    <h4 class="font-serif text-lg text-emerald-950 font-bold flex items-center gap-2">
+                                        <i class="fa-regular fa-file-lines text-emerald-800"></i>
+                                        <span>Ceremony Script Draft</span>
+                                    </h4>
+                                    <p class="text-stone-500 text-xs">Review draft iterations and collaborate directly via the paragraph log below.</p>
+                                </div>
+                                <div class="flex items-center gap-2" id="script-status-container">
+                                    <!-- Dynamic approval tags loaded here -->
+                                </div>
+                            </div>
+
+                            <!-- Script content text editor display window -->
+                            <div class="bg-white/80 rounded-2xl border border-white p-6 sm:p-8 max-h-[380px] overflow-y-auto custom-scrollbar font-serif text-stone-700 leading-relaxed mb-6" id="script-draft-body">
+                                <!-- Loaded based on ceremony type -->
+                            </div>
+
+                            <!-- Paragraph Comments Thread log -->
+                            <div class="border-t border-stone-100 pt-6">
+                                <h5 class="text-[10px] uppercase tracking-widest text-emerald-950 font-bold mb-4 flex items-center gap-1">
+                                    <i class="fa-solid fa-comments text-gold-600"></i>
+                                    <span>Script Revision Logs</span>
+                                </h5>
+                                <div id="comments-container" class="space-y-4 max-h-[220px] overflow-y-auto mb-4 pr-2 custom-scrollbar flex flex-col">
+                                    <!-- Populated dynamically -->
+                                </div>
+                                <form onsubmit="handleCommentPost(event)" class="flex gap-3">
+                                    <input id="new-comment-input" type="text" class="flex-grow px-4 py-2.5 text-xs bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-emerald-800" placeholder="Type a comment or suggest paragraph modifications...">
+                                    <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-semibold rounded-xl text-xs uppercase tracking-wider transition shadow-sm border border-gold-200/20 active:scale-95">Post</button>
+                                </form>
+                            </div>
+
+                            <div id="script-approval-drawer" class="mt-8 bg-emerald-50/50 border border-emerald-900/10 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <div class="flex items-start space-x-3 text-center md:text-left">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-emerald-800 flex-shrink-0 mx-auto md:mx-0 shadow-sm">
+                                        <i class="fa-solid fa-signature"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-emerald-950 text-sm">Lock in Ceremony Wording</h5>
+                                        <p class="text-xs text-stone-600">Finalising the script freezes the text and alerts printing teams.</p>
+                                    </div>
+                                </div>
+                                <button onclick="approveCeremonyScript()" class="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow border border-gold-200/30 transition active:scale-95">
+                                    Approve & Lock Wording
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="portal-oos-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h4 class="font-serif text-lg text-emerald-950 font-bold flex items-center gap-2">
+                                        <i class="fa-solid fa-list-ol text-emerald-800"></i>
+                                        <span>Order of Service Builder</span>
+                                    </h4>
+                                    <p class="text-stone-500 text-xs">Organise sequences and music cues for wedding planners or layout designers.</p>
+                                </div>
+                                <button onclick="printOrderOfService()" class="px-4 py-2 bg-white hover:bg-stone-100 text-emerald-950 border border-stone-200 font-semibold rounded-lg text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-print text-gold-600"></i> Print Layout
+                                </button>
+                            </div>
+
+                            <div class="space-y-4 mb-6" id="order-of-service-list">
+                                <!-- Order of Service rows loaded based on checklist selection -->
+                            </div>
+
+                            <button onclick="addOrderOfServiceStep()" class="w-full py-3 bg-white/40 hover:bg-white/80 text-emerald-900 border-2 border-dashed border-emerald-100 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-150">
+                                <i class="fa-solid fa-plus mr-1 text-gold-500"></i> Add Custom Step
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="portal-auth-modal" class="hidden fixed inset-0 z-50 bg-emerald-950/20 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/90 backdrop-blur-md w-full max-w-md rounded-3xl border border-white/80 shadow-2xl p-6 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-900/5 rounded-full -mr-12 -mt-12"></div>
+            <button onclick="closePortalAuthModal()" class="absolute top-4 right-4 text-stone-400 hover:text-emerald-950 focus:outline-none p-2 hover:bg-stone-50 rounded-full">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-800 to-emerald-900 text-gold-200 rounded-full flex items-center justify-center mx-auto mb-3 shadow">
+                    <i class="fa-solid fa-lock-open text-lg"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-emerald-950">Secure Client Sign-In</h3>
+                <p class="text-xs text-stone-500 mt-1">Access your checklists, document uploads, and script co-editing panel.</p>
+            </div>
+            
+            <form onsubmit="handlePortalLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[11px] font-semibold text-stone-600 uppercase tracking-wider mb-2">Registered Email Address</label>
+                    <input id="portal-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800" placeholder="name@yourwedding.com">
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-semibold rounded-xl text-xs uppercase tracking-widest transition shadow-md border border-gold-200/20 active:scale-95">
+                    <i class="fa-solid fa-magic mr-1 text-gold-200"></i> Request Magic Sign-In Link
+                </button>
+            </form>
+
+            <div class="relative my-6 text-center">
+                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-stone-200"></div></div>
+                <span class="relative bg-white px-3 text-[10px] font-bold text-stone-400 uppercase tracking-wider">Demo / Sandbox Mode</span>
+            </div>
+
+            <div class="space-y-2">
+                <button onclick="simulatePortalLogin('wedding')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
+                    <span><i class="fa-solid fa-heart text-rose-500 mr-2"></i> Sarah & James (Wedding)</span>
+                    <i class="fa-solid fa-arrow-right text-stone-400"></i>
+                </button>
+                <button onclick="simulatePortalLogin('funeral')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
+                    <span><i class="fa-solid fa-cloud-sun text-stone-500 mr-2"></i> Eleanor Thompson (Funeral)</span>
+                    <i class="fa-solid fa-arrow-right text-stone-400"></i>
+                </button>
+                <button onclick="simulatePortalLogin('naming')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
+                    <span><i class="fa-solid fa-seedling text-teal-600 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
+                    <i class="fa-solid fa-arrow-right text-stone-400"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="print-preview-modal" class="hidden fixed inset-0 z-50 bg-emerald-950/20 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl rounded-3xl border shadow-2xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closePrintPreview()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-950 focus:outline-none p-2 hover:bg-stone-50 rounded-full">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div id="print-preview-content" class="font-serif p-6 bg-stone-50 rounded-xl border border-stone-200 text-stone-800">
+                <!-- Programmatically generated print styles injected here -->
+            </div>
+            <div class="flex justify-end gap-3 mt-6">
+                <button onclick="closePrintPreview()" class="px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-xl text-xs uppercase tracking-widest transition">Cancel</button>
+                <button onclick="triggerSystemPrint()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-widest transition shadow border border-gold-200/20 active:scale-95">Print Document</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gradient-to-b from-stone-50 to-emerald-100/40 border-t border-emerald-900/10 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row justify-between items-center border-b border-emerald-900/10 pb-8 mb-8 gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 flex items-center justify-center border border-gold-200 shadow-md">
+                        <span class="font-serif text-xs text-gold-200 font-bold">LB</span>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-lg tracking-wide text-emerald-950 font-bold">LB Celebrant</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-gold-600 font-bold block">Modern Custom Ceremonies</span>
+                    </div>
+                </div>
+                <div class="flex space-x-6 text-xs text-emerald-900/80">
+                    <button onclick="showSection('marketing-home'); scrollToSection('services-showcase')" class="hover:text-gold-600 font-semibold">Services</button>
+                    <button onclick="showSection('marketing-home'); scrollToSection('about-celebrant')" class="hover:text-gold-600 font-semibold">About Me</button>
+                    <button onclick="openPortalAuthModal()" class="hover:text-gold-600 font-semibold">Client Portal</button>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-stone-500 gap-4">
+                <p>&copy; 2026 LB Celebrant. All rights reserved. Created securely on GitHub Pages & Firebase by Offscript Labs.</p>
+                <p class="flex items-center gap-1"><i class="fa-solid fa-shield text-gold-500 text-[10px]"></i> Secure Static Vault System &bull; East Anglia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK Imports (v11.6.1 Module Scripts for Single-File Web Apps) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global configuration bindings fallback safely if variables are unset
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined'
+            ? JSON.parse(__firebase_config)
+            : {
+                apiKey: "",
+                authDomain: "lb-celebrant.firebaseapp.com",
+                projectId: "lb-celebrant",
+                storageBucket: "lb-celebrant.appspot.com",
+                messagingSenderId: "mock-sender-id",
+                appId: "mock-app-id"
+            };
+
+        // Initialise Firebase instances
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Core memory templates used as structural templates for first-time cloud users
+        const MOCK_FIREBASE_CLIENTS = {
+            wedding: {
+                uid: "usr-wedding-3009",
+                names: "Sarah & James",
+                ceremonyType: "Wedding",
+                ceremonyIcon: "fa-heart text-rose-500 animate-pulse",
+                date: "2026-08-20T14:00:00Z",
+                status: "Under Review",
+                checklist: [
+                    { id: "tk1", title: "Submit wedding story questionnaire answers", done: true },
+                    { id: "tk2", title: "Upload venue planning maps and music logs", done: true },
+                    { id: "tk3", title: "Draft custom vow wording concepts", done: false },
+                    { id: "tk4", title: "Review draft wedding script formatting", done: false },
+                    { id: "tk5", title: "Complete Order of Service flow chart", done: false },
+                    { id: "tk6", title: "Approve & lock final wedding script", done: false }
+                ],
+                script: `<h2>Celebrant Wedding Script Draft</h2>
+<p class="italic text-stone-500 mt-2">Prepared by LB Celebrant for Sarah & James</p>
+<div class="border-b border-stone-200 my-4"></div>
+
+<h3>I. THE ENTRANCE & WELCOME</h3>
+<p>Family, friends, and loved ones, welcome. We gather here today on this beautiful shoreline, surrounded by the eternal cadence of the waves, to celebrate a love that is equally powerful and steady. We are here to witness the binding of two souls—Sarah and James—as they step together into the threshold of their tomorrow.</p>
+
+<h3>II. THE STORY OF US</h3>
+<p>Love does not look at the sky and wait for a perfect alignment; love builds its own horizon. In the autumn of 2020, as the world moved into a quiet, introspective season, Sarah and James found themselves standing in the queue of a small flower shop on Columbia Road. It was a brief, accidental chat about a bundle of dried lavender that sparked a conversation that simply never stopped...</p>
+
+<h3>III. VOWS AND SYMBOLIC CORD RITUAL</h3>
+<p>[Vows exchange slot will be co-edited here. We will incorporate your mutual promises of patience and support, binding your wrists in the traditional handfasting cord of green silk.]</p>`,
+                orderOfService: [
+                    { step: 1, title: "Prelude & Seating of Families", details: "A Thousand Years - Piano Instrumental" },
+                    { step: 2, title: "The Entrance Processional", details: "Canon in D - Pachelbel" },
+                    { step: 3, title: "Welcome, Love Story & Address", details: "LB Celebrant officiating" },
+                    { step: 4, title: "The Handfasting Ritual", details: "Binding with emerald silk cords" },
+                    { step: 5, title: "Exchange of Vows & Ring Ceremony", details: "Spoken promises" },
+                    { step: 6, title: "Closing Remarks & Recessional", details: "Happy Together - The Turtles" }
+                ],
+                comments: [
+                    { name: "LB Celebrant", text: "I have added your initial flower shop story to Section II. Let me know if that represents that beautiful morning properly!", time: "2 hours ago" },
+                    { name: "James", text: "This is breathtaking. It instantly brought us back to that flower shop queue. We are working on the vow wording tonight!", time: "1 hour ago" }
+                ],
+                questions: {
+                    q1: "We met in Columbia Road flower shop in East London. James picked up a dried bundle of lavender which caught my eye, and we got coffee immediately across the street.",
+                    q2: "Authentic, fun, relaxed. We don't want anything too stuffy or traditional. We want laughter to be at the heart of our day."
+                },
+                vault: [
+                    { name: "Columbia_Road_Flower_Shop_First_Date.jpg", category: "Ceremony Photo", status: "Verified", size: "2.4 MB" },
+                    { name: "Proposed_Reading_List.pdf", category: "Planning Doc", status: "Verified", size: "1.1 MB" }
+                ],
+                questionPrompts: [
+                    "Where did you first meet and what was your immediate impression?",
+                    "What values or promises matter most to you as we construct your script?"
+                ]
+            },
+            
+            funeral: {
+                uid: "usr-funeral-5104",
+                names: "Celebration for Eleanor Thompson",
+                ceremonyType: "Funeral",
+                ceremonyIcon: "fa-cloud-sun text-slate-500",
+                date: "2026-07-09T11:00:00Z",
+                status: "Under Review",
+                checklist: [
+                    { id: "tk1", title: "Submit family memorial details and timeline answers", done: true },
+                    { id: "tk2", title: "Upload family tribute photographs for the slideshow", done: true },
+                    { id: "tk3", title: "Review eulogy draft paragraphs", done: false },
+                    { id: "tk4", title: "Confirm musical choices & poem selections", done: false },
+                    { id: "tk5", title: "Approve & lock final tribute script", done: false }
+                ],
+                script: `<h2>Eleanor Thompson Tribute Wording Draft</h2>
+<p class="italic text-stone-500 mt-2">Prepared by LB Celebrant with love for the Thompson Family</p>
+<div class="border-b border-stone-200 my-4"></div>
+
+<h3>I. OPENING THOUGHTS & CONDOLENCES</h3>
+<p>We are gathered here today to remember, to honour, and to softly celebrate a life that was lived fully, intentionally, and beautifully. Eleanor Thompson was not someone who walked through the world; she was someone who added vibrant color to it. Her laughter was an invitation, and her kindness was an anchor.</p>
+
+<h3>II. TRIBUTE & MEMORIES CHRONOLOGY</h3>
+<p>Born in Sussex in the post-war summer of 1947, Eleanor carried a quiet, fierce optimism. Throughout her thirty years as an educator, she did not merely teach; she inspired. She taught children not only how to read books, but how to read the clouds, the trees, and the intentions of other humans...</p>
+
+<h3>III. MOMENT OF SILENT REFLECTION</h3>
+<p>[The room will descend into silent recollection, accompanied by Eleanor's beloved composition by Debussy.]</p>`,
+                orderOfService: [
+                    { step: 1, title: "Gathering & Entrance Music", details: "Clair de Lune - Claude Debussy" },
+                    { step: 2, title: "Introductory Words & Poem Recitation", details: "Officiant LB Celebrant" },
+                    { step: 3, title: "The Life Journey Tribute", details: "Eulogy delivered by brother Robert" },
+                    { step: 4, title: "Photo Memories Slide Presentation", details: "Fields of Gold - Eva Cassidy" },
+                    { step: 5, title: "A Moment of Silent Reflection", details: "Quiet gathering" },
+                    { step: 6, title: "Closing Words & Committal", details: "Recessional: Sailing - Rod Stewart" }
+                ],
+                comments: [
+                    { name: "LB Celebrant", text: "Robert, I have laid out the tribute script structure above. Please read the post-war summer paragraph to make sure the historical context aligns.", time: "4 hours ago" },
+                    { name: "Robert Thompson", text: "This captures our mother exactly. She did love Sussex dearly. I have uploaded the family garden photo.", time: "3 hours ago" }
+                ],
+                questions: {
+                    q1: "Eleanor spent her youth exploring the rolling Sussex Downs. She was happiest with soil on her hands and a cup of tea by her side.",
+                    q2: "An emphasis on her teaching career and her love of gardening. We want this to be a true celebration of a life well lived."
+                },
+                vault: [
+                    { name: "Sussex_Downs_Family_Walk.jpg", category: "Ceremony Photo", status: "Verified", size: "3.2 MB" },
+                    { name: "Eleanor_Thompson_Eulogy_Notes.pdf", category: "Planning Doc", status: "Approved", size: "0.8 MB" }
+                ],
+                questionPrompts: [
+                    "What are your absolute favourite memories of Eleanor during her early years?",
+                    "What core values or life philosophies did Eleanor pass down to her children?"
+                ]
+            },
+
+            naming: {
+                uid: "usr-naming-9812",
+                names: "Baby Leo's Welcome",
+                ceremonyType: "Naming Day",
+                ceremonyIcon: "fa-seedling text-teal-600",
+                date: "2026-09-06T14:30:00Z",
+                status: "Under Review",
+                checklist: [
+                    { id: "tk1", title: "Submit family questionnaire response details", done: true },
+                    { id: "tk2", title: "Confirm chosen guideparents and sponsor listing", done: true },
+                    { id: "tk3", title: "Upload reading texts and naming certificate detail layouts", done: false },
+                    { id: "tk4", title: "Draft guideparent vows and parental commitments", done: false },
+                    { id: "tk5", title: "Approve & lock final naming day script", done: false }
+                ],
+                script: `<h2>Baby Leo's Naming Day Draft</h2>
+<p class="italic text-stone-500 mt-2">Prepared by LB Celebrant for the Harrison Family</p>
+<div class="border-b border-stone-200 my-4"></div>
+
+<h3>I. THE GATHERING & INTRODUCTION</h3>
+<p>Welcome, everyone! We gather today in this sunny garden to welcome a precious new life—Leo Harrison—into our hearts, our families, and our wider community. Leo, you are surrounded today by a circle of endless love, and we are here to declare our commitment to your growth, your safety, and your ultimate happiness.</p>
+
+<h3>II. PARENTAL PROMISES</h3>
+<p>To parents Clara and Mark, today you declare your formal vows to Leo. You promise to guide him with patience, to respect his growing individuality, and to build a home filled with music, laughter, and courage...</p>
+
+<h3>III. GUIDEPARENT COMMITMENTS</h3>
+<p>[We will coordinate guideparents promises here, asking them to pledge to be mentors, adventure partners, and supportive anchors for Leo throughout his life's journey.]</p>`,
+                orderOfService: [
+                    { step: 1, title: "Welcoming Assembly & Refreshments", details: "Acoustic Folk Selection" },
+                    { step: 2, title: "Opening Address & Signposts", details: "LB Celebrant officiating" },
+                    { step: 3, title: "Reading: 'I Wish You More' by Amy K.R.", details: "Read by Aunt Jessica" },
+                    { step: 4, title: "The Naming Declaration & Blessing", details: "A symbolic water sprinkling of rosewater" },
+                    { step: 5, title: "Guideparent Commitments & Covenants", details: "Group declaration" },
+                    { step: 6, title: "Certificate Signing & Closing Toast", details: "Here Comes The Sun - The Beatles" }
+                ],
+                comments: [
+                    { name: "LB Celebrant", text: "Clara, I've outlined the guideparent commitments block. Make sure Aunt Jessica knows the reading is scheduled right after the opening address.", time: "1 day ago" },
+                    { name: "Clara Harrison", text: "I have shared this with Jessica! Guideparent commitments look beautiful, thank you so much.", time: "18 hours ago" }
+                ],
+                questions: {
+                    q1: "Leo Harrison was born on a crisp spring morning. We chose the name Leo because it means strength and courage, qualities we hope to foster in him.",
+                    q2: "We want his guideparents to play an active, practical role in his upbringing—sharing books, camping, and always offering a non-judgemental ear."
+                },
+                vault: [
+                    { name: "Baby_Leo_Spring_Newborn_Photo.jpg", category: "Ceremony Photo", status: "Verified", size: "2.8 MB" },
+                    { name: "Jessica_Amy_K_R_Reading_Text.pdf", category: "Planning Doc", status: "Verified", size: "0.5 MB" }
+                ],
+                questionPrompts: [
+                    "What is the story behind Leo's chosen names, and what do they mean to you?",
+                    "What specific hopes and values do you want to declare for Leo's upbringing today?"
+                ]
+            }
+        };
+
+        // Active State containers
+        let currentClientType = null;
+        let activeClientState = null;
+        let firebaseUserRef = null;
+        let firestoreDocListener = null;
+
+        // Auto-auth initialization sequence (Adhering to RULE 3)
+        const initAuth = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.warn("Firebase Auth failure, falling back to client-only workspace mode.", err);
+                showNotification("Offline Sandbox active. Changes are stored locally.", "info");
+            }
+        };
+
+        // Bind listener tracking user credentials
+        onAuthStateChanged(auth, (user) => {
+            firebaseUserRef = user;
+            if (user) {
+                console.log("Firebase Secure Auth Successful:", user.uid);
+                // If a user has logged into a sandbox ceremony previous to auth complete, trigger sync
+                if (currentClientType) {
+                    establishFirestoreSync(currentClientType);
+                }
+            }
+        });
+
+        // Setup real-time listeners under strict user-row bounds (Adhering to RULE 1 & RULE 2)
+        async function establishFirestoreSync(ceremonyType) {
+            if (!firebaseUserRef) return; // Guard logic assertion (Rule 3)
+            
+            if (firestoreDocListener) {
+                firestoreDocListener(); // Teardown active listeners
+            }
+
+            // Path assertion: /artifacts/{appId}/users/{userId}/ceremonies/{ceremonyId}
+            const docRef = doc(db, 'artifacts', appId, 'users', firebaseUserRef.uid, 'ceremonies', ceremonyType);
+
+            try {
+                // Initial check to populate default structural layouts if none exist on the cloud yet
+                const docSnap = await getDoc(docRef);
+                if (!docSnap.exists()) {
+                    const fallbackTemplate = JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType]));
+                    await setDoc(docRef, fallbackTemplate);
+                }
+
+                // Bind listener executing direct row-level onSnapshot query (Simple document query - Rule 2)
+                firestoreDocListener = onSnapshot(docRef, (snap) => {
+                    if (snap.exists()) {
+                        activeClientState = snap.data();
+                        renderPortalDashboard();
+                    }
+                }, (error) => {
+                    console.error("Firestore synchronisation error:", error);
+                    showNotification("Database write restriction matched. Verify security rules.", "error");
+                });
+
+            } catch (err) {
+                console.error("Firestore initialization failed:", err);
+            }
+        }
+
+        // Push structural updates to user vault document (Rule 1 & Rule 3)
+        async function saveStateToFirestore() {
+            if (!firebaseUserRef || !currentClientType || !activeClientState) return;
+            const docRef = doc(db, 'artifacts', appId, 'users', firebaseUserRef.uid, 'ceremonies', currentClientType);
+            try {
+                await setDoc(docRef, activeClientState);
+            } catch (err) {
+                console.error("Failed to commit state to Firestore:", err);
+                showNotification("Could not synchronise updates with database.", "error");
+            }
+        }
+
+        // Auto-save debounce parameters for story questionnaires
+        let saveTimeout = null;
+        function saveQuestionnaireProgress() {
+            if (!activeClientState) return;
+            activeClientState.questions.q1 = document.getElementById('q-ans-1').value;
+            activeClientState.questions.q2 = document.getElementById('q-ans-2').value;
+
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(() => {
+                saveStateToFirestore();
+            }, 1000); // 1-second debounce window
+        }
+
+        function clearStoryAnswers() {
+            if (!activeClientState) return;
+            document.getElementById('q-ans-1').value = "";
+            document.getElementById('q-ans-2').value = "";
+            saveQuestionnaireProgress();
+            showNotification("Questionnaire answers cleared locally. Saving...", "info");
+        }
+
+        function showSection(sectionId) {
+            document.getElementById('marketing-home').classList.add('hidden');
+            document.getElementById('portal-dashboard').classList.add('hidden');
+            
+            document.getElementById(sectionId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(elementId) {
+            showSection('marketing-home');
+            setTimeout(() => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark text-xl";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars text-xl";
+            }
+        }
+
+        function toggleFaqAccordion(faqId) {
+            const body = document.getElementById(`faq-body-${faqId}`);
+            const icon = document.getElementById(`faq-icon-${faqId}`);
+            
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                body.classList.add('hidden');
+                icon.style.transform = "rotate(0deg)";
+            }
+        }
+
+        function openPortalAuthModal() {
+            document.getElementById('portal-auth-modal').classList.remove('hidden');
+        }
+
+        function closePortalAuthModal() {
+            document.getElementById('portal-auth-modal').classList.add('hidden');
+        }
+
+        function handlePortalLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('portal-email-input').value;
+            
+            closePortalAuthModal();
+            showNotification(`Generating cryptographically signed Magic Sign-In Link... Sent to ${email}.`, 'info');
+            
+            setTimeout(() => {
+                showNotification(`Verifying Firebase authentication credentials... Access Granted!`, 'success');
+                simulatePortalLogin('wedding');
+            }, 1600);
+        }
+
+        function simulatePortalLogin(ceremonyType) {
+            currentClientType = ceremonyType;
+            
+            // If offline, load raw sandbox structures in-memory. If authenticated, establish listeners.
+            if (firebaseUserRef) {
+                establishFirestoreSync(ceremonyType);
+            } else {
+                activeClientState = JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType]));
+                renderPortalDashboard();
+                showSection('portal-dashboard');
+                switchPortalTab('checklist');
+            }
+
+            closePortalAuthModal();
+            showSection('portal-dashboard');
+            switchPortalTab('checklist');
+            showNotification(`Portal Loaded: ${MOCK_FIREBASE_CLIENTS[ceremonyType].names} Workspace`, 'success');
+        }
+
+        function logoutPortal() {
+            if (firestoreDocListener) {
+                firestoreDocListener();
+                firestoreDocListener = null;
+            }
+            currentClientType = null;
+            activeClientState = null;
+            showSection('marketing-home');
+            showNotification("Securely logged out. Client document vault sealed.", "info");
+        }
+
+        function renderPortalDashboard() {
+            if (!activeClientState) return;
+            
+            document.getElementById('portal-user-names').innerText = activeClientState.names;
+            document.getElementById('portal-user-uid').innerText = firebaseUserRef ? firebaseUserRef.uid : activeClientState.uid;
+            document.getElementById('portal-ceremony-type-badge').innerText = activeClientState.ceremonyType;
+            document.getElementById('portal-user-icon').className = `fa-solid ${activeClientState.ceremonyIcon}`;
+            
+            // Calculating remaining days
+            const targetDate = new Date(activeClientState.date);
+            const now = new Date();
+            const timeDiff = targetDate - now;
+            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+            document.getElementById('portal-countdown-display').innerText = daysLeft > 0 ? `${daysLeft} Days to go` : "Ceremony Complete";
+
+            document.getElementById('script-draft-body').innerHTML = activeClientState.script;
+            
+            // Render Dynamic Question labels
+            document.getElementById('q-prompt-1').innerText = activeClientState.questionPrompts[0];
+            document.getElementById('q-prompt-2').innerText = activeClientState.questionPrompts[1];
+
+            document.getElementById('q-ans-1').value = activeClientState.questions.q1 || "";
+            document.getElementById('q-ans-2').value = activeClientState.questions.q2 || "";
+
+            updateScriptStatusUI();
+            renderChecklist();
+            renderFilesVault();
+            renderCommentsLog();
+            renderOrderOfService();
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('portal-tasks-container');
+            container.innerHTML = "";
+            
+            let completed = 0;
+            activeClientState.checklist.forEach(task => {
+                if (task.done) completed++;
+                
+                const taskRow = document.createElement('div');
+                taskRow.className = "flex items-start space-x-3 bg-white/70 p-3 rounded-lg border border-stone-200/50 shadow-sm";
+                taskRow.innerHTML = `
+                    <input type="checkbox" ${task.done ? 'checked' : ''} id="chk-${task.id}" class="mt-1 h-4 w-4 rounded border-stone-300 text-emerald-900 focus:ring-emerald-900">
+                    <span class="text-xs ${task.done ? 'line-through text-stone-400 font-normal' : 'text-stone-700 font-medium'}">${task.title}</span>
+                `;
+                container.appendChild(taskRow);
+
+                // Re-bind checkbox inputs safely
+                document.getElementById(`chk-${task.id}`).addEventListener('change', () => {
+                    toggleTask(task.id);
+                });
+            });
+
+            const total = activeClientState.checklist.length;
+            const pct = Math.round((completed / total) * 100);
+            
+            document.getElementById('checklist-progress-percent').innerText = `${pct}% Done`;
+            document.getElementById('checklist-progress-bar').style.width = `${pct}%`;
+        }
+
+        function toggleTask(id) {
+            const task = activeClientState.checklist.find(t => t.id === id);
+            if (task) {
+                task.done = !task.done;
+                renderChecklist();
+                saveStateToFirestore();
+                showNotification(`Task updated! Synchronising data...`, 'success');
+            }
+        }
+
+        function resetChecklist() {
+            activeClientState.checklist.forEach(task => task.done = false);
+            renderChecklist();
+            saveStateToFirestore();
+            showNotification(`Checklist state reset. Synchronising...`, 'info');
+        }
+
+        function renderFilesVault() {
+            const tbody = document.getElementById('uploaded-files-body');
+            tbody.innerHTML = "";
+            
+            activeClientState.vault.forEach((file, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-stone-100 hover:bg-stone-50/50";
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-emerald-950">${file.name}</td>
+                    <td class="p-3">${file.category}</td>
+                    <td class="p-3">
+                        <span class="inline-flex items-center space-x-1 text-[10px] bg-emerald-100/50 text-emerald-800 border border-emerald-900/10 px-2 py-0.5 rounded-full font-bold">
+                            <i class="fa-solid fa-circle-check text-[8px]"></i>
+                            <span>${file.status}</span>
+                        </span>
+                    </td>
+                    <td class="p-3 text-stone-400 whitespace-nowrap">${file.size}</td>
+                    <td class="p-3 text-right">
+                        <button id="dl-${index}" class="text-emerald-900 hover:text-emerald-950 hover:underline font-bold text-xs whitespace-nowrap"><i class="fa-solid fa-download mr-1"></i> Retrieve</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+
+                document.getElementById(`dl-${index}`).addEventListener('click', () => {
+                    simulateFileDownload(file.name);
+                });
+            });
+        }
+
+        function triggerFileInput() {
+            document.getElementById('file-input').click();
+        }
+
+        function handleFileSelection(event) {
+            const files = event.target.files;
+            if (files.length > 0) {
+                simulateFileUpload(files[0].name, files[0].size);
+            }
+        }
+
+        function simulateFileUpload(name, size) {
+            const progressContainer = document.getElementById('upload-progress-container');
+            const progressText = document.getElementById('upload-progress-pct');
+            const progressBar = document.getElementById('upload-progress-bar');
+            const fileNameLabel = document.getElementById('uploading-file-name');
+
+            fileNameLabel.innerText = `Encrypting & Uploading: ${name}`;
+            progressContainer.classList.remove('hidden');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressText.innerText = `${progress}%`;
+                progressBar.style.width = `${progress}%`;
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        progressContainer.classList.add('hidden');
+                        
+                        const mbSize = (size / (1024 * 1024)).toFixed(1) + " MB";
+                        activeClientState.vault.push({
+                            name: name,
+                            category: name.endsWith('.pdf') ? 'Planning Doc' : 'Ceremony Photo',
+                            status: 'Uploaded',
+                            size: mbSize === "NaN MB" ? "1.5 MB" : mbSize
+                        });
+                        
+                        renderFilesVault();
+                        saveStateToFirestore();
+                        showNotification(`File metadata registered inside Secure Cloud Storage bucket.`, 'success');
+                    }, 400);
+                }
+            }, 80);
+        }
+
+        function simulateFileDownload(name) {
+            showNotification(`Requesting secure download URL from storage bucket...`, 'info');
+            setTimeout(() => {
+                showNotification(`Decryption keys matched. File download completed: ${name}`, 'success');
+            }, 800);
+        }
+
+        function renderCommentsLog() {
+            const container = document.getElementById('comments-container');
+            container.innerHTML = "";
+            
+            activeClientState.comments.forEach(comment => {
+                const commentBox = document.createElement('div');
+                const isCelebrant = comment.name === "LB Celebrant";
+                
+                commentBox.className = `flex flex-col p-3.5 rounded-xl max-w-[85%] ${
+                    isCelebrant 
+                    ? 'bg-gradient-to-br from-emerald-800 to-emerald-950 text-white self-start shadow-sm' 
+                    : 'bg-white text-stone-850 self-end ml-auto border border-stone-200/60 shadow-sm'
+                }`;
+                
+                commentBox.innerHTML = `
+                    <div class="flex justify-between items-center gap-4 mb-1">
+                        <span class="text-[9px] font-bold ${isCelebrant ? 'text-gold-200' : 'text-emerald-900'}">${comment.name}</span>
+                        <span class="text-[9px] text-stone-400 font-medium">${comment.time}</span>
+                    </div>
+                    <p class="text-xs leading-relaxed font-sans">${comment.text}</p>
+                `;
+                container.appendChild(commentBox);
+            });
+            
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function handleCommentPost(event) {
+            event.preventDefault();
+            const input = document.getElementById('new-comment-input');
+            const val = input.value.trim();
+            if (val === "") return;
+
+            activeClientState.comments.push({
+                name: activeClientState.names.split('&')[0].trim(),
+                text: val,
+                time: "Just now"
+            });
+
+            input.value = "";
+            renderCommentsLog();
+            saveStateToFirestore();
+            showNotification(`Comment logged directly to LB Celebrant's Firestore feedback stream.`, 'success');
+        }
+
+        function updateScriptStatusUI() {
+            const container = document.getElementById('script-status-container');
+            const isApproved = activeClientState.status === "Approved";
+            
+            container.innerHTML = isApproved 
+                ? `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-emerald-900 text-white border border-gold-500/30 shadow flex items-center gap-1"><i class="fa-solid fa-lock text-[9px] text-gold-500"></i> Approved & Locked</span>`
+                : `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-amber-50 text-amber-800 border border-amber-500/20">Draft Under Review</span>`;
+
+            const approvalDrawer = document.getElementById('script-approval-drawer');
+            if (isApproved) {
+                approvalDrawer.innerHTML = `
+                    <div class="flex items-center space-x-3 w-full text-center sm:text-left">
+                        <div class="w-8 h-8 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-emerald-800 flex-shrink-0 shadow-sm">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-emerald-950 text-sm">Agreement Signed-Off Successfully</h5>
+                            <p class="text-xs text-emerald-800 font-sans">Your layout is finalised and logged in Firestore database archive.</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                approvalDrawer.innerHTML = `
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+                        <div class="flex items-start space-x-3 text-center sm:text-left">
+                            <div class="w-8 h-8 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-emerald-850 flex-shrink-0 mx-auto md:mx-0 shadow-sm">
+                                <i class="fa-solid fa-signature"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-emerald-950 text-sm">Lock in Ceremony Script</h5>
+                                <p class="text-xs text-stone-500 font-sans">Locking the script signals readiness for printing and disables direct editing.</p>
+                            </div>
+                        </div>
+                        <button id="lock-btn" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-sm transition active:scale-95">
+                            Approve & Lock Wording
+                        </button>
+                    </div>
+                `;
+                document.getElementById('lock-btn').addEventListener('click', approveCeremonyScript);
+            }
+        }
+
+        function approveCeremonyScript() {
+            if (!activeClientState) return;
+            activeClientState.status = "Approved";
+            
+            // Automatically complete approval task
+            const lastTask = activeClientState.checklist[activeClientState.checklist.length - 1];
+            if (lastTask && (lastTask.title.includes("Approve") || lastTask.title.includes("lock"))) {
+                lastTask.done = true;
+            }
+            
+            updateScriptStatusUI();
+            renderChecklist();
+            saveStateToFirestore();
+            showNotification(`Script signed off! Approved status updated in real-time.`, 'success');
+        }
+
+        function renderOrderOfService() {
+            const container = document.getElementById('order-of-service-list');
+            container.innerHTML = "";
+
+            activeClientState.orderOfService.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = "flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-white border border-stone-200/60 rounded-2xl gap-4 shadow-sm";
+                itemDiv.innerHTML = `
+                    <div class="flex items-center space-x-3 flex-grow w-full">
+                        <div class="w-6 h-6 rounded-full bg-emerald-900/10 text-emerald-950 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                            ${index + 1}
+                        </div>
+                        <div class="flex-grow grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <input type="text" id="oos-t-${index}" value="${item.title}" class="font-serif font-bold text-emerald-950 text-sm bg-transparent border-b border-transparent hover:border-stone-300 focus:border-emerald-900 focus:outline-none py-0.5">
+                            <input type="text" id="oos-d-${index}" value="${item.details || ''}" placeholder="Cues, songs, or officiant details..." class="text-xs text-stone-500 bg-transparent border-b border-transparent hover:border-stone-300 focus:border-emerald-900 focus:outline-none py-0.5">
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 self-end sm:self-auto border-t sm:border-t-0 pt-2 sm:pt-0 w-full sm:w-auto justify-end">
+                        <button id="oos-up-${index}" class="p-1.5 hover:bg-stone-100 rounded text-stone-500 hover:text-emerald-950" title="Move Up"><i class="fa-solid fa-chevron-up text-xs"></i></button>
+                        <button id="oos-dn-${index}" class="p-1.5 hover:bg-stone-100 rounded text-stone-500 hover:text-emerald-950" title="Move Down"><i class="fa-solid fa-chevron-down text-xs"></i></button>
+                        <button id="oos-del-${index}" class="p-1.5 hover:bg-red-50 rounded text-stone-400 hover:text-red-700" title="Delete Step"><i class="fa-solid fa-trash-can text-xs"></i></button>
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+
+                // Secure real-time inputs bindings
+                document.getElementById(`oos-t-${index}`).addEventListener('change', (e) => {
+                    updateOOSItem(index, 'title', e.target.value);
+                });
+                document.getElementById(`oos-d-${index}`).addEventListener('change', (e) => {
+                    updateOOSItem(index, 'details', e.target.value);
+                });
+                document.getElementById(`oos-up-${index}`).addEventListener('click', () => {
+                    moveOOSItem(index, -1);
+                });
+                document.getElementById(`oos-dn-${index}`).addEventListener('click', () => {
+                    moveOOSItem(index, 1);
+                });
+                document.getElementById(`oos-del-${index}`).addEventListener('click', () => {
+                    deleteOOSItem(index);
+                });
+            });
+        }
+
+        function updateOOSItem(index, key, val) {
+            if (!activeClientState) return;
+            activeClientState.orderOfService[index][key] = val;
+            saveStateToFirestore();
+        }
+
+        function moveOOSItem(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= activeClientState.orderOfService.length) return;
+            
+            const temp = activeClientState.orderOfService[index];
+            activeClientState.orderOfService[index] = activeClientState.orderOfService[targetIndex];
+            activeClientState.orderOfService[targetIndex] = temp;
+            
+            renderOrderOfService();
+            saveStateToFirestore();
+        }
+
+        function deleteOOSItem(index) {
+            activeClientState.orderOfService.splice(index, 1);
+            renderOrderOfService();
+            saveStateToFirestore();
+            showNotification(`Ceremony step deleted.`, 'info');
+        }
+
+        function addOrderOfServiceStep() {
+            activeClientState.orderOfService.push({
+                title: "New Custom Ceremony Step",
+                details: "Officiated details"
+            });
+            renderOrderOfService();
+            saveStateToFirestore();
+            showNotification(`New step added! Customise the sequence title and cues.`, 'success');
+        }
+
+        function printOrderOfService() {
+            const content = document.getElementById('print-preview-content');
+            
+            let stepsHTML = "";
+            activeClientState.orderOfService.forEach((item, index) => {
+                stepsHTML += `
+                    <div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #e5e7eb;">
+                        <div style="font-weight: bold; font-size: 1.1rem; color: #08523c; font-family: Playfair Display, serif;">${index + 1}. ${item.title}</div>
+                        <div style="font-size: 0.9rem; color: #4b5563; font-style: italic; font-family: Inter, sans-serif; margin-top: 4px;">${item.details || 'General Flow Step'}</div>
+                    </div>
+                `;
+            });
+
+            content.innerHTML = `
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="font-family: Playfair Display, serif; font-size: 1.6rem; color: #08523c; margin: 0 0 5px 0;">LB Celebrant</h2>
+                    <h1 style="font-family: Playfair Display, serif; font-size: 2.1rem; color: #08523c; margin: 0 0 5px 0;">${activeClientState.names}</h1>
+                    <div style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; color: #b59023; font-weight: bold;">Order of Service Sequence</div>
+                    <div style="font-size: 0.85rem; color: #6b7280; margin-top: 5px;">Ceremony Date: ${new Date(activeClientState.date).toLocaleDateString()}</div>
+                </div>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    ${stepsHTML}
+                </div>
+                <div style="text-align: center; margin-top: 40px; font-size: 0.75rem; color: #9ca3af; font-family: Inter, sans-serif;">
+                    Thank you for letting us shape your landmark day. &copy; LB Celebrant
+                </div>
+            `;
+
+            document.getElementById('print-preview-modal').classList.remove('hidden');
+        }
+
+        function closePrintPreview() {
+            document.getElementById('print-preview-modal').classList.add('hidden');
+        }
+
+        function triggerSystemPrint() {
+            const printContents = document.getElementById('print-preview-content').innerHTML;
+            const originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+            window.print();
+            
+            document.location.reload();
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            showNotification(`Enquiry received! LB Celebrant will check the calendar dates and reply shortly.`, 'success');
+            event.target.reset();
+        }
+
+        function switchPortalTab(tabName) {
+            if (window.innerWidth >= 1024) return; // Disable tabs on large monitor screens
+
+            // Hide all dashboard sections
+            const sections = document.querySelectorAll('.portal-section');
+            sections.forEach(sec => {
+                sec.classList.add('hidden');
+            });
+
+            // Map tab identifiers to matching HTML cards
+            let targetSecId = null;
+            if (tabName === 'checklist') targetSecId = 'portal-checklist-section';
+            else if (tabName === 'questionnaire') targetSecId = 'portal-questionnaire-section';
+            else if (tabName === 'vault') targetSecId = 'portal-vault-section';
+            else if (tabName === 'script') targetSecId = 'portal-script-section';
+            else if (tabName === 'oos') targetSecId = 'portal-oos-section';
+
+            const activeSec = document.getElementById(targetSecId);
+            if (activeSec) {
+                activeSec.classList.remove('hidden');
+            }
+
+            // Style selected/unselected buttons
+            const tabButtons = document.querySelectorAll('.portal-tab-btn');
+            tabButtons.forEach(btn => {
+                const isCurrent = btn.getAttribute('data-tab') === tabName;
+                if (isCurrent) {
+                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white text-xs font-semibold rounded-full shadow-sm";
+                } else {
+                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-250 hover:bg-stone-50 transition";
+                }
+            });
+        }
+
+        // Keep layouts consistent on window resize transitions
+        window.addEventListener('resize', () => {
+            const sections = document.querySelectorAll('.portal-section');
+            if (window.innerWidth >= 1024) {
+                sections.forEach(sec => sec.classList.remove('hidden'));
+            } else {
+                const activeTabBtn = document.querySelector('.portal-tab-btn.bg-gradient-to-r');
+                if (activeTabBtn) {
+                    switchPortalTab(activeTabBtn.getAttribute('data-tab'));
+                } else {
+                    switchPortalTab('checklist');
+                }
+            }
+        });
+
+        // Global functions bindings to ensure clean inline HTML event targets
+        window.showSection = showSection;
+        window.scrollToSection = scrollToSection;
+        window.toggleMobileMenu = toggleMobileMenu;
+        window.toggleFaqAccordion = toggleFaqAccordion;
+        window.openPortalAuthModal = openPortalAuthModal;
+        window.closePortalAuthModal = closePortalAuthModal;
+        window.handlePortalLogin = handlePortalLogin;
+        window.simulatePortalLogin = simulatePortalLogin;
+        window.logoutPortal = logoutPortal;
+        window.toggleTask = toggleTask;
+        window.resetChecklist = resetChecklist;
+        window.triggerFileInput = triggerFileInput;
+        window.handleFileSelection = handleFileSelection;
+        window.simulateFileDownload = simulateFileDownload;
+        window.handleCommentPost = handleCommentPost;
+        window.saveQuestionnaireProgress = saveQuestionnaireProgress;
+        window.clearStoryAnswers = clearStoryAnswers;
+        window.approveCeremonyScript = approveCeremonyScript;
+        window.updateOOSItem = updateOOSItem;
+        window.moveOOSItem = moveOOSItem;
+        window.deleteOOSItem = deleteOOSItem;
+        window.addOrderOfServiceStep = addOrderOfServiceStep;
+        window.printOrderOfService = printOrderOfService;
+        window.closePrintPreview = closePrintPreview;
+        window.triggerSystemPrint = triggerSystemPrint;
+        window.handleContactSubmit = handleContactSubmit;
+        window.switchPortalTab = switchPortalTab;
+
+        // Run Auth init immediately upon DOM readiness
+        initAuth();
+    </script>
+</body>
+</html>
