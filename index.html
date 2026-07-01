@@ -365,8 +365,9 @@
                             </div>
                         </div>
                         <div class="p-6 pt-0">
-                            <button onclick="scrollToSection('contact-form')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
-                                Enquire for Wedding
+                            <!-- Click calls openServiceDetails to trigger customized glass pop-up -->
+                            <button onclick="openServiceDetails('wedding')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                Learn More & Enquire
                             </button>
                         </div>
                     </div>
@@ -399,8 +400,9 @@
                             </div>
                         </div>
                         <div class="p-6 pt-0">
-                            <button onclick="scrollToSection('contact-form')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
-                                Get In Touch Respectfully
+                            <!-- Click calls openServiceDetails to trigger customized glass pop-up -->
+                            <button onclick="openServiceDetails('funeral')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                Learn More & Enquire
                             </button>
                         </div>
                     </div>
@@ -433,8 +435,9 @@
                             </div>
                         </div>
                         <div class="p-6 pt-0">
-                            <button onclick="scrollToSection('contact-form')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
-                                Enquire for Naming Day
+                            <!-- Click calls openServiceDetails to trigger customized glass pop-up -->
+                            <button onclick="openServiceDetails('naming')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                Learn More & Enquire
                             </button>
                         </div>
                     </div>
@@ -559,7 +562,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-[11px] font-semibold text-emerald-950 uppercase tracking-wider mb-2">Ceremony Type</label>
-                                    <select class="w-full px-4 py-3 text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-600">
+                                    <select id="contact-ceremony-type" class="w-full px-4 py-3 text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-600">
                                         <option value="wedding">Wedding Ceremony</option>
                                         <option value="funeral">Funeral or Memorial Tribute</option>
                                         <option value="naming">Naming Ceremony</option>
@@ -918,6 +921,42 @@
             </div>
             <div class="flex justify-end pt-4 border-t border-stone-100 mt-4">
                 <button onclick="closePrivacyModal()" class="px-5 py-2.5 bg-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-emerald-950 transition active:scale-95">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Glassmorphic Services Details Pop-up Modal -->
+    <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-emerald-950/20 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/90 backdrop-blur-xl w-full max-w-2xl rounded-3xl border border-white/50 shadow-2xl p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
+            <!-- Close button -->
+            <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-stone-500 hover:text-emerald-950 focus:outline-none p-2 hover:bg-white/50 rounded-full transition-all duration-150">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="flex items-center space-x-4 mb-6 border-b border-stone-200/50 pb-4">
+                <div id="service-modal-icon-container" class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl shadow-sm flex-shrink-0">
+                    <i id="service-modal-icon" class="fa-solid fa-heart"></i>
+                </div>
+                <div>
+                    <h3 id="service-modal-title" class="font-serif text-2xl font-bold text-emerald-950">Service Title</h3>
+                    <p id="service-modal-subtitle" class="text-xs text-gold-600 font-bold uppercase tracking-wider">Service Subtitle</p>
+                </div>
+            </div>
+            <!-- Scrollable details wrapper -->
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-stone-700 text-xs sm:text-sm leading-relaxed space-y-4">
+                <div id="service-modal-long-description" class="space-y-4">
+                    <!-- Dynamic details are injected here -->
+                </div>
+            </div>
+            <!-- Dynamic footer and redirection trigger -->
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-stone-100 mt-4 gap-4">
+                <div class="text-left w-full sm:w-auto">
+                    <span class="text-[9px] uppercase tracking-widest text-stone-400 font-bold block">Estimated Investment</span>
+                    <span id="service-modal-price" class="font-serif text-lg font-bold text-emerald-900">£450.00 Typical</span>
+                </div>
+                <div class="flex space-x-2 w-full sm:w-auto justify-end">
+                    <button onclick="closeServiceDetailsModal()" class="px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-xl text-xs uppercase tracking-wider transition">Back</button>
+                    <button id="service-modal-enquire-btn" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-emerald-950 transition shadow border border-gold-200/20 active:scale-95">Enquire Now</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1357,6 +1396,106 @@
             document.getElementById('privacy-modal').classList.add('hidden');
         }
 
+        // Detailed services metadata for our new glassmorphic pop-up modals
+        const SERVICE_MODAL_DETAILS = {
+            wedding: {
+                title: "Bespoke Wedding Ceremonies",
+                subtitle: "Joyful, Romantic, & Entirely Template-Free",
+                icon: "fa-heart",
+                price: "£450.00 Typical",
+                colorClass: "text-rose-500 bg-rose-50",
+                description: `
+                    <p class="font-semibold text-emerald-950 text-sm sm:text-base">Your love story is unique—your script should be too.</p>
+                    <p>I specialize in crafting custom, warm, and highly memorable ceremonies that center entirely around your relationship. We bypass cold, stale templates to focus on the moments that define you both.</p>
+                    
+                    <h5 class="font-serif text-emerald-900 font-bold text-sm sm:text-base mt-4">What's Included in the Journey:</h5>
+                    <ul class="list-disc pl-5 space-y-1.5">
+                        <li><strong>Creative Consultation:</strong> A deep alignment meeting to uncover your individual values and core tone.</li>
+                        <li><strong>Vow Development support:</strong> Guidance and advice to help you express your exact mutual promises confidently.</li>
+                        <li><strong>Custom Symbolic Rituals:</strong> Options to integrate beautiful ceremonies such as traditional handfasting (wrist binding), ring-warming, or wine blending.</li>
+                        <li><strong>Collaborative Revision:</strong> Co-edit drafts and exchange comments inside your Client Portal until the layout is perfect.</li>
+                        <li><strong>A Professional Delivery:</strong> Full coordination on the day with venue staff and musicians for a smooth, relaxed ceremony.</li>
+                    </ul>
+                `
+            },
+            funeral: {
+                title: "Celebrations of Life & Memorials",
+                subtitle: "Empathetic, Respectful, & Deeply SOLACING",
+                icon: "fa-cloud-sun",
+                price: "£250.00 Typical",
+                colorClass: "text-stone-500 bg-stone-50",
+                description: `
+                    <p class="font-semibold text-emerald-950 text-sm sm:text-base">Honouring a rich legacy with authentic storytelling.</p>
+                    <p>Milestone transitions can be delicate and sudden. I work closely with families and funeral directors to deliver a gentle, compassionate service that captures the true essence and personality of your loved one.</p>
+                    
+                    <h5 class="font-serif text-emerald-900 font-bold text-sm sm:text-base mt-4">Our Collaborative Approach:</h5>
+                    <ul class="list-disc pl-5 space-y-1.5">
+                        <li><strong>Empathetic Family Meeting:</strong> A slow-paced, comforting discussion to collect timelines, achievements, and anecdotes.</li>
+                        <li><strong>Custom Eulogy & Tribute Delivery:</strong> Structuring stories that bring comfort, focusing on life highlights rather than solely on mourning.</li>
+                        <li><strong>Rapid Planning Alignment:</strong> Highly responsive collaboration that works effortlessly within short funeral timelines (7-14 days).</li>
+                        <li><strong>Music & Readings Curation:</strong> Assistance in selecting appropriate poems, script breaks, and music choices to frame reflection moments.</li>
+                    </ul>
+                `
+            },
+            naming: {
+                title: "Family Naming Ceremonies",
+                subtitle: "Bright, Warm, & Welcoming",
+                icon: "fa-seedling",
+                price: "£300.00 Typical",
+                colorClass: "text-teal-600 bg-teal-50",
+                description: `
+                    <p class="font-semibold text-emerald-950 text-sm sm:text-base">Welcoming new growth into your supportive family circle.</p>
+                    <p>Whether introducing a newborn infant, celebrating an adoption, or welcoming step-siblings into a blended home, our naming days provide a non-religious alternative to declare your parenting commitment.</p>
+                    
+                    <h5 class="font-serif text-emerald-950 font-bold text-sm sm:text-base mt-4">Key Elements We Construct:</h5>
+                    <ul class="list-disc pl-5 space-y-1.5">
+                        <li><strong>Hopes and Promises:</strong> Dedicated segments for parents and grandparents to read personalized pledges to the child.</li>
+                        <li><strong>Guideparent Commitments:</strong> Non-judgemental promises for mentors and guideparents to state their lifelong supportive role.</li>
+                        <li><strong>Creative Family Rituals:</strong> Beautiful, interactive activities such as custom Wish-Trees, sand-blending, or memory boxes.</li>
+                        <li><strong>Commemorative Certificate:</strong> A premium, signed naming day certificate to keep inside your archives.</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Open details modal and populate fields
+        function openServiceDetails(serviceKey) {
+            const data = SERVICE_MODAL_DETAILS[serviceKey];
+            if (!data) return;
+
+            document.getElementById('service-modal-title').innerText = data.title;
+            document.getElementById('service-modal-subtitle').innerText = data.subtitle;
+            document.getElementById('service-modal-price').innerText = data.price;
+            document.getElementById('service-modal-long-description').innerHTML = data.description;
+            
+            // Set matching icon
+            const icon = document.getElementById('service-modal-icon');
+            icon.className = `fa-solid ${data.icon}`;
+            
+            // Set matching icon background colors
+            const iconContainer = document.getElementById('service-modal-icon-container');
+            iconContainer.className = `w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-sm flex-shrink-0 ${data.colorClass}`;
+
+            // Configure redirect button
+            const btn = document.getElementById('service-modal-enquire-btn');
+            btn.onclick = () => {
+                // Set the dropdown value to the matching value
+                const selectElement = document.getElementById('contact-ceremony-type');
+                if (selectElement) {
+                    selectElement.value = serviceKey;
+                }
+                closeServiceDetailsModal();
+                scrollToSection('contact-form');
+                showNotification(`Form automatically configured for ${data.title}!`, 'success');
+            };
+
+            document.getElementById('service-details-modal').classList.remove('hidden');
+        }
+
+        function closeServiceDetailsModal() {
+            document.getElementById('service-details-modal').classList.add('hidden');
+        }
+
         function handlePortalLogin(event) {
             event.preventDefault();
             const email = document.getElementById('portal-email-input').value;
@@ -1730,7 +1869,7 @@
             activeClientState.orderOfService.splice(index, 1);
             renderOrderOfService();
             saveStateToFirestore();
-            showNotification(`Ceremony step deleted.`, 'info');
+            showNotification("Ceremony step deleted.", "info");
         }
 
         function addOrderOfServiceStep() {
@@ -1852,6 +1991,8 @@
         window.closePortalAuthModal = closePortalAuthModal;
         window.openPrivacyModal = openPrivacyModal;
         window.closePrivacyModal = closePrivacyModal;
+        window.openServiceDetails = openServiceDetails;
+        window.closeServiceDetailsModal = closeServiceDetailsModal;
         window.handlePortalLogin = handlePortalLogin;
         window.simulatePortalLogin = simulatePortalLogin;
         window.logoutPortal = logoutPortal;
