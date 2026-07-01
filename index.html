@@ -22,7 +22,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Lisa B Celebrant",
-      "image": "https://placehold.co/500x600/08523c/ffffff?text=Lisa+B+Celebrant",
+      "image": "LisaB.png",
       "description": "Bespoke modern celebrant service specialising in custom template-free weddings, personalised memorials, and family naming ceremonies in East Anglia, Norfolk, Suffolk, and Cambridgeshire.",
       "@id": "https://lb-celebrant.co.uk/#celebrant-service",
       "url": "https://lb-celebrant.co.uk",
@@ -199,12 +199,12 @@
                     </div>
                 </div>
 
-                <!-- Desktop navigation menu -->
+                <!-- Desktop navigation menu (REORDERED EXACTLY: Home -> About -> Ceremonies -> FAQs -> Contact) -->
                 <nav class="hidden md:flex space-x-8 items-center">
                     <button onclick="showSection('marketing-home')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Home</button>
+                    <button onclick="scrollToSection('about-celebrant')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">About</button>
                     <button onclick="scrollToSection('services-showcase')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Ceremonies</button>
                     <button onclick="scrollToSection('faq-accordion-section')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">FAQs</button>
-                    <button onclick="scrollToSection('about-celebrant')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">About</button>
                     <button onclick="scrollToSection('contact-form')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Contact</button>
                     <div class="h-6 w-[1px] bg-emerald-900/10"></div>
                     <!-- Portal Entry Trigger -->
@@ -222,13 +222,13 @@
             </div>
         </div>
 
-        <!-- Mobile dropdown drawer navigation -->
+        <!-- Mobile dropdown drawer navigation (REORDERED EXACTLY: Home -> About -> Ceremonies -> FAQs -> Contact) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white/80 backdrop-blur-lg border-t border-emerald-900/10 text-emerald-950 shadow-lg">
             <div class="px-4 pt-2 pb-6 space-y-3">
                 <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Home</button>
+                <button onclick="scrollToSection('about-celebrant'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">About</button>
                 <button onclick="scrollToSection('services-showcase'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Ceremonies</button>
                 <button onclick="scrollToSection('faq-accordion-section'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">FAQs</button>
-                <button onclick="scrollToSection('about-celebrant'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">About</button>
                 <button onclick="scrollToSection('contact-form'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Contact</button>
                 <div class="py-2"></div>
                 <button onclick="openPortalAuthModal(); toggleMobileMenu()" class="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white py-3.5 rounded-full shadow-md font-semibold">
@@ -441,6 +441,7 @@
                 </div>
             </div>
 
+            <!-- Client Portal Promotional banner -->
             <div class="bg-gradient-to-r from-emerald-50/60 via-gold-50/40 to-teal-50/50 py-20 border-t border-b border-white/60">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="lg:flex lg:items-center lg:justify-between gap-12">
@@ -842,17 +843,18 @@
                     <i class="fa-solid fa-arrow-right text-stone-400"></i>
                 </button>
                 <button onclick="simulatePortalLogin('funeral')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
-                    <span><i class="fa-solid fa-cloud-sun text-stone-500 mr-2"></i> Eleanor Thompson (Funeral)</span>
+                    <span><i class="fa-solid fa-cloud-sun text-stone-400 mr-2"></i> Eleanor Thompson (Funeral)</span>
                     <i class="fa-solid fa-arrow-right text-stone-400"></i>
                 </button>
                 <button onclick="simulatePortalLogin('naming')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
-                    <span><i class="fa-solid fa-seedling text-teal-600 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
+                    <span><i class="fa-solid fa-seedling text-teal-500 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
                     <i class="fa-solid fa-arrow-right text-stone-400"></i>
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- Print Preview System -->
     <div id="print-preview-modal" class="hidden fixed inset-0 z-50 bg-emerald-950/20 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-2xl rounded-3xl border shadow-2xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closePrintPreview()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-950 focus:outline-none p-2 hover:bg-stone-50 rounded-full">
@@ -862,12 +864,13 @@
                 <!-- Programmatically generated print styles injected here -->
             </div>
             <div class="flex justify-end gap-3 mt-6">
-                <button onclick="closePrintPreview()" class="px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-xl text-xs uppercase tracking-widest transition">Cancel</button>
-                <button onclick="triggerSystemPrint()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-widest transition shadow border border-gold-200/20 active:scale-95">Print Document</button>
+                <button onclick="closePrintPreview()" class="px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-xl text-xs uppercase tracking-wider transition">Cancel</button>
+                <button onclick="triggerSystemPrint()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow border border-gold-200/20 active:scale-95">Print Document</button>
             </div>
         </div>
     </div>
 
+    <!-- Footer with color-matched Instagram icon and agency link -->
     <footer class="bg-gradient-to-b from-stone-50 to-emerald-100/40 border-t border-emerald-900/10 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
             <div class="flex flex-col sm:flex-row justify-between items-center border-b border-emerald-900/10 pb-8 mb-8 gap-4">
