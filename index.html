@@ -441,7 +441,6 @@
                 </div>
             </div>
 
-            <!-- Client Portal Promotional banner -->
             <div class="bg-gradient-to-r from-emerald-50/60 via-gold-50/40 to-teal-50/50 py-20 border-t border-b border-white/60">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="lg:flex lg:items-center lg:justify-between gap-12">
@@ -593,7 +592,7 @@
                 <!-- Client Portal Top Info Banner -->
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-white/50 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md mb-8">
                     <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 border border-gold-200 flex items-center justify-center text-gold-200 text-xl shadow">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 border border-gold-200 flex items-center justify-center text-gold-200 text-xl shadow animate-none">
                             <i id="portal-user-icon" class="fa-solid fa-heart"></i>
                         </div>
                         <div>
@@ -808,6 +807,7 @@
         </section>
     </main>
 
+    <!-- Authentication Modal -->
     <div id="portal-auth-modal" class="hidden fixed inset-0 z-50 bg-emerald-950/20 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white/90 backdrop-blur-md w-full max-w-md rounded-3xl border border-white/80 shadow-2xl p-6 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-900/5 rounded-full -mr-12 -mt-12"></div>
@@ -870,6 +870,58 @@
         </div>
     </div>
 
+    <!-- Privacy Policy Glassmorphic Pop-up Modal -->
+    <div id="privacy-modal" class="hidden fixed inset-0 z-50 bg-emerald-950/25 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white/80 backdrop-blur-xl w-full max-w-2xl rounded-3xl border border-white/50 shadow-2xl p-6 sm:p-8 relative max-h-[80vh] flex flex-col">
+            <!-- Close Button -->
+            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-stone-500 hover:text-emerald-950 focus:outline-none p-2 hover:bg-white/50 rounded-full transition-all duration-150">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-800 to-emerald-900 text-gold-200 rounded-full flex items-center justify-center mx-auto mb-3 shadow">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-emerald-950">Privacy Policy</h3>
+                <p class="text-xs text-stone-500 mt-1">UK GDPR & Data Protection Act 2018 Compliance Statement</p>
+            </div>
+            <!-- Scrollable legal text -->
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-stone-700 text-xs sm:text-sm leading-relaxed space-y-4">
+                <h4 class="font-serif text-emerald-900 font-bold text-base mt-2">1. Introduction</h4>
+                <p>Welcome to the Privacy Policy of <strong>Lisa B Celebrant</strong>. We respect your privacy and are committed to protecting your personal data. This privacy statement will inform you as to how we look after your personal data when you visit our website, use our Secure Client Portal, or fill out our enquiry forms, and tell you about your privacy rights under UK law.</p>
+
+                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">2. The Data Controller</h4>
+                <p>Lisa B Celebrant is the data controller and is responsible for your personal data. If you have any questions regarding this policy or our data practices, please contact us at: <span class="text-emerald-800 font-semibold underline">privacy@lb-celebrant.co.uk</span>.</p>
+
+                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">3. Data We Collect About You</h4>
+                <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Identity Data:</strong> Includes first name, maiden name, last name, username or similar identifier, and marital status.</li>
+                    <li><strong>Contact Data:</strong> Includes email address, telephone numbers, and billing addresses.</li>
+                    <li><strong>Ceremony Data:</strong> Planning timelines, ceremony dates, locations, story prompt details, guideparent names, and uploaded planning document vaults (such as PDF files, schedules, and photos).</li>
+                    <li><strong>Technical Data:</strong> Includes internet protocol (IP) address, login session states, browser type, and operating system.</li>
+                </ul>
+
+                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">4. How We Use Your Personal Data</h4>
+                <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Where we need to perform the contract we are about to enter into or have entered into with you (such as planning your bespoke milestone ceremony).</li>
+                    <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+                    <li>Where we have your explicit consent to process sensitive personal data (such as information contained within your ceremony story questionnaires).</li>
+                </ul>
+
+                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">5. Storage and Security of Data</h4>
+                <p>All client questionnaire data, planning files, and comments are stored inside our secure, encrypted **Google Firebase** database environment using regional EU storage boundaries. We enforce strict Firebase security and row-level access rules, ensuring your files and details are accessible strictly to you and Lisa B Celebrant.</p>
+
+                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">6. Your Legal Rights</h4>
+                <p>Under certain circumstances, you have rights under UK data protection laws (UK GDPR) in relation to your personal data, including the right to request access, correction, erasure, or transfer of your personal data, and the right to withdraw consent at any time.</p>
+                <p>You also have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK regulator for data protection issues (<a href="https://ico.org.uk" target="_blank" class="text-emerald-800 underline">www.ico.org.uk</a>).</p>
+            </div>
+            <div class="flex justify-end pt-4 border-t border-stone-100 mt-4">
+                <button onclick="closePrivacyModal()" class="px-5 py-2.5 bg-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-emerald-950 transition active:scale-95">I Understand</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer with color-matched Instagram icon and agency link -->
     <footer class="bg-gradient-to-b from-stone-50 to-emerald-100/40 border-t border-emerald-900/10 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
@@ -894,8 +946,12 @@
                     </a>
                 </div>
             </div>
+            <!-- Bottom Footer Bar with Copyright and GDPR Privacy Link -->
             <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-stone-500 gap-4">
-                <p>&copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-emerald-900 hover:underline transition-colors font-medium">Offscript Labs 2026</a> - All rights reserved.</p>
+                <p>
+                    &copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-emerald-900 hover:underline transition-colors font-medium">Offscript Labs 2026</a> - All rights reserved. 
+                    &bull; <button onclick="openPrivacyModal()" class="hover:text-emerald-900 hover:underline transition-colors font-medium ml-1">Privacy Policy</button>
+                </p>
                 <p class="flex items-center gap-1"><i class="fa-solid fa-shield text-gold-500 text-[10px]"></i> Secure Static Vault System &bull; East Anglia</p>
             </div>
         </div>
@@ -1293,6 +1349,14 @@
             document.getElementById('portal-auth-modal').classList.add('hidden');
         }
 
+        function openPrivacyModal() {
+            document.getElementById('privacy-modal').classList.remove('hidden');
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacy-modal').classList.add('hidden');
+        }
+
         function handlePortalLogin(event) {
             event.preventDefault();
             const email = document.getElementById('portal-email-input').value;
@@ -1575,7 +1639,7 @@
                                 <p class="text-xs text-stone-500 font-sans">Locking the script signals readiness for printing and disables direct editing.</p>
                             </div>
                         </div>
-                        <button id="lock-btn" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-sm transition active:scale-95">
+                        <button id="lock-btn" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow border border-gold-200/30 transition active:scale-95">
                             Approve & Lock Wording
                         </button>
                     </div>
@@ -1786,6 +1850,8 @@
         window.toggleFaqAccordion = toggleFaqAccordion;
         window.openPortalAuthModal = openPortalAuthModal;
         window.closePortalAuthModal = closePortalAuthModal;
+        window.openPrivacyModal = openPrivacyModal;
+        window.closePrivacyModal = closePrivacyModal;
         window.handlePortalLogin = handlePortalLogin;
         window.simulatePortalLogin = simulatePortalLogin;
         window.logoutPortal = logoutPortal;
