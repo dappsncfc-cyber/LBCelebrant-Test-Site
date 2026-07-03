@@ -125,26 +125,24 @@
             theme: {
                 extend: {
                     colors: {
-                        emerald: {
-                            50: '#f4faf6',
-                            100: '#e6f5ee',
-                            200: '#ccebe1',
-                            500: '#10b981',
-                            800: '#08523c',
-                            900: '#053d2d',
-                            950: '#022418',
-                        },
-                        gold: {
-                            50: '#fdfbeb',
-                            100: '#fcf6cd',
-                            500: '#d4af37',
-                            600: '#b59023',
-                            700: '#8c6d11',
-                        },
-                        sand: {
-                            50: '#faf8f5',
-                            100: '#f4efe9',
-                            200: '#ebdcd0',
+                        brand: {
+                            primary: '#526253', // Eucalyptus Soft
+                            secondary: '#655d4e', // Taupe Grey
+                            tertiary: '#5b605c', // Charcoal Silk
+                            background: '#faf9f6', // Warm Linen
+                            surface: '#faf9f6',
+                            'surface-dim': '#dbdad7',
+                            'surface-container-lowest': '#ffffff',
+                            'surface-container-low': '#f4f3f0',
+                            'surface-container': '#efeeeb',
+                            'surface-container-high': '#e9e8e5',
+                            'surface-container-highest': '#e3e2e0',
+                            'on-surface': '#1a1c1a',
+                            'on-surface-variant': '#434842',
+                            outline: '#747872',
+                            'outline-variant': '#c4c8c0',
+                            'primary-container': '#8fa08e',
+                            'on-primary-container': '#283729',
                         }
                     },
                     fontFamily: {
@@ -161,23 +159,23 @@
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #fdfbf7;
+            background: #faf9f6;
             border-radius: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #08523c;
+            background: #526253;
             border-radius: 4px;
         }
-        /* Custom ambient glowing meshes to create a whimsical botanical atmosphere */
+        /* Custom ambient glowing meshes using Botanical Eucalyptus tones */
         .ambient-glow-1 {
-            background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, rgba(253,251,247,0) 70%);
+            background: radial-gradient(circle, rgba(82,98,83,0.05) 0%, rgba(250,249,246,0) 70%);
         }
         .ambient-glow-2 {
-            background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, rgba(253,251,247,0) 70%);
+            background: radial-gradient(circle, rgba(101,93,78,0.04) 0%, rgba(250,249,246,0) 70%);
         }
     </style>
 </head>
-<body class="bg-gradient-to-tr from-gold-50 via-sand-50 to-emerald-50/50 text-stone-800 font-sans min-h-screen flex flex-col selection:bg-emerald-200 selection:text-emerald-950 relative overflow-x-hidden w-full max-w-full">
+<body class="bg-brand-background text-brand-tertiary font-sans min-h-screen flex flex-col selection:bg-brand-primary-container/30 selection:text-brand-on-primary-container relative overflow-x-hidden w-full max-w-full">
 
     <!-- Rigid, overflow-protected container that isolates layout viewport calculations and fixes mobile scrolling off to the right -->
     <div class="w-full max-w-full overflow-x-hidden flex flex-col min-h-screen relative z-10">
@@ -190,37 +188,37 @@
 
         <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3 max-w-sm pointer-events-none"></div>
 
-        <header class="sticky top-0 z-40 bg-white/40 backdrop-blur-md border-b border-white/50 shadow-sm transition-all duration-300">
+        <header class="sticky top-0 z-40 bg-brand-surface/70 backdrop-blur-md border-b border-brand-outline-variant/30 shadow-sm transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
                     <!-- Brand logo with custom serif monogram -->
                     <div class="flex items-center space-x-3 cursor-pointer group" onclick="showSection('marketing-home')">
-                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 group-hover:from-emerald-900 group-hover:to-emerald-950 flex items-center justify-center border border-gold-200/50 shadow-md transition-all duration-300">
-                            <span class="font-serif text-base text-gold-200 font-bold tracking-wider">LB</span>
+                        <div class="w-11 h-11 rounded-full bg-brand-primary group-hover:bg-brand-primary-container flex items-center justify-center border border-brand-outline-variant/40 shadow-sm transition-all duration-300">
+                            <span class="font-serif text-sm text-white font-bold tracking-wider">LB</span>
                         </div>
                         <div>
-                            <h1 class="font-serif text-xl tracking-wide text-emerald-950 font-bold leading-none">Lisa B Celebrant</h1>
-                            <span class="text-[9px] uppercase tracking-widest text-gold-600 font-bold block mt-1.5">Modern Custom Ceremonies</span>
+                            <h1 class="font-serif text-xl tracking-wide text-brand-on-surface font-bold leading-none">Lisa B Celebrant</h1>
+                            <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-semibold block mt-1.5 font-sans">Modern Custom Ceremonies</span>
                         </div>
                     </div>
 
                     <!-- Desktop navigation menu (REORDERED EXACTLY: Home -> About -> Ceremonies -> FAQs -> Contact) -->
                     <nav class="hidden md:flex space-x-8 items-center">
-                        <button onclick="showSection('marketing-home')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Home</button>
-                        <button onclick="scrollToSection('about-celebrant')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">About</button>
-                        <button onclick="scrollToSection('services-showcase')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Ceremonies</button>
-                        <button onclick="scrollToSection('faq-accordion-section')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">FAQs</button>
-                        <button onclick="scrollToSection('contact-form')" class="text-emerald-900/80 hover:text-emerald-900 font-medium tracking-wide transition-colors duration-150">Contact</button>
-                        <div class="h-6 w-[1px] bg-emerald-900/10"></div>
+                        <button onclick="showSection('marketing-home')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">Home</button>
+                        <button onclick="scrollToSection('about-celebrant')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">About</button>
+                        <button onclick="scrollToSection('services-showcase')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">Ceremonies</button>
+                        <button onclick="scrollToSection('faq-accordion-section')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">FAQs</button>
+                        <button onclick="scrollToSection('contact-form')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">Contact</button>
+                        <div class="h-6 w-[1px] bg-brand-outline-variant/40"></div>
                         <!-- Portal Entry Trigger -->
-                        <button onclick="openPortalAuthModal()" class="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white px-5 py-2.5 rounded-full border border-gold-200/30 transition-all duration-300 font-semibold shadow-[0_4px_15px_rgba(8,82,60,0.12)]">
-                            <i class="fa-solid fa-folder-open text-xs text-gold-200"></i>
+                        <button onclick="openPortalAuthModal()" class="inline-flex items-center space-x-2 bg-brand-primary hover:bg-brand-primary-container text-white px-5 py-2.5 rounded shadow-sm transition-all duration-300 font-medium text-sm">
+                            <i class="fa-solid fa-folder-open text-xs text-brand-surface"></i>
                             <span>Secure Client Portal</span>
                         </button>
                     </nav>
 
                     <div class="md:hidden">
-                        <button onclick="toggleMobileMenu()" class="text-emerald-900 hover:text-gold-700 focus:outline-none p-2 rounded-lg bg-white/40 border border-white/50">
+                        <button onclick="toggleMobileMenu()" class="text-brand-on-surface hover:text-brand-primary focus:outline-none p-2 rounded bg-brand-surface-container/60 border border-brand-outline-variant/30">
                             <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
                         </button>
                     </div>
@@ -228,16 +226,16 @@
             </div>
 
             <!-- Mobile dropdown drawer navigation (REORDERED EXACTLY: Home -> About -> Ceremonies -> FAQs -> Contact) -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white/80 backdrop-blur-lg border-t border-emerald-900/10 text-emerald-950 shadow-lg">
+            <div id="mobile-menu" class="hidden md:hidden bg-brand-surface-container/95 backdrop-blur-lg border-t border-brand-outline-variant/30 text-brand-on-surface shadow-lg">
                 <div class="px-4 pt-2 pb-6 space-y-3">
-                    <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Home</button>
-                    <button onclick="scrollToSection('about-celebrant'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">About</button>
-                    <button onclick="scrollToSection('services-showcase'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Ceremonies</button>
-                    <button onclick="scrollToSection('faq-accordion-section'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">FAQs</button>
-                    <button onclick="scrollToSection('contact-form'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-900 hover:text-gold-600 font-medium border-b border-stone-100">Contact</button>
+                    <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Home</button>
+                    <button onclick="scrollToSection('about-celebrant'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">About</button>
+                    <button onclick="scrollToSection('services-showcase'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Ceremonies</button>
+                    <button onclick="scrollToSection('faq-accordion-section'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">FAQs</button>
+                    <button onclick="scrollToSection('contact-form'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Contact</button>
                     <div class="py-2"></div>
-                    <button onclick="openPortalAuthModal(); toggleMobileMenu()" class="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white py-3.5 rounded-full shadow-md font-semibold">
-                        <i class="fa-solid fa-lock text-gold-200"></i>
+                    <button onclick="openPortalAuthModal(); toggleMobileMenu()" class="w-full flex items-center justify-center space-x-2 bg-brand-primary text-white py-3.5 rounded shadow font-semibold">
+                        <i class="fa-solid fa-lock text-brand-surface-dim"></i>
                         <span>Secure Client Portal</span>
                     </button>
                 </div>
@@ -248,26 +246,26 @@
             
             <section id="marketing-home" class="block transition-all duration-300">
                 
-                <!-- Hero Showcase with airy warm gradient canvas -->
-                <div class="relative py-20 sm:py-28 overflow-hidden flex flex-col items-center justify-center text-stone-800">
+                <!-- Hero Showcase with airy Warm Linen styling -->
+                <div class="relative py-20 sm:py-28 overflow-hidden flex flex-col items-center justify-center text-brand-tertiary">
                     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-white text-emerald-800 text-[10px] uppercase tracking-widest font-bold mb-8 shadow-sm">
-                            <i class="fa-solid fa-feather-pointed text-gold-500"></i>
+                        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-surface-container-lowest border border-brand-outline-variant/30 text-brand-primary text-[10px] uppercase tracking-[0.1em] font-semibold mb-8 shadow-sm">
+                            <i class="fa-solid fa-leaf text-brand-primary"></i>
                             <span>Heartfelt, Bespoke Storytelling</span>
                         </div>
-                        <h2 class="font-serif text-4xl sm:text-6xl tracking-tight text-emerald-950 mb-8 leading-[1.1] font-bold">
-                            Crafting ceremonies that feel entirely, <span class="text-gold-600 italic block sm:inline">beautifully yours.</span>
+                        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl tracking-tight text-brand-on-surface mb-8 leading-[1.1] font-bold">
+                            Crafting ceremonies that feel entirely, <span class="text-brand-primary italic block sm:inline">beautifully yours.</span>
                         </h2>
-                        <p class="text-lg md:text-base lg:text-lg text-stone-600 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p class="text-lg md:text-base lg:text-lg text-brand-on-surface-variant font-light max-w-2xl mx-auto mb-12 leading-relaxed">
                             Creating modern, meaningful, and deeply personal ceremonies across weddings, celebrations of life, and baby namings—honouring life's major milestones with warmth, dignity, and authentic connection.
                         </p>
                         <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-                            <button onclick="scrollToSection('services-showcase')" class="w-full sm:w-auto bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-semibold py-4 px-8 rounded-full transition duration-300 shadow-[0_10px_25px_rgba(8,82,60,0.15)] flex items-center justify-center space-x-2 tracking-wide">
+                            <button onclick="scrollToSection('services-showcase')" class="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-container text-white font-semibold py-4 px-8 rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 tracking-wide">
                                 <span>Explore Ceremonies</span>
-                                <i class="fa-solid fa-arrow-down text-gold-200"></i>
+                                <i class="fa-solid fa-arrow-down text-brand-surface"></i>
                             </button>
-                            <button onclick="openPortalAuthModal()" class="w-full sm:w-auto bg-white/70 hover:bg-white text-emerald-900 font-semibold py-4 px-8 rounded-full border border-stone-200 transition duration-300 shadow-md flex items-center justify-center space-x-2 tracking-wide">
-                                <i class="fa-solid fa-lock text-emerald-800"></i>
+                            <button onclick="openPortalAuthModal()" class="w-full sm:w-auto bg-brand-surface-container-lowest hover:bg-brand-surface-container border border-brand-outline text-brand-tertiary font-semibold py-4 px-8 rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 tracking-wide">
+                                <i class="fa-solid fa-lock text-brand-primary"></i>
                                 <span>Enter Client Portal</span>
                             </button>
                         </div>
@@ -278,171 +276,171 @@
                 <div id="about-celebrant" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div class="lg:flex lg:items-center lg:space-x-16">
                         <div class="lg:w-5/12 mb-10 lg:mb-0 relative">
-                            <div class="absolute -inset-2 bg-gradient-to-tr from-gold-500 to-emerald-200 rounded-3xl blur-xl opacity-20"></div>
+                            <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary-container/20 to-brand-surface-container-highest/30 rounded blur-xl opacity-25"></div>
                             <!-- Aspect-controlled frame that renders instantly with fallback skeleton -->
-                            <div class="relative bg-white/40 backdrop-blur-md rounded-3xl p-3 border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.03)] aspect-[4/5] w-full max-w-[450px] mx-auto lg:max-w-none overflow-hidden flex items-center justify-center">
+                            <div class="relative bg-brand-surface-container-low rounded-2xl p-3 border border-brand-outline-variant/30 shadow-sm aspect-[4/5] w-full max-w-[450px] mx-auto lg:max-w-none overflow-hidden flex items-center justify-center">
                                 
                                 <!-- 0ms load speed local placeholder card -->
-                                <div id="image-placeholder" class="absolute inset-3 bg-gradient-to-tr from-emerald-100/40 to-gold-50/40 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-inner border border-white/30">
-                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 flex items-center justify-center border border-gold-200/50 shadow-md mb-4 animate-pulse">
-                                        <span class="font-serif text-lg text-gold-200 font-bold tracking-wider">LB</span>
+                                <div id="image-placeholder" class="absolute inset-3 bg-brand-surface-container rounded-xl flex flex-col items-center justify-center p-6 text-center select-none shadow-inner border border-brand-outline-variant/20">
+                                    <div class="w-16 h-16 rounded-full bg-brand-primary flex items-center justify-center border border-brand-outline-variant/40 shadow-sm mb-4 animate-pulse">
+                                        <span class="font-serif text-lg text-white font-bold tracking-wider">LB</span>
                                     </div>
-                                    <p class="font-serif text-emerald-950 font-bold text-lg mb-1 leading-tight">Lisa B Celebrant</p>
-                                    <p class="text-[9px] uppercase tracking-widest text-gold-600 font-bold">Custom Ceremonies</p>
+                                    <p class="font-serif text-brand-on-surface font-bold text-lg mb-1 leading-tight">Lisa B Celebrant</p>
+                                    <p class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold">Custom Ceremonies</p>
                                 </div>
 
                                 <!-- Real LisaB.png progressively faded-in on successful render from GitHub -->
                                 <img src="LisaB.png" 
                                      loading="lazy"
                                      onload="this.classList.remove('opacity-0'); document.getElementById('image-placeholder').classList.add('opacity-0', 'pointer-events-none');"
-                                     onerror="this.src='https://placehold.co/400x500/e6f5ee/08523c?text=Lisa+B+Celebrant';"
+                                     onerror="this.src='https://placehold.co/400x500/efeeeb/526253?text=Lisa+B+Celebrant';"
                                      alt="Lisa B Celebrant" 
-                                     class="w-full h-full object-cover object-center rounded-2xl shadow-inner relative z-10 transition-opacity duration-300 opacity-0">
+                                     class="w-full h-full object-cover object-center rounded-xl shadow-inner relative z-10 transition-opacity duration-300 opacity-0">
                             </div>
                         </div>
                         <div class="lg:w-7/12">
-                            <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Hello, I'm Lisa B Celebrant</span>
-                            <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-6">Telling life stories that bring communities closer</h3>
+                            <span class="text-brand-primary font-bold text-[12px] uppercase tracking-[0.1em] block mb-2">Hello, I'm Lisa B Celebrant</span>
+                            <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-6">Telling life stories that bring communities closer</h3>
                             
                             <!-- Rich, high-EEAT trust quotes and stats targeted for GEO indexing -->
-                            <div class="bg-gradient-to-r from-emerald-50/50 to-gold-50/50 rounded-2xl p-6 border-l-4 border-emerald-500 mb-8 italic text-stone-700 text-sm md:text-xs sm:text-sm leading-relaxed shadow-sm">
-                                "With over <strong class="text-emerald-950 font-semibold">150+ bespoke ceremonies</strong> performed and a perfect <strong class="text-emerald-950 font-semibold">5-star rating</strong> across Norfolk, Suffolk, Essex, and Cambridgeshire, we hold our service to an absolute standard of personalisation. Every script is created 100% template-free, written entirely from scratch to capture individual life journeys."
+                            <div class="bg-brand-surface-container-low rounded-xl p-6 border-l-4 border-brand-primary mb-8 italic text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed shadow-sm">
+                                "With over <strong class="text-brand-on-surface font-semibold">150+ bespoke ceremonies</strong> performed and a perfect <strong class="text-brand-on-surface font-semibold">5-star rating</strong> across Norfolk, Suffolk, Essex, and Cambridgeshire, we hold our service to an absolute standard of personalisation. Every script is created 100% template-free, written entirely from scratch to capture individual life journeys."
                             </div>
 
-                            <p class="text-stone-600 leading-relaxed mb-6 text-base md:text-sm">
+                            <p class="text-brand-on-surface-variant leading-relaxed mb-6 text-base md:text-sm">
                                 Life is structured by transitions—some joyous and planned, others delicate and sudden. As an independent, modern celebrant, I don't use stale, recycled templates. I spend time learning who you are, what values guide you, and what milestones define you.
                             </p>
-                            <p class="text-stone-600 leading-relaxed mb-8 text-base md:text-sm">
+                            <p class="text-brand-on-surface-variant leading-relaxed mb-8 text-base md:text-sm">
                                 Whether we are planning a wedding full of romance and laughter, a naming day welcoming your child into family circles, or a tribute honouring the deep legacy of a loved one—my goal is to deliver words that feel entirely, beautifully yours.
                             </p>
                             
-                            <div class="grid grid-cols-3 gap-2 sm:gap-4 border-t border-stone-200/50 pt-8">
+                            <div class="grid grid-cols-3 gap-2 sm:gap-4 border-t border-brand-outline-variant/30 pt-8">
                                 <div>
-                                    <h5 class="font-serif text-2xl sm:text-3xl text-emerald-800 font-bold">150+</h5>
-                                    <p class="text-[10px] md:text-[9px] text-stone-500 uppercase tracking-widest mt-1.5 font-bold">Unique Ceremonies</p>
+                                    <h5 class="font-serif text-2xl sm:text-3xl text-brand-primary font-bold">150+</h5>
+                                    <p class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] mt-1.5 font-bold">Unique Ceremonies</p>
                                 </div>
-                                <div class="border-l border-stone-200/50 pl-3 sm:pl-8">
-                                    <h5 class="font-serif text-2xl sm:text-3xl text-emerald-800 font-bold">100%</h5>
-                                    <p class="text-[10px] md:text-[9px] text-stone-500 uppercase tracking-widest mt-1.5 font-bold">Bespoke Scripts</p>
+                                <div class="border-l border-brand-outline-variant/30 pl-3 sm:pl-8">
+                                    <h5 class="font-serif text-2xl sm:text-3xl text-brand-primary font-bold">100%</h5>
+                                    <p class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] mt-1.5 font-bold">Bespoke Scripts</p>
                                 </div>
-                                <div class="border-l border-stone-200/50 pl-3 sm:pl-8">
-                                    <h5 class="font-serif text-2xl sm:text-3xl text-emerald-800 font-bold">5★</h5>
-                                    <p class="text-[10px] md:text-[9px] text-stone-500 uppercase tracking-widest mt-1.5 font-bold">Google Rated</p>
+                                <div class="border-l border-brand-outline-variant/30 pl-3 sm:pl-8">
+                                    <h5 class="font-serif text-2xl sm:text-3xl text-brand-primary font-bold">5★</h5>
+                                    <p class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] mt-1.5 font-bold">Google Rated</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div id="services-showcase" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-b from-white/10 to-emerald-50/20 border-t border-white/50">
+                <div id="services-showcase" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-brand-surface-container-low/30 border-t border-brand-outline-variant/20">
                     <div class="text-center max-w-3xl mx-auto mb-16">
-                        <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Our Offerings</span>
-                        <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-4">Milestone Ceremonies</h3>
-                        <div class="w-16 h-0.5 bg-gold-500 mx-auto rounded mb-4"></div>
-                        <p class="text-stone-600">Every life chapter has its own rhythm and tone. Select a pathway below to see how we approach your specific landmark celebration.</p>
+                        <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.1em] block mb-2">Our Offerings</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4">Milestone Ceremonies</h3>
+                        <div class="w-16 h-0.5 bg-brand-primary mx-auto rounded mb-4"></div>
+                        <p class="text-brand-on-surface-variant text-sm">Every life chapter has its own rhythm and tone. Select a pathway below to see how we approach your specific landmark celebration.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Weddings Service card details -->
-                        <div class="bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg overflow-hidden group hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                        <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
                             <div>
-                                <div class="h-44 bg-emerald-900/10 relative flex items-center justify-center overflow-hidden">
-                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/e6f5ee/08523c?text=Weddings');"></div>
-                                    <div class="relative z-10 w-14 h-14 rounded-full bg-white border border-gold-200 flex items-center justify-center text-emerald-800 text-xl shadow-sm">
+                                <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
+                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/efeeeb/526253?text=Weddings');"></div>
+                                    <div class="relative z-10 w-14 h-14 rounded-full bg-brand-surface border border-brand-outline-variant flex items-center justify-center text-brand-primary text-xl shadow-sm">
                                         <i class="fa-solid fa-heart animate-pulse"></i>
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-emerald-950 font-bold mb-3">Weddings</h4>
-                                    <p class="text-stone-600 text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Weddings</h4>
+                                    <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
                                         Joyful, romantic, and completely bespoke. Perfect for couples who wish to bypass generic templates and create a custom script bursting with your unique love story and custom rituals.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Custom script-writing collaboration
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Custom script-writing collaboration
                                         </li>
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Support with custom vow structures
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Support with custom vow structures
                                         </li>
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Symbolic handfasting or ring-warming
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Symbolic handfasting or ring-warming
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="p-6 pt-0">
                                 <!-- Click calls openServiceDetails to trigger customised glass pop-up -->
-                                <button onclick="openServiceDetails('wedding')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                <button onclick="openServiceDetails('wedding')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
                                     Learn More & Enquire
                                 </button>
                             </div>
                         </div>
 
                         <!-- Funerals Service card -->
-                        <div class="bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg overflow-hidden group hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                        <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
                             <div>
-                                <div class="h-44 bg-stone-900/10 relative flex items-center justify-center overflow-hidden">
-                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/ebdcd0/1c1917?text=Funerals');"></div>
-                                    <div class="relative z-10 w-14 h-14 rounded-full bg-white border border-stone-300/40 flex items-center justify-center text-stone-500 text-xl shadow-sm">
-                                        <i class="fa-solid fa-cloud-sun text-gold-500"></i>
+                                <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
+                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/efeeeb/526253?text=Funerals');"></div>
+                                    <div class="relative z-10 w-14 h-14 rounded-full bg-brand-surface border border-brand-outline-variant flex items-center justify-center text-brand-secondary text-xl shadow-sm">
+                                        <i class="fa-solid fa-cloud-sun text-brand-primary"></i>
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-emerald-950 font-bold mb-3">Funerals & Memorials</h4>
-                                    <p class="text-stone-600 text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Funerals & Memorials</h4>
+                                    <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
                                         Empathetic, deeply respectful, and comforting. Designed to capture the absolute essence of a loved one's unique personality and achievements, offering solace during delicate times.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Rapid planning alignment (7-14 days)
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Rapid planning alignment (7-14 days)
                                         </li>
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Liaison with Funeral Directors
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Liaison with Funeral Directors
                                         </li>
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Authentic eulogy & tribute delivery
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Authentic eulogy & tribute delivery
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="p-6 pt-0">
                                 <!-- Click calls openServiceDetails to trigger customised glass pop-up -->
-                                <button onclick="openServiceDetails('funeral')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                <button onclick="openServiceDetails('funeral')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
                                     Learn More & Enquire
                                 </button>
                             </div>
                         </div>
 
                         <!-- Naming Day Service card -->
-                        <div class="bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg overflow-hidden group hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                        <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
                             <div>
-                                <div class="h-44 bg-teal-900/10 relative flex items-center justify-center overflow-hidden">
-                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/dcfce7/065f46?text=Naming+Days');"></div>
-                                    <div class="relative z-10 w-14 h-14 rounded-full bg-white border border-gold-200 flex items-center justify-center text-gold-500 text-xl shadow-sm">
+                                <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
+                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/efeeeb/526253?text=Naming+Days');"></div>
+                                    <div class="relative z-10 w-14 h-14 rounded-full bg-brand-surface border border-brand-outline-variant flex items-center justify-center text-brand-primary text-xl shadow-sm">
                                         <i class="fa-solid fa-seedling"></i>
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-emerald-950 font-bold mb-3">Naming Days</h4>
-                                    <p class="text-stone-600 text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Naming Days</h4>
+                                    <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
                                         Bright, welcoming, and family-focused. Created to officially introduce infants, adopted children, or older siblings to your loved ones, with meaningful guideparent commitments.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Heartwarming custom promises
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Heartwarming custom promises
                                         </li>
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Symbolic wish-tree or sand ritual
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Symbolic wish-tree or sand ritual
                                         </li>
-                                        <li class="flex items-center text-stone-700 text-sm md:text-xs">
-                                            <i class="fa-solid fa-check text-emerald-800 mr-2 bg-emerald-100/50 p-1 rounded-full text-[8px]"></i> Commemorative naming certificates
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Commemorative naming certificates
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="p-6 pt-0">
                                 <!-- Click calls openServiceDetails to trigger customised glass pop-up -->
-                                <button onclick="openServiceDetails('naming')" class="w-full py-3 bg-white hover:bg-gradient-to-r hover:from-emerald-800 hover:to-emerald-900 hover:text-white border border-emerald-900/10 text-emerald-900 font-semibold rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                <button onclick="openServiceDetails('naming')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
                                     Learn More & Enquire
                                 </button>
                             </div>
@@ -450,55 +448,54 @@
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-r from-emerald-50/60 via-gold-50/40 to-teal-50/50 py-20 border-t border-b border-white/60">
+                <div class="bg-brand-surface-container py-20 border-t border-b border-brand-outline-variant/30">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="lg:flex lg:items-center lg:justify-between gap-12">
                             <div class="lg:w-1/2 mb-10 lg:mb-0">
-                                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white border border-emerald-900/10 text-emerald-900 text-[10px] font-bold mb-4 shadow-sm">
-                                    <i class="fa-solid fa-shield-halved text-gold-500"></i>
+                                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-outline-variant/30 text-brand-primary text-[10px] font-bold mb-4 shadow-sm">
+                                    <i class="fa-solid fa-shield-halved text-brand-primary"></i>
                                     <span>Collaborative Planning System</span>
                                 </div>
-                                <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-4">The Secure Client Portal</h3>
-                                <p class="text-stone-600 leading-relaxed mb-6 text-base md:text-sm">
+                                <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4">The Secure Client Portal</h3>
+                                <p class="text-brand-on-surface-variant leading-relaxed mb-6 text-base md:text-sm">
                                     Once booked with me, you will receive secure access to your private digital workspace. Together we will manage files, build checklists, write reflection details, co-edit the drafts, and arrange your final Order of Service sequence—all in a fully secure cloud environment.
                                 </p>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div class="flex items-start space-x-3">
-                                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-emerald-800 shadow-sm border border-emerald-100 flex-shrink-0">
+                                        <div class="w-8 h-8 rounded-full bg-brand-surface-container-lowest flex items-center justify-center text-brand-primary shadow-sm border border-brand-outline-variant flex-shrink-0">
                                             <i class="fa-solid fa-file-pdf text-xs"></i>
                                         </div>
                                         <div>
-                                            <h5 class="font-bold text-emerald-950 text-sm">Doc & Photo Vault</h5>
-                                            <p class="text-[11px] text-stone-500">Secure uploader for readings, music logs, and event pictures.</p>
+                                            <h5 class="font-bold text-brand-on-surface text-sm">Doc & Photo Vault</h5>
+                                            <p class="text-[11px] text-brand-on-surface-variant">Secure uploader for readings, music logs, and event pictures.</p>
                                         </div>
                                     </div>
                                     <div class="flex items-start space-x-3">
-                                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-emerald-800 shadow-sm border border-emerald-100 flex-shrink-0">
+                                        <div class="w-8 h-8 rounded-full bg-brand-surface-container-lowest flex items-center justify-center text-brand-primary shadow-sm border border-brand-outline-variant flex-shrink-0">
                                             <i class="fa-solid fa-pen-nib text-xs"></i>
                                         </div>
                                         <div>
-                                            <h5 class="font-bold text-emerald-950 text-sm">Co-Editing Console</h5>
-                                            <p class="text-[11px] text-stone-500">Edit draft scripts and lock your final printed versions securely.</p>
+                                            <h5 class="font-bold text-brand-on-surface text-sm">Co-Editing Console</h5>
+                                            <p class="text-[11px] text-brand-on-surface-variant">Edit draft scripts and lock your final printed versions securely.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="lg:w-1/2 bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xl relative">
-                                <div class="absolute -top-3 -right-3 w-20 h-20 bg-gold-200/10 rounded-full blur-xl"></div>
-                                <h4 class="font-serif text-xl text-emerald-950 mb-4 font-bold">Demo our Secure Workspace</h4>
-                                <p class="text-stone-600 text-xs sm:text-sm mb-6 font-light">Explore how the portal behaves under specific ceremony planning frameworks with our pre-loaded sandbox models:</p>
+                            <div class="lg:w-1/2 bg-brand-surface/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-brand-outline-variant/30 shadow-sm relative">
+                                <h4 class="font-serif text-xl text-brand-on-surface mb-4 font-bold">Demo our Secure Workspace</h4>
+                                <p class="text-brand-on-surface-variant text-xs sm:text-sm mb-6 font-light">Explore how the portal behaves under specific ceremony planning frameworks with our pre-loaded sandbox models:</p>
                                 <div class="space-y-3">
-                                    <button onclick="simulatePortalLogin('wedding')" class="w-full flex items-center justify-between bg-white hover:bg-emerald-50/50 p-4 rounded-xl border border-stone-200/60 transition duration-200 text-left shadow-sm">
-                                        <span class="text-xs sm:text-sm font-semibold text-emerald-950"><i class="fa-solid fa-heart text-rose-500 mr-2"></i> Sarah & James (Wedding Planner)</span>
-                                        <i class="fa-solid fa-chevron-right text-emerald-800 text-xs"></i>
+                                    <button onclick="simulatePortalLogin('wedding')" class="w-full flex items-center justify-between bg-brand-surface hover:bg-brand-surface-container-low p-4 rounded border border-brand-outline-variant/30 transition duration-200 text-left shadow-sm">
+                                        <span class="text-xs sm:text-sm font-semibold text-brand-on-surface"><i class="fa-solid fa-heart text-rose-500 mr-2"></i> Sarah & James (Wedding Planner)</span>
+                                        <i class="fa-solid fa-chevron-right text-brand-primary text-xs"></i>
                                     </button>
-                                    <button onclick="simulatePortalLogin('funeral')" class="w-full flex items-center justify-between bg-white hover:bg-emerald-50/50 p-4 rounded-xl border border-stone-200/60 transition duration-200 text-left shadow-sm">
-                                        <span class="text-xs sm:text-sm font-semibold text-emerald-950"><i class="fa-solid fa-cloud-sun text-stone-400 mr-2"></i> Eleanor Thompson (Celebration of Life)</span>
-                                        <i class="fa-solid fa-chevron-right text-emerald-800 text-xs"></i>
+                                    <button onclick="simulatePortalLogin('funeral')" class="w-full flex items-center justify-between bg-brand-surface hover:bg-brand-surface-container-low p-4 rounded border border-brand-outline-variant/30 transition duration-200 text-left shadow-sm">
+                                        <span class="text-xs sm:text-sm font-semibold text-brand-on-surface"><i class="fa-solid fa-cloud-sun text-brand-secondary mr-2"></i> Eleanor Thompson (Celebration of Life)</span>
+                                        <i class="fa-solid fa-chevron-right text-brand-primary text-xs"></i>
                                     </button>
-                                    <button onclick="simulatePortalLogin('naming')" class="w-full flex items-center justify-between bg-white hover:bg-emerald-50/50 p-4 rounded-xl border border-stone-200/60 transition duration-200 text-left shadow-sm">
-                                        <span class="text-xs sm:text-sm font-semibold text-emerald-950"><i class="fa-solid fa-seedling text-teal-500 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
-                                        <i class="fa-solid fa-chevron-right text-emerald-800 text-xs"></i>
+                                    <button onclick="simulatePortalLogin('naming')" class="w-full flex items-center justify-between bg-brand-surface hover:bg-brand-surface-container-low p-4 rounded border border-brand-outline-variant/30 transition duration-200 text-left shadow-sm">
+                                        <span class="text-xs sm:text-sm font-semibold text-brand-on-surface"><i class="fa-solid fa-seedling text-teal-600 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
+                                        <i class="fa-solid fa-chevron-right text-brand-primary text-xs"></i>
                                     </button>
                                 </div>
                             </div>
@@ -506,86 +503,85 @@
                     </div>
                 </div>
 
-                <section id="faq-accordion-section" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-white/50">
+                <section id="faq-accordion-section" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-brand-outline-variant/30">
                     <div class="text-center mb-16">
-                        <span class="text-gold-600 font-bold text-xs uppercase tracking-widest block mb-2">Answering Your Questions</span>
-                        <h3 class="font-serif text-3xl sm:text-4xl text-emerald-950 font-bold mb-4">Frequently Asked Questions</h3>
-                        <div class="w-16 h-0.5 bg-gold-500 mx-auto rounded"></div>
+                        <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.1em] block mb-2">Answering Your Questions</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4">Frequently Asked Questions</h3>
+                        <div class="w-16 h-0.5 bg-brand-primary mx-auto rounded"></div>
                     </div>
                     
                     <div class="space-y-4">
-                        <div class="bg-white/60 backdrop-blur-md rounded-2xl border border-white/80 shadow-sm overflow-hidden">
-                            <button onclick="toggleFaqAccordion(1)" class="w-full px-6 py-5 text-left flex justify-between items-center text-emerald-950 font-serif font-bold text-base sm:text-lg hover:bg-emerald-50/30 transition duration-150">
+                        <div class="bg-brand-surface-container-low rounded border border-brand-outline-variant/30 shadow-sm overflow-hidden">
+                            <button onclick="toggleFaqAccordion(1)" class="w-full px-6 py-5 text-left flex justify-between items-center text-brand-on-surface font-serif font-bold text-base sm:text-lg hover:bg-brand-surface-container/50 transition duration-150">
                                 <span>Can an independent celebrant legally marry us in the UK?</span>
-                                <i id="faq-icon-1" class="fa-solid fa-chevron-down text-emerald-800 text-sm transition-transform duration-200"></i>
+                                <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-1" class="hidden px-6 pb-5 text-stone-600 text-sm md:text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3">
+                            <div id="faq-body-1" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 Currently, in England and Wales, an independent celebrant cannot perform the legal marriage registration. Couples typically complete their legal registration (the "administrative script") at a local register office before or after their personalised, bespoke celebrant ceremony. However, your celebrant-led ceremony is where you share your real vows, exchange rings, and perform custom symbolic rituals (like handfasting) in front of all your family and friends.
                             </div>
                         </div>
 
-                        <div class="bg-white/60 backdrop-blur-md rounded-2xl border border-white/80 shadow-sm overflow-hidden">
-                            <button onclick="toggleFaqAccordion(2)" class="w-full px-6 py-5 text-left flex justify-between items-center text-emerald-950 font-serif font-bold text-base sm:text-lg hover:bg-emerald-50/30 transition duration-150">
+                        <div class="bg-brand-surface-container-low rounded border border-brand-outline-variant/30 shadow-sm overflow-hidden">
+                            <button onclick="toggleFaqAccordion(2)" class="w-full px-6 py-5 text-left flex justify-between items-center text-brand-on-surface font-serif font-bold text-base sm:text-lg hover:bg-brand-surface-container/50 transition duration-150">
                                 <span>How far in advance of the ceremony must our script be finalised?</span>
-                                <i id="faq-icon-2" class="fa-solid fa-chevron-down text-emerald-800 text-sm transition-transform duration-200"></i>
+                                <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-2" class="hidden px-6 pb-5 text-stone-600 text-sm md:text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3">
+                            <div id="faq-body-2" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 To ensure smooth choreography, coordinate cue timings with venue suppliers, and allow standard time for stationery or Order of Service layout printing, all scripts must be approved and locked in your Secure Client Portal at least 14 days before the ceremony date.
                             </div>
                         </div>
 
-                        <div class="bg-white/60 backdrop-blur-md rounded-2xl border border-white/80 shadow-sm overflow-hidden">
-                            <button onclick="toggleFaqAccordion(3)" class="w-full px-6 py-5 text-left flex justify-between items-center text-emerald-955 font-serif font-bold text-base sm:text-lg hover:bg-emerald-50/30 transition duration-150">
+                        <div class="bg-brand-surface-container-low rounded border border-brand-outline-variant/30 shadow-sm overflow-hidden">
+                            <button onclick="toggleFaqAccordion(3)" class="w-full px-6 py-5 text-left flex justify-between items-center text-brand-on-surface font-serif font-bold text-base sm:text-lg hover:bg-brand-surface-container/50 transition duration-150">
                                 <span>What custom symbolic rituals can we include in our ceremony?</span>
-                                <i id="faq-icon-3" class="fa-solid fa-chevron-down text-emerald-800 text-sm transition-transform duration-200"></i>
+                                <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-3" class="hidden px-6 pb-5 text-stone-600 text-sm md:text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3">
+                            <div id="faq-body-3" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 As independent celebrants, we can incorporate a wide range of symbolic rituals, including traditional handfasting (binding of wrists with silk cords), ring-warming (where guests pass your rings to infuse them with good wishes), memory wish-trees, candle-lighting, or sand-blending rituals. All of these can be customised to match your family values.
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <div id="contact-form" class="py-20 border-t border-white/50">
+                <div id="contact-form" class="py-20 border-t border-brand-outline-variant/30">
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="bg-white/50 backdrop-blur-md rounded-3xl shadow-xl p-6 sm:p-12 border border-white/80 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-900/5 rounded-full -mr-16 -mt-16"></div>
+                        <div class="bg-brand-surface-container-low rounded-2xl shadow-sm p-6 sm:p-12 border border-brand-outline-variant/30 relative overflow-hidden">
                             <div class="text-center mb-10">
-                                <h3 class="font-serif text-3xl text-emerald-955 font-bold mb-3">Enquire About Your Date</h3>
-                                <p class="text-stone-600 text-xs sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
+                                <h3 class="font-serif text-3xl text-brand-on-surface font-bold mb-3">Enquire About Your Date</h3>
+                                <p class="text-brand-on-surface-variant text-xs sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
                             </div>
                             <form onsubmit="handleContactSubmit(event)" class="space-y-6">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
-                                        <label class="block text-xs md:text-[11px] font-semibold text-emerald-955 uppercase tracking-wider mb-2">Your Name(s)</label>
-                                        <input type="text" required class="w-full px-4 py-3 text-base md:text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition" placeholder="Sarah & James">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Your Name(s)</label>
+                                        <input type="text" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition" placeholder="Sarah & James">
                                     </div>
                                     <div>
-                                        <label class="block text-xs md:text-[11px] font-semibold text-emerald-955 uppercase tracking-wider mb-2">Email Address</label>
-                                        <input type="email" required class="w-full px-4 py-3 text-base md:text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition" placeholder="name@domain.com">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Email Address</label>
+                                        <input type="email" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition" placeholder="name@domain.com">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
-                                        <label class="block text-xs md:text-[11px] font-semibold text-emerald-955 uppercase tracking-wider mb-2">Ceremony Type</label>
-                                        <select id="contact-ceremony-type" class="w-full px-4 py-3 text-base md:text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-600">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Ceremony Type</label>
+                                        <select id="contact-ceremony-type" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
                                             <option value="wedding">Wedding Ceremony</option>
                                             <option value="funeral">Funeral or Memorial Tribute</option>
                                             <option value="naming">Naming Ceremony</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs md:text-[11px] font-semibold text-emerald-955 uppercase tracking-wider mb-2">Planned Date</label>
-                                        <input type="date" required class="w-full px-4 py-3 text-base md:text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-600">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Planned Date</label>
+                                        <input type="date" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="block text-xs md:text-[11px] font-semibold text-emerald-955 uppercase tracking-wider mb-2">Ceremony Vision & Requests</label>
-                                    <textarea rows="4" class="w-full px-4 py-3 text-base md:text-sm bg-white/70 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-transparent transition text-stone-700" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
+                                    <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Ceremony Vision & Requests</label>
+                                    <textarea rows="4" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
                                 </div>
                                 <div class="pt-2">
-                                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-955 text-white font-semibold rounded-xl transition duration-300 shadow-md flex items-center justify-center space-x-2 border border-gold-200/30">
-                                        <i class="fa-regular fa-paper-plane text-gold-200"></i>
+                                    <button type="submit" class="w-full py-4 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 border border-brand-outline-variant/30">
+                                        <i class="fa-regular fa-paper-plane text-brand-surface"></i>
                                         <span>Send Consultation Enquiry</span>
                                     </button>
                                 </div>
@@ -599,43 +595,43 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     
                     <!-- Client Portal Top Info Banner -->
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-white/50 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md mb-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-brand-surface-container-low rounded-2xl p-6 sm:p-8 border border-brand-outline-variant/30 shadow-sm mb-8">
                         <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 border border-gold-200 flex items-center justify-center text-gold-200 text-xl shadow animate-none">
+                            <div class="w-14 h-14 rounded-full bg-brand-primary border border-brand-outline-variant flex items-center justify-center text-white text-xl shadow-sm">
                                 <i id="portal-user-icon" class="fa-solid fa-heart"></i>
                             </div>
                             <div>
-                                <span class="text-[10px] uppercase tracking-widest text-gold-600 font-bold" id="portal-ceremony-type-badge">Wedding</span>
-                                <h2 class="font-serif text-2xl font-bold text-emerald-950" id="portal-user-names">Sarah & James</h2>
-                                <p class="text-xs text-stone-500">Secure Client Vault ID: <span class="font-mono text-emerald-800 select-all font-semibold" id="portal-user-uid">cl-wedding-01</span></p>
+                                <span class="text-[10px] uppercase tracking-[0.1em] text-brand-primary font-bold font-sans" id="portal-ceremony-type-badge">Wedding</span>
+                                <h2 class="font-serif text-2xl font-bold text-brand-on-surface" id="portal-user-names">Sarah & James</h2>
+                                <p class="text-xs text-brand-on-surface-variant">Secure Client Vault ID: <span class="font-mono text-brand-primary select-all font-semibold" id="portal-user-uid">cl-wedding-01</span></p>
                             </div>
                         </div>
                         <div class="flex items-center space-x-4 justify-between md:justify-start w-full md:w-auto">
                             <div class="text-left md:text-right">
-                                <span class="text-[9px] text-stone-400 uppercase tracking-widest block font-bold">Timeline Remaining</span>
-                                <span class="font-serif text-base sm:text-lg font-bold text-emerald-900" id="portal-countdown-display">Calculating...</span>
+                                <span class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] block font-bold font-sans">Timeline Remaining</span>
+                                <span class="font-serif text-base sm:text-lg font-bold text-brand-primary" id="portal-countdown-display">Calculating...</span>
                             </div>
-                            <button onclick="logoutPortal()" class="px-4 py-2.5 text-stone-500 hover:text-red-700 hover:bg-red-50/50 rounded-xl text-xs font-semibold transition duration-150 border border-stone-200 flex items-center space-x-1.5 active:scale-95 bg-white/80">
+                            <button onclick="logoutPortal()" class="px-4 py-2.5 text-brand-on-surface-variant hover:text-brand-primary hover:bg-brand-surface rounded text-xs font-semibold transition duration-150 border border-brand-outline-variant flex items-center space-x-1.5 active:scale-95 bg-brand-surface-container-lowest">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Exit Portal</span>
                             </button>
                         </div>
                     </div>
 
                     <!-- Mobile Navigation Bar for Dashboard Sections (Hides on Desktop lg) -->
-                    <div class="lg:hidden flex overflow-x-auto space-x-2 pb-4 mb-6 border-b border-stone-200 scrollbar-none scroll-smooth">
-                        <button data-tab="checklist" onclick="switchPortalTab('checklist')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white text-xs font-semibold rounded-full shadow-sm">
+                    <div class="lg:hidden flex overflow-x-auto space-x-2 pb-4 mb-6 border-b border-brand-outline-variant/30 scrollbar-none scroll-smooth">
+                        <button data-tab="checklist" onclick="switchPortalTab('checklist')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-primary text-white text-xs font-semibold rounded-full shadow-sm">
                             <i class="fa-solid fa-list-check mr-1"></i> Planner Tasks
                         </button>
-                        <button data-tab="questionnaire" onclick="switchPortalTab('questionnaire')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <button data-tab="questionnaire" onclick="switchPortalTab('questionnaire')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-surface-container-lowest text-brand-on-surface-variant text-xs font-semibold rounded-full border border-brand-outline-variant/30">
                             <i class="fa-solid fa-pen-fancy mr-1"></i> Story
                         </button>
-                        <button data-tab="vault" onclick="switchPortalTab('vault')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <button data-tab="vault" onclick="switchPortalTab('vault')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-surface-container-lowest text-brand-on-surface-variant text-xs font-semibold rounded-full border border-brand-outline-variant/30">
                             <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Vault
                         </button>
-                        <button data-tab="script" onclick="switchPortalTab('script')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <button data-tab="script" onclick="switchPortalTab('script')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-surface-container-lowest text-brand-on-surface-variant text-xs font-semibold rounded-full border border-brand-outline-variant/30">
                             <i class="fa-solid fa-scroll mr-1"></i> Script
                         </button>
-                        <button data-tab="oos" onclick="switchPortalTab('oos')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-200">
+                        <button data-tab="oos" onclick="switchPortalTab('oos')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-surface-container-lowest text-brand-on-surface-variant text-xs font-semibold rounded-full border border-brand-outline-variant/30">
                             <i class="fa-solid fa-list-ol mr-1"></i> Order of Service
                         </button>
                     </div>
@@ -646,40 +642,40 @@
                         <div class="lg:col-span-4 space-y-6">
                             
                             <!-- Real-time Tasks list connected to state -->
-                            <div id="portal-checklist-section" class="portal-section bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm flex flex-col justify-between">
+                            <div id="portal-checklist-section" class="portal-section bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between">
                                 <div>
                                     <div class="flex justify-between items-center mb-4">
-                                        <h4 class="font-serif text-lg text-emerald-950 font-bold">Your Planning Tasks</h4>
-                                        <span id="checklist-progress-percent" class="text-[10px] font-bold bg-emerald-100/50 text-emerald-800 px-2.5 py-1 rounded-full">0% Done</span>
+                                        <h4 class="font-serif text-lg text-brand-on-surface font-bold">Your Planning Tasks</h4>
+                                        <span id="checklist-progress-percent" class="text-[10px] font-bold bg-brand-surface text-brand-primary px-2.5 py-1 rounded border border-brand-outline-variant/30 font-sans">0% Done</span>
                                     </div>
-                                    <div class="w-full bg-stone-100 rounded-full h-1.5 mb-6 overflow-hidden">
-                                        <div id="checklist-progress-bar" class="bg-gradient-to-r from-emerald-500 to-emerald-800 h-1.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                    <div class="w-full bg-brand-surface-container rounded-full h-1.5 mb-6 overflow-hidden">
+                                        <div id="checklist-progress-bar" class="bg-brand-primary h-1.5 rounded-full transition-all duration-300" style="width: 0%"></div>
                                     </div>
                                     <div id="portal-tasks-container" class="space-y-3">
                                         <!-- Dynamic checklist tasks injected on auth -->
                                     </div>
                                 </div>
-                                <div class="mt-6 pt-4 border-t border-stone-200/50 flex items-center justify-between text-[11px] text-stone-400">
-                                    <span><i class="fa-regular fa-clock text-gold-600 mr-1"></i> Script locks 14 days prior</span>
-                                    <button onclick="resetChecklist()" class="text-emerald-800 hover:underline font-bold">Reset Demo</button>
+                                <div class="mt-6 pt-4 border-t border-brand-outline-variant/30 flex items-center justify-between text-[11px] text-brand-on-surface-variant">
+                                    <span><i class="fa-regular fa-clock text-brand-primary mr-1"></i> Script locks 14 days prior</span>
+                                    <button onclick="resetChecklist()" class="text-brand-primary hover:underline font-bold">Reset Demo</button>
                                 </div>
                             </div>
 
-                            <div id="portal-questionnaire-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
-                                <h4 class="font-serif text-lg text-emerald-950 font-bold mb-1">Story Questionnaire</h4>
-                                <p class="text-stone-500 text-xs mb-4">Reflective prompts that help shape your final script. Progress saves as you type.</p>
+                            <div id="portal-questionnaire-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
+                                <h4 class="font-serif text-lg text-brand-on-surface font-bold mb-1">Story Questionnaire</h4>
+                                <p class="text-brand-on-surface-variant text-xs mb-4">Reflective prompts that help shape your final script. Progress saves as you type.</p>
                                 <div class="space-y-4">
                                     <div>
-                                        <label id="q-prompt-1" class="block text-xs font-semibold text-stone-600 mb-1.5 leading-relaxed">Prompt 1</label>
-                                        <textarea id="q-ans-1" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-white/70 border border-stone-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-800" rows="3" placeholder="Write your thoughts here..."></textarea>
+                                        <label id="q-prompt-1" class="block text-xs font-semibold text-brand-on-surface-variant mb-1.5 leading-relaxed font-sans">Prompt 1</label>
+                                        <textarea id="q-ans-1" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" rows="3" placeholder="Write your thoughts here..."></textarea>
                                     </div>
                                     <div>
-                                        <label id="q-prompt-2" class="block text-xs font-semibold text-stone-600 mb-1.5 leading-relaxed">Prompt 2</label>
-                                        <textarea id="q-ans-2" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-white/70 border border-stone-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-800" rows="3" placeholder="Write details here..."></textarea>
+                                        <label id="q-prompt-2" class="block text-xs font-semibold text-brand-on-surface-variant mb-1.5 leading-relaxed font-sans">Prompt 2</label>
+                                        <textarea id="q-ans-2" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" rows="3" placeholder="Write details here..."></textarea>
                                     </div>
-                                    <div class="flex items-center justify-between text-[10px] text-emerald-900 font-bold pt-1">
-                                        <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Saved to Cloud Firestore</span>
-                                        <button onclick="clearStoryAnswers()" class="text-stone-400 hover:text-stone-600 font-bold font-sans">Clear Fields</button>
+                                    <div class="flex items-center justify-between text-[10px] text-brand-primary font-bold pt-1 font-sans">
+                                        <span><i class="fa-solid fa-circle-check text-brand-primary mr-1"></i> Saved to Cloud Firestore</span>
+                                        <button onclick="clearStoryAnswers()" class="text-brand-secondary hover:text-brand-on-surface font-bold">Clear Fields</button>
                                     </div>
                                 </div>
                             </div>
@@ -688,42 +684,42 @@
                         <!-- Right-Hand Workspace (File Uploader, Script Co-editing, Order of Service) -->
                         <div class="lg:col-span-8 space-y-6">
                             
-                            <div id="portal-vault-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
+                            <div id="portal-vault-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
                                     <div>
-                                        <h4 class="font-serif text-lg text-emerald-950 font-bold flex items-center gap-2">
-                                            <i class="fa-solid fa-shield-halved text-emerald-800"></i>
+                                        <h4 class="font-serif text-lg text-brand-on-surface font-bold flex items-center gap-2">
+                                            <i class="fa-solid fa-shield-halved text-brand-primary"></i>
                                             <span>Ceremony Doc & Photo Vault</span>
                                         </h4>
-                                        <p class="text-stone-500 text-xs">Files are locked securely under private folder rules, readable only by you & Lisa B Celebrant.</p>
+                                        <p class="text-brand-on-surface-variant text-xs">Files are locked securely under private folder rules, readable only by you & Lisa B Celebrant.</p>
                                     </div>
-                                    <span class="text-[10px] uppercase tracking-wider bg-emerald-100/50 text-emerald-900 px-2.5 py-1 rounded border border-emerald-900/10 font-bold self-start">GDPR Compliant</span>
+                                    <span class="text-[10px] uppercase tracking-wider bg-brand-surface text-brand-primary px-2.5 py-1 rounded border border-brand-outline-variant/30 font-bold font-sans self-start">GDPR Compliant</span>
                                 </div>
 
                                 <!-- File drop zone -->
-                                <div id="drop-zone" class="border-2 border-dashed border-emerald-100 hover:border-emerald-800/50 rounded-xl p-6 text-center bg-emerald-50/20 hover:bg-emerald-50/50 transition duration-150 cursor-pointer mb-6" onclick="triggerFileInput()">
+                                <div id="drop-zone" class="border-2 border-dashed border-brand-outline-variant/60 hover:border-brand-primary rounded p-6 text-center bg-brand-surface-container/30 hover:bg-brand-surface-container/50 transition duration-150 cursor-pointer mb-6" onclick="triggerFileInput()">
                                     <input type="file" id="file-input" class="hidden" multiple accept="image/*,application/pdf" onchange="handleFileSelection(event)">
-                                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-emerald-800/60 mb-3 block"></i>
-                                    <span class="block text-xs font-semibold text-emerald-950">Drag planning files here or browse folder</span>
-                                    <span class="block text-[10px] text-stone-400 mt-1">Accepts readings documents, music cue lists, venue layouts, and ceremony photos (Max 10MB)</span>
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-brand-primary/60 mb-3 block"></i>
+                                    <span class="block text-xs font-semibold text-brand-on-surface">Drag planning files here or browse folder</span>
+                                    <span class="block text-[10px] text-brand-on-surface-variant mt-1">Accepts readings documents, music cue lists, venue layouts, and ceremony photos (Max 10MB)</span>
                                 </div>
 
                                 <!-- Uploading Sim block -->
-                                <div id="upload-progress-container" class="hidden mb-6 bg-white p-4 rounded-xl border border-stone-200">
-                                    <div class="flex justify-between items-center text-xs text-stone-600 mb-1.5 font-medium">
+                                <div id="upload-progress-container" class="hidden mb-6 bg-brand-surface p-4 rounded border border-brand-outline-variant/30">
+                                    <div class="flex justify-between items-center text-xs text-brand-on-surface mb-1.5 font-medium">
                                         <span id="uploading-file-name">Processing upload...</span>
                                         <span id="upload-progress-pct">0%</span>
                                     </div>
-                                    <div class="w-full bg-stone-100 rounded-full h-1.5 overflow-hidden">
-                                        <div id="upload-progress-bar" class="bg-gradient-to-r from-emerald-500 to-emerald-800 h-1.5 rounded-full" style="width: 0%"></div>
+                                    <div class="w-full bg-brand-surface-container rounded-full h-1.5 overflow-hidden">
+                                        <div id="upload-progress-bar" class="bg-brand-primary h-1.5 rounded-full" style="width: 0%"></div>
                                     </div>
                                 </div>
 
                                 <!-- Vault Files table layout -->
                                 <div class="overflow-x-auto">
-                                    <table class="w-full text-left text-xs text-stone-600 border-collapse">
+                                    <table class="w-full text-left text-xs text-brand-on-surface-variant border-collapse">
                                         <thead>
-                                            <tr class="border-b border-stone-100 bg-white/40 text-stone-500 uppercase tracking-wider font-semibold">
+                                            <tr class="border-b border-brand-outline-variant/30 bg-brand-surface-container/40 text-brand-secondary uppercase tracking-[0.1em] font-semibold font-sans">
                                                 <th class="p-3">File Reference</th>
                                                 <th class="p-3">Category</th>
                                                 <th class="p-3">State</th>
@@ -738,14 +734,14 @@
                                 </div>
                             </div>
 
-                            <div id="portal-script-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
+                            <div id="portal-script-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                                     <div>
-                                        <h4 class="font-serif text-lg text-emerald-950 font-bold flex items-center gap-2">
-                                            <i class="fa-regular fa-file-lines text-emerald-800"></i>
+                                        <h4 class="font-serif text-lg text-brand-on-surface font-bold flex items-center gap-2">
+                                            <i class="fa-regular fa-file-lines text-brand-primary"></i>
                                             <span>Ceremony Script Draft</span>
                                         </h4>
-                                        <p class="text-stone-500 text-xs">Review draft iterations and collaborate directly via the paragraph log below.</p>
+                                        <p class="text-brand-on-surface-variant text-xs">Review draft iterations and collaborate directly via the paragraph log below.</p>
                                     </div>
                                     <div class="flex items-center gap-2" id="script-status-container">
                                         <!-- Dynamic approval tags loaded here -->
@@ -753,52 +749,52 @@
                                 </div>
 
                                 <!-- Script content text editor display window -->
-                                <div class="bg-white/80 rounded-2xl border border-white p-6 sm:p-8 max-h-[380px] overflow-y-auto custom-scrollbar font-serif text-stone-700 leading-relaxed mb-6" id="script-draft-body">
+                                <div class="bg-brand-surface rounded-xl border border-brand-outline-variant/30 p-6 sm:p-8 max-h-[380px] overflow-y-auto custom-scrollbar font-serif text-brand-tertiary leading-relaxed mb-6" id="script-draft-body">
                                     <!-- Loaded based on ceremony type -->
                                 </div>
 
                                 <!-- Paragraph Comments Thread log -->
-                                <div class="border-t border-stone-100 pt-6">
-                                    <h5 class="text-[10px] uppercase tracking-widest text-emerald-950 font-bold mb-4 flex items-center gap-1">
-                                        <i class="fa-solid fa-comments text-gold-600"></i>
+                                <div class="border-t border-brand-outline-variant/30 pt-6">
+                                    <h5 class="text-[10px] uppercase tracking-[0.1em] text-brand-on-surface font-bold mb-4 flex items-center gap-1 font-sans">
+                                        <i class="fa-solid fa-comments text-brand-primary"></i>
                                         <span>Script Revision Logs</span>
                                     </h5>
                                     <div id="comments-container" class="space-y-4 max-h-[220px] overflow-y-auto mb-4 pr-2 custom-scrollbar flex flex-col">
                                         <!-- Populated dynamically -->
                                     </div>
                                     <form onsubmit="handleCommentPost(event)" class="flex gap-3">
-                                        <input id="new-comment-input" type="text" class="flex-grow px-4 py-2.5 text-xs bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-emerald-800" placeholder="Type a comment or suggest paragraph modifications...">
-                                        <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-semibold rounded-xl text-xs uppercase tracking-wider transition shadow-sm border border-gold-200/20 active:scale-95">Post</button>
+                                        <input id="new-comment-input" type="text" class="flex-grow px-4 py-2.5 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="Type a comment or suggest paragraph modifications...">
+                                        <button type="submit" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95">Post</button>
                                     </form>
                                 </div>
 
-                                <div id="script-approval-drawer" class="mt-8 bg-emerald-50/50 border border-emerald-900/10 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <div id="script-approval-drawer" class="mt-8 bg-brand-surface border border-brand-outline-variant/30 rounded-xl p-5 sm:p-6 flex flex-col md:flex-row justify-between items-center gap-4">
                                     <div class="flex items-start space-x-3 text-center md:text-left">
-                                        <div class="w-8 h-8 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-emerald-800 flex-shrink-0 mx-auto md:mx-0 shadow-sm">
+                                        <div class="w-8 h-8 rounded-full bg-brand-surface-container-low border border-brand-outline-variant/30 flex items-center justify-center text-brand-primary flex-shrink-0 mx-auto md:mx-0 shadow-sm">
                                             <i class="fa-solid fa-signature"></i>
                                         </div>
                                         <div>
-                                            <h5 class="font-semibold text-emerald-950 text-sm">Lock in Ceremony Wording</h5>
-                                            <p class="text-xs text-stone-600">Finalising the script freezes the text and alerts printing teams.</p>
+                                            <h5 class="font-semibold text-brand-on-surface text-sm">Lock in Ceremony Wording</h5>
+                                            <p class="text-xs text-brand-on-surface-variant">Finalising the script freezes the text and alerts printing teams.</p>
                                         </div>
                                     </div>
-                                    <button onclick="approveCeremonyScript()" class="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-950 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow border border-gold-200/30 transition active:scale-95">
+                                    <button onclick="approveCeremonyScript()" class="w-full md:w-auto px-6 py-3 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95">
                                         Approve & Lock Wording
                                     </button>
                                 </div>
                             </div>
 
-                            <div id="portal-oos-section" class="portal-section hidden lg:block bg-white/50 backdrop-blur-md rounded-3xl p-6 border border-white/80 shadow-sm">
+                            <div id="portal-oos-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex justify-between items-center mb-6">
                                     <div>
-                                        <h4 class="font-serif text-lg text-emerald-950 font-bold flex items-center gap-2">
-                                            <i class="fa-solid fa-list-ol text-emerald-800"></i>
+                                        <h4 class="font-serif text-lg text-brand-on-surface font-bold flex items-center gap-2">
+                                            <i class="fa-solid fa-list-ol text-brand-primary"></i>
                                             <span>Order of Service Builder</span>
                                         </h4>
-                                        <p class="text-stone-500 text-xs">Organise sequences and music cues for wedding planners or layout designers.</p>
+                                        <p class="text-brand-on-surface-variant text-xs">Organise sequences and music cues for wedding planners or layout designers.</p>
                                     </div>
-                                    <button onclick="printOrderOfService()" class="px-4 py-2 bg-white hover:bg-stone-100 text-emerald-950 border border-stone-200 font-semibold rounded-lg text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-sm">
-                                        <i class="fa-solid fa-print text-gold-600"></i> Print Layout
+                                    <button onclick="printOrderOfService()" class="px-4 py-2 bg-brand-surface hover:bg-brand-surface-container text-brand-on-surface border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-sm">
+                                        <i class="fa-solid fa-print text-brand-primary"></i> Print Layout
                                     </button>
                                 </div>
 
@@ -806,8 +802,8 @@
                                     <!-- Order of Service rows loaded based on checklist selection -->
                                 </div>
 
-                                <button onclick="addOrderOfServiceStep()" class="w-full py-3 bg-white/40 hover:bg-white/80 text-emerald-900 border-2 border-dashed border-emerald-100 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-150">
-                                    <i class="fa-solid fa-plus mr-1 text-gold-500"></i> Add Custom Step
+                                <button onclick="addOrderOfServiceStep()" class="w-full py-3 bg-brand-surface/40 hover:bg-brand-surface/80 text-brand-primary border-2 border-dashed border-brand-outline-variant rounded text-xs font-bold uppercase tracking-wider transition-all duration-150">
+                                    <i class="fa-solid fa-plus mr-1 text-brand-primary"></i> Add Custom Step
                                 </button>
                             </div>
                         </div>
@@ -816,36 +812,36 @@
             </section>
         </main>
 
-        <footer class="bg-gradient-to-b from-stone-50 to-emerald-100/40 border-t border-emerald-900/10 py-12 relative z-10">
+        <footer class="bg-brand-surface-container border-t border-brand-outline-variant/30 py-12 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-                <div class="flex flex-col sm:flex-row justify-between items-center border-b border-emerald-900/10 pb-8 mb-8 gap-4">
+                <div class="flex flex-col sm:flex-row justify-between items-center border-b border-brand-outline-variant/30 pb-8 mb-8 gap-4">
                     <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-900 flex items-center justify-center border border-gold-200 shadow-md">
-                            <span class="font-serif text-xs text-gold-200 font-bold">LB</span>
+                        <div class="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center border border-brand-outline-variant shadow-sm">
+                            <span class="font-serif text-xs text-white font-bold">LB</span>
                         </div>
                         <div>
-                            <h4 class="font-serif text-lg tracking-wide text-emerald-950 font-bold">Lisa B Celebrant</h4>
-                            <span class="text-[9px] uppercase tracking-widest text-gold-600 font-bold block">Modern Custom Ceremonies</span>
+                            <h4 class="font-serif text-lg tracking-wide text-brand-on-surface font-bold">Lisa B Celebrant</h4>
+                            <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block font-sans">Modern Custom Ceremonies</span>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-6 text-xs text-emerald-900/80">
-                        <button onclick="showSection('marketing-home'); scrollToSection('services-showcase')" class="hover:text-gold-600 font-semibold">Services</button>
-                        <button onclick="showSection('marketing-home'); scrollToSection('about-celebrant')" class="hover:text-gold-600 font-semibold">About Me</button>
-                        <button onclick="openPortalAuthModal()" class="hover:text-gold-600 font-semibold">Client Portal</button>
-                        <div class="h-4 w-[1px] bg-emerald-900/10 hidden sm:block"></div>
+                    <div class="flex items-center space-x-6 text-xs text-brand-on-surface-variant font-sans">
+                        <button onclick="showSection('marketing-home'); scrollToSection('services-showcase')" class="hover:text-brand-primary font-semibold">Services</button>
+                        <button onclick="showSection('marketing-home'); scrollToSection('about-celebrant')" class="hover:text-brand-primary font-semibold">About Me</button>
+                        <button onclick="openPortalAuthModal()" class="hover:text-brand-primary font-semibold">Client Portal</button>
+                        <div class="h-4 w-[1px] bg-brand-outline-variant hidden sm:block"></div>
                         <!-- Color-matched Instagram Anchor Link -->
-                        <a href="https://www.instagram.com/lisabcelebrant_/" target="_blank" rel="noopener noreferrer" class="text-base text-emerald-900/80 hover:text-gold-600 transition-colors duration-150 flex items-center" title="Follow Lisa B Celebrant on Instagram">
+                        <a href="https://www.instagram.com/lisabcelebrant_/" target="_blank" rel="noopener noreferrer" class="text-base text-brand-on-surface-variant hover:text-brand-primary transition-colors duration-150 flex items-center" title="Follow Lisa B Celebrant on Instagram">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </div>
                 </div>
                 <!-- Bottom Footer Bar with Copyright and GDPR Privacy Link -->
-                <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-stone-500 gap-4">
+                <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-on-surface-variant gap-4 font-sans">
                     <p>
-                        &copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-emerald-900 hover:underline transition-colors font-medium">Offscript Labs 2026</a> - All rights reserved. 
-                        &bull; <button onclick="openPrivacyModal()" class="hover:text-emerald-900 hover:underline transition-colors font-medium ml-1">Privacy Policy</button>
+                        &copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-brand-primary hover:underline transition-colors font-medium">Offscript Labs 2026</a> - All rights reserved. 
+                        &bull; <button onclick="openPrivacyModal()" class="hover:text-brand-primary hover:underline transition-colors font-medium ml-1">Privacy Policy</button>
                     </p>
-                    <p class="flex items-center gap-1"><i class="fa-solid fa-shield text-gold-500 text-[10px]"></i> Secure Static Vault System &bull; East Anglia</p>
+                    <p class="flex items-center gap-1"><i class="fa-solid fa-shield text-brand-primary text-[10px]"></i> Secure Static Vault System &bull; East Anglia</p>
                 </div>
             </div>
         </footer>
@@ -853,100 +849,99 @@
     </div>
 
     <!-- Authentication Modal (Kept outside main layout wrapper to completely isolate rendering bugs) -->
-    <div id="portal-auth-modal" class="hidden fixed inset-0 z-50 bg-emerald-955/20 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white/90 backdrop-blur-md w-full max-w-md rounded-3xl border border-white/80 shadow-2xl p-6 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-900/5 rounded-full -mr-12 -mt-12"></div>
-            <button onclick="closePortalAuthModal()" class="absolute top-4 right-4 text-stone-400 hover:text-emerald-950 focus:outline-none p-2 hover:bg-stone-50 rounded-full">
+    <div id="portal-auth-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-surface/90 backdrop-blur-md w-full max-w-md rounded-2xl border border-brand-outline-variant/30 shadow-lg p-6 relative overflow-hidden">
+            <button onclick="closePortalAuthModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-br from-emerald-800 to-emerald-900 text-gold-200 rounded-full flex items-center justify-center mx-auto mb-3 shadow animate-none">
+                <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <i class="fa-solid fa-lock-open text-lg"></i>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-emerald-950">Secure Client Sign-In</h3>
-                <p class="text-xs text-stone-500 mt-1">Access your checklists, document uploads, and script co-editing panel.</p>
+                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Secure Client Sign-In</h3>
+                <p class="text-xs text-brand-on-surface-variant mt-1">Access your checklists, document uploads, and script co-editing panel.</p>
             </div>
             
-            <form onsubmit="handlePortalLogin(event)" class="space-y-4">
+            <form onsubmit="handlePortalLogin(event)" class="space-y-4 font-sans">
                 <div>
-                    <label class="block text-[11px] font-semibold text-stone-600 uppercase tracking-wider mb-2">Registered Email Address</label>
-                    <input id="portal-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-800" placeholder="name@yourwedding.com">
+                    <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Registered Email Address</label>
+                    <input id="portal-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="name@yourwedding.com">
                 </div>
-                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-semibold rounded-xl text-xs uppercase tracking-widest transition shadow-md border border-gold-200/20 active:scale-95">
-                    <i class="fa-solid fa-magic mr-1 text-gold-200"></i> Request Magic Sign-In Link
+                <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-widest transition shadow-sm active:scale-95">
+                    <i class="fa-solid fa-magic mr-1 text-brand-surface"></i> Request Magic Sign-In Link
                 </button>
             </form>
 
-            <div class="relative my-6 text-center">
-                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-stone-200"></div></div>
-                <span class="relative bg-white px-3 text-[10px] font-bold text-stone-400 uppercase tracking-wider">Demo / Sandbox Mode</span>
+            <div class="relative my-6 text-center font-sans">
+                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-brand-outline-variant/30"></div></div>
+                <span class="relative bg-brand-surface px-3 text-[10px] font-bold text-brand-secondary uppercase tracking-[0.1em]">Demo / Sandbox Mode</span>
             </div>
 
-            <div class="space-y-2">
-                <button onclick="simulatePortalLogin('wedding')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
+            <div class="space-y-2 font-sans">
+                <button onclick="simulatePortalLogin('wedding')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
                     <span><i class="fa-solid fa-heart text-rose-500 mr-2"></i> Sarah & James (Wedding)</span>
-                    <i class="fa-solid fa-arrow-right text-stone-400"></i>
+                    <i class="fa-solid fa-arrow-right text-brand-secondary"></i>
                 </button>
-                <button onclick="simulatePortalLogin('funeral')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
-                    <span><i class="fa-solid fa-cloud-sun text-stone-400 mr-2"></i> Eleanor Thompson (Funeral)</span>
-                    <i class="fa-solid fa-arrow-right text-stone-400"></i>
+                <button onclick="simulatePortalLogin('funeral')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
+                    <span><i class="fa-solid fa-cloud-sun text-brand-secondary mr-2"></i> Eleanor Thompson (Funeral)</span>
+                    <i class="fa-solid fa-arrow-right text-brand-secondary"></i>
                 </button>
-                <button onclick="simulatePortalLogin('naming')" class="w-full py-3 bg-white hover:bg-emerald-50/40 border border-stone-200 text-stone-700 text-xs font-semibold rounded-xl flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
-                    <span><i class="fa-solid fa-seedling text-teal-500 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
-                    <i class="fa-solid fa-arrow-right text-stone-400"></i>
+                <button onclick="simulatePortalLogin('naming')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
+                    <span><i class="fa-solid fa-seedling text-teal-600 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
+                    <i class="fa-solid fa-arrow-right text-brand-secondary"></i>
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Print Preview System -->
-    <div id="print-preview-modal" class="hidden fixed inset-0 z-50 bg-emerald-955/20 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-2xl rounded-3xl border shadow-2xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closePrintPreview()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-955 focus:outline-none p-2 hover:bg-stone-50 rounded-full">
+    <div id="print-preview-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-surface w-full max-w-2xl rounded-2xl border shadow-lg p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closePrintPreview()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <div id="print-preview-content" class="font-serif p-6 bg-stone-50 rounded-xl border border-stone-200 text-stone-800">
+            <div id="print-preview-content" class="font-serif p-6 bg-brand-surface-container rounded border border-brand-outline-variant/30 text-brand-tertiary">
                 <!-- Programmatically generated print styles injected here -->
             </div>
-            <div class="flex justify-end gap-3 mt-6">
-                <button onclick="closePrintPreview()" class="px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-xl text-xs uppercase tracking-wider transition">Cancel</button>
-                <button onclick="triggerSystemPrint()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow border border-gold-200/20 active:scale-95">Print Document</button>
+            <div class="flex justify-end gap-3 mt-6 font-sans">
+                <button onclick="closePrintPreview()" class="px-5 py-2.5 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-tertiary font-bold rounded text-xs uppercase tracking-wider transition">Cancel</button>
+                <button onclick="triggerSystemPrint()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95">Print Document</button>
             </div>
         </div>
     </div>
 
     <!-- Privacy Policy Glassmorphic Pop-up Modal -->
-    <div id="privacy-modal" class="hidden fixed inset-0 z-50 bg-emerald-955/25 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-white/80 backdrop-blur-xl w-full max-w-2xl rounded-3xl border border-white/50 shadow-2xl p-6 sm:p-8 relative max-h-[80vh] flex flex-col">
+    <div id="privacy-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/25 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-brand-surface/80 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[80vh] flex flex-col">
             <!-- Close Button -->
-            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-stone-500 hover:text-emerald-955 focus:outline-none p-2 hover:bg-white/50 rounded-full transition-all duration-150">
+            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-br from-emerald-800 to-emerald-900 text-gold-200 rounded-full flex items-center justify-center mx-auto mb-3 shadow animate-none">
+                <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <i class="fa-solid fa-shield-halved text-lg"></i>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-emerald-950">Privacy Policy</h3>
-                <p class="text-xs text-stone-500 mt-1">UK GDPR & Data Protection Act 2018 Compliance Statement</p>
+                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Privacy Policy</h3>
+                <p class="text-xs text-brand-on-surface-variant mt-1">UK GDPR & Data Protection Act 2018 Compliance Statement</p>
             </div>
             <!-- Scrollable legal text -->
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-stone-700 text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
-                <h4 class="font-serif text-emerald-900 font-bold text-base mt-2">1. Introduction</h4>
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
+                <h4 class="font-serif text-brand-primary font-bold text-base mt-2">1. Introduction</h4>
                 <p>Welcome to the Privacy Policy of <strong>Lisa B Celebrant</strong>. We respect your privacy and are committed to protecting your personal data. This privacy statement will inform you as to how we look after your personal data when you visit our website, use our Secure Client Portal, or fill out our enquiry forms, and tell you about your privacy rights under UK law.</p>
 
-                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">2. The Data Controller</h4>
-                <p>Lisa B Celebrant is the data controller and is responsible for your personal data. If you have any questions regarding this policy or our data practices, please contact us at: <span class="text-emerald-800 font-semibold underline">privacy@lb-celebrant.co.uk</span>.</p>
+                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">2. The Data Controller</h4>
+                <p>Lisa B Celebrant is the data controller and is responsible for your personal data. If you have any questions regarding this policy or our data practices, please contact us at: <span class="text-brand-primary font-semibold underline">privacy@lb-celebrant.co.uk</span>.</p>
 
-                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">3. Data We Collect About You</h4>
+                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">3. Data We Collect About You</h4>
                 <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
                 <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>Identity Data:</strong> Includes first name, maiden name, last name, username or similar identifier, and marital status.</li>
+                    <li><strong>Identity Data:</strong> Includes first name, last name, username or similar identifier, and marital status.</li>
                     <li><strong>Contact Data:</strong> Includes email address, telephone numbers, and billing addresses.</li>
                     <li><strong>Ceremony Data:</strong> Planning timelines, ceremony dates, locations, story prompt details, guideparent names, and uploaded planning document vaults (such as PDF files, schedules, and photos).</li>
                     <li><strong>Technical Data:</strong> Includes internet protocol (IP) address, login session states, browser type, and operating system.</li>
                 </ul>
 
-                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">4. How We Use Your Personal Data</h4>
+                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">4. How We Use Your Personal Data</h4>
                 <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
                 <ul class="list-disc pl-5 space-y-1">
                     <li>Where we need to perform the contract we are about to enter into or have entered into with you (such as planning your bespoke milestone ceremony).</li>
@@ -954,50 +949,50 @@
                     <li>Where we have your explicit consent to process sensitive personal data (such as information contained within your ceremony story questionnaires).</li>
                 </ul>
 
-                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">5. Storage and Security of Data</h4>
+                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">5. Storage and Security of Data</h4>
                 <p>All client questionnaire data, planning files, and comments are stored inside our secure, encrypted **Google Firebase** database environment using regional EU storage boundaries. We enforce strict Firebase security and row-level access rules, ensuring your files and details are accessible strictly to you and Lisa B Celebrant.</p>
 
-                <h4 class="font-serif text-emerald-900 font-bold text-base mt-4">6. Your Legal Rights</h4>
+                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">6. Your Legal Rights</h4>
                 <p>Under certain circumstances, you have rights under UK data protection laws (UK GDPR) in relation to your personal data, including the right to request access, correction, erasure, or transfer of your personal data, and the right to withdraw consent at any time.</p>
-                <p>You also have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK regulator for data protection issues (<a href="https://ico.org.uk" target="_blank" class="text-emerald-800 underline">www.ico.org.uk</a>).</p>
+                <p>You also have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK regulator for data protection issues (<a href="https://ico.org.uk" target="_blank" class="text-brand-primary underline">www.ico.org.uk</a>).</p>
             </div>
-            <div class="flex justify-end pt-4 border-t border-stone-100 mt-4">
-                <button onclick="closePrivacyModal()" class="px-5 py-2.5 bg-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-emerald-950 transition active:scale-95">I Understand</button>
+            <div class="flex justify-end pt-4 border-t border-brand-outline-variant/30 mt-4 font-sans">
+                <button onclick="closePrivacyModal()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition active:scale-95">I Understand</button>
             </div>
         </div>
     </div>
 
     <!-- Glassmorphic Services Details Pop-up Modal -->
-    <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-emerald-955/20 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white/90 backdrop-blur-xl w-full max-w-2xl rounded-3xl border border-white/50 shadow-2xl p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
+    <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-surface/90 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
             <!-- Close button -->
-            <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-stone-500 hover:text-emerald-955 focus:outline-none p-2 hover:bg-white/50 rounded-full transition-all duration-150">
+            <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <div class="flex items-center space-x-4 mb-6 border-b border-stone-200/50 pb-4">
-                <div id="service-modal-icon-container" class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl shadow-sm flex-shrink-0">
+            <div class="flex items-center space-x-4 mb-6 border-b border-brand-outline-variant/30 pb-4">
+                <div id="service-modal-icon-container" class="w-12 h-12 rounded-full bg-brand-surface-container text-brand-primary flex items-center justify-center text-xl shadow-sm flex-shrink-0">
                     <i id="service-modal-icon" class="fa-solid fa-heart"></i>
                 </div>
                 <div>
-                    <h3 id="service-modal-title" class="font-serif text-2xl font-bold text-emerald-950">Service Title</h3>
-                    <p id="service-modal-subtitle" class="text-xs text-gold-600 font-bold uppercase tracking-wider">Service Subtitle</p>
+                    <h3 id="service-modal-title" class="font-serif text-2xl font-bold text-brand-on-surface">Service Title</h3>
+                    <p id="service-modal-subtitle" class="text-xs text-brand-primary font-bold uppercase tracking-[0.1em] font-sans">Service Subtitle</p>
                 </div>
             </div>
             <!-- Scrollable details wrapper -->
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-stone-700 text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
                 <div id="service-modal-long-description" class="space-y-4">
                     <!-- Dynamic details are injected here -->
                 </div>
             </div>
             <!-- Dynamic footer and redirection trigger -->
-            <div class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-stone-100 mt-4 gap-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-brand-outline-variant/30 mt-4 gap-4 font-sans">
                 <div class="text-left w-full sm:w-auto">
-                    <span class="text-[9px] uppercase tracking-widest text-stone-400 font-bold block">Price From</span>
-                    <span id="service-modal-price" class="font-serif text-lg font-bold text-emerald-900">£450.00</span>
+                    <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block">Price From</span>
+                    <span id="service-modal-price" class="font-serif text-lg font-bold text-brand-primary">£450.00</span>
                 </div>
                 <div class="flex space-x-2 w-full sm:w-auto justify-end">
-                    <button onclick="closeServiceDetailsModal()" class="px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-xl text-xs uppercase tracking-wider transition">Back</button>
-                    <button id="service-modal-enquire-btn" class="px-5 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-emerald-950 transition shadow border border-gold-200/20 active:scale-95">Enquire Now</button>
+                    <button onclick="closeServiceDetailsModal()" class="px-5 py-2.5 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-tertiary font-bold rounded text-xs uppercase tracking-wider transition">Back</button>
+                    <button id="service-modal-enquire-btn" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95">Enquire Now</button>
                 </div>
             </div>
         </div>
@@ -1007,9 +1002,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global configuration bindings fallback safely if variables are unset
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
         const firebaseConfig = typeof __firebase_config !== 'undefined'
             ? JSON.parse(__firebase_config)
@@ -1022,13 +1016,11 @@
                 appId: "mock-app-id"
             };
 
-        // Core variables with safety fallbacks
         let app = null;
         let auth = null;
         let db = null;
         let useFirebase = false;
 
-        // SAFE FIREBASE INITIALIZATION SHIELD: Prevents compilation and execution stops in offline/sandbox preview
         try {
             if (firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey !== "") {
                 app = initializeApp(firebaseConfig);
@@ -1043,7 +1035,6 @@
             console.warn("Failed to boot Firebase SDK. Defaulting gracefully to offline interactive sandbox mode.", err);
         }
 
-        // Core memory templates used as structural templates for first-time cloud users
         const MOCK_FIREBASE_CLIENTS = {
             wedding: {
                 uid: "usr-wedding-3009",
@@ -1061,8 +1052,8 @@
                     { id: "tk6", title: "Approve & lock final wedding script", done: false }
                 ],
                 script: `<h2>Celebrant Wedding Script Draft</h2>
-<p class="italic text-stone-500 mt-2">Prepared by Lisa B Celebrant for Sarah & James</p>
-<div class="border-b border-stone-200 my-4"></div>
+<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant for Sarah & James</p>
+<div class="border-b border-brand-outline-variant/30 my-4"></div>
 
 <h3>I. THE ENTRANCE & WELCOME</h3>
 <p>Family, friends, and loved ones, welcome. We gather here today on this beautiful shoreline, surrounded by the eternal cadence of the waves, to celebrate a love that is equally powerful and steady. We are here to witness the binding of two souls—Sarah and James—as they step together into the threshold of their tomorrow.</p>
@@ -1113,8 +1104,8 @@
                     { id: "tk5", title: "Approve & lock final tribute script", done: false }
                 ],
                 script: `<h2>Eleanor Thompson Tribute Wording Draft</h2>
-<p class="italic text-stone-500 mt-2">Prepared by Lisa B Celebrant with love for the Thompson Family</p>
-<div class="border-b border-stone-200 my-4"></div>
+<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant with love for the Thompson Family</p>
+<div class="border-b border-brand-outline-variant/30 my-4"></div>
 
 <h3>I. OPENING THOUGHTS & CONDOLENCES</h3>
 <p>We are gathered here today to remember, to honour, and to softly celebrate a life that was lived fully, intentionally, and beautifully. Eleanor Thompson was not someone who walked through the world; she was someone who added vibrant color to it. Her laughter was an invitation, and her kindness was an anchor.</p>
@@ -1165,8 +1156,8 @@
                     { id: "tk5", title: "Approve & lock final naming day script", done: false }
                 ],
                 script: `<h2>Baby Leo's Naming Day Draft</h2>
-<p class="italic text-stone-500 mt-2">Prepared by Lisa B Celebrant for the Harrison Family</p>
-<div class="border-b border-stone-200 my-4"></div>
+<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant for the Harrison Family</p>
+<div class="border-b border-brand-outline-variant/30 my-4"></div>
 
 <h3>I. THE GATHERING & INTRODUCTION</h3>
 <p>Welcome, everyone! We gather today in this sunny garden to welcome a precious new life—Leo Harrison—into our hearts, our families, and our wider community. Leo, you are surrounded today by a circle of endless love, and we are here to declare our commitment to your growth, your safety, and your ultimate happiness.</p>
@@ -1203,13 +1194,11 @@
             }
         };
 
-        // Active State containers
         let currentClientType = null;
         let activeClientState = null;
         let firebaseUserRef = null;
         let firestoreDocListener = null;
 
-        // Auto-auth initialization sequence
         const initAuth = async () => {
             if (!useFirebase || !auth) {
                 console.log("Offline mode: Skipping Firebase auth initialization.");
@@ -1227,7 +1216,6 @@
             }
         };
 
-        // Bind listener tracking user credentials
         if (useFirebase && auth) {
             onAuthStateChanged(auth, (user) => {
                 firebaseUserRef = user;
@@ -1240,7 +1228,6 @@
             });
         }
 
-        // Setup real-time listeners under strict user-row bounds
         async function establishFirestoreSync(ceremonyType) {
             if (!useFirebase || !db || !auth || !firebaseUserRef) return;
             
@@ -1272,7 +1259,6 @@
             }
         }
 
-        // Push structural updates to user vault document
         async function saveStateToFirestore() {
             if (!useFirebase || !db || !auth || !firebaseUserRef || !currentClientType || !activeClientState) return;
             const docRef = doc(db, 'artifacts', appId, 'users', firebaseUserRef.uid, 'ceremonies', currentClientType);
@@ -1284,7 +1270,6 @@
             }
         }
 
-        // Auto-save debounce parameters for story questionnaires
         let saveTimeout = null;
         function saveQuestionnaireProgress() {
             if (!activeClientState) return;
@@ -1309,21 +1294,21 @@
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             
-            let bgClass = 'bg-emerald-955 border-emerald-900';
-            let iconClass = 'fa-circle-info text-gold-500';
+            let bgClass = 'bg-brand-tertiary border-brand-outline-variant';
+            let iconClass = 'fa-circle-info text-brand-primary';
             
             if (type === 'success') {
-                bgClass = 'bg-emerald-900 border-emerald-800';
-                iconClass = 'fa-circle-check text-gold-300';
+                bgClass = 'bg-brand-primary border-brand-outline-variant/50';
+                iconClass = 'fa-circle-check text-brand-surface';
             } else if (type === 'error') {
-                bgClass = 'bg-stone-900 border-red-500';
+                bgClass = 'bg-brand-on-surface border-red-500';
                 iconClass = 'fa-triangle-exclamation text-red-500';
             }
             
-            toast.className = `${bgClass} text-white border-l-4 px-4 py-3.5 rounded-xl shadow-lg flex items-center space-x-3 pointer-events-auto transition-all duration-300 transform translate-y-2 opacity-0`;
+            toast.className = `${bgClass} text-white border-l-4 px-4 py-3.5 rounded shadow flex items-center space-x-3 pointer-events-auto transition-all duration-300 transform translate-y-2 opacity-0`;
             toast.innerHTML = `
                 <i class="fa-solid ${iconClass}"></i>
-                <span class="text-xs font-semibold tracking-wide">${message}</span>
+                <span class="text-xs font-semibold tracking-wide font-sans">${message}</span>
             `;
             
             container.appendChild(toast);
@@ -1399,19 +1384,18 @@
             document.getElementById('privacy-modal').classList.add('hidden');
         }
 
-        // Detailed services metadata for our new glassmorphic pop-up modals
         const SERVICE_MODAL_DETAILS = {
             wedding: {
                 title: "Bespoke Wedding Ceremonies",
                 subtitle: "Joyful, Romantic, & Entirely Template-Free",
                 icon: "fa-heart",
                 price: "£450.00",
-                colorClass: "text-rose-500 bg-rose-50",
+                colorClass: "text-brand-primary bg-brand-surface-container",
                 description: `
-                    <p class="font-semibold text-emerald-950 text-sm sm:text-base">Your love story is unique—your script should be too.</p>
+                    <p class="font-semibold text-brand-on-surface text-sm sm:text-base">Your love story is unique—your script should be too.</p>
                     <p>I specialise in crafting custom, warm, and highly memorable ceremonies that centre entirely around your relationship. We bypass cold, stale templates to focus on the moments that define you both.</p>
                     
-                    <h5 class="font-serif text-emerald-900 font-bold text-sm sm:text-base mt-4">What's Included in the Journey:</h5>
+                    <h5 class="font-serif text-brand-primary font-bold text-sm sm:text-base mt-4">What's Included in the Journey:</h5>
                     <ul class="list-disc pl-5 space-y-1.5">
                         <li><strong>Creative Consultation:</strong> A deep alignment meeting to uncover your individual values and core tone.</li>
                         <li><strong>Vow Development support:</strong> Guidance and advice to help you express your exact mutual promises confidently.</li>
@@ -1423,15 +1407,15 @@
             },
             funeral: {
                 title: "Celebrations of Life & Memorials",
-                subtitle: "Empathetic, Respectful, & Deeply SOLACING",
+                subtitle: "Empathetic, Respectful, & Deeply Solacing",
                 icon: "fa-cloud-sun",
                 price: "£250.00",
-                colorClass: "text-stone-500 bg-stone-50",
+                colorClass: "text-brand-secondary bg-brand-surface-container",
                 description: `
-                    <p class="font-semibold text-emerald-950 text-sm sm:text-base">Honouring a rich legacy with authentic storytelling.</p>
+                    <p class="font-semibold text-brand-on-surface text-sm sm:text-base">Honouring a rich legacy with authentic storytelling.</p>
                     <p>Milestone transitions can be delicate and sudden. I work closely with families and funeral directors to deliver a gentle, compassionate service that captures the true essence and personality of your loved one.</p>
                     
-                    <h5 class="font-serif text-emerald-900 font-bold text-sm sm:text-base mt-4">Our Collaborative Approach:</h5>
+                    <h5 class="font-serif text-brand-primary font-bold text-sm sm:text-base mt-4">Our Collaborative Approach:</h5>
                     <ul class="list-disc pl-5 space-y-1.5">
                         <li><strong>Empathetic Family Meeting:</strong> A slow-paced, comforting discussion to collect timelines, achievements, and anecdotes.</li>
                         <li><strong>Custom Eulogy & Tribute Delivery:</strong> Structuring stories that bring comfort, focusing on life highlights rather than solely on mourning.</li>
@@ -1445,12 +1429,12 @@
                 subtitle: "Bright, Warm, & Welcoming",
                 icon: "fa-seedling",
                 price: "£300.00",
-                colorClass: "text-teal-600 bg-teal-50",
+                colorClass: "text-brand-primary bg-brand-surface-container",
                 description: `
-                    <p class="font-semibold text-emerald-950 text-sm sm:text-base">Welcoming new growth into your supportive family circle.</p>
+                    <p class="font-semibold text-brand-on-surface text-sm sm:text-base">Welcoming new growth into your supportive family circle.</p>
                     <p>Whether introducing a newborn infant, celebrating an adoption, or welcoming step-siblings into a blended home, our naming days provide a non-religious alternative to declare your parenting commitment.</p>
                     
-                    <h5 class="font-serif text-emerald-900 font-bold text-sm sm:text-base mt-4">Key Elements We Construct:</h5>
+                    <h5 class="font-serif text-brand-primary font-bold text-sm sm:text-base mt-4">Key Elements We Construct:</h5>
                     <ul class="list-disc pl-5 space-y-1.5">
                         <li><strong>Hopes and Promises:</strong> Dedicated segments for parents and grandparents to read personalised pledges to the child.</li>
                         <li><strong>Guideparent Commitments:</strong> Non-judgemental promises for mentors and guideparents to state their lifelong supportive role.</li>
@@ -1461,7 +1445,6 @@
             }
         };
 
-        // Open details modal and populate fields
         function openServiceDetails(serviceKey) {
             const data = SERVICE_MODAL_DETAILS[serviceKey];
             if (!data) return;
@@ -1475,7 +1458,7 @@
             icon.className = `fa-solid ${data.icon}`;
             
             const iconContainer = document.getElementById('service-modal-icon-container');
-            iconContainer.className = `w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-sm flex-shrink-0 ${data.colorClass}`;
+            iconContainer.className = `w-12 h-12 rounded flex items-center justify-center text-xl shadow-sm flex-shrink-0 ${data.colorClass}`;
 
             const btn = document.getElementById('service-modal-enquire-btn');
             btn.onclick = () => {
@@ -1575,10 +1558,10 @@
                 if (task.done) completed++;
                 
                 const taskRow = document.createElement('div');
-                taskRow.className = "flex items-start space-x-3 bg-white/70 p-3 rounded-lg border border-stone-200/50 shadow-sm";
+                taskRow.className = "flex items-start space-x-3 bg-brand-surface p-3 rounded border border-brand-outline-variant/30 shadow-sm";
                 taskRow.innerHTML = `
-                    <input type="checkbox" ${task.done ? 'checked' : ''} id="chk-${task.id}" class="mt-1 h-4 w-4 rounded border-stone-300 text-emerald-955 focus:ring-emerald-955">
-                    <span class="text-xs ${task.done ? 'line-through text-stone-400 font-normal' : 'text-stone-700 font-medium'}">${task.title}</span>
+                    <input type="checkbox" ${task.done ? 'checked' : ''} id="chk-${task.id}" class="mt-1 h-4 w-4 rounded border-brand-outline-variant text-brand-primary focus:ring-brand-primary">
+                    <span class="text-xs ${task.done ? 'line-through text-brand-secondary font-normal' : 'text-brand-on-surface font-medium'} font-sans">${task.title}</span>
                 `;
                 container.appendChild(taskRow);
 
@@ -1617,19 +1600,19 @@
             
             activeClientState.vault.forEach((file, index) => {
                 const tr = document.createElement('tr');
-                tr.className = "border-b border-stone-100 hover:bg-stone-50/50";
+                tr.className = "border-b border-brand-outline-variant/20 hover:bg-brand-surface-container/50";
                 tr.innerHTML = `
-                    <td class="p-3 font-semibold text-emerald-950">${file.name}</td>
-                    <td class="p-3">${file.category}</td>
+                    <td class="p-3 font-semibold text-brand-on-surface font-sans">${file.name}</td>
+                    <td class="p-3 font-sans">${file.category}</td>
                     <td class="p-3">
-                        <span class="inline-flex items-center space-x-1 text-[10px] bg-emerald-100/50 text-emerald-800 border border-emerald-900/10 px-2 py-0.5 rounded-full font-bold">
+                        <span class="inline-flex items-center space-x-1 text-[10px] bg-brand-surface text-brand-primary border border-brand-outline-variant/30 px-2 py-0.5 rounded font-bold font-sans">
                             <i class="fa-solid fa-circle-check text-[8px]"></i>
                             <span>${file.status}</span>
                         </span>
                     </td>
-                    <td class="p-3 text-stone-400 whitespace-nowrap">${file.size}</td>
+                    <td class="p-3 text-brand-secondary whitespace-nowrap font-sans">${file.size}</td>
                     <td class="p-3 text-right">
-                        <button id="dl-${index}" class="text-emerald-900 hover:text-emerald-955 hover:underline font-bold text-xs whitespace-nowrap"><i class="fa-solid fa-download mr-1"></i> Retrieve</button>
+                        <button id="dl-${index}" class="text-brand-primary hover:text-brand-on-surface hover:underline font-bold text-xs whitespace-nowrap font-sans"><i class="fa-solid fa-download mr-1"></i> Retrieve</button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -1702,16 +1685,16 @@
                 const commentBox = document.createElement('div');
                 const isCelebrant = comment.name === "Lisa B Celebrant";
                 
-                commentBox.className = `flex flex-col p-3.5 rounded-xl max-w-[85%] ${
+                commentBox.className = `flex flex-col p-3.5 rounded max-w-[85%] ${
                     isCelebrant 
-                    ? 'bg-gradient-to-br from-emerald-800 to-emerald-950 text-white self-start shadow-sm' 
-                    : 'bg-white text-stone-850 self-end ml-auto border border-stone-200/60 shadow-sm'
+                    ? 'bg-brand-primary text-white self-start shadow-sm border border-brand-outline-variant/30' 
+                    : 'bg-brand-surface text-brand-on-surface self-end ml-auto border border-brand-outline-variant/40 shadow-sm'
                 }`;
                 
                 commentBox.innerHTML = `
                     <div class="flex justify-between items-center gap-4 mb-1">
-                        <span class="text-[9px] font-bold ${isCelebrant ? 'text-gold-200' : 'text-emerald-900'}">${comment.name}</span>
-                        <span class="text-[9px] text-stone-400 font-medium">${comment.time}</span>
+                        <span class="text-[9px] font-bold font-sans ${isCelebrant ? 'text-brand-surface-dim' : 'text-brand-primary'}">${comment.name}</span>
+                        <span class="text-[9px] text-brand-secondary font-medium font-sans">${comment.time}</span>
                     </div>
                     <p class="text-xs leading-relaxed font-sans">${comment.text}</p>
                 `;
@@ -1744,35 +1727,35 @@
             const isApproved = activeClientState.status === "Approved";
             
             container.innerHTML = isApproved 
-                ? `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-emerald-900 text-white border border-gold-500/30 shadow flex items-center gap-1"><i class="fa-solid fa-lock text-[9px] text-gold-500"></i> Approved & Locked</span>`
-                : `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-amber-50 text-amber-800 border border-amber-500/20">Draft Under Review</span>`;
+                ? `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-brand-primary text-white border border-brand-outline-variant/30 shadow-sm flex items-center gap-1 font-sans"><i class="fa-solid fa-lock text-[9px] text-brand-surface-dim"></i> Approved & Locked</span>`
+                : `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-brand-surface-container text-brand-primary border border-brand-outline-variant/30 font-sans">Draft Under Review</span>`;
 
             const approvalDrawer = document.getElementById('script-approval-drawer');
             if (isApproved) {
                 approvalDrawer.innerHTML = `
                     <div class="flex items-center space-x-3 w-full text-center sm:text-left">
-                        <div class="w-8 h-8 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-emerald-800 flex-shrink-0 shadow-sm">
+                        <div class="w-8 h-8 rounded-full bg-brand-surface border border-brand-outline-variant/30 flex items-center justify-center text-brand-primary flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-circle-check"></i>
                         </div>
                         <div>
-                            <h5 class="font-bold text-emerald-950 text-sm">Agreement Signed-Off Successfully</h5>
-                            <p class="text-xs text-emerald-800 font-sans">Your layout is finalised and logged in Firestore database archive.</p>
+                            <h5 class="font-bold text-brand-on-surface text-sm">Agreement Signed-Off Successfully</h5>
+                            <p class="text-xs text-brand-primary font-sans">Your layout is finalised and logged in Firestore database archive.</p>
                         </div>
                     </div>
                 `;
             } else {
                 approvalDrawer.innerHTML = `
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
-                        <div class="flex items-start space-x-3 text-center sm:text-left">
-                            <div class="w-8 h-8 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-emerald-850 flex-shrink-0 mx-auto md:mx-0 shadow-sm">
+                        <div class="flex items-start space-x-3 text-center sm:text-left font-sans">
+                            <div class="w-8 h-8 rounded-full bg-brand-surface border border-brand-outline-variant/30 flex items-center justify-center text-brand-on-surface flex-shrink-0 mx-auto md:mx-0 shadow-sm">
                                 <i class="fa-solid fa-signature"></i>
                             </div>
                             <div>
-                                <h5 class="font-bold text-emerald-950 text-sm">Lock in Ceremony Script</h5>
-                                <p class="text-xs text-stone-500 font-sans">Locking the script signals readiness for printing and disables direct editing.</p>
+                                <h5 class="font-bold text-brand-on-surface text-sm">Lock in Ceremony Script</h5>
+                                <p class="text-xs text-brand-on-surface-variant">Locking the script signals readiness for printing and disables direct editing.</p>
                             </div>
                         </div>
-                        <button id="lock-btn" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-900 hover:from-emerald-900 hover:to-emerald-955 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow border border-gold-200/30 transition active:scale-95">
+                        <button id="lock-btn" class="w-full sm:w-auto px-6 py-3 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm border border-brand-outline-variant/30 transition active:scale-95">
                             Approve & Lock Wording
                         </button>
                     </div>
@@ -1802,21 +1785,21 @@
 
             activeClientState.orderOfService.forEach((item, index) => {
                 const itemDiv = document.createElement('div');
-                itemDiv.className = "flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-white border border-stone-200/60 rounded-2xl gap-4 shadow-sm";
+                itemDiv.className = "flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-brand-surface border border-brand-outline-variant/30 rounded gap-4 shadow-sm";
                 itemDiv.innerHTML = `
                     <div class="flex items-center space-x-3 flex-grow w-full">
-                        <div class="w-6 h-6 rounded-full bg-emerald-900/10 text-emerald-955 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                        <div class="w-6 h-6 rounded-full bg-brand-surface-container text-brand-primary flex items-center justify-center text-xs font-bold flex-shrink-0">
                             ${index + 1}
                         </div>
                         <div class="flex-grow grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            <input type="text" id="oos-t-${index}" value="${item.title}" class="font-serif font-bold text-emerald-955 text-sm bg-transparent border-b border-transparent hover:border-stone-300 focus:border-emerald-900 focus:outline-none py-0.5">
-                            <input type="text" id="oos-d-${index}" value="${item.details || ''}" placeholder="Cues, songs, or officiant details..." class="text-xs text-stone-500 bg-transparent border-b border-transparent hover:border-stone-300 focus:border-emerald-900 focus:outline-none py-0.5">
+                            <input type="text" id="oos-t-${index}" value="${item.title}" class="font-serif font-bold text-brand-on-surface text-sm bg-transparent border-b border-transparent hover:border-brand-outline-variant focus:border-brand-primary focus:outline-none py-0.5">
+                            <input type="text" id="oos-d-${index}" value="${item.details || ''}" placeholder="Cues, songs, or officiant details..." class="text-xs text-brand-on-surface-variant bg-transparent border-b border-transparent hover:border-brand-outline-variant focus:border-brand-primary focus:outline-none py-0.5">
                         </div>
                     </div>
                     <div class="flex items-center space-x-2 self-end sm:self-auto border-t sm:border-t-0 pt-2 sm:pt-0 w-full sm:w-auto justify-end">
-                        <button id="oos-up-${index}" class="p-1.5 hover:bg-stone-100 rounded text-stone-500 hover:text-emerald-955" title="Move Up"><i class="fa-solid fa-chevron-up text-xs"></i></button>
-                        <button id="oos-dn-${index}" class="p-1.5 hover:bg-stone-100 rounded text-stone-500 hover:text-emerald-955" title="Move Down"><i class="fa-solid fa-chevron-down text-xs"></i></button>
-                        <button id="oos-del-${index}" class="p-1.5 hover:bg-red-50 rounded text-stone-400 hover:text-red-700" title="Delete Step"><i class="fa-solid fa-trash-can text-xs"></i></button>
+                        <button id="oos-up-${index}" class="p-1.5 hover:bg-brand-surface-container rounded text-brand-on-surface-variant hover:text-brand-primary" title="Move Up"><i class="fa-solid fa-chevron-up text-xs"></i></button>
+                        <button id="oos-dn-${index}" class="p-1.5 hover:bg-brand-surface-container rounded text-brand-on-surface-variant hover:text-brand-primary" title="Move Down"><i class="fa-solid fa-chevron-down text-xs"></i></button>
+                        <button id="oos-del-${index}" class="p-1.5 hover:bg-brand-surface-container rounded text-brand-secondary hover:text-red-700" title="Delete Step"><i class="fa-solid fa-trash-can text-xs"></i></button>
                     </div>
                 `;
                 container.appendChild(itemDiv);
@@ -1880,24 +1863,24 @@
             let stepsHTML = "";
             activeClientState.orderOfService.forEach((item, index) => {
                 stepsHTML += `
-                    <div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #e5e7eb;">
-                        <div style="font-weight: bold; font-size: 1.1rem; color: #08523c; font-family: Playfair Display, serif;">${index + 1}. ${item.title}</div>
-                        <div style="font-size: 0.9rem; color: #4b5563; font-style: italic; font-family: Inter, sans-serif; margin-top: 4px;">${item.details || 'General Flow Step'}</div>
+                    <div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #c4c8c0;">
+                        <div style="font-weight: bold; font-size: 1.1rem; color: #526253; font-family: Playfair Display, serif;">${index + 1}. ${item.title}</div>
+                        <div style="font-size: 0.9rem; color: #5b605c; font-style: italic; font-family: Inter, sans-serif; margin-top: 4px;">${item.details || 'General Flow Step'}</div>
                     </div>
                 `;
             });
 
             content.innerHTML = `
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <h2 style="font-family: Playfair Display, serif; font-size: 1.6rem; color: #08523c; margin: 0 0 5px 0;">Lisa B Celebrant</h2>
-                    <h1 style="font-family: Playfair Display, serif; font-size: 2.1rem; color: #08523c; margin: 0 0 5px 0;">${activeClientState.names}</h1>
-                    <div style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; color: #b59023; font-weight: bold;">Order of Service Sequence</div>
-                    <div style="font-size: 0.85rem; color: #6b7280; margin-top: 5px;">Ceremony Date: ${new Date(activeClientState.date).toLocaleDateString()}</div>
+                    <h2 style="font-family: Playfair Display, serif; font-size: 1.6rem; color: #526253; margin: 0 0 5px 0;">Lisa B Celebrant</h2>
+                    <h1 style="font-family: Playfair Display, serif; font-size: 2.1rem; color: #526253; margin: 0 0 5px 0;">${activeClientState.names}</h1>
+                    <div style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; color: #655d4e; font-weight: bold; font-family: Inter, sans-serif;">Order of Service Sequence</div>
+                    <div style="font-size: 0.85rem; color: #5b605c; margin-top: 5px; font-family: Inter, sans-serif;">Ceremony Date: ${new Date(activeClientState.date).toLocaleDateString()}</div>
                 </div>
                 <div style="max-width: 500px; margin: 0 auto;">
                     ${stepsHTML}
                 </div>
-                <div style="text-align: center; margin-top: 40px; font-size: 0.75rem; color: #9ca3af; font-family: Inter, sans-serif;">
+                <div style="text-align: center; margin-top: 40px; font-size: 0.75rem; color: #747872; font-family: Inter, sans-serif;">
                     Thank you for letting us shape your landmark day. &copy; Lisa B Celebrant
                 </div>
             `;
@@ -1911,11 +1894,8 @@
 
         function triggerSystemPrint() {
             const printContents = document.getElementById('print-preview-content').innerHTML;
-            const originalContents = document.body.innerHTML;
-
             document.body.innerHTML = printContents;
             window.print();
-            
             document.location.reload();
         }
 
@@ -1949,9 +1929,9 @@
             tabButtons.forEach(btn => {
                 const isCurrent = btn.getAttribute('data-tab') === tabName;
                 if (isCurrent) {
-                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white text-xs font-semibold rounded-full shadow-sm";
+                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-primary text-white text-xs font-semibold rounded-full shadow-sm";
                 } else {
-                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-white text-stone-600 text-xs font-semibold rounded-full border border-stone-250 hover:bg-stone-50 transition";
+                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-surface-container-lowest text-brand-on-surface-variant text-xs font-semibold rounded-full border border-brand-outline-variant/30 hover:bg-brand-surface-container-low transition";
                 }
             });
         }
@@ -1961,7 +1941,7 @@
             if (window.innerWidth >= 1024) {
                 sections.forEach(sec => sec.classList.remove('hidden'));
             } else {
-                const activeTabBtn = document.querySelector('.portal-tab-btn.bg-gradient-to-r');
+                const activeTabBtn = document.querySelector('.portal-tab-btn.bg-brand-primary');
                 if (activeTabBtn) {
                     switchPortalTab(activeTabBtn.getAttribute('data-tab'));
                 } else {
