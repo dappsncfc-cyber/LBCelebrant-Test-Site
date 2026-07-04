@@ -1003,22 +1003,23 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined'
-            ? JSON.parse(__firebase_config)
-            : {
-                apiKey: "",
-                authDomain: "lb-celebrant.firebaseapp.com",
-                projectId: "lb-celebrant",
-                storageBucket: "lb-celebrant.appspot.com",
-                messagingSenderId: "mock-sender-id",
-                appId: "mock-app-id"
-            };
+        const firebaseConfig = {
+            apiKey: "AIzaSyCMvCOMT1PTpPYYYXxDaJwwYfCjKaiglnw",
+            authDomain: "lisa-b-celebrant.firebaseapp.com",
+            projectId: "lisa-b-celebrant",
+            storageBucket: "lisa-b-celebrant.firebasestorage.app",
+            messagingSenderId: "818517298391",
+            appId: "1:818517298391:web:c16f25d2bf274b99373492",
+            measurementId: "G-RHDG8K8VVP"
+        };
 
         let app = null;
         let auth = null;
         let db = null;
+        let analytics = null;
         let useFirebase = false;
 
         try {
@@ -1026,6 +1027,11 @@
                 app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
                 db = getFirestore(app);
+                try {
+                    analytics = getAnalytics(app);
+                } catch (analyticsErr) {
+                    console.warn("Firebase Analytics failed to initialise (likely blocked by browser privacy settings):", analyticsErr);
+                }
                 useFirebase = true;
                 console.log("Firebase initialised successfully in database sync mode.");
             } else {
