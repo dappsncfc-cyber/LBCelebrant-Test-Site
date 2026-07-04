@@ -215,9 +215,16 @@
                             <i class="fa-solid fa-folder-open text-xs text-brand-surface"></i>
                             <span>Secure Client Portal</span>
                         </button>
+                        <!-- Celebrant Key Trigger -->
+                        <button onclick="openAdminAuthModal()" class="p-2.5 rounded-full hover:bg-brand-surface-container text-brand-primary transition" title="Celebrant Admin Console">
+                            <i class="fa-solid fa-key text-sm"></i>
+                        </button>
                     </nav>
 
-                    <div class="md:hidden">
+                    <div class="md:hidden flex items-center space-x-2">
+                        <button onclick="openAdminAuthModal()" class="p-2 rounded bg-brand-surface-container/60 border border-brand-outline-variant/30 text-brand-primary" title="Celebrant Admin Console">
+                            <i class="fa-solid fa-key text-sm"></i>
+                        </button>
                         <button onclick="toggleMobileMenu()" class="text-brand-on-surface hover:text-brand-primary focus:outline-none p-2 rounded bg-brand-surface-container/60 border border-brand-outline-variant/30">
                             <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
                         </button>
@@ -810,6 +817,110 @@
                     </div>
                 </div>
             </section>
+
+            <section id="admin-dashboard" class="hidden transition-all duration-300 min-h-screen py-6 sm:py-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <!-- Admin Header Title -->
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-brand-surface-container-low rounded-2xl p-6 sm:p-8 border border-brand-outline-variant/30 shadow-sm mb-8">
+                        <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                            <div class="w-14 h-14 rounded-full bg-brand-primary border border-brand-outline-variant flex items-center justify-center text-white text-xl shadow-sm">
+                                <i class="fa-solid fa-toolbox"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase tracking-[0.1em] text-brand-primary font-bold font-sans">Celebrant Management Panel</span>
+                                <h2 class="font-serif text-2xl font-bold text-brand-on-surface">Lisa's Control Console</h2>
+                                <p class="text-xs text-brand-on-surface-variant">Configure client workspaces and direct database registries</p>
+                            </div>
+                        </div>
+                        <button onclick="logoutAdmin()" class="px-4 py-2.5 text-brand-on-surface-variant hover:text-brand-primary hover:bg-brand-surface rounded text-xs font-semibold transition duration-150 border border-brand-outline-variant flex items-center space-x-1.5 active:scale-95 bg-brand-surface-container-lowest">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Exit Admin Area</span>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        
+                        <!-- Left-Hand Column: Active Client Registry -->
+                        <div class="lg:col-span-4 space-y-6">
+                            <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h4 class="font-serif text-lg text-brand-on-surface font-bold">Active Clients</h4>
+                                    <span id="admin-client-count" class="text-[10px] font-bold bg-brand-surface text-brand-primary px-2.5 py-1 rounded border border-brand-outline-variant/30 font-sans">0 Registry entries</span>
+                                </div>
+                                <p class="text-brand-on-surface-variant text-[11px] mb-4">Select an active client to modify their live script, view story prompts, or manage task flows.</p>
+                                
+                                <div id="admin-client-list" class="space-y-3 max-h-[420px] overflow-y-auto pr-1 custom-scrollbar">
+                                    <!-- Dynamic list of clients from Firestore/Mock -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right-Hand Column: Provisioning & Tailoring Console -->
+                        <div class="lg:col-span-8 space-y-6">
+                            <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
+                                <h4 class="font-serif text-lg text-brand-on-surface font-bold mb-2">Provision New Client Workspace</h4>
+                                <p class="text-brand-on-surface-variant text-xs mb-6">Create a tailored environment for an upcoming ceremony. This writes a custom configuration doc to the cloud.</p>
+                                
+                                <form onsubmit="handleProvisionClient(event)" class="space-y-6">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Client Names / Title</label>
+                                            <input type="text" id="admin-prov-names" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="e.g., Alice & Michael">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Registered Email Address</label>
+                                            <input type="email" id="admin-prov-email" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="e.g., alice@example.com">
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Ceremony Type</label>
+                                            <select id="admin-prov-type" onchange="autoLoadAdminTemplates()" class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
+                                                <option value="wedding">Wedding Ceremony</option>
+                                                <option value="funeral">Funeral or Memorial Tribute</option>
+                                                <option value="naming">Naming Ceremony</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Planned Date</label>
+                                            <input type="date" id="admin-prov-date" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Tailor Checklist Tasks (Semicolon separated)</label>
+                                        <textarea id="admin-prov-checklist" rows="3" class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant"></textarea>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Story Prompt 1</label>
+                                            <input type="text" id="admin-prov-prompt1" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Story Prompt 2</label>
+                                            <input type="text" id="admin-prov-prompt2" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Tailor Initial Script Wording (HTML layout allowed)</label>
+                                        <textarea id="admin-prov-script" rows="8" class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary font-mono text-brand-on-surface-variant"></textarea>
+                                    </div>
+
+                                    <div class="pt-2">
+                                        <button type="submit" class="w-full py-4 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 border border-brand-outline-variant/30">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                            <span>Provision Client Workspace</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="bg-brand-surface-container border-t border-brand-outline-variant/30 py-12 relative z-10">
@@ -840,6 +951,7 @@
                     <p>
                         &copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-brand-primary hover:underline transition-colors font-medium">Offscript Labs 2026</a> - All rights reserved. 
                         &bull; <button onclick="openPrivacyModal()" class="hover:text-brand-primary hover:underline transition-colors font-medium ml-1">Privacy Policy</button>
+                        &bull; <button onclick="openAdminAuthModal()" class="hover:text-brand-primary hover:underline transition-colors font-medium ml-1">Celebrant Admin</button>
                     </p>
                     <p class="flex items-center gap-1"><i class="fa-solid fa-shield text-brand-primary text-[10px]"></i> Secure Static Vault System &bull; East Anglia</p>
                 </div>
@@ -891,6 +1003,33 @@
                     <i class="fa-solid fa-arrow-right text-brand-secondary"></i>
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- Admin Authorization Modal -->
+    <div id="admin-auth-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-surface/90 backdrop-blur-md w-full max-w-md rounded-2xl border border-brand-outline-variant/30 shadow-lg p-6 relative overflow-hidden">
+            <button onclick="closeAdminAuthModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
+                    <i class="fa-solid fa-user-shield text-lg"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Celebrant Admin Area</h3>
+                <p class="text-xs text-brand-on-surface-variant mt-1">Authenticate to access client provisioning and active workspace registries.</p>
+            </div>
+            
+            <form onsubmit="handleAdminLoginSubmit(event)" class="space-y-4 font-sans">
+                <div>
+                    <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Secure Celebrant PIN</label>
+                    <input id="admin-pin-input" type="password" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary tracking-widest text-center" placeholder="••••">
+                    <p class="text-[10px] text-brand-primary font-bold mt-1 text-center">Sandbox PIN: 1984</p>
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-widest transition shadow-sm active:scale-95">
+                    <i class="fa-solid fa-unlock-keyhole mr-1 text-brand-surface"></i> Unlock Console
+                </button>
+            </form>
         </div>
     </div>
 
@@ -1002,7 +1141,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -1044,6 +1183,7 @@
         const MOCK_FIREBASE_CLIENTS = {
             wedding: {
                 uid: "usr-wedding-3009",
+                email: "sarah@jameswedding.com",
                 names: "Sarah & James",
                 ceremonyType: "Wedding",
                 ceremonyIcon: "fa-heart text-rose-500 animate-pulse",
@@ -1097,6 +1237,7 @@
             
             funeral: {
                 uid: "usr-funeral-5104",
+                email: "eleanor@thompsonmemorial.co.uk",
                 names: "Celebration for Eleanor Thompson",
                 ceremonyType: "Funeral",
                 ceremonyIcon: "fa-cloud-sun text-slate-500",
@@ -1149,6 +1290,7 @@
 
             naming: {
                 uid: "usr-naming-9812",
+                email: "clara@harrisonbabyday.com",
                 names: "Baby Leo's Welcome",
                 ceremonyType: "Naming Day",
                 ceremonyIcon: "fa-seedling text-teal-600",
@@ -1182,7 +1324,7 @@
                     { step: 6, title: "Certificate Signing & Closing Toast", details: "Here Comes The Sun - The Beatles" }
                 ],
                 comments: [
-                    { name: "Lisa B Celebrant", text: "Clara, I've outlined the guideparent commitments block. Make sure Aunt Jessica knows the reading is scheduled right after the opening address.", time: "1 day ago" },
+                    { name: "Lisa B Celebrant", text: "Clara, I've organised the guideparent commitments block. Make sure Aunt Jessica knows the reading is scheduled right after the opening address.", time: "1 day ago" },
                     { name: "Clara Harrison", text: "I have shared this with Jessica! Guideparent commitments look beautiful, thank you so much.", time: "18 hours ago" }
                 ],
                 questions: {
@@ -1204,6 +1346,7 @@
         let activeClientState = null;
         let firebaseUserRef = null;
         let firestoreDocListener = null;
+        let clientRegistries = [];
 
         const initAuth = async () => {
             if (!useFirebase || !auth) {
@@ -1227,27 +1370,40 @@
                 firebaseUserRef = user;
                 if (user) {
                     console.log("Firebase Secure Auth Successful:", user.uid);
-                    if (currentClientType) {
-                        establishFirestoreSync(currentClientType);
-                    }
+                    loadRegistryFromDb();
                 }
             });
         }
 
-        async function establishFirestoreSync(ceremonyType) {
-            if (!useFirebase || !db || !auth || !firebaseUserRef) return;
+        async function loadRegistryFromDb() {
+            if (!useFirebase || !db || !firebaseUserRef) return;
+            try {
+                // Rule 2 compliant query: Grab all documents in the public registries collection to list them for Lisa
+                const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'registries');
+                const querySnap = await getDocs(colRef);
+                clientRegistries = [];
+                querySnap.forEach((doc) => {
+                    clientRegistries.push(doc.data());
+                });
+                renderAdminClientList();
+            } catch (err) {
+                console.warn("Could not load registry records (probably first run, no collection yet).", err);
+            }
+        }
+
+        async function establishFirestoreSync(emailKey, customData = null) {
+            if (!useFirebase || !db || !firebaseUserRef) return;
             
             if (firestoreDocListener) {
                 firestoreDocListener();
             }
 
-            const docRef = doc(db, 'artifacts', appId, 'users', firebaseUserRef.uid, 'ceremonies', ceremonyType);
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(emailKey));
 
             try {
                 const docSnap = await getDoc(docRef);
-                if (!docSnap.exists()) {
-                    const fallbackTemplate = JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType]));
-                    await setDoc(docRef, fallbackTemplate);
+                if (!docSnap.exists() && customData) {
+                    await setDoc(docRef, customData);
                 }
 
                 firestoreDocListener = onSnapshot(docRef, (snap) => {
@@ -1257,23 +1413,26 @@
                     }
                 }, (error) => {
                     console.error("Firestore synchronisation error:", error);
-                    showNotification("Database write restriction matched. Verify security rules.", "error");
                 });
 
             } catch (err) {
-                console.error("Firestore initialization failed:", err);
+                console.error("Firestore synchronization failed:", err);
             }
         }
 
         async function saveStateToFirestore() {
-            if (!useFirebase || !db || !auth || !firebaseUserRef || !currentClientType || !activeClientState) return;
-            const docRef = doc(db, 'artifacts', appId, 'users', firebaseUserRef.uid, 'ceremonies', currentClientType);
+            if (!useFirebase || !db || !activeClientState) return;
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(activeClientState.email));
             try {
                 await setDoc(docRef, activeClientState);
             } catch (err) {
                 console.error("Failed to commit state to Firestore:", err);
                 showNotification("Could not synchronise updates with database.", "error");
             }
+        }
+
+        function sanitizeEmail(email) {
+            return email.toLowerCase().replace(/[^a-z0-9]/g, '_');
         }
 
         let saveTimeout = null;
@@ -1294,6 +1453,181 @@
             document.getElementById('q-ans-2').value = "";
             saveQuestionnaireProgress();
             showNotification("Questionnaire answers cleared locally. Saving...", "info");
+        }
+
+        function openAdminAuthModal() {
+            document.getElementById('admin-auth-modal').classList.remove('hidden');
+        }
+
+        function closeAdminAuthModal() {
+            document.getElementById('admin-auth-modal').classList.add('hidden');
+        }
+
+        function handleAdminLoginSubmit(event) {
+            event.preventDefault();
+            const pin = document.getElementById('admin-pin-input').value;
+            if (pin === "1984") {
+                closeAdminAuthModal();
+                showSection('admin-dashboard');
+                autoLoadAdminTemplates();
+                loadRegistryFromDb();
+                showNotification("Lisa's Admin Console unlocked successfully.", "success");
+            } else {
+                showNotification("Invalid Access PIN. Please try again.", "error");
+            }
+            document.getElementById('admin-pin-input').value = "";
+        }
+
+        function logoutAdmin() {
+            showSection('marketing-home');
+            showNotification("Logged out of Admin Console safely.", "info");
+        }
+
+        function autoLoadAdminTemplates() {
+            const type = document.getElementById('admin-prov-type').value;
+            let checklistDefault = "";
+            let prompt1 = "";
+            let prompt2 = "";
+            let scriptDefault = "";
+
+            if (type === "wedding") {
+                checklistDefault = "Submit wedding story details;Confirm guest list counts;Review draft ceremony script;Draft custom family promises;Approve & lock final wedding script";
+                prompt1 = "Where did you first meet and what was your immediate impression?";
+                prompt2 = "What mutual promises and values matter most to you as a couple?";
+                scriptDefault = `<h2>Custom Ceremony Script Draft</h2>
+<p class="italic text-brand-secondary mt-2">Written exclusively by Lisa B Celebrant</p>
+<div class="border-b border-brand-outline-variant/30 my-4"></div>
+<h3>I. THE WELCOME & CIRCLE</h3>
+<p>Loved ones, we gather together today under the open skies to celebrate Sarah and James...</p>`;
+            } else if (type === "funeral") {
+                checklistDefault = "Provide family chronology details;Upload legacy photographs;Confirm selected reading verses;Review initial eulogy draft;Approve & lock final tribute script";
+                prompt1 = "What are the core legacies or memories of Eleanor's teaching career?";
+                prompt2 = "What life philosophy or wisdom did Eleanor pass down to her grandchildren?";
+                scriptDefault = `<h2>Tribute & Celebrations of Life Draft</h2>
+<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant with comfort & respect</p>
+<div class="border-b border-brand-outline-variant/30 my-4"></div>
+<h3>I. OPENING COMPASSION</h3>
+<p>We gather here to softly remember, honour, and celebrate Eleanor's rich journey...</p>`;
+            } else if (type === "naming") {
+                checklistDefault = "Confirm guideparents' titles;Upload chosen naming reading texts;Finalise custom wish tree notes;Review draft naming ceremony;Approve & lock final script";
+                prompt1 = "What is the family story behind Leo's chosen names?";
+                prompt2 = "What specific hopes and values do you wish to declare for Leo's upbringing?";
+                scriptDefault = `<h2>Naming Day Ceremony Draft</h2>
+<p class="italic text-brand-secondary mt-2">Written with warmth by Lisa B Celebrant</p>
+<div class="border-b border-brand-outline-variant/30 my-4"></div>
+<h3>I. GATHERING COVENANTS</h3>
+<p>Welcome, family! We gather today to formally declare baby Leo's place in our lives...</p>`;
+            }
+
+            document.getElementById('admin-prov-checklist').value = checklistDefault;
+            document.getElementById('admin-prov-prompt1').value = prompt1;
+            document.getElementById('admin-prov-prompt2').value = prompt2;
+            document.getElementById('admin-prov-script').value = scriptDefault;
+        }
+
+        async function handleProvisionClient(event) {
+            event.preventDefault();
+            const names = document.getElementById('admin-prov-names').value;
+            const email = document.getElementById('admin-prov-email').value;
+            const type = document.getElementById('admin-prov-type').value;
+            const rawDate = document.getElementById('admin-prov-date').value;
+            const checklistStr = document.getElementById('admin-prov-checklist').value;
+            const p1 = document.getElementById('admin-prov-prompt1').value;
+            const p2 = document.getElementById('admin-prov-prompt2').value;
+            const scriptStr = document.getElementById('admin-prov-script').value;
+
+            const checklistArr = checklistStr.split(';').filter(t => t.trim() !== "").map((item, index) => {
+                return { id: `tk_${index}`, title: item.trim(), done: false };
+            });
+
+            const templateConfig = {
+                uid: "usr_" + Math.random().toString(36).substring(2, 7),
+                email: email,
+                names: names,
+                ceremonyType: type === "wedding" ? "Wedding" : type === "funeral" ? "Funeral" : "Naming Day",
+                ceremonyIcon: type === "wedding" ? "fa-heart text-rose-500" : type === "funeral" ? "fa-cloud-sun text-slate-500" : "fa-seedling text-teal-600",
+                date: new Date(rawDate).toISOString(),
+                status: "Under Review",
+                checklist: checklistArr,
+                script: scriptStr,
+                orderOfService: [
+                    { step: 1, title: "Prelude & Welcome Seating", details: "Classical Acoustic Selection" },
+                    { step: 2, title: "Opening Officiation Address", details: "Lisa B Celebrant Officiating" },
+                    { step: 3, title: "Main Ceremony Milestone", details: "Action details" }
+                ],
+                comments: [
+                    { name: "Lisa B Celebrant", text: "Welcome to your collaborative workspace! I have loaded your initial draft script here.", time: "Just now" }
+                ],
+                questions: { q1: "", q2: "" },
+                vault: [],
+                questionPrompts: [p1, p2]
+            };
+
+            if (useFirebase && db) {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(email));
+                try {
+                    await setDoc(docRef, templateConfig);
+                    showNotification(`Provisioned workspace securely in cloud registry for ${names}.`, "success");
+                    loadRegistryFromDb();
+                } catch (err) {
+                    console.error("Firebase write error:", err);
+                    showNotification("Failed to write client doc to Firebase.", "error");
+                }
+            } else {
+                clientRegistries.push(templateConfig);
+                renderAdminClientList();
+                showNotification(`Offline Sandbox: Local client profile provisioned for ${names}.`, "success");
+            }
+
+            event.target.reset();
+            autoLoadAdminTemplates();
+        }
+
+        function renderAdminClientList() {
+            const container = document.getElementById('admin-client-list');
+            container.innerHTML = "";
+
+            const registriesToDisplay = useFirebase ? clientRegistries : Object.values(MOCK_FIREBASE_CLIENTS);
+            document.getElementById('admin-client-count').innerText = `${registriesToDisplay.length} Workspace entries`;
+
+            if (registriesToDisplay.length === 0) {
+                container.innerHTML = `<div class="p-4 text-center text-xs text-brand-on-surface-variant italic">No client workspaces provisioned yet.</div>`;
+                return;
+            }
+
+            registriesToDisplay.forEach((client) => {
+                const card = document.createElement('div');
+                card.className = "p-4 bg-brand-surface border border-brand-outline-variant/30 rounded shadow-sm hover:border-brand-primary cursor-pointer transition flex justify-between items-center";
+                card.innerHTML = `
+                    <div>
+                        <span class="text-[9px] uppercase tracking-wider text-brand-primary font-bold font-sans">${client.ceremonyType}</span>
+                        <h5 class="font-serif font-bold text-brand-on-surface text-sm">${client.names}</h5>
+                        <p class="text-[10px] text-brand-on-surface-variant font-sans">${client.email}</p>
+                    </div>
+                    <button class="p-2 hover:bg-brand-surface-container rounded text-brand-primary" title="Edit Workspace inline">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                `;
+                card.onclick = () => {
+                    loadClientForEditing(client);
+                };
+                container.appendChild(card);
+            });
+        }
+
+        function loadClientForEditing(client) {
+            currentClientType = client.ceremonyType.toLowerCase().includes("wedding") ? "wedding" : client.ceremonyType.toLowerCase().includes("funeral") ? "funeral" : "naming";
+            
+            if (useFirebase && db) {
+                establishFirestoreSync(client.email);
+            } else {
+                activeClientState = JSON.parse(JSON.stringify(client));
+                renderPortalDashboard();
+            }
+
+            showSection('portal-dashboard');
+            switchPortalTab('checklist');
+            showNotification(`Opening Lisa's co-editor view for ${client.names}`, "success");
         }
 
         function showNotification(message, type = 'info') {
@@ -1334,6 +1668,7 @@
         function showSection(sectionId) {
             document.getElementById('marketing-home').classList.add('hidden');
             document.getElementById('portal-dashboard').classList.add('hidden');
+            document.getElementById('admin-dashboard').classList.add('hidden');
             
             document.getElementById(sectionId).classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1484,34 +1819,43 @@
             document.getElementById('service-details-modal').classList.add('hidden');
         }
 
-        function handlePortalLogin(event) {
+        async function handlePortalLogin(event) {
             event.preventDefault();
-            const email = document.getElementById('portal-email-input').value;
-            
+            const email = document.getElementById('portal-email-input').value.trim();
             closePortalAuthModal();
-            showNotification(`Generating cryptographically signed Magic Sign-In Link... Sent to ${email}.`, 'info');
             
-            setTimeout(() => {
-                showNotification("Verifying credentials... Secure Sandbox workspace established.", "success");
+            if (useFirebase && db) {
+                showNotification(`Verifying credentials with secure registry...`, 'info');
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(email));
+                try {
+                    const snap = await getDoc(docRef);
+                    if (snap.exists()) {
+                        establishFirestoreSync(email);
+                        showSection('portal-dashboard');
+                        switchPortalTab('checklist');
+                        showNotification(`Secure Workspace loaded successfully for ${snap.data().names}!`, "success");
+                    } else {
+                        showNotification(`Email registry not found. Launching standard offline Sandbox instead.`, 'error');
+                        simulatePortalLogin('wedding');
+                    }
+                } catch (err) {
+                    console.error("Login verification error:", err);
+                    simulatePortalLogin('wedding');
+                }
+            } else {
+                showNotification(`Offline Sandbox workspace established for ${email}.`, "success");
                 simulatePortalLogin('wedding');
-            }, 1600);
+            }
         }
 
         function simulatePortalLogin(ceremonyType) {
             currentClientType = ceremonyType;
-            
-            if (useFirebase && firebaseUserRef) {
-                establishFirestoreSync(ceremonyType);
-            } else {
-                activeClientState = JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType]));
-                renderPortalDashboard();
-                showSection('portal-dashboard');
-                switchPortalTab('checklist');
-            }
-
-            closePortalAuthModal();
+            activeClientState = JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType]));
+            renderPortalDashboard();
             showSection('portal-dashboard');
             switchPortalTab('checklist');
+            
+            closePortalAuthModal();
             showNotification(`Portal Loaded: ${MOCK_FIREBASE_CLIENTS[ceremonyType].names} Workspace`, 'success');
         }
 
@@ -1530,7 +1874,7 @@
             if (!activeClientState) return;
             
             document.getElementById('portal-user-names').innerText = activeClientState.names;
-            document.getElementById('portal-user-uid').innerText = (useFirebase && firebaseUserRef) ? firebaseUserRef.uid : activeClientState.uid;
+            document.getElementById('portal-user-uid').innerText = activeClientState.uid;
             document.getElementById('portal-ceremony-type-badge').innerText = activeClientState.ceremonyType;
             document.getElementById('portal-user-icon').className = `fa-solid ${activeClientState.ceremonyIcon}`;
             
@@ -1963,6 +2307,12 @@
         window.toggleFaqAccordion = toggleFaqAccordion;
         window.openPortalAuthModal = openPortalAuthModal;
         window.closePortalAuthModal = closePortalAuthModal;
+        window.openAdminAuthModal = openAdminAuthModal;
+        window.closeAdminAuthModal = closeAdminAuthModal;
+        window.handleAdminLoginSubmit = handleAdminLoginSubmit;
+        window.logoutAdmin = logoutAdmin;
+        window.autoLoadAdminTemplates = autoLoadAdminTemplates;
+        window.handleProvisionClient = handleProvisionClient;
         window.openPrivacyModal = openPrivacyModal;
         window.closePrivacyModal = closePrivacyModal;
         window.openServiceDetails = openServiceDetails;
