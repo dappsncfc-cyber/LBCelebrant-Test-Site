@@ -232,7 +232,7 @@
                 </div>
             </div>
 
-            <!-- Mobile dropdown drawer navigation (REORDERED EXACTLY: Home -> About -> Ceremonies -> FAQs -> Contact) -->
+            <!-- Mobile dropdown drawer navigation -->
             <div id="mobile-menu" class="hidden md:hidden bg-brand-surface-container/95 backdrop-blur-lg border-t border-brand-outline-variant/30 text-brand-on-surface shadow-lg">
                 <div class="px-4 pt-2 pb-6 space-y-3">
                     <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Home</button>
@@ -253,7 +253,6 @@
             
             <section id="marketing-home" class="block transition-all duration-300">
                 
-                <!-- Hero Showcase with airy Warm Linen styling -->
                 <div class="relative py-20 sm:py-28 overflow-hidden flex flex-col items-center justify-center text-brand-tertiary">
                     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                         <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-surface-container-lowest border border-brand-outline-variant/30 text-brand-primary text-[10px] uppercase tracking-[0.1em] font-semibold mb-8 shadow-sm">
@@ -279,7 +278,6 @@
                     </div>
                 </div>
 
-                <!-- About Section directly underneath the Hero section -->
                 <div id="about-celebrant" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div class="lg:flex lg:items-center lg:space-x-16">
                         <div class="lg:w-5/12 mb-10 lg:mb-0 relative">
@@ -310,7 +308,7 @@
                             <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-6">Telling life stories that bring communities closer</h3>
                             
                             <!-- Rich, high-EEAT trust quotes and stats targeted for GEO indexing -->
-                            <div class="bg-brand-surface-container-low rounded-xl p-6 border-l-4 border-brand-primary mb-8 italic text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed shadow-sm">
+                            <div class="bg-brand-surface-container-low rounded-xl p-6 border-l-4 border-brand-primary mb-8 italic text-brand-on-surface-variant text-base md:text-xs sm:text-sm leading-relaxed shadow-sm">
                                 "With over <strong class="text-brand-on-surface font-semibold">150+ bespoke ceremonies</strong> performed and a perfect <strong class="text-brand-on-surface font-semibold">5-star rating</strong> across Norfolk, Suffolk, Essex, and Cambridgeshire, we hold our service to an absolute standard of personalisation. Every script is created 100% template-free, written entirely from scratch to capture individual life journeys."
                             </div>
 
@@ -376,7 +374,6 @@
                                 </div>
                             </div>
                             <div class="p-6 pt-0">
-                                <!-- Click calls openServiceDetails to trigger customised glass pop-up -->
                                 <button onclick="openServiceDetails('wedding')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
                                     Learn More & Enquire
                                 </button>
@@ -411,7 +408,6 @@
                                 </div>
                             </div>
                             <div class="p-6 pt-0">
-                                <!-- Click calls openServiceDetails to trigger customised glass pop-up -->
                                 <button onclick="openServiceDetails('funeral')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
                                     Learn More & Enquire
                                 </button>
@@ -446,7 +442,6 @@
                                 </div>
                             </div>
                             <div class="p-6 pt-0">
-                                <!-- Click calls openServiceDetails to trigger customised glass pop-up -->
                                 <button onclick="openServiceDetails('naming')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
                                     Learn More & Enquire
                                 </button>
@@ -523,7 +518,7 @@
                                 <span>Can an independent celebrant legally marry us in the UK?</span>
                                 <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-1" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
+                            <div id="faq-body-1" class="hidden px-6 pb-5 text-brand-on-surface-variant text-base md:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 Currently, in England and Wales, an independent celebrant cannot perform the legal marriage registration. Couples typically complete their legal registration (the "administrative script") at a local register office before or after their personalised, bespoke celebrant ceremony. However, your celebrant-led ceremony is where you share your real vows, exchange rings, and perform custom symbolic rituals (like handfasting) in front of all your family and friends.
                             </div>
                         </div>
@@ -533,7 +528,7 @@
                                 <span>How far in advance of the ceremony must our script be finalised?</span>
                                 <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-2" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
+                            <div id="faq-body-2" class="hidden px-6 pb-5 text-brand-on-surface-variant text-base md:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 To ensure smooth choreography, coordinate cue timings with venue suppliers, and allow standard time for stationery or Order of Service layout printing, all scripts must be approved and locked in your Secure Client Portal at least 14 days before the ceremony date.
                             </div>
                         </div>
@@ -543,7 +538,7 @@
                                 <span>What custom symbolic rituals can we include in our ceremony?</span>
                                 <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-3" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
+                            <div id="faq-body-3" class="hidden px-6 pb-5 text-brand-on-surface-variant text-base md:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 As independent celebrants, we can incorporate a wide range of symbolic rituals, including traditional handfasting (binding of wrists with silk cords), ring-warming (where guests pass your rings to infuse them with good wishes), memory wish-trees, candle-lighting, or sand-blending rituals. All of these can be customised to match your family values.
                             </div>
                         </div>
@@ -555,7 +550,7 @@
                         <div class="bg-brand-surface-container-low rounded-2xl shadow-sm p-6 sm:p-12 border border-brand-outline-variant/30 relative overflow-hidden">
                             <div class="text-center mb-10">
                                 <h3 class="font-serif text-3xl text-brand-on-surface font-bold mb-3">Enquire About Your Date</h3>
-                                <p class="text-brand-on-surface-variant text-xs sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
+                                <p class="text-brand-on-surface-variant text-base sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
                             </div>
                             <form onsubmit="handleContactSubmit(event)" class="space-y-6">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -1016,15 +1011,19 @@
                 <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <i class="fa-solid fa-user-shield text-lg"></i>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Celebrant Admin Area</h3>
-                <p class="text-xs text-brand-on-surface-variant mt-1">Authenticate to access client provisioning and active workspace registries.</p>
+                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Celebrant Admin Login</h3>
+                <p class="text-xs text-brand-on-surface-variant mt-1">Sign in with your email and password to access the control panel.</p>
             </div>
             
             <form onsubmit="handleAdminLoginSubmit(event)" class="space-y-4 font-sans">
                 <div>
-                    <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Secure Celebrant PIN</label>
-                    <input id="admin-pin-input" type="password" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary tracking-widest text-center" placeholder="••••">
-                    <p class="text-[10px] text-brand-primary font-bold mt-1 text-center">Sandbox PIN: 1984</p>
+                    <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Admin Email</label>
+                    <input id="admin-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="lisa@lb-celebrant.co.uk">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Secure Password</label>
+                    <input id="admin-password-input" type="password" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="••••••••">
+                    <p class="text-[10px] text-brand-primary font-bold mt-1 text-center">Sandbox Credentials: lisa@lb-celebrant.co.uk / password1984</p>
                 </div>
                 <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-widest transition shadow-sm active:scale-95">
                     <i class="fa-solid fa-unlock-keyhole mr-1 text-brand-surface"></i> Unlock Console
@@ -1064,7 +1063,7 @@
                 <p class="text-xs text-brand-on-surface-variant mt-1">UK GDPR & Data Protection Act 2018 Compliance Statement</p>
             </div>
             <!-- Scrollable legal text -->
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-base md:text-sm leading-relaxed space-y-4">
                 <h4 class="font-serif text-brand-primary font-bold text-base mt-2">1. Introduction</h4>
                 <p>Welcome to the Privacy Policy of <strong>Lisa B Celebrant</strong>. We respect your privacy and are committed to protecting your personal data. This privacy statement will inform you as to how we look after your personal data when you visit our website, use our Secure Client Portal, or fill out our enquiry forms, and tell you about your privacy rights under UK law.</p>
 
@@ -1118,7 +1117,7 @@
                 </div>
             </div>
             <!-- Scrollable details wrapper -->
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-base md:text-sm leading-relaxed space-y-4">
                 <div id="service-modal-long-description" class="space-y-4">
                     <!-- Dynamic details are injected here -->
                 </div>
@@ -1140,7 +1139,7 @@
     <!-- Firebase SDK Imports (v11.6.1 Module Scripts for Single-File Web Apps) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 
@@ -1378,7 +1377,6 @@
         async function loadRegistryFromDb() {
             if (!useFirebase || !db || !firebaseUserRef) return;
             try {
-                // Rule 2 compliant query: Grab all documents in the public registries collection to list them for Lisa
                 const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'registries');
                 const querySnap = await getDocs(colRef);
                 clientRegistries = [];
@@ -1387,7 +1385,7 @@
                 });
                 renderAdminClientList();
             } catch (err) {
-                console.warn("Could not load registry records (probably first run, no collection yet).", err);
+                console.warn("Could not load registry records.", err);
             }
         }
 
@@ -1463,19 +1461,50 @@
             document.getElementById('admin-auth-modal').classList.add('hidden');
         }
 
-        function handleAdminLoginSubmit(event) {
+        async function handleAdminLoginSubmit(event) {
             event.preventDefault();
-            const pin = document.getElementById('admin-pin-input').value;
-            if (pin === "1984") {
-                closeAdminAuthModal();
-                showSection('admin-dashboard');
-                autoLoadAdminTemplates();
-                loadRegistryFromDb();
-                showNotification("Lisa's Admin Console unlocked successfully.", "success");
+            const email = document.getElementById('admin-email-input').value.trim();
+            const password = document.getElementById('admin-password-input').value;
+
+            showNotification("Authenticating admin credentials...", "info");
+
+            if (useFirebase && auth) {
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                    closeAdminAuthModal();
+                    showSection('admin-dashboard');
+                    autoLoadAdminTemplates();
+                    loadRegistryFromDb();
+                    showNotification("Lisa's Admin Console unlocked successfully.", "success");
+                } catch (err) {
+                    console.error("Firebase admin login error:", err);
+                    if (email === "lisa@lb-celebrant.co.uk" && password === "password1984" && (err.code === "auth/user-not-found" || err.code === "auth/invalid-credential" || err.code === "auth/invalid-email" || err.code === "auth/user-disabled")) {
+                        try {
+                            showNotification("Provisioning first-time admin credentials...", "info");
+                            await createUserWithEmailAndPassword(auth, email, password);
+                            closeAdminAuthModal();
+                            showSection('admin-dashboard');
+                            autoLoadAdminTemplates();
+                            loadRegistryFromDb();
+                            showNotification("First-time Admin account provisioned and unlocked!", "success");
+                        } catch (createErr) {
+                            console.error("Failed to auto-create admin:", createErr);
+                            showNotification("Authentication error: " + createErr.message, "error");
+                        }
+                    } else {
+                        showNotification("Authentication failed: " + err.message, "error");
+                    }
+                }
             } else {
-                showNotification("Invalid Access PIN. Please try again.", "error");
+                if (email === "lisa@lb-celebrant.co.uk" && password === "password1984") {
+                    closeAdminAuthModal();
+                    showSection('admin-dashboard');
+                    autoLoadAdminTemplates();
+                    showNotification("Offline Sandbox: Lisa's Admin Console unlocked.", "success");
+                } else {
+                    showNotification("Invalid Admin email or password.", "error");
+                }
             }
-            document.getElementById('admin-pin-input').value = "";
         }
 
         function logoutAdmin() {
