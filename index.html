@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lisa B Celebrant - Custom Ceremonies & Client Portal</title>
     
-    <!-- Meta description optimized for conversational semantic search / AEO / GEO -->
     <meta name="description" content="Award-winning modern independent celebrant crafting bespoke weddings, respectful celebration of life memorials, and family naming ceremonies across East Anglia, Norfolk, Suffolk, Essex, and Cambridgeshire. Featuring a collaborative, secure client portal.">
     
-    <!-- Google Fonts: Playfair Display for storytelling headings, Inter for modern interface reading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for high-quality icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Structured Data 1: LocalBusiness Schema (JSON-LD) for Local GEO Entity Recognition -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,26 +38,11 @@
         "longitude": 1.3017
       },
       "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Norfolk"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Suffolk"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Essex"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Cambridgeshire"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "East Anglia"
-        }
+        {"@type": "AdministrativeArea", "name": "Norfolk"},
+        {"@type": "AdministrativeArea", "name": "Suffolk"},
+        {"@type": "AdministrativeArea", "name": "Essex"},
+        {"@type": "AdministrativeArea", "name": "Cambridgeshire"},
+        {"@type": "AdministrativeArea", "name": "East Anglia"}
       ],
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -70,52 +51,10 @@
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
         "opens": "09:00",
         "closes": "20:00"
       }
-    }
-    </script>
-
-    <!-- Structured Data 2: FAQPage Schema (JSON-LD) for AEO/RAG Machine Reading -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Can an independent celebrant legally marry us in the UK?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Currently, in England and Wales, an independent celebrant cannot perform the legal marriage registration. Couples typically complete their legal registration (the 'administrative script') at a local register office before or after their personalised, bespoke celebrant ceremony. However, your celebrant-led ceremony is where you share your real vows, exchange rings, and perform custom symbolic rituals (like handfasting) in front of all your family and friends."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How far in advance of the ceremony must our script be finalised?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "To ensure smooth choreography, coordinate cue timings with venue suppliers, and allow standard time for stationery or Order of Service layout printing, all scripts must be approved and locked in your Secure Client Portal at least 14 days before the ceremony date."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What custom symbolic rituals can we include in our ceremony?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "As independent celebrants, we can incorporate a wide range of symbolic rituals, including traditional handfasting (binding of wrists with silk cords), ring-warming (where guests pass your rings to infuse them with good wishes), memory wish-trees, candle-lighting, or sand-blending rituals. All of these can be customised to match your family values."
-          }
-        }
-      ]
     }
     </script>
 
@@ -126,23 +65,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            primary: '#526253', // Eucalyptus Soft
-                            secondary: '#655d4e', // Taupe Grey
-                            tertiary: '#5b605c', // Charcoal Silk
-                            background: '#faf9f6', // Warm Linen
-                            surface: '#faf9f6',
-                            'surface-dim': '#dbdad7',
-                            'surface-container-lowest': '#ffffff',
-                            'surface-container-low': '#f4f3f0',
-                            'surface-container': '#efeeeb',
-                            'surface-container-high': '#e9e8e5',
-                            'surface-container-highest': '#e3e2e0',
-                            'on-surface': '#1a1c1a',
-                            'on-surface-variant': '#434842',
-                            outline: '#747872',
-                            'outline-variant': '#c4c8c0',
-                            'primary-container': '#8fa08e',
-                            'on-primary-container': '#283729',
+                            primary: '#526253', secondary: '#655d4e', tertiary: '#5b605c', background: '#faf9f6', surface: '#faf9f6',
+                            'surface-dim': '#dbdad7', 'surface-container-lowest': '#ffffff', 'surface-container-low': '#f4f3f0',
+                            'surface-container': '#efeeeb', 'surface-container-high': '#e9e8e5', 'surface-container-highest': '#e3e2e0',
+                            'on-surface': '#1a1c1a', 'on-surface-variant': '#434842', outline: '#747872', 'outline-variant': '#c4c8c0',
+                            'primary-container': '#8fa08e', 'on-primary-container': '#283729',
                         }
                     },
                     fontFamily: {
@@ -155,32 +82,17 @@
     </script>
     
     <style>
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #faf9f6;
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #526253;
-            border-radius: 4px;
-        }
-        /* Custom ambient glowing meshes using Botanical Eucalyptus tones */
-        .ambient-glow-1 {
-            background: radial-gradient(circle, rgba(82,98,83,0.05) 0%, rgba(250,249,246,0) 70%);
-        }
-        .ambient-glow-2 {
-            background: radial-gradient(circle, rgba(101,93,78,0.04) 0%, rgba(250,249,246,0) 70%);
-        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #faf9f6; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #526253; border-radius: 4px; }
+        .ambient-glow-1 { background: radial-gradient(circle, rgba(82,98,83,0.05) 0%, rgba(250,249,246,0) 70%); }
+        .ambient-glow-2 { background: radial-gradient(circle, rgba(101,93,78,0.04) 0%, rgba(250,249,246,0) 70%); }
     </style>
 </head>
-<body class="bg-brand-background text-brand-tertiary font-sans min-h-screen flex flex-col selection:bg-brand-primary-container/30 selection:text-brand-on-primary-container relative overflow-x-hidden w-full max-w-full">
+<body class="bg-brand-background text-brand-tertiary font-sans min-h-screen flex flex-col relative overflow-x-hidden w-full max-w-full">
 
-    <!-- Rigid, overflow-protected container that isolates layout viewport calculations and fixes mobile scrolling off to the right -->
     <div class="w-full max-w-full overflow-x-hidden flex flex-col min-h-screen relative z-10">
 
-        <!-- Ambient floating blobs safely contained inside relative content canvas bounds -->
         <div class="absolute inset-0 max-w-full overflow-hidden pointer-events-none z-0">
             <div class="absolute top-20 left-0 -translate-x-1/4 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] rounded-full ambient-glow-1"></div>
             <div class="absolute top-[40%] right-0 translate-x-1/4 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] rounded-full ambient-glow-2"></div>
@@ -191,7 +103,6 @@
         <header class="sticky top-0 z-40 bg-brand-surface/70 backdrop-blur-md border-b border-brand-outline-variant/30 shadow-sm transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-                    <!-- Brand logo with custom serif monogram -->
                     <div class="flex items-center space-x-3 cursor-pointer group" onclick="showSection('marketing-home')">
                         <div class="w-11 h-11 rounded-full bg-brand-primary group-hover:bg-brand-primary-container flex items-center justify-center border border-brand-outline-variant/40 shadow-sm transition-all duration-300">
                             <span class="font-serif text-sm text-white font-bold tracking-wider">LB</span>
@@ -202,7 +113,6 @@
                         </div>
                     </div>
 
-                    <!-- Desktop navigation menu (REORDERED EXACTLY: Home -> About -> Ceremonies -> FAQs -> Contact) -->
                     <nav class="hidden md:flex space-x-8 items-center">
                         <button onclick="showSection('marketing-home')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">Home</button>
                         <button onclick="scrollToSection('about-celebrant')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">About</button>
@@ -210,21 +120,13 @@
                         <button onclick="scrollToSection('faq-accordion-section')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">FAQs</button>
                         <button onclick="scrollToSection('contact-form')" class="text-brand-on-surface-variant hover:text-brand-primary font-sans text-sm font-medium tracking-wide transition-colors duration-150">Contact</button>
                         <div class="h-6 w-[1px] bg-brand-outline-variant/40"></div>
-                        <!-- Portal Entry Trigger -->
                         <button onclick="openPortalAuthModal()" class="inline-flex items-center space-x-2 bg-brand-primary hover:bg-brand-primary-container text-white px-5 py-2.5 rounded shadow-sm transition-all duration-300 font-medium text-sm">
                             <i class="fa-solid fa-folder-open text-xs text-brand-surface"></i>
                             <span>Secure Client Portal</span>
                         </button>
-                        <!-- Celebrant Key Trigger -->
-                        <button onclick="openAdminAuthModal()" class="p-2.5 rounded-full hover:bg-brand-surface-container text-brand-primary transition" title="Celebrant Admin Console">
-                            <i class="fa-solid fa-key text-sm"></i>
-                        </button>
                     </nav>
 
-                    <div class="md:hidden flex items-center space-x-2">
-                        <button onclick="openAdminAuthModal()" class="p-2 rounded bg-brand-surface-container/60 border border-brand-outline-variant/30 text-brand-primary" title="Celebrant Admin Console">
-                            <i class="fa-solid fa-key text-sm"></i>
-                        </button>
+                    <div class="md:hidden">
                         <button onclick="toggleMobileMenu()" class="text-brand-on-surface hover:text-brand-primary focus:outline-none p-2 rounded bg-brand-surface-container/60 border border-brand-outline-variant/30">
                             <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
                         </button>
@@ -232,7 +134,6 @@
                 </div>
             </div>
 
-            <!-- Mobile dropdown drawer navigation -->
             <div id="mobile-menu" class="hidden md:hidden bg-brand-surface-container/95 backdrop-blur-lg border-t border-brand-outline-variant/30 text-brand-on-surface shadow-lg">
                 <div class="px-4 pt-2 pb-6 space-y-3">
                     <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Home</button>
@@ -282,10 +183,8 @@
                     <div class="lg:flex lg:items-center lg:space-x-16">
                         <div class="lg:w-5/12 mb-10 lg:mb-0 relative">
                             <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary-container/20 to-brand-surface-container-highest/30 rounded blur-xl opacity-25"></div>
-                            <!-- Aspect-controlled frame that renders instantly with fallback skeleton -->
                             <div class="relative bg-brand-surface-container-low rounded-2xl p-3 border border-brand-outline-variant/30 shadow-sm aspect-[4/5] w-full max-w-[450px] mx-auto lg:max-w-none overflow-hidden flex items-center justify-center">
                                 
-                                <!-- 0ms load speed local placeholder card -->
                                 <div id="image-placeholder" class="absolute inset-3 bg-brand-surface-container rounded-xl flex flex-col items-center justify-center p-6 text-center select-none shadow-inner border border-brand-outline-variant/20">
                                     <div class="w-16 h-16 rounded-full bg-brand-primary flex items-center justify-center border border-brand-outline-variant/40 shadow-sm mb-4 animate-pulse">
                                         <span class="font-serif text-lg text-white font-bold tracking-wider">LB</span>
@@ -294,7 +193,6 @@
                                     <p class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold">Custom Ceremonies</p>
                                 </div>
 
-                                <!-- Real LisaB.png progressively faded-in on successful render from GitHub -->
                                 <img src="LisaB.png" 
                                      loading="lazy"
                                      onload="this.classList.remove('opacity-0'); document.getElementById('image-placeholder').classList.add('opacity-0', 'pointer-events-none');"
@@ -307,8 +205,7 @@
                             <span class="text-brand-primary font-bold text-[12px] uppercase tracking-[0.1em] block mb-2">Hello, I'm Lisa B Celebrant</span>
                             <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-6">Telling life stories that bring communities closer</h3>
                             
-                            <!-- Rich, high-EEAT trust quotes and stats targeted for GEO indexing -->
-                            <div class="bg-brand-surface-container-low rounded-xl p-6 border-l-4 border-brand-primary mb-8 italic text-brand-on-surface-variant text-base md:text-xs sm:text-sm leading-relaxed shadow-sm">
+                            <div class="bg-brand-surface-container-low rounded-xl p-6 border-l-4 border-brand-primary mb-8 italic text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed shadow-sm">
                                 "With over <strong class="text-brand-on-surface font-semibold">150+ bespoke ceremonies</strong> performed and a perfect <strong class="text-brand-on-surface font-semibold">5-star rating</strong> across Norfolk, Suffolk, Essex, and Cambridgeshire, we hold our service to an absolute standard of personalisation. Every script is created 100% template-free, written entirely from scratch to capture individual life journeys."
                             </div>
 
@@ -345,8 +242,10 @@
                         <p class="text-brand-on-surface-variant text-sm">Every life chapter has its own rhythm and tone. Select a pathway below to see how we approach your specific landmark celebration.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Weddings Service card details -->
+                    <!-- Updated to lg:grid-cols-3 allowing 5 items to wrap beautifully -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Weddings -->
                         <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
                             <div>
                                 <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
@@ -380,7 +279,7 @@
                             </div>
                         </div>
 
-                        <!-- Funerals Service card -->
+                        <!-- Funerals -->
                         <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
                             <div>
                                 <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
@@ -414,7 +313,7 @@
                             </div>
                         </div>
 
-                        <!-- Naming Day Service card -->
+                        <!-- Naming Days -->
                         <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
                             <div>
                                 <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
@@ -447,6 +346,75 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- NEW: Pet Memorials -->
+                        <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                            <div>
+                                <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
+                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/efeeeb/526253?text=Pet+Memorials');"></div>
+                                    <div class="relative z-10 w-14 h-14 rounded-full bg-brand-surface border border-brand-outline-variant flex items-center justify-center text-brand-secondary text-xl shadow-sm">
+                                        <i class="fa-solid fa-paw text-brand-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Pet Memorials</h4>
+                                    <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
+                                        Compassionate, heartfelt farewells for your beloved animal companions. Acknowledging the deep bond you shared with a dedicated space to grieve and celebrate their life.
+                                    </p>
+                                    <ul class="space-y-2 mb-4">
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Meaningful back-garden or woodland farewells
+                                        </li>
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Gentle inclusion of children in the grieving process
+                                        </li>
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Beautiful customized certificates of remembrance
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <button onclick="openServiceDetails('pet')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                    Learn More & Enquire
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- NEW: Planning Ahead -->
+                        <div class="bg-brand-surface-container-lowest rounded-2xl border border-brand-outline-variant/40 shadow-sm overflow-hidden group hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                            <div>
+                                <div class="h-44 bg-brand-surface-container relative flex items-center justify-center overflow-hidden">
+                                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://placehold.co/600x400/efeeeb/526253?text=Planning+Ahead');"></div>
+                                    <div class="relative z-10 w-14 h-14 rounded-full bg-brand-surface border border-brand-outline-variant flex items-center justify-center text-brand-secondary text-xl shadow-sm">
+                                        <i class="fa-solid fa-compass text-brand-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Planning Ahead</h4>
+                                    <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
+                                        Gentle, guided consultations to outline your own future memorial or funeral wishes. Ensuring your story is told exactly as you envision, bringing peace of mind to you and your family.
+                                    </p>
+                                    <ul class="space-y-2 mb-4">
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Unhurried, in-person or video consultations
+                                        </li>
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Complete documentation of your life story and wishes
+                                        </li>
+                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Secured in our cloud vault for when the time comes
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <button onclick="openServiceDetails('planning')" class="w-full py-3 bg-brand-surface hover:bg-brand-primary hover:text-white border border-brand-outline-variant text-brand-primary font-semibold rounded text-xs uppercase tracking-wider active:scale-95 transition-all duration-300 shadow-sm">
+                                    Learn More & Enquire
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -518,7 +486,7 @@
                                 <span>Can an independent celebrant legally marry us in the UK?</span>
                                 <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-1" class="hidden px-6 pb-5 text-brand-on-surface-variant text-base md:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
+                            <div id="faq-body-1" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 Currently, in England and Wales, an independent celebrant cannot perform the legal marriage registration. Couples typically complete their legal registration (the "administrative script") at a local register office before or after their personalised, bespoke celebrant ceremony. However, your celebrant-led ceremony is where you share your real vows, exchange rings, and perform custom symbolic rituals (like handfasting) in front of all your family and friends.
                             </div>
                         </div>
@@ -528,7 +496,7 @@
                                 <span>How far in advance of the ceremony must our script be finalised?</span>
                                 <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-2" class="hidden px-6 pb-5 text-brand-on-surface-variant text-base md:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
+                            <div id="faq-body-2" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 To ensure smooth choreography, coordinate cue timings with venue suppliers, and allow standard time for stationery or Order of Service layout printing, all scripts must be approved and locked in your Secure Client Portal at least 14 days before the ceremony date.
                             </div>
                         </div>
@@ -538,7 +506,7 @@
                                 <span>What custom symbolic rituals can we include in our ceremony?</span>
                                 <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-primary text-sm transition-transform duration-200"></i>
                             </button>
-                            <div id="faq-body-3" class="hidden px-6 pb-5 text-brand-on-surface-variant text-base md:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
+                            <div id="faq-body-3" class="hidden px-6 pb-5 text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed border-t border-brand-outline-variant/30 pt-3">
                                 As independent celebrants, we can incorporate a wide range of symbolic rituals, including traditional handfasting (binding of wrists with silk cords), ring-warming (where guests pass your rings to infuse them with good wishes), memory wish-trees, candle-lighting, or sand-blending rituals. All of these can be customised to match your family values.
                             </div>
                         </div>
@@ -550,7 +518,7 @@
                         <div class="bg-brand-surface-container-low rounded-2xl shadow-sm p-6 sm:p-12 border border-brand-outline-variant/30 relative overflow-hidden">
                             <div class="text-center mb-10">
                                 <h3 class="font-serif text-3xl text-brand-on-surface font-bold mb-3">Enquire About Your Date</h3>
-                                <p class="text-brand-on-surface-variant text-base sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
+                                <p class="text-brand-on-surface-variant text-xs sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
                             </div>
                             <form onsubmit="handleContactSubmit(event)" class="space-y-6">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -570,11 +538,13 @@
                                             <option value="wedding">Wedding Ceremony</option>
                                             <option value="funeral">Funeral or Memorial Tribute</option>
                                             <option value="naming">Naming Ceremony</option>
+                                            <option value="pet">Pet Memorial</option>
+                                            <option value="planning">Planning Ahead</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Planned Date</label>
-                                        <input type="date" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Planned Date (Or Approximate)</label>
+                                        <input type="date" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
                                     </div>
                                 </div>
                                 <div>
@@ -619,7 +589,7 @@
                         </div>
                     </div>
 
-                    <!-- Mobile Navigation Bar for Dashboard Sections (Hides on Desktop lg) -->
+                    <!-- Mobile Navigation Bar for Dashboard Sections -->
                     <div class="lg:hidden flex overflow-x-auto space-x-2 pb-4 mb-6 border-b border-brand-outline-variant/30 scrollbar-none scroll-smooth">
                         <button data-tab="checklist" onclick="switchPortalTab('checklist')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-primary text-white text-xs font-semibold rounded-full shadow-sm">
                             <i class="fa-solid fa-list-check mr-1"></i> Planner Tasks
@@ -640,10 +610,9 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                         
-                        <!-- Left-Hand Sidebar (Task List + Interactive Questions) -->
                         <div class="lg:col-span-4 space-y-6">
                             
-                            <!-- Real-time Tasks list connected to state -->
+                            <!-- Tasks -->
                             <div id="portal-checklist-section" class="portal-section bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between">
                                 <div>
                                     <div class="flex justify-between items-center mb-4">
@@ -653,16 +622,14 @@
                                     <div class="w-full bg-brand-surface-container rounded-full h-1.5 mb-6 overflow-hidden">
                                         <div id="checklist-progress-bar" class="bg-brand-primary h-1.5 rounded-full transition-all duration-300" style="width: 0%"></div>
                                     </div>
-                                    <div id="portal-tasks-container" class="space-y-3">
-                                        <!-- Dynamic checklist tasks injected on auth -->
-                                    </div>
+                                    <div id="portal-tasks-container" class="space-y-3"></div>
                                 </div>
                                 <div class="mt-6 pt-4 border-t border-brand-outline-variant/30 flex items-center justify-between text-[11px] text-brand-on-surface-variant">
                                     <span><i class="fa-regular fa-clock text-brand-primary mr-1"></i> Script locks 14 days prior</span>
-                                    <button onclick="resetChecklist()" class="text-brand-primary hover:underline font-bold">Reset Demo</button>
                                 </div>
                             </div>
 
+                            <!-- Questionnaire -->
                             <div id="portal-questionnaire-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <h4 class="font-serif text-lg text-brand-on-surface font-bold mb-1">Story Questionnaire</h4>
                                 <p class="text-brand-on-surface-variant text-xs mb-4">Reflective prompts that help shape your final script. Progress saves as you type.</p>
@@ -677,15 +644,14 @@
                                     </div>
                                     <div class="flex items-center justify-between text-[10px] text-brand-primary font-bold pt-1 font-sans">
                                         <span><i class="fa-solid fa-circle-check text-brand-primary mr-1"></i> Saved to Cloud Firestore</span>
-                                        <button onclick="clearStoryAnswers()" class="text-brand-secondary hover:text-brand-on-surface font-bold">Clear Fields</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Right-Hand Workspace (File Uploader, Script Co-editing, Order of Service) -->
                         <div class="lg:col-span-8 space-y-6">
                             
+                            <!-- Vault -->
                             <div id="portal-vault-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
                                     <div>
@@ -698,7 +664,6 @@
                                     <span class="text-[10px] uppercase tracking-wider bg-brand-surface text-brand-primary px-2.5 py-1 rounded border border-brand-outline-variant/30 font-bold font-sans self-start">GDPR Compliant</span>
                                 </div>
 
-                                <!-- File drop zone -->
                                 <div id="drop-zone" class="border-2 border-dashed border-brand-outline-variant/60 hover:border-brand-primary rounded p-6 text-center bg-brand-surface-container/30 hover:bg-brand-surface-container/50 transition duration-150 cursor-pointer mb-6" onclick="triggerFileInput()">
                                     <input type="file" id="file-input" class="hidden" multiple accept="image/*,application/pdf" onchange="handleFileSelection(event)">
                                     <i class="fa-solid fa-cloud-arrow-up text-3xl text-brand-primary/60 mb-3 block"></i>
@@ -706,7 +671,6 @@
                                     <span class="block text-[10px] text-brand-on-surface-variant mt-1">Accepts readings documents, music cue lists, venue layouts, and ceremony photos (Max 10MB)</span>
                                 </div>
 
-                                <!-- Uploading Sim block -->
                                 <div id="upload-progress-container" class="hidden mb-6 bg-brand-surface p-4 rounded border border-brand-outline-variant/30">
                                     <div class="flex justify-between items-center text-xs text-brand-on-surface mb-1.5 font-medium">
                                         <span id="uploading-file-name">Processing upload...</span>
@@ -717,7 +681,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Vault Files table layout -->
                                 <div class="overflow-x-auto">
                                     <table class="w-full text-left text-xs text-brand-on-surface-variant border-collapse">
                                         <thead>
@@ -729,13 +692,12 @@
                                                 <th class="p-3 text-right">Download</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="uploaded-files-body">
-                                            <!-- Injected rows based on state -->
-                                        </tbody>
+                                        <tbody id="uploaded-files-body"></tbody>
                                     </table>
                                 </div>
                             </div>
 
+                            <!-- Script -->
                             <div id="portal-script-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                                     <div>
@@ -745,25 +707,18 @@
                                         </h4>
                                         <p class="text-brand-on-surface-variant text-xs">Review draft iterations and collaborate directly via the paragraph log below.</p>
                                     </div>
-                                    <div class="flex items-center gap-2" id="script-status-container">
-                                        <!-- Dynamic approval tags loaded here -->
-                                    </div>
+                                    <div class="flex items-center gap-2" id="script-status-container"></div>
                                 </div>
 
-                                <!-- Script content text editor display window -->
-                                <div class="bg-brand-surface rounded-xl border border-brand-outline-variant/30 p-6 sm:p-8 max-h-[380px] overflow-y-auto custom-scrollbar font-serif text-brand-tertiary leading-relaxed mb-6" id="script-draft-body">
-                                    <!-- Loaded based on ceremony type -->
-                                </div>
+                                <!-- Read-only Script Display -->
+                                <div class="bg-brand-surface rounded-xl border border-brand-outline-variant/30 p-6 sm:p-8 max-h-[380px] overflow-y-auto custom-scrollbar font-serif text-brand-tertiary leading-relaxed mb-6" id="script-draft-body"></div>
 
-                                <!-- Paragraph Comments Thread log -->
                                 <div class="border-t border-brand-outline-variant/30 pt-6">
                                     <h5 class="text-[10px] uppercase tracking-[0.1em] text-brand-on-surface font-bold mb-4 flex items-center gap-1 font-sans">
                                         <i class="fa-solid fa-comments text-brand-primary"></i>
                                         <span>Script Revision Logs</span>
                                     </h5>
-                                    <div id="comments-container" class="space-y-4 max-h-[220px] overflow-y-auto mb-4 pr-2 custom-scrollbar flex flex-col">
-                                        <!-- Populated dynamically -->
-                                    </div>
+                                    <div id="comments-container" class="space-y-4 max-h-[220px] overflow-y-auto mb-4 pr-2 custom-scrollbar flex flex-col"></div>
                                     <form onsubmit="handleCommentPost(event)" class="flex gap-3">
                                         <input id="new-comment-input" type="text" class="flex-grow px-4 py-2.5 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="Type a comment or suggest paragraph modifications...">
                                         <button type="submit" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95">Post</button>
@@ -786,6 +741,7 @@
                                 </div>
                             </div>
 
+                            <!-- OOS -->
                             <div id="portal-oos-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex justify-between items-center mb-6">
                                     <div>
@@ -799,118 +755,7 @@
                                         <i class="fa-solid fa-print text-brand-primary"></i> Print Layout
                                     </button>
                                 </div>
-
-                                <div class="space-y-4 mb-6" id="order-of-service-list">
-                                    <!-- Order of Service rows loaded based on checklist selection -->
-                                </div>
-
-                                <button onclick="addOrderOfServiceStep()" class="w-full py-3 bg-brand-surface/40 hover:bg-brand-surface/80 text-brand-primary border-2 border-dashed border-brand-outline-variant rounded text-xs font-bold uppercase tracking-wider transition-all duration-150">
-                                    <i class="fa-solid fa-plus mr-1 text-brand-primary"></i> Add Custom Step
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="admin-dashboard" class="hidden transition-all duration-300 min-h-screen py-6 sm:py-10">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
-                    <!-- Admin Header Title -->
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-brand-surface-container-low rounded-2xl p-6 sm:p-8 border border-brand-outline-variant/30 shadow-sm mb-8">
-                        <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                            <div class="w-14 h-14 rounded-full bg-brand-primary border border-brand-outline-variant flex items-center justify-center text-white text-xl shadow-sm">
-                                <i class="fa-solid fa-toolbox"></i>
-                            </div>
-                            <div>
-                                <span class="text-[10px] uppercase tracking-[0.1em] text-brand-primary font-bold font-sans">Celebrant Management Panel</span>
-                                <h2 class="font-serif text-2xl font-bold text-brand-on-surface">Lisa's Control Console</h2>
-                                <p class="text-xs text-brand-on-surface-variant">Configure client workspaces and direct database registries</p>
-                            </div>
-                        </div>
-                        <button onclick="logoutAdmin()" class="px-4 py-2.5 text-brand-on-surface-variant hover:text-brand-primary hover:bg-brand-surface rounded text-xs font-semibold transition duration-150 border border-brand-outline-variant flex items-center space-x-1.5 active:scale-95 bg-brand-surface-container-lowest">
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Exit Admin Area</span>
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        
-                        <!-- Left-Hand Column: Active Client Registry -->
-                        <div class="lg:col-span-4 space-y-6">
-                            <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
-                                <div class="flex justify-between items-center mb-4">
-                                    <h4 class="font-serif text-lg text-brand-on-surface font-bold">Active Clients</h4>
-                                    <span id="admin-client-count" class="text-[10px] font-bold bg-brand-surface text-brand-primary px-2.5 py-1 rounded border border-brand-outline-variant/30 font-sans">0 Registry entries</span>
-                                </div>
-                                <p class="text-brand-on-surface-variant text-[11px] mb-4">Select an active client to modify their live script, view story prompts, or manage task flows.</p>
-                                
-                                <div id="admin-client-list" class="space-y-3 max-h-[420px] overflow-y-auto pr-1 custom-scrollbar">
-                                    <!-- Dynamic list of clients from Firestore/Mock -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right-Hand Column: Provisioning & Tailoring Console -->
-                        <div class="lg:col-span-8 space-y-6">
-                            <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
-                                <h4 class="font-serif text-lg text-brand-on-surface font-bold mb-2">Provision New Client Workspace</h4>
-                                <p class="text-brand-on-surface-variant text-xs mb-6">Create a tailored environment for an upcoming ceremony. This writes a custom configuration doc to the cloud.</p>
-                                
-                                <form onsubmit="handleProvisionClient(event)" class="space-y-6">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Client Names / Title</label>
-                                            <input type="text" id="admin-prov-names" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="e.g., Alice & Michael">
-                                        </div>
-                                        <div>
-                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Registered Email Address</label>
-                                            <input type="email" id="admin-prov-email" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="e.g., alice@example.com">
-                                        </div>
-                                    </div>
-
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Ceremony Type</label>
-                                            <select id="admin-prov-type" onchange="autoLoadAdminTemplates()" class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
-                                                <option value="wedding">Wedding Ceremony</option>
-                                                <option value="funeral">Funeral or Memorial Tribute</option>
-                                                <option value="naming">Naming Ceremony</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Planned Date</label>
-                                            <input type="date" id="admin-prov-date" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Tailor Checklist Tasks (Semicolon separated)</label>
-                                        <textarea id="admin-prov-checklist" rows="3" class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant"></textarea>
-                                    </div>
-
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Story Prompt 1</label>
-                                            <input type="text" id="admin-prov-prompt1" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
-                                        </div>
-                                        <div>
-                                            <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Story Prompt 2</label>
-                                            <input type="text" id="admin-prov-prompt2" required class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary text-brand-on-surface-variant">
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Tailor Initial Script Wording (HTML layout allowed)</label>
-                                        <textarea id="admin-prov-script" rows="8" class="w-full px-4 py-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary font-mono text-brand-on-surface-variant"></textarea>
-                                    </div>
-
-                                    <div class="pt-2">
-                                        <button type="submit" class="w-full py-4 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 border border-brand-outline-variant/30">
-                                            <i class="fa-solid fa-circle-plus"></i>
-                                            <span>Provision Client Workspace</span>
-                                        </button>
-                                    </div>
-                                </form>
+                                <div class="space-y-4 mb-6" id="order-of-service-list"></div>
                             </div>
                         </div>
                     </div>
@@ -935,18 +780,15 @@
                         <button onclick="showSection('marketing-home'); scrollToSection('about-celebrant')" class="hover:text-brand-primary font-semibold">About Me</button>
                         <button onclick="openPortalAuthModal()" class="hover:text-brand-primary font-semibold">Client Portal</button>
                         <div class="h-4 w-[1px] bg-brand-outline-variant hidden sm:block"></div>
-                        <!-- Color-matched Instagram Anchor Link -->
                         <a href="https://www.instagram.com/lisabcelebrant_/" target="_blank" rel="noopener noreferrer" class="text-base text-brand-on-surface-variant hover:text-brand-primary transition-colors duration-150 flex items-center" title="Follow Lisa B Celebrant on Instagram">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </div>
                 </div>
-                <!-- Bottom Footer Bar with Copyright and GDPR Privacy Link -->
                 <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-on-surface-variant gap-4 font-sans">
                     <p>
                         &copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-brand-primary hover:underline transition-colors font-medium">Offscript Labs 2026</a> - All rights reserved. 
                         &bull; <button onclick="openPrivacyModal()" class="hover:text-brand-primary hover:underline transition-colors font-medium ml-1">Privacy Policy</button>
-                        &bull; <button onclick="openAdminAuthModal()" class="hover:text-brand-primary hover:underline transition-colors font-medium ml-1">Celebrant Admin</button>
                     </p>
                     <p class="flex items-center gap-1"><i class="fa-solid fa-shield text-brand-primary text-[10px]"></i> Secure Static Vault System &bull; East Anglia</p>
                 </div>
@@ -955,7 +797,7 @@
 
     </div>
 
-    <!-- Authentication Modal (Kept outside main layout wrapper to completely isolate rendering bugs) -->
+    <!-- Authentication Modal (Passwordless Email Flow) -->
     <div id="portal-auth-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-brand-surface/90 backdrop-blur-md w-full max-w-md rounded-2xl border border-brand-outline-variant/30 shadow-lg p-6 relative overflow-hidden">
             <button onclick="closePortalAuthModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
@@ -972,10 +814,10 @@
             <form onsubmit="handlePortalLogin(event)" class="space-y-4 font-sans">
                 <div>
                     <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Registered Email Address</label>
-                    <input id="portal-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="name@yourwedding.com">
+                    <input id="portal-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="name@domain.com">
                 </div>
                 <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-widest transition shadow-sm active:scale-95">
-                    <i class="fa-solid fa-magic mr-1 text-brand-surface"></i> Request Magic Sign-In Link
+                    <i class="fa-solid fa-magic mr-1 text-brand-surface"></i> Access Workspace
                 </button>
             </form>
 
@@ -1001,46 +843,13 @@
         </div>
     </div>
 
-    <!-- Admin Authorization Modal -->
-    <div id="admin-auth-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-brand-surface/90 backdrop-blur-md w-full max-w-md rounded-2xl border border-brand-outline-variant/30 shadow-lg p-6 relative overflow-hidden">
-            <button onclick="closeAdminAuthModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
-                    <i class="fa-solid fa-user-shield text-lg"></i>
-                </div>
-                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Celebrant Admin Login</h3>
-                <p class="text-xs text-brand-on-surface-variant mt-1">Sign in with your email and password to access the control panel.</p>
-            </div>
-            
-            <form onsubmit="handleAdminLoginSubmit(event)" class="space-y-4 font-sans">
-                <div>
-                    <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Admin Email</label>
-                    <input id="admin-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="lisa@lb-celebrant.co.uk">
-                </div>
-                <div>
-                    <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Secure Password</label>
-                    <input id="admin-password-input" type="password" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="••••••••">
-                    <p class="text-[10px] text-brand-primary font-bold mt-1 text-center">Sandbox Credentials: lisa@lb-celebrant.co.uk / password1984</p>
-                </div>
-                <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-widest transition shadow-sm active:scale-95">
-                    <i class="fa-solid fa-unlock-keyhole mr-1 text-brand-surface"></i> Unlock Console
-                </button>
-            </form>
-        </div>
-    </div>
-
     <!-- Print Preview System -->
     <div id="print-preview-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-brand-surface w-full max-w-2xl rounded-2xl border shadow-lg p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closePrintPreview()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <div id="print-preview-content" class="font-serif p-6 bg-brand-surface-container rounded border border-brand-outline-variant/30 text-brand-tertiary">
-                <!-- Programmatically generated print styles injected here -->
-            </div>
+            <div id="print-preview-content" class="font-serif p-6 bg-brand-surface-container rounded border border-brand-outline-variant/30 text-brand-tertiary"></div>
             <div class="flex justify-end gap-3 mt-6 font-sans">
                 <button onclick="closePrintPreview()" class="px-5 py-2.5 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-tertiary font-bold rounded text-xs uppercase tracking-wider transition">Cancel</button>
                 <button onclick="triggerSystemPrint()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95">Print Document</button>
@@ -1051,48 +860,14 @@
     <!-- Privacy Policy Glassmorphic Pop-up Modal -->
     <div id="privacy-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/25 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-brand-surface/80 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[80vh] flex flex-col">
-            <!-- Close Button -->
-            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
+            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
             <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
-                    <i class="fa-solid fa-shield-halved text-lg"></i>
-                </div>
+                <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm"><i class="fa-solid fa-shield-halved text-lg"></i></div>
                 <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Privacy Policy</h3>
                 <p class="text-xs text-brand-on-surface-variant mt-1">UK GDPR & Data Protection Act 2018 Compliance Statement</p>
             </div>
-            <!-- Scrollable legal text -->
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-base md:text-sm leading-relaxed space-y-4">
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-2">1. Introduction</h4>
-                <p>Welcome to the Privacy Policy of <strong>Lisa B Celebrant</strong>. We respect your privacy and are committed to protecting your personal data. This privacy statement will inform you as to how we look after your personal data when you visit our website, use our Secure Client Portal, or fill out our enquiry forms, and tell you about your privacy rights under UK law.</p>
-
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">2. The Data Controller</h4>
-                <p>Lisa B Celebrant is the data controller and is responsible for your personal data. If you have any questions regarding this policy or our data practices, please contact us at: <span class="text-brand-primary font-semibold underline">privacy@lb-celebrant.co.uk</span>.</p>
-
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">3. Data We Collect About You</h4>
-                <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>Identity Data:</strong> Includes first name, last name, username or similar identifier, and marital status.</li>
-                    <li><strong>Contact Data:</strong> Includes email address, telephone numbers, and billing addresses.</li>
-                    <li><strong>Ceremony Data:</strong> Planning timelines, ceremony dates, locations, story prompt details, guideparent names, and uploaded planning document vaults (such as PDF files, schedules, and photos).</li>
-                    <li><strong>Technical Data:</strong> Includes internet protocol (IP) address, login session states, browser type, and operating system.</li>
-                </ul>
-
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">4. How We Use Your Personal Data</h4>
-                <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Where we need to perform the contract we are about to enter into or have entered into with you (such as planning your bespoke milestone ceremony).</li>
-                    <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-                    <li>Where we have your explicit consent to process sensitive personal data (such as information contained within your ceremony story questionnaires).</li>
-                </ul>
-
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">5. Storage and Security of Data</h4>
-                <p>All client questionnaire data, planning files, and comments are stored inside our secure, encrypted **Google Firebase** database environment using regional EU storage boundaries. We enforce strict Firebase security and row-level access rules, ensuring your files and details are accessible strictly to you and Lisa B Celebrant.</p>
-
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">6. Your Legal Rights</h4>
-                <p>Under certain circumstances, you have rights under UK data protection laws (UK GDPR) in relation to your personal data, including the right to request access, correction, erasure, or transfer of your personal data, and the right to withdraw consent at any time.</p>
-                <p>You also have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK regulator for data protection issues (<a href="https://ico.org.uk" target="_blank" class="text-brand-primary underline">www.ico.org.uk</a>).</p>
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
+                <p>All client questionnaire data, planning files, and comments are stored securely using regional EU storage boundaries.</p>
             </div>
             <div class="flex justify-end pt-4 border-t border-brand-outline-variant/30 mt-4 font-sans">
                 <button onclick="closePrivacyModal()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition active:scale-95">I Understand</button>
@@ -1103,10 +878,7 @@
     <!-- Glassmorphic Services Details Pop-up Modal -->
     <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-brand-surface/90 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
-            <!-- Close button -->
-            <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
+            <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
             <div class="flex items-center space-x-4 mb-6 border-b border-brand-outline-variant/30 pb-4">
                 <div id="service-modal-icon-container" class="w-12 h-12 rounded-full bg-brand-surface-container text-brand-primary flex items-center justify-center text-xl shadow-sm flex-shrink-0">
                     <i id="service-modal-icon" class="fa-solid fa-heart"></i>
@@ -1116,13 +888,9 @@
                     <p id="service-modal-subtitle" class="text-xs text-brand-primary font-bold uppercase tracking-[0.1em] font-sans">Service Subtitle</p>
                 </div>
             </div>
-            <!-- Scrollable details wrapper -->
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-base md:text-sm leading-relaxed space-y-4">
-                <div id="service-modal-long-description" class="space-y-4">
-                    <!-- Dynamic details are injected here -->
-                </div>
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
+                <div id="service-modal-long-description" class="space-y-4"></div>
             </div>
-            <!-- Dynamic footer and redirection trigger -->
             <div class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-brand-outline-variant/30 mt-4 gap-4 font-sans">
                 <div class="text-left w-full sm:w-auto">
                     <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block">Price From</span>
@@ -1136,12 +904,11 @@
         </div>
     </div>
 
-    <!-- Firebase SDK Imports (v11.6.1 Module Scripts for Single-File Web Apps) -->
+    <!-- Firebase SDK Imports (No Analytics to prevent adblocker crash) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
         const firebaseConfig = {
@@ -1150,1224 +917,221 @@
             projectId: "lisa-b-celebrant",
             storageBucket: "lisa-b-celebrant.firebasestorage.app",
             messagingSenderId: "818517298391",
-            appId: "1:818517298391:web:c16f25d2bf274b99373492",
-            measurementId: "G-RHDG8K8VVP"
+            appId: "1:818517298391:web:c16f25d2bf274b99373492"
         };
 
-        let app = null;
-        let auth = null;
-        let db = null;
-        let analytics = null;
-        let useFirebase = false;
+        let app = null, auth = null, db = null, useFirebase = false;
 
         try {
-            if (firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey !== "") {
-                app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-                try {
-                    analytics = getAnalytics(app);
-                } catch (analyticsErr) {
-                    console.warn("Firebase Analytics failed to initialise (likely blocked by browser privacy settings):", analyticsErr);
-                }
-                useFirebase = true;
-                console.log("Firebase initialised successfully in database sync mode.");
-            } else {
-                console.log("No Firebase API key provided. Running securely in offline local storage sandbox mode.");
-            }
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            useFirebase = true;
         } catch (err) {
-            console.warn("Failed to boot Firebase SDK. Defaulting gracefully to offline interactive sandbox mode.", err);
+            console.warn("Firebase Auth failure, falling back to sandbox mode.", err);
         }
 
         const MOCK_FIREBASE_CLIENTS = {
             wedding: {
-                uid: "usr-wedding-3009",
-                email: "sarah@jameswedding.com",
-                names: "Sarah & James",
-                ceremonyType: "Wedding",
-                ceremonyIcon: "fa-heart text-rose-500 animate-pulse",
-                date: "2026-08-20T14:00:00Z",
-                status: "Under Review",
-                checklist: [
-                    { id: "tk1", title: "Submit wedding story questionnaire answers", done: true },
-                    { id: "tk2", title: "Upload venue planning maps and music logs", done: true },
-                    { id: "tk3", title: "Draft custom vow wording concepts", done: false },
-                    { id: "tk4", title: "Review draft wedding script formatting", done: false },
-                    { id: "tk5", title: "Complete Order of Service flow chart", done: false },
-                    { id: "tk6", title: "Approve & lock final wedding script", done: false }
-                ],
-                script: `<h2>Celebrant Wedding Script Draft</h2>
-<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant for Sarah & James</p>
-<div class="border-b border-brand-outline-variant/30 my-4"></div>
-
-<h3>I. THE ENTRANCE & WELCOME</h3>
-<p>Family, friends, and loved ones, welcome. We gather here today on this beautiful shoreline, surrounded by the eternal cadence of the waves, to celebrate a love that is equally powerful and steady. We are here to witness the binding of two souls—Sarah and James—as they step together into the threshold of their tomorrow.</p>
-
-<h3>II. THE STORY OF US</h3>
-<p>Love does not look at the sky and wait for a perfect alignment; love builds its own horizon. In the autumn of 2020, as the world moved into a quiet, introspective season, Sarah and James found themselves standing in the queue of a small flower shop on Columbia Road. It was a brief, accidental chat about a bundle of dried lavender that sparked a conversation that simply never stopped...</p>
-
-<h3>III. VOWS AND SYMBOLIC CORD RITUAL</h3>
-<p>[Vows exchange slot will be co-edited here. We will incorporate your mutual promises of patience and support, binding your wrists in the traditional handfasting cord of green silk.]</p>`,
-                orderOfService: [
-                    { step: 1, title: "Prelude & Seating of Families", details: "A Thousand Years - Piano Instrumental" },
-                    { step: 2, title: "The Entrance Processional", details: "Canon in D - Pachelbel" },
-                    { step: 3, title: "Welcome, Love Story & Address", details: "Lisa B Celebrant officiating" },
-                    { step: 4, title: "The Handfasting Ritual", details: "Binding with emerald silk cords" },
-                    { step: 5, title: "Exchange of Vows & Ring Ceremony", details: "Spoken promises" },
-                    { step: 6, title: "Closing Remarks & Recessional", details: "Happy Together - The Turtles" }
-                ],
-                comments: [
-                    { name: "Lisa B Celebrant", text: "I have added your initial flower shop story to Section II. Let me know if that represents that beautiful morning properly!", time: "2 hours ago" },
-                    { name: "James", text: "This is breathtaking. It instantly brought us back to that flower shop queue. We are working on the vow wording tonight!", time: "1 hour ago" }
-                ],
-                questions: {
-                    q1: "We met in Columbia Road flower shop in East London. James picked up a dried bundle of lavender which caught my eye, and we got coffee immediately across the street.",
-                    q2: "Authentic, fun, relaxed. We don't want anything too stuffy or traditional. We want laughter to be at the heart of our day."
-                },
-                vault: [
-                    { name: "Columbia_Road_Flower_Shop_First_Date.jpg", category: "Ceremony Photo", status: "Verified", size: "2.4 MB" },
-                    { name: "Proposed_Reading_List.pdf", category: "Planning Doc", status: "Verified", size: "1.1 MB" }
-                ],
-                questionPrompts: [
-                    "Where did you first meet and what was your immediate impression?",
-                    "What values or promises matter most to you as we construct your script?"
-                ]
+                uid: "usr-wedding-3009", names: "Sarah & James", ceremonyType: "Wedding", ceremonyIcon: "fa-heart text-rose-500 animate-pulse", date: "2026-08-20T14:00:00Z", status: "Under Review", checklist: [{ id: "tk1", title: "Submit wedding story questionnaire answers", done: true }, { id: "tk2", title: "Review draft wedding script formatting", done: false }], script: `<h2>Wedding Draft</h2><p>Prepared for Sarah & James</p>`, orderOfService: [{ step: 1, title: "Prelude & Seating", details: "A Thousand Years" }], comments: [], questions: { q1: "", q2: "" }, vault: [], questionPrompts: ["Where did you first meet?", "What values matter most?"]
             },
-            
             funeral: {
-                uid: "usr-funeral-5104",
-                email: "eleanor@thompsonmemorial.co.uk",
-                names: "Celebration for Eleanor Thompson",
-                ceremonyType: "Funeral",
-                ceremonyIcon: "fa-cloud-sun text-slate-500",
-                date: "2026-07-09T11:00:00Z",
-                status: "Under Review",
-                checklist: [
-                    { id: "tk1", title: "Submit family memorial details and timeline answers", done: true },
-                    { id: "tk2", title: "Upload family tribute photographs for the slideshow", done: true },
-                    { id: "tk3", title: "Review eulogy draft paragraphs", done: false },
-                    { id: "tk4", title: "Confirm musical choices & poem selections", done: false },
-                    { id: "tk5", title: "Approve & lock final tribute script", done: false }
-                ],
-                script: `<h2>Eleanor Thompson Tribute Wording Draft</h2>
-<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant with love for the Thompson Family</p>
-<div class="border-b border-brand-outline-variant/30 my-4"></div>
-
-<h3>I. OPENING THOUGHTS & CONDOLENCES</h3>
-<p>We are gathered here today to remember, to honour, and to softly celebrate a life that was lived fully, intentionally, and beautifully. Eleanor Thompson was not someone who walked through the world; she was someone who added vibrant color to it. Her laughter was an invitation, and her kindness was an anchor.</p>
-
-<h3>II. TRIBUTE & MEMORIES CHRONOLOGY</h3>
-<p>Born in Sussex in the post-war summer of 1947, Eleanor carried a quiet, fierce optimism. Throughout her thirty years as an educator, she did not merely teach; she inspired. She taught children not only how to read books, but how to read the clouds, the trees, and the intentions of other humans...</p>
-
-<h3>III. MOMENT OF SILENT REFLECTION</h3>
-<p>[The room will descend into silent recollection, accompanied by Eleanor's beloved composition by Debussy.]</p>`,
-                orderOfService: [
-                    { step: 1, title: "Gathering & Entrance Music", details: "Clair de Lune - Claude Debussy" },
-                    { step: 2, title: "Introductory Words & Poem Recitation", details: "Officiant Lisa B Celebrant" },
-                    { step: 3, title: "The Life Journey Tribute", details: "Eulogy delivered by brother Robert" },
-                    { step: 4, title: "Photo Memories Slide Presentation", details: "Fields of Gold - Eva Cassidy" },
-                    { step: 5, title: "A Moment of Silent Reflection", details: "Quiet gathering" },
-                    { step: 6, title: "Closing Words & Committal", details: "Recessional: Sailing - Rod Stewart" }
-                ],
-                comments: [
-                    { name: "Lisa B Celebrant", text: "Robert, I have laid out the tribute script structure above. Please read the post-war summer paragraph to make sure the historical context aligns.", time: "4 hours ago" },
-                    { name: "Robert Thompson", text: "This captures our mother exactly. She did love Sussex dearly. I have uploaded the family garden photo.", time: "3 hours ago" }
-                ],
-                questions: {
-                    q1: "Eleanor spent her youth exploring the rolling Sussex Downs. She was happiest with soil on her hands and a cup of tea by her side.",
-                    q2: "An emphasis on her teaching career and her love of gardening. We want this to be a true celebration of a life well lived."
-                },
-                vault: [
-                    { name: "Sussex_Downs_Family_Walk.jpg", category: "Ceremony Photo", status: "Verified", size: "3.2 MB" },
-                    { name: "Eleanor_Thompson_Eulogy_Notes.pdf", category: "Planning Doc", status: "Approved", size: "0.8 MB" }
-                ],
-                questionPrompts: [
-                    "What are your absolute favourite memories of Eleanor during her early years?",
-                    "What core values or life philosophies did Eleanor pass down to her children?"
-                ]
+                uid: "usr-funeral-5104", names: "Celebration for Eleanor Thompson", ceremonyType: "Funeral", ceremonyIcon: "fa-cloud-sun text-slate-500", date: "2026-07-09T11:00:00Z", status: "Under Review", checklist: [{ id: "tk1", title: "Review eulogy draft paragraphs", done: false }], script: `<h2>Tribute Draft</h2>`, orderOfService: [], comments: [], questions: { q1: "", q2: "" }, vault: [], questionPrompts: ["Favourite memories?", "Life philosophies?"]
             },
-
             naming: {
-                uid: "usr-naming-9812",
-                email: "clara@harrisonbabyday.com",
-                names: "Baby Leo's Welcome",
-                ceremonyType: "Naming Day",
-                ceremonyIcon: "fa-seedling text-teal-600",
-                date: "2026-09-06T14:30:00Z",
-                status: "Under Review",
-                checklist: [
-                    { id: "tk1", title: "Submit family questionnaire response details", done: true },
-                    { id: "tk2", title: "Confirm chosen guideparents and sponsor listing", done: true },
-                    { id: "tk3", title: "Upload reading texts and naming certificate detail layouts", done: false },
-                    { id: "tk4", title: "Draft guideparent vows and parental commitments", done: false },
-                    { id: "tk5", title: "Approve & lock final naming day script", done: false }
-                ],
-                script: `<h2>Baby Leo's Naming Day Draft</h2>
-<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant for the Harrison Family</p>
-<div class="border-b border-brand-outline-variant/30 my-4"></div>
-
-<h3>I. THE GATHERING & INTRODUCTION</h3>
-<p>Welcome, everyone! We gather today in this sunny garden to welcome a precious new life—Leo Harrison—into our hearts, our families, and our wider community. Leo, you are surrounded today by a circle of endless love, and we are here to declare our commitment to your growth, your safety, and your ultimate happiness.</p>
-
-<h3>II. PARENTAL PROMISES</h3>
-<p>To parents Clara and Mark, today you declare your formal vows to Leo. You promise to guide him with patience, to respect his growing individuality, and to build a home filled with music, laughter, and courage...</p>
-
-<h3>III. GUIDEPARENT COMMITMENTS</h3>
-<p>[We will coordinate guideparents promises here, asking them to pledge to be mentors, adventure partners, and supportive anchors for Leo throughout his life's journey.]</p>`,
-                orderOfService: [
-                    { step: 1, title: "Welcoming Assembly & Refreshments", details: "Acoustic Folk Selection" },
-                    { step: 2, title: "Opening Address & Signposts", details: "Lisa B Celebrant officiating" },
-                    { step: 3, title: "Reading: 'I Wish You More' by Amy K.R.", details: "Read by Aunt Jessica" },
-                    { step: 4, title: "The Naming Declaration & Blessing", details: "A symbolic water sprinkling of rosewater" },
-                    { step: 5, title: "Guideparent Commitments & Covenants", details: "Group declaration" },
-                    { step: 6, title: "Certificate Signing & Closing Toast", details: "Here Comes The Sun - The Beatles" }
-                ],
-                comments: [
-                    { name: "Lisa B Celebrant", text: "Clara, I've organised the guideparent commitments block. Make sure Aunt Jessica knows the reading is scheduled right after the opening address.", time: "1 day ago" },
-                    { name: "Clara Harrison", text: "I have shared this with Jessica! Guideparent commitments look beautiful, thank you so much.", time: "18 hours ago" }
-                ],
-                questions: {
-                    q1: "Leo Harrison was born on a crisp spring morning. We chose the name Leo because it means strength and courage, qualities we hope to foster in him.",
-                    q2: "We want his guideparents to play an active, practical role in his upbringing—sharing books, camping, and always offering a non-judgemental ear."
-                },
-                vault: [
-                    { name: "Baby_Leo_Spring_Newborn_Photo.jpg", category: "Ceremony Photo", status: "Verified", size: "2.8 MB" },
-                    { name: "Jessica_Amy_K_R_Reading_Text.pdf", category: "Planning Doc", status: "Verified", size: "0.5 MB" }
-                ],
-                questionPrompts: [
-                    "What is the story behind Leo's chosen names, and what do they mean to you?",
-                    "What specific hopes and values do you want to declare for Leo's upbringing today?"
-                ]
+                uid: "usr-naming-9812", names: "Baby Leo's Welcome", ceremonyType: "Naming Day", ceremonyIcon: "fa-seedling text-teal-600", date: "2026-09-06T14:30:00Z", status: "Under Review", checklist: [{ id: "tk1", title: "Draft parental commitments", done: false }], script: `<h2>Naming Day Draft</h2>`, orderOfService: [], comments: [], questions: { q1: "", q2: "" }, vault: [], questionPrompts: ["Meaning behind the name?", "Hopes for the future?"]
             }
         };
 
-        let currentClientType = null;
-        let activeClientState = null;
-        let firebaseUserRef = null;
-        let firestoreDocListener = null;
-        let clientRegistries = [];
+        let currentClientType = null, activeClientState = null, firestoreDocListener = null;
 
-        const initAuth = async () => {
-            if (!useFirebase || !auth) {
-                console.log("Offline mode: Skipping Firebase auth initialization.");
-                return;
-            }
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (err) {
-                console.warn("Firebase Auth failure, falling back to client-only workspace mode.", err);
-                showNotification("Offline Sandbox active. Changes are stored locally.", "info");
-            }
-        };
+        const initAuth = async () => { if (useFirebase && auth) { try { await signInAnonymously(auth); } catch (err) { console.warn("Anon Auth failed.", err); } } };
 
-        if (useFirebase && auth) {
-            onAuthStateChanged(auth, (user) => {
-                firebaseUserRef = user;
-                if (user) {
-                    console.log("Firebase Secure Auth Successful:", user.uid);
-                    loadRegistryFromDb();
-                }
-            });
-        }
-
-        async function loadRegistryFromDb() {
-            if (!useFirebase || !db || !firebaseUserRef) return;
-            try {
-                const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'registries');
-                const querySnap = await getDocs(colRef);
-                clientRegistries = [];
-                querySnap.forEach((doc) => {
-                    clientRegistries.push(doc.data());
-                });
-                renderAdminClientList();
-            } catch (err) {
-                console.warn("Could not load registry records.", err);
-            }
-        }
-
-        async function establishFirestoreSync(emailKey, customData = null) {
-            if (!useFirebase || !db || !firebaseUserRef) return;
-            
-            if (firestoreDocListener) {
-                firestoreDocListener();
-            }
-
-            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(emailKey));
-
+        async function establishFirestoreSync(emailPath) {
+            if (!useFirebase || !db) return;
+            if (firestoreDocListener) firestoreDocListener();
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', emailPath);
             try {
                 const docSnap = await getDoc(docRef);
-                if (!docSnap.exists() && customData) {
-                    await setDoc(docRef, customData);
-                }
-
-                firestoreDocListener = onSnapshot(docRef, (snap) => {
-                    if (snap.exists()) {
-                        activeClientState = snap.data();
-                        renderPortalDashboard();
-                    }
-                }, (error) => {
-                    console.error("Firestore synchronisation error:", error);
-                });
-
-            } catch (err) {
-                console.error("Firestore synchronization failed:", err);
-            }
+                if (!docSnap.exists() && MOCK_FIREBASE_CLIENTS[emailPath]) await setDoc(docRef, MOCK_FIREBASE_CLIENTS[emailPath]);
+                firestoreDocListener = onSnapshot(docRef, (snap) => { if (snap.exists()) { activeClientState = snap.data(); renderPortalDashboard(); } });
+            } catch (err) { console.error("Firestore sync failed:", err); }
         }
 
         async function saveStateToFirestore() {
-            if (!useFirebase || !db || !activeClientState) return;
-            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(activeClientState.email));
-            try {
-                await setDoc(docRef, activeClientState);
-            } catch (err) {
-                console.error("Failed to commit state to Firestore:", err);
-                showNotification("Could not synchronise updates with database.", "error");
-            }
-        }
-
-        function sanitizeEmail(email) {
-            return email.toLowerCase().replace(/[^a-z0-9]/g, '_');
-        }
-
-        let saveTimeout = null;
-        function saveQuestionnaireProgress() {
-            if (!activeClientState) return;
-            activeClientState.questions.q1 = document.getElementById('q-ans-1').value;
-            activeClientState.questions.q2 = document.getElementById('q-ans-2').value;
-
-            clearTimeout(saveTimeout);
-            saveTimeout = setTimeout(() => {
-                saveStateToFirestore();
-            }, 1000);
-        }
-
-        function clearStoryAnswers() {
-            if (!activeClientState) return;
-            document.getElementById('q-ans-1').value = "";
-            document.getElementById('q-ans-2').value = "";
-            saveQuestionnaireProgress();
-            showNotification("Questionnaire answers cleared locally. Saving...", "info");
-        }
-
-        function openAdminAuthModal() {
-            document.getElementById('admin-auth-modal').classList.remove('hidden');
-        }
-
-        function closeAdminAuthModal() {
-            document.getElementById('admin-auth-modal').classList.add('hidden');
-        }
-
-        async function handleAdminLoginSubmit(event) {
-            event.preventDefault();
-            const email = document.getElementById('admin-email-input').value.trim();
-            const password = document.getElementById('admin-password-input').value;
-
-            showNotification("Authenticating admin credentials...", "info");
-
-            if (useFirebase && auth) {
-                try {
-                    await signInWithEmailAndPassword(auth, email, password);
-                    closeAdminAuthModal();
-                    showSection('admin-dashboard');
-                    autoLoadAdminTemplates();
-                    loadRegistryFromDb();
-                    showNotification("Lisa's Admin Console unlocked successfully.", "success");
-                } catch (err) {
-                    console.error("Firebase admin login error:", err);
-                    if (email === "lisa@lb-celebrant.co.uk" && password === "password1984" && (err.code === "auth/user-not-found" || err.code === "auth/invalid-credential" || err.code === "auth/invalid-email" || err.code === "auth/user-disabled")) {
-                        try {
-                            showNotification("Provisioning first-time admin credentials...", "info");
-                            await createUserWithEmailAndPassword(auth, email, password);
-                            closeAdminAuthModal();
-                            showSection('admin-dashboard');
-                            autoLoadAdminTemplates();
-                            loadRegistryFromDb();
-                            showNotification("First-time Admin account provisioned and unlocked!", "success");
-                        } catch (createErr) {
-                            console.error("Failed to auto-create admin:", createErr);
-                            showNotification("Authentication error: " + createErr.message, "error");
-                        }
-                    } else {
-                        showNotification("Authentication failed: " + err.message, "error");
-                    }
-                }
-            } else {
-                if (email === "lisa@lb-celebrant.co.uk" && password === "password1984") {
-                    closeAdminAuthModal();
-                    showSection('admin-dashboard');
-                    autoLoadAdminTemplates();
-                    showNotification("Offline Sandbox: Lisa's Admin Console unlocked.", "success");
-                } else {
-                    showNotification("Invalid Admin email or password.", "error");
-                }
-            }
-        }
-
-        function logoutAdmin() {
-            showSection('marketing-home');
-            showNotification("Logged out of Admin Console safely.", "info");
-        }
-
-        function autoLoadAdminTemplates() {
-            const type = document.getElementById('admin-prov-type').value;
-            let checklistDefault = "";
-            let prompt1 = "";
-            let prompt2 = "";
-            let scriptDefault = "";
-
-            if (type === "wedding") {
-                checklistDefault = "Submit wedding story details;Confirm guest list counts;Review draft ceremony script;Draft custom family promises;Approve & lock final wedding script";
-                prompt1 = "Where did you first meet and what was your immediate impression?";
-                prompt2 = "What mutual promises and values matter most to you as a couple?";
-                scriptDefault = `<h2>Custom Ceremony Script Draft</h2>
-<p class="italic text-brand-secondary mt-2">Written exclusively by Lisa B Celebrant</p>
-<div class="border-b border-brand-outline-variant/30 my-4"></div>
-<h3>I. THE WELCOME & CIRCLE</h3>
-<p>Loved ones, we gather together today under the open skies to celebrate Sarah and James...</p>`;
-            } else if (type === "funeral") {
-                checklistDefault = "Provide family chronology details;Upload legacy photographs;Confirm selected reading verses;Review initial eulogy draft;Approve & lock final tribute script";
-                prompt1 = "What are the core legacies or memories of Eleanor's teaching career?";
-                prompt2 = "What life philosophy or wisdom did Eleanor pass down to her grandchildren?";
-                scriptDefault = `<h2>Tribute & Celebrations of Life Draft</h2>
-<p class="italic text-brand-secondary mt-2">Prepared by Lisa B Celebrant with comfort & respect</p>
-<div class="border-b border-brand-outline-variant/30 my-4"></div>
-<h3>I. OPENING COMPASSION</h3>
-<p>We gather here to softly remember, honour, and celebrate Eleanor's rich journey...</p>`;
-            } else if (type === "naming") {
-                checklistDefault = "Confirm guideparents' titles;Upload chosen naming reading texts;Finalise custom wish tree notes;Review draft naming ceremony;Approve & lock final script";
-                prompt1 = "What is the family story behind Leo's chosen names?";
-                prompt2 = "What specific hopes and values do you wish to declare for Leo's upbringing?";
-                scriptDefault = `<h2>Naming Day Ceremony Draft</h2>
-<p class="italic text-brand-secondary mt-2">Written with warmth by Lisa B Celebrant</p>
-<div class="border-b border-brand-outline-variant/30 my-4"></div>
-<h3>I. GATHERING COVENANTS</h3>
-<p>Welcome, family! We gather today to formally declare baby Leo's place in our lives...</p>`;
-            }
-
-            document.getElementById('admin-prov-checklist').value = checklistDefault;
-            document.getElementById('admin-prov-prompt1').value = prompt1;
-            document.getElementById('admin-prov-prompt2').value = prompt2;
-            document.getElementById('admin-prov-script').value = scriptDefault;
-        }
-
-        async function handleProvisionClient(event) {
-            event.preventDefault();
-            const names = document.getElementById('admin-prov-names').value;
-            const email = document.getElementById('admin-prov-email').value;
-            const type = document.getElementById('admin-prov-type').value;
-            const rawDate = document.getElementById('admin-prov-date').value;
-            const checklistStr = document.getElementById('admin-prov-checklist').value;
-            const p1 = document.getElementById('admin-prov-prompt1').value;
-            const p2 = document.getElementById('admin-prov-prompt2').value;
-            const scriptStr = document.getElementById('admin-prov-script').value;
-
-            const checklistArr = checklistStr.split(';').filter(t => t.trim() !== "").map((item, index) => {
-                return { id: `tk_${index}`, title: item.trim(), done: false };
-            });
-
-            const templateConfig = {
-                uid: "usr_" + Math.random().toString(36).substring(2, 7),
-                email: email,
-                names: names,
-                ceremonyType: type === "wedding" ? "Wedding" : type === "funeral" ? "Funeral" : "Naming Day",
-                ceremonyIcon: type === "wedding" ? "fa-heart text-rose-500" : type === "funeral" ? "fa-cloud-sun text-slate-500" : "fa-seedling text-teal-600",
-                date: new Date(rawDate).toISOString(),
-                status: "Under Review",
-                checklist: checklistArr,
-                script: scriptStr,
-                orderOfService: [
-                    { step: 1, title: "Prelude & Welcome Seating", details: "Classical Acoustic Selection" },
-                    { step: 2, title: "Opening Officiation Address", details: "Lisa B Celebrant Officiating" },
-                    { step: 3, title: "Main Ceremony Milestone", details: "Action details" }
-                ],
-                comments: [
-                    { name: "Lisa B Celebrant", text: "Welcome to your collaborative workspace! I have loaded your initial draft script here.", time: "Just now" }
-                ],
-                questions: { q1: "", q2: "" },
-                vault: [],
-                questionPrompts: [p1, p2]
-            };
-
-            if (useFirebase && db) {
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(email));
-                try {
-                    await setDoc(docRef, templateConfig);
-                    showNotification(`Provisioned workspace securely in cloud registry for ${names}.`, "success");
-                    loadRegistryFromDb();
-                } catch (err) {
-                    console.error("Firebase write error:", err);
-                    showNotification("Failed to write client doc to Firebase.", "error");
-                }
-            } else {
-                clientRegistries.push(templateConfig);
-                renderAdminClientList();
-                showNotification(`Offline Sandbox: Local client profile provisioned for ${names}.`, "success");
-            }
-
-            event.target.reset();
-            autoLoadAdminTemplates();
-        }
-
-        function renderAdminClientList() {
-            const container = document.getElementById('admin-client-list');
-            container.innerHTML = "";
-
-            const registriesToDisplay = useFirebase ? clientRegistries : Object.values(MOCK_FIREBASE_CLIENTS);
-            document.getElementById('admin-client-count').innerText = `${registriesToDisplay.length} Workspace entries`;
-
-            if (registriesToDisplay.length === 0) {
-                container.innerHTML = `<div class="p-4 text-center text-xs text-brand-on-surface-variant italic">No client workspaces provisioned yet.</div>`;
-                return;
-            }
-
-            registriesToDisplay.forEach((client) => {
-                const card = document.createElement('div');
-                card.className = "p-4 bg-brand-surface border border-brand-outline-variant/30 rounded shadow-sm hover:border-brand-primary cursor-pointer transition flex justify-between items-center";
-                card.innerHTML = `
-                    <div>
-                        <span class="text-[9px] uppercase tracking-wider text-brand-primary font-bold font-sans">${client.ceremonyType}</span>
-                        <h5 class="font-serif font-bold text-brand-on-surface text-sm">${client.names}</h5>
-                        <p class="text-[10px] text-brand-on-surface-variant font-sans">${client.email}</p>
-                    </div>
-                    <button class="p-2 hover:bg-brand-surface-container rounded text-brand-primary" title="Edit Workspace inline">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                `;
-                card.onclick = () => {
-                    loadClientForEditing(client);
-                };
-                container.appendChild(card);
-            });
-        }
-
-        function loadClientForEditing(client) {
-            currentClientType = client.ceremonyType.toLowerCase().includes("wedding") ? "wedding" : client.ceremonyType.toLowerCase().includes("funeral") ? "funeral" : "naming";
-            
-            if (useFirebase && db) {
-                establishFirestoreSync(client.email);
-            } else {
-                activeClientState = JSON.parse(JSON.stringify(client));
-                renderPortalDashboard();
-            }
-
-            showSection('portal-dashboard');
-            switchPortalTab('checklist');
-            showNotification(`Opening Lisa's co-editor view for ${client.names}`, "success");
+            if (!useFirebase || !db || !currentClientType || !activeClientState) return;
+            try { await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', currentClientType), activeClientState); } catch (err) { console.error("DB Save failed.", err); }
         }
 
         function showNotification(message, type = 'info') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            
             let bgClass = 'bg-brand-tertiary border-brand-outline-variant';
             let iconClass = 'fa-circle-info text-brand-primary';
-            
-            if (type === 'success') {
-                bgClass = 'bg-brand-primary border-brand-outline-variant/50';
-                iconClass = 'fa-circle-check text-brand-surface';
-            } else if (type === 'error') {
-                bgClass = 'bg-brand-on-surface border-red-500';
-                iconClass = 'fa-triangle-exclamation text-red-500';
-            }
-            
+            if (type === 'success') { bgClass = 'bg-brand-primary border-brand-outline-variant/50'; iconClass = 'fa-circle-check text-brand-surface'; } 
+            else if (type === 'error') { bgClass = 'bg-brand-on-surface border-red-500'; iconClass = 'fa-triangle-exclamation text-red-500'; }
             toast.className = `${bgClass} text-white border-l-4 px-4 py-3.5 rounded shadow flex items-center space-x-3 pointer-events-auto transition-all duration-300 transform translate-y-2 opacity-0`;
-            toast.innerHTML = `
-                <i class="fa-solid ${iconClass}"></i>
-                <span class="text-xs font-semibold tracking-wide font-sans">${message}</span>
-            `;
-            
+            toast.innerHTML = `<i class="fa-solid ${iconClass}"></i><span class="text-xs font-semibold tracking-wide font-sans">${message}</span>`;
             container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            }, 10);
-            
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-[-10px]');
-                setTimeout(() => {
-                    toast.remove();
-                }, 300);
-            }, 4000);
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+            setTimeout(() => { toast.classList.add('opacity-0', 'translate-y-[-10px]'); setTimeout(() => toast.remove(), 300); }, 4000);
         }
 
-        function showSection(sectionId) {
-            document.getElementById('marketing-home').classList.add('hidden');
-            document.getElementById('portal-dashboard').classList.add('hidden');
-            document.getElementById('admin-dashboard').classList.add('hidden');
-            
-            document.getElementById(sectionId).classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function scrollToSection(elementId) {
-            showSection('marketing-home');
-            setTimeout(() => {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 100);
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('mobile-menu-icon');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                icon.className = "fa-solid fa-xmark text-xl";
-            } else {
-                menu.classList.add('hidden');
-                icon.className = "fa-solid fa-bars text-xl";
-            }
-        }
-
-        function toggleFaqAccordion(faqId) {
-            const body = document.getElementById(`faq-body-${faqId}`);
-            const icon = document.getElementById(`faq-icon-${faqId}`);
-            
-            if (body.classList.contains('hidden')) {
-                body.classList.remove('hidden');
-                icon.style.transform = "rotate(180deg)";
-            } else {
-                body.classList.add('hidden');
-                icon.style.transform = "rotate(0deg)";
-            }
-        }
-
-        function openPortalAuthModal() {
-            document.getElementById('portal-auth-modal').classList.remove('hidden');
-        }
-
-        function closePortalAuthModal() {
-            document.getElementById('portal-auth-modal').classList.add('hidden');
-        }
-
-        function openPrivacyModal() {
-            document.getElementById('privacy-modal').classList.remove('hidden');
-        }
-
-        function closePrivacyModal() {
-            document.getElementById('privacy-modal').classList.add('hidden');
-        }
+        function showSection(sectionId) { document.getElementById('marketing-home').classList.add('hidden'); document.getElementById('portal-dashboard').classList.add('hidden'); document.getElementById(sectionId).classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function scrollToSection(elementId) { showSection('marketing-home'); setTimeout(() => { const el = document.getElementById(elementId); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }
+        function toggleMobileMenu() { const menu = document.getElementById('mobile-menu'); const icon = document.getElementById('mobile-menu-icon'); if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.className = "fa-solid fa-xmark text-xl"; } else { menu.classList.add('hidden'); icon.className = "fa-solid fa-bars text-xl"; } }
+        function toggleFaqAccordion(faqId) { const body = document.getElementById(`faq-body-${faqId}`); const icon = document.getElementById(`faq-icon-${faqId}`); if (body.classList.contains('hidden')) { body.classList.remove('hidden'); icon.style.transform = "rotate(180deg)"; } else { body.classList.add('hidden'); icon.style.transform = "rotate(0deg)"; } }
+        function openPortalAuthModal() { document.getElementById('portal-auth-modal').classList.remove('hidden'); }
+        function closePortalAuthModal() { document.getElementById('portal-auth-modal').classList.add('hidden'); }
+        function openPrivacyModal() { document.getElementById('privacy-modal').classList.remove('hidden'); }
+        function closePrivacyModal() { document.getElementById('privacy-modal').classList.add('hidden'); }
 
         const SERVICE_MODAL_DETAILS = {
-            wedding: {
-                title: "Bespoke Wedding Ceremonies",
-                subtitle: "Joyful, Romantic, & Entirely Template-Free",
-                icon: "fa-heart",
-                price: "£450.00",
-                colorClass: "text-brand-primary bg-brand-surface-container",
-                description: `
-                    <p class="font-semibold text-brand-on-surface text-sm sm:text-base">Your love story is unique—your script should be too.</p>
-                    <p>I specialise in crafting custom, warm, and highly memorable ceremonies that centre entirely around your relationship. We bypass cold, stale templates to focus on the moments that define you both.</p>
-                    
-                    <h5 class="font-serif text-brand-primary font-bold text-sm sm:text-base mt-4">What's Included in the Journey:</h5>
-                    <ul class="list-disc pl-5 space-y-1.5">
-                        <li><strong>Creative Consultation:</strong> A deep alignment meeting to uncover your individual values and core tone.</li>
-                        <li><strong>Vow Development support:</strong> Guidance and advice to help you express your exact mutual promises confidently.</li>
-                        <li><strong>Custom Symbolic Rituals:</strong> Options to integrate beautiful ceremonies such as traditional handfasting (wrist binding), ring-warming, or wine blending.</li>
-                        <li><strong>Collaborative Revision:</strong> Co-edit drafts and exchange comments inside your Client Portal until the layout is perfect.</li>
-                        <li><strong>A Professional Delivery:</strong> Full coordination on the day with venue staff and musicians for a smooth, relaxed ceremony.</li>
-                    </ul>
-                `
-            },
-            funeral: {
-                title: "Celebrations of Life & Memorials",
-                subtitle: "Empathetic, Respectful, & Deeply Solacing",
-                icon: "fa-cloud-sun",
-                price: "£250.00",
-                colorClass: "text-brand-secondary bg-brand-surface-container",
-                description: `
-                    <p class="font-semibold text-brand-on-surface text-sm sm:text-base">Honouring a rich legacy with authentic storytelling.</p>
-                    <p>Milestone transitions can be delicate and sudden. I work closely with families and funeral directors to deliver a gentle, compassionate service that captures the true essence and personality of your loved one.</p>
-                    
-                    <h5 class="font-serif text-brand-primary font-bold text-sm sm:text-base mt-4">Our Collaborative Approach:</h5>
-                    <ul class="list-disc pl-5 space-y-1.5">
-                        <li><strong>Empathetic Family Meeting:</strong> A slow-paced, comforting discussion to collect timelines, achievements, and anecdotes.</li>
-                        <li><strong>Custom Eulogy & Tribute Delivery:</strong> Structuring stories that bring comfort, focusing on life highlights rather than solely on mourning.</li>
-                        <li><strong>Rapid Planning Alignment:</strong> Highly responsive collaboration that works effortlessly within short funeral timelines (7-14 days).</li>
-                        <li><strong>Music & Readings Curation:</strong> Assistance in selecting appropriate poems, script breaks, and music choices to frame reflection moments.</li>
-                    </ul>
-                `
-            },
-            naming: {
-                title: "Family Naming Ceremonies",
-                subtitle: "Bright, Warm, & Welcoming",
-                icon: "fa-seedling",
-                price: "£300.00",
-                colorClass: "text-brand-primary bg-brand-surface-container",
-                description: `
-                    <p class="font-semibold text-brand-on-surface text-sm sm:text-base">Welcoming new growth into your supportive family circle.</p>
-                    <p>Whether introducing a newborn infant, celebrating an adoption, or welcoming step-siblings into a blended home, our naming days provide a non-religious alternative to declare your parenting commitment.</p>
-                    
-                    <h5 class="font-serif text-brand-primary font-bold text-sm sm:text-base mt-4">Key Elements We Construct:</h5>
-                    <ul class="list-disc pl-5 space-y-1.5">
-                        <li><strong>Hopes and Promises:</strong> Dedicated segments for parents and grandparents to read personalised pledges to the child.</li>
-                        <li><strong>Guideparent Commitments:</strong> Non-judgemental promises for mentors and guideparents to state their lifelong supportive role.</li>
-                        <li><strong>Creative Family Rituals:</strong> Beautiful, interactive activities such as custom Wish-Trees, sand-blending, or memory boxes.</li>
-                        <li><strong>Commemorative Certificate:</strong> A premium, signed naming day certificate to keep inside your archives.</li>
-                    </ul>
-                `
-            }
+            wedding: { title: "Bespoke Wedding Ceremonies", subtitle: "Joyful, Romantic, & Entirely Template-Free", icon: "fa-heart", price: "£450.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Your love story is unique—your script should be too.</p><p>I specialise in crafting custom, warm, and highly memorable ceremonies that centre entirely around your relationship. We bypass cold, stale templates to focus on the moments that define you both.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Creative Consultation</li><li>Vow Development support</li><li>Custom Symbolic Rituals</li><li>Collaborative Revision Portal</li></ul>" },
+            funeral: { title: "Celebrations of Life & Memorials", subtitle: "Empathetic, Respectful, & Deeply Solacing", icon: "fa-cloud-sun", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Honouring a rich legacy with authentic storytelling.</p><p>Milestone transitions can be delicate and sudden. I work closely with families and funeral directors to deliver a gentle, compassionate service that captures the true essence and personality of your loved one.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Empathetic Family Meeting</li><li>Custom Eulogy Delivery</li><li>Rapid Planning (7-14 days)</li></ul>" },
+            naming: { title: "Family Naming Ceremonies", subtitle: "Bright, Warm, & Welcoming", icon: "fa-seedling", price: "£300.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Welcoming new growth into your supportive family circle.</p><p>Whether introducing a newborn infant, celebrating an adoption, or welcoming step-siblings into a blended home, our naming days provide a non-religious alternative to declare your parenting commitment.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Key Elements We Construct:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Hopes and Promises</li><li>Guideparent Commitments</li><li>Creative Family Rituals</li></ul>" },
+            pet: { title: "Pet Memorial Ceremonies", subtitle: "Honouring a Loyal Companion", icon: "fa-paw", price: "£150.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Saying goodbye to a devoted animal companion is often as profound as losing a human relative.</p><p>A structured memorial gives you the space to honour their unconditional love and the joy they brought to your home.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Meaningful back-garden or woodland farewells</li><li>Gentle inclusion of children in the grieving process</li><li>Beautiful customized certificates of remembrance</li></ul>" },
+            planning: { title: "Planning Ahead Services", subtitle: "Peace of Mind for the Future", icon: "fa-compass", price: "£100.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Documenting your own final wishes is an empowering, considerate gift to your family.</p><p>We will sit down together in a safe, gentle environment to capture your authentic story, select your music, and outline exactly how you wish to be celebrated, ensuring your legacy is preserved exactly as you intend.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Unhurried, in-person or video consultations</li><li>Complete documentation of your life story and wishes</li><li>Secured in our cloud vault for when the time comes</li></ul>" }
         };
 
         function openServiceDetails(serviceKey) {
             const data = SERVICE_MODAL_DETAILS[serviceKey];
             if (!data) return;
-
             document.getElementById('service-modal-title').innerText = data.title;
             document.getElementById('service-modal-subtitle').innerText = data.subtitle;
             document.getElementById('service-modal-price').innerText = data.price;
             document.getElementById('service-modal-long-description').innerHTML = data.description;
-            
-            const icon = document.getElementById('service-modal-icon');
-            icon.className = `fa-solid ${data.icon}`;
-            
-            const iconContainer = document.getElementById('service-modal-icon-container');
-            iconContainer.className = `w-12 h-12 rounded flex items-center justify-center text-xl shadow-sm flex-shrink-0 ${data.colorClass}`;
-
-            const btn = document.getElementById('service-modal-enquire-btn');
-            btn.onclick = () => {
-                const selectElement = document.getElementById('contact-ceremony-type');
-                if (selectElement) {
-                    selectElement.value = serviceKey;
-                }
-                closeServiceDetailsModal();
-                scrollToSection('contact-form');
-                showNotification(`Form automatically configured for ${data.title}!`, 'success');
+            document.getElementById('service-modal-icon').className = `fa-solid ${data.icon}`;
+            document.getElementById('service-modal-icon-container').className = `w-12 h-12 rounded flex items-center justify-center text-xl shadow-sm flex-shrink-0 ${data.colorClass}`;
+            document.getElementById('service-modal-enquire-btn').onclick = () => {
+                document.getElementById('contact-ceremony-type').value = serviceKey;
+                closeServiceDetailsModal(); scrollToSection('contact-form'); showNotification(`Form configured for ${data.title}!`, 'success');
             };
-
             document.getElementById('service-details-modal').classList.remove('hidden');
         }
 
-        function closeServiceDetailsModal() {
-            document.getElementById('service-details-modal').classList.add('hidden');
-        }
+        function closeServiceDetailsModal() { document.getElementById('service-details-modal').classList.add('hidden'); }
 
-        async function handlePortalLogin(event) {
+        function handlePortalLogin(event) {
             event.preventDefault();
-            const email = document.getElementById('portal-email-input').value.trim();
+            const email = document.getElementById('portal-email-input').value;
+            const cleanEmail = email.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
             closePortalAuthModal();
-            
-            if (useFirebase && db) {
-                showNotification(`Verifying credentials with secure registry...`, 'info');
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'registries', sanitizeEmail(email));
-                try {
-                    const snap = await getDoc(docRef);
-                    if (snap.exists()) {
-                        establishFirestoreSync(email);
-                        showSection('portal-dashboard');
-                        switchPortalTab('checklist');
-                        showNotification(`Secure Workspace loaded successfully for ${snap.data().names}!`, "success");
-                    } else {
-                        showNotification(`Email registry not found. Launching standard offline Sandbox instead.`, 'error');
-                        simulatePortalLogin('wedding');
-                    }
-                } catch (err) {
-                    console.error("Login verification error:", err);
-                    simulatePortalLogin('wedding');
-                }
-            } else {
-                showNotification(`Offline Sandbox workspace established for ${email}.`, "success");
-                simulatePortalLogin('wedding');
-            }
+            showNotification(`Locating workspace for ${email}...`, 'info');
+            setTimeout(() => { simulatePortalLogin(cleanEmail); }, 1000);
         }
 
         function simulatePortalLogin(ceremonyType) {
             currentClientType = ceremonyType;
-            activeClientState = JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType]));
-            renderPortalDashboard();
-            showSection('portal-dashboard');
-            switchPortalTab('checklist');
-            
-            closePortalAuthModal();
-            showNotification(`Portal Loaded: ${MOCK_FIREBASE_CLIENTS[ceremonyType].names} Workspace`, 'success');
+            if (useFirebase && db) { establishFirestoreSync(ceremonyType); } 
+            else {
+                activeClientState = MOCK_FIREBASE_CLIENTS[ceremonyType] ? JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS[ceremonyType])) : JSON.parse(JSON.stringify(MOCK_FIREBASE_CLIENTS['wedding']));
+                renderPortalDashboard();
+            }
+            closePortalAuthModal(); showSection('portal-dashboard'); switchPortalTab('checklist');
+            showNotification(`Workspace connected securely.`, 'success');
         }
 
-        function logoutPortal() {
-            if (firestoreDocListener) {
-                firestoreDocListener();
-                firestoreDocListener = null;
-            }
-            currentClientType = null;
-            activeClientState = null;
-            showSection('marketing-home');
-            showNotification("Securely logged out. Client document vault sealed.", "info");
-        }
+        function logoutPortal() { if (firestoreDocListener) { firestoreDocListener(); firestoreDocListener = null; } currentClientType = null; activeClientState = null; showSection('marketing-home'); showNotification("Vault sealed.", "info"); }
 
         function renderPortalDashboard() {
             if (!activeClientState) return;
-            
             document.getElementById('portal-user-names').innerText = activeClientState.names;
-            document.getElementById('portal-user-uid').innerText = activeClientState.uid;
+            document.getElementById('portal-user-uid').innerText = activeClientState.uid || currentClientType;
             document.getElementById('portal-ceremony-type-badge').innerText = activeClientState.ceremonyType;
-            document.getElementById('portal-user-icon').className = `fa-solid ${activeClientState.ceremonyIcon}`;
+            document.getElementById('portal-user-icon').className = `fa-solid ${activeClientState.ceremonyIcon || 'fa-heart text-brand-primary'}`;
             
-            const targetDate = new Date(activeClientState.date);
-            const now = new Date();
-            const timeDiff = targetDate - now;
-            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+            const daysLeft = Math.ceil((new Date(activeClientState.date) - new Date()) / (1000 * 60 * 60 * 24));
             document.getElementById('portal-countdown-display').innerText = daysLeft > 0 ? `${daysLeft} Days to go` : "Ceremony Complete";
-
             document.getElementById('script-draft-body').innerHTML = activeClientState.script;
-            
-            document.getElementById('q-prompt-1').innerText = activeClientState.questionPrompts[0];
-            document.getElementById('q-prompt-2').innerText = activeClientState.questionPrompts[1];
-
+            document.getElementById('q-prompt-1').innerText = activeClientState.questionPrompts ? activeClientState.questionPrompts[0] : "Prompt 1";
+            document.getElementById('q-prompt-2').innerText = activeClientState.questionPrompts ? activeClientState.questionPrompts[1] : "Prompt 2";
             document.getElementById('q-ans-1').value = activeClientState.questions.q1 || "";
             document.getElementById('q-ans-2').value = activeClientState.questions.q2 || "";
-
-            updateScriptStatusUI();
-            renderChecklist();
-            renderFilesVault();
-            renderCommentsLog();
-            renderOrderOfService();
+            updateScriptStatusUI(); renderChecklist(); renderFilesVault(); renderCommentsLog(); renderOrderOfService();
         }
+
+        let saveTimeout = null;
+        function saveQuestionnaireProgress() { if (!activeClientState) return; activeClientState.questions.q1 = document.getElementById('q-ans-1').value; activeClientState.questions.q2 = document.getElementById('q-ans-2').value; clearTimeout(saveTimeout); saveTimeout = setTimeout(() => { saveStateToFirestore(); }, 1000); }
 
         function renderChecklist() {
-            const container = document.getElementById('portal-tasks-container');
-            container.innerHTML = "";
-            
-            let completed = 0;
+            const container = document.getElementById('portal-tasks-container'); container.innerHTML = ""; let completed = 0;
             activeClientState.checklist.forEach(task => {
                 if (task.done) completed++;
-                
-                const taskRow = document.createElement('div');
-                taskRow.className = "flex items-start space-x-3 bg-brand-surface p-3 rounded border border-brand-outline-variant/30 shadow-sm";
-                taskRow.innerHTML = `
-                    <input type="checkbox" ${task.done ? 'checked' : ''} id="chk-${task.id}" class="mt-1 h-4 w-4 rounded border-brand-outline-variant text-brand-primary focus:ring-brand-primary">
-                    <span class="text-xs ${task.done ? 'line-through text-brand-secondary font-normal' : 'text-brand-on-surface font-medium'} font-sans">${task.title}</span>
-                `;
-                container.appendChild(taskRow);
-
-                document.getElementById(`chk-${task.id}`).addEventListener('change', () => {
-                    toggleTask(task.id);
-                });
+                const tr = document.createElement('div'); tr.className = "flex items-start space-x-3 bg-brand-surface p-3 rounded border border-brand-outline-variant/30 shadow-sm";
+                tr.innerHTML = `<input type="checkbox" ${task.done ? 'checked' : ''} id="chk-${task.id}" class="mt-1 h-4 w-4 rounded"><span class="text-xs ${task.done ? 'line-through text-brand-secondary font-normal' : 'text-brand-on-surface font-medium'}">${task.title}</span>`;
+                container.appendChild(tr); document.getElementById(`chk-${task.id}`).addEventListener('change', () => { task.done = !task.done; saveStateToFirestore(); renderChecklist(); });
             });
-
-            const total = activeClientState.checklist.length;
-            const pct = Math.round((completed / total) * 100);
-            
-            document.getElementById('checklist-progress-percent').innerText = `${pct}% Done`;
-            document.getElementById('checklist-progress-bar').style.width = `${pct}%`;
-        }
-
-        function toggleTask(id) {
-            const task = activeClientState.checklist.find(t => t.id === id);
-            if (task) {
-                task.done = !task.done;
-                renderChecklist();
-                saveStateToFirestore();
-                showNotification(`Task updated! Synchronising data...`, 'success');
-            }
-        }
-
-        function resetChecklist() {
-            activeClientState.checklist.forEach(task => task.done = false);
-            renderChecklist();
-            saveStateToFirestore();
-            showNotification(`Checklist state reset. Synchronising...`, 'info');
+            const pct = Math.round((completed / (activeClientState.checklist.length || 1)) * 100);
+            document.getElementById('checklist-progress-percent').innerText = `${pct}% Done`; document.getElementById('checklist-progress-bar').style.width = `${pct}%`;
         }
 
         function renderFilesVault() {
-            const tbody = document.getElementById('uploaded-files-body');
-            tbody.innerHTML = "";
-            
-            activeClientState.vault.forEach((file, index) => {
-                const tr = document.createElement('tr');
-                tr.className = "border-b border-brand-outline-variant/20 hover:bg-brand-surface-container/50";
-                tr.innerHTML = `
-                    <td class="p-3 font-semibold text-brand-on-surface font-sans">${file.name}</td>
-                    <td class="p-3 font-sans">${file.category}</td>
-                    <td class="p-3">
-                        <span class="inline-flex items-center space-x-1 text-[10px] bg-brand-surface text-brand-primary border border-brand-outline-variant/30 px-2 py-0.5 rounded font-bold font-sans">
-                            <i class="fa-solid fa-circle-check text-[8px]"></i>
-                            <span>${file.status}</span>
-                        </span>
-                    </td>
-                    <td class="p-3 text-brand-secondary whitespace-nowrap font-sans">${file.size}</td>
-                    <td class="p-3 text-right">
-                        <button id="dl-${index}" class="text-brand-primary hover:text-brand-on-surface hover:underline font-bold text-xs whitespace-nowrap font-sans"><i class="fa-solid fa-download mr-1"></i> Retrieve</button>
-                    </td>
-                `;
+            const tbody = document.getElementById('uploaded-files-body'); tbody.innerHTML = "";
+            activeClientState.vault.forEach((file) => {
+                const tr = document.createElement('tr'); tr.className = "border-b border-brand-outline-variant/20 hover:bg-brand-surface-container/50";
+                tr.innerHTML = `<td class="p-3 font-semibold text-brand-on-surface">${file.name}</td><td class="p-3">${file.category}</td><td class="p-3">${file.status}</td><td class="p-3 text-brand-secondary">${file.size}</td><td class="p-3 text-right"><button class="text-brand-primary font-bold text-xs"><i class="fa-solid fa-download"></i></button></td>`;
                 tbody.appendChild(tr);
-
-                document.getElementById(`dl-${index}`).addEventListener('click', () => {
-                    simulateFileDownload(file.name);
-                });
             });
         }
-
-        function triggerFileInput() {
-            document.getElementById('file-input').click();
-        }
-
-        function handleFileSelection(event) {
-            const files = event.target.files;
-            if (files.length > 0) {
-                simulateFileUpload(files[0].name, files[0].size);
-            }
-        }
-
+        function triggerFileInput() { document.getElementById('file-input').click(); }
+        function handleFileSelection(e) { if(e.target.files.length > 0) simulateFileUpload(e.target.files[0].name, e.target.files[0].size); }
         function simulateFileUpload(name, size) {
-            const progressContainer = document.getElementById('upload-progress-container');
-            const progressText = document.getElementById('upload-progress-pct');
-            const progressBar = document.getElementById('upload-progress-bar');
-            const fileNameLabel = document.getElementById('uploading-file-name');
-
-            fileNameLabel.innerText = `Encrypting & Uploading: ${name}`;
-            progressContainer.classList.remove('hidden');
-
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 10;
-                progressText.innerText = `${progress}%`;
-                progressBar.style.width = `${progress}%`;
-
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        progressContainer.classList.add('hidden');
-                        
-                        const mbSize = (size / (1024 * 1024)).toFixed(1) + " MB";
-                        activeClientState.vault.push({
-                            name: name,
-                            category: name.endsWith('.pdf') ? 'Planning Doc' : 'Ceremony Photo',
-                            status: 'Uploaded',
-                            size: mbSize === "NaN MB" ? "1.5 MB" : mbSize
-                        });
-                        
-                        renderFilesVault();
-                        saveStateToFirestore();
-                        showNotification(`File metadata registered inside Secure Cloud Storage bucket.`, 'success');
-                    }, 400);
-                }
-            }, 80);
-        }
-
-        function simulateFileDownload(name) {
-            showNotification(`Requesting secure download URL from storage bucket...`, 'info');
+            document.getElementById('upload-progress-container').classList.remove('hidden');
             setTimeout(() => {
-                showNotification(`Decryption keys matched. File download completed: ${name}`, 'success');
-            }, 800);
+                document.getElementById('upload-progress-container').classList.add('hidden');
+                activeClientState.vault.push({ name: name, category: 'Upload', status: 'Uploaded', size: "1.5 MB" });
+                renderFilesVault(); saveStateToFirestore(); showNotification("File encrypted and stored.", "success");
+            }, 1000);
         }
 
         function renderCommentsLog() {
-            const container = document.getElementById('comments-container');
-            container.innerHTML = "";
-            
+            const container = document.getElementById('comments-container'); container.innerHTML = "";
             activeClientState.comments.forEach(comment => {
-                const commentBox = document.createElement('div');
                 const isCelebrant = comment.name === "Lisa B Celebrant";
-                
-                commentBox.className = `flex flex-col p-3.5 rounded max-w-[85%] ${
-                    isCelebrant 
-                    ? 'bg-brand-primary text-white self-start shadow-sm border border-brand-outline-variant/30' 
-                    : 'bg-brand-surface text-brand-on-surface self-end ml-auto border border-brand-outline-variant/40 shadow-sm'
-                }`;
-                
-                commentBox.innerHTML = `
-                    <div class="flex justify-between items-center gap-4 mb-1">
-                        <span class="text-[9px] font-bold font-sans ${isCelebrant ? 'text-brand-surface-dim' : 'text-brand-primary'}">${comment.name}</span>
-                        <span class="text-[9px] text-brand-secondary font-medium font-sans">${comment.time}</span>
-                    </div>
-                    <p class="text-xs leading-relaxed font-sans">${comment.text}</p>
-                `;
-                container.appendChild(commentBox);
+                const div = document.createElement('div');
+                div.className = `flex flex-col p-3.5 rounded max-w-[85%] ${isCelebrant ? 'bg-brand-primary text-white self-start' : 'bg-brand-surface text-brand-on-surface self-end ml-auto border'}`;
+                div.innerHTML = `<div class="flex justify-between items-center gap-4 mb-1"><span class="text-[9px] font-bold">${comment.name}</span><span class="text-[9px] opacity-70">${comment.time}</span></div><p class="text-xs leading-relaxed">${comment.text}</p>`;
+                container.appendChild(div);
             });
-            
             container.scrollTop = container.scrollHeight;
         }
-
-        function handleCommentPost(event) {
-            event.preventDefault();
-            const input = document.getElementById('new-comment-input');
-            const val = input.value.trim();
-            if (val === "") return;
-
-            activeClientState.comments.push({
-                name: activeClientState.names.split('&')[0].trim(),
-                text: val,
-                time: "Just now"
-            });
-
-            input.value = "";
-            renderCommentsLog();
-            saveStateToFirestore();
-            showNotification(`Comment logged directly to Lisa B Celebrant's Firestore feedback stream.`, 'success');
-        }
+        function handleCommentPost(e) { e.preventDefault(); const v = document.getElementById('new-comment-input').value.trim(); if(v === "") return; activeClientState.comments.push({name: "Client", text: v, time: "Now"}); document.getElementById('new-comment-input').value = ""; renderCommentsLog(); saveStateToFirestore(); }
 
         function updateScriptStatusUI() {
-            const container = document.getElementById('script-status-container');
             const isApproved = activeClientState.status === "Approved";
-            
-            container.innerHTML = isApproved 
-                ? `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-brand-primary text-white border border-brand-outline-variant/30 shadow-sm flex items-center gap-1 font-sans"><i class="fa-solid fa-lock text-[9px] text-brand-surface-dim"></i> Approved & Locked</span>`
-                : `<span class="text-[10px] uppercase tracking-widest px-3 py-1 font-bold rounded bg-brand-surface-container text-brand-primary border border-brand-outline-variant/30 font-sans">Draft Under Review</span>`;
-
-            const approvalDrawer = document.getElementById('script-approval-drawer');
-            if (isApproved) {
-                approvalDrawer.innerHTML = `
-                    <div class="flex items-center space-x-3 w-full text-center sm:text-left">
-                        <div class="w-8 h-8 rounded-full bg-brand-surface border border-brand-outline-variant/30 flex items-center justify-center text-brand-primary flex-shrink-0 shadow-sm">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                        <div>
-                            <h5 class="font-bold text-brand-on-surface text-sm">Agreement Signed-Off Successfully</h5>
-                            <p class="text-xs text-brand-primary font-sans">Your layout is finalised and logged in Firestore database archive.</p>
-                        </div>
-                    </div>
-                `;
-            } else {
-                approvalDrawer.innerHTML = `
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
-                        <div class="flex items-start space-x-3 text-center sm:text-left font-sans">
-                            <div class="w-8 h-8 rounded-full bg-brand-surface border border-brand-outline-variant/30 flex items-center justify-center text-brand-on-surface flex-shrink-0 mx-auto md:mx-0 shadow-sm">
-                                <i class="fa-solid fa-signature"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-brand-on-surface text-sm">Lock in Ceremony Script</h5>
-                                <p class="text-xs text-brand-on-surface-variant">Locking the script signals readiness for printing and disables direct editing.</p>
-                            </div>
-                        </div>
-                        <button id="lock-btn" class="w-full sm:w-auto px-6 py-3 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm border border-brand-outline-variant/30 transition active:scale-95">
-                            Approve & Lock Wording
-                        </button>
-                    </div>
-                `;
-                document.getElementById('lock-btn').addEventListener('click', approveCeremonyScript);
-            }
+            document.getElementById('script-status-container').innerHTML = isApproved ? `<span class="text-[10px] uppercase bg-brand-primary text-white px-2 py-1 rounded font-bold">Locked</span>` : `<span class="text-[10px] uppercase bg-brand-surface text-brand-primary px-2 py-1 rounded border font-bold">Draft</span>`;
+            document.getElementById('script-approval-drawer').innerHTML = isApproved ? `<div class="font-bold text-sm"><i class="fa-solid fa-circle-check text-brand-primary mr-2"></i>Agreement Signed-Off</div>` : `<div class="flex justify-between items-center w-full"><div><h5 class="font-bold text-sm">Lock in Ceremony Wording</h5></div><button onclick="approveCeremonyScript()" class="px-6 py-3 bg-brand-primary text-white font-bold rounded text-xs uppercase">Approve & Lock</button></div>`;
         }
-
-        function approveCeremonyScript() {
-            if (!activeClientState) return;
-            activeClientState.status = "Approved";
-            
-            const lastTask = activeClientState.checklist[activeClientState.checklist.length - 1];
-            if (lastTask && (lastTask.title.includes("Approve") || lastTask.title.includes("lock"))) {
-                lastTask.done = true;
-            }
-            
-            updateScriptStatusUI();
-            renderChecklist();
-            saveStateToFirestore();
-            showNotification(`Script signed off! Approved status updated in real-time.`, 'success');
-        }
+        function approveCeremonyScript() { if (!activeClientState) return; activeClientState.status = "Approved"; updateScriptStatusUI(); saveStateToFirestore(); }
 
         function renderOrderOfService() {
-            const container = document.getElementById('order-of-service-list');
-            container.innerHTML = "";
-
+            const container = document.getElementById('order-of-service-list'); container.innerHTML = "";
             activeClientState.orderOfService.forEach((item, index) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = "flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-brand-surface border border-brand-outline-variant/30 rounded gap-4 shadow-sm";
-                itemDiv.innerHTML = `
-                    <div class="flex items-center space-x-3 flex-grow w-full">
-                        <div class="w-6 h-6 rounded-full bg-brand-surface-container text-brand-primary flex items-center justify-center text-xs font-bold flex-shrink-0">
-                            ${index + 1}
-                        </div>
-                        <div class="flex-grow grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            <input type="text" id="oos-t-${index}" value="${item.title}" class="font-serif font-bold text-brand-on-surface text-sm bg-transparent border-b border-transparent hover:border-brand-outline-variant focus:border-brand-primary focus:outline-none py-0.5">
-                            <input type="text" id="oos-d-${index}" value="${item.details || ''}" placeholder="Cues, songs, or officiant details..." class="text-xs text-brand-on-surface-variant bg-transparent border-b border-transparent hover:border-brand-outline-variant focus:border-brand-primary focus:outline-none py-0.5">
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-2 self-end sm:self-auto border-t sm:border-t-0 pt-2 sm:pt-0 w-full sm:w-auto justify-end">
-                        <button id="oos-up-${index}" class="p-1.5 hover:bg-brand-surface-container rounded text-brand-on-surface-variant hover:text-brand-primary" title="Move Up"><i class="fa-solid fa-chevron-up text-xs"></i></button>
-                        <button id="oos-dn-${index}" class="p-1.5 hover:bg-brand-surface-container rounded text-brand-on-surface-variant hover:text-brand-primary" title="Move Down"><i class="fa-solid fa-chevron-down text-xs"></i></button>
-                        <button id="oos-del-${index}" class="p-1.5 hover:bg-brand-surface-container rounded text-brand-secondary hover:text-red-700" title="Delete Step"><i class="fa-solid fa-trash-can text-xs"></i></button>
-                    </div>
-                `;
-                container.appendChild(itemDiv);
-
-                document.getElementById(`oos-t-${index}`).addEventListener('change', (e) => {
-                    updateOOSItem(index, 'title', e.target.value);
-                });
-                document.getElementById(`oos-d-${index}`).addEventListener('change', (e) => {
-                    updateOOSItem(index, 'details', e.target.value);
-                });
-                document.getElementById(`oos-up-${index}`).addEventListener('click', () => {
-                    moveOOSItem(index, -1);
-                });
-                document.getElementById(`oos-dn-${index}`).addEventListener('click', () => {
-                    moveOOSItem(index, 1);
-                });
-                document.getElementById(`oos-del-${index}`).addEventListener('click', () => {
-                    deleteOOSItem(index);
-                });
+                const div = document.createElement('div'); div.className = "flex items-center justify-between p-4 bg-brand-surface border border-brand-outline-variant/30 rounded shadow-sm";
+                div.innerHTML = `<div class="flex space-x-3 w-full"><div class="font-bold text-brand-primary">${index + 1}</div><div class="w-full"><div class="font-bold text-sm">${item.title}</div><div class="text-xs text-brand-on-surface-variant">${item.details}</div></div></div>`;
+                container.appendChild(div);
             });
         }
-
-        function updateOOSItem(index, key, val) {
-            if (!activeClientState) return;
-            activeClientState.orderOfService[index][key] = val;
-            saveStateToFirestore();
-        }
-
-        function moveOOSItem(index, direction) {
-            const targetIndex = index + direction;
-            if (targetIndex < 0 || targetIndex >= activeClientState.orderOfService.length) return;
-            
-            const temp = activeClientState.orderOfService[index];
-            activeClientState.orderOfService[index] = activeClientState.orderOfService[targetIndex];
-            activeClientState.orderOfService[targetIndex] = temp;
-            
-            renderOrderOfService();
-            saveStateToFirestore();
-        }
-
-        function deleteOOSItem(index) {
-            activeClientState.orderOfService.splice(index, 1);
-            renderOrderOfService();
-            saveStateToFirestore();
-            showNotification("Ceremony step deleted.", "info");
-        }
-
-        function addOrderOfServiceStep() {
-            activeClientState.orderOfService.push({
-                title: "New Custom Ceremony Step",
-                details: "Officiated details"
-            });
-            renderOrderOfService();
-            saveStateToFirestore();
-            showNotification(`New step added! Customise the sequence title and cues.`, 'success');
-        }
-
         function printOrderOfService() {
-            const content = document.getElementById('print-preview-content');
-            
-            let stepsHTML = "";
-            activeClientState.orderOfService.forEach((item, index) => {
-                stepsHTML += `
-                    <div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #c4c8c0;">
-                        <div style="font-weight: bold; font-size: 1.1rem; color: #526253; font-family: Playfair Display, serif;">${index + 1}. ${item.title}</div>
-                        <div style="font-size: 0.9rem; color: #5b605c; font-style: italic; font-family: Inter, sans-serif; margin-top: 4px;">${item.details || 'General Flow Step'}</div>
-                    </div>
-                `;
-            });
-
-            content.innerHTML = `
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <h2 style="font-family: Playfair Display, serif; font-size: 1.6rem; color: #526253; margin: 0 0 5px 0;">Lisa B Celebrant</h2>
-                    <h1 style="font-family: Playfair Display, serif; font-size: 2.1rem; color: #526253; margin: 0 0 5px 0;">${activeClientState.names}</h1>
-                    <div style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; color: #655d4e; font-weight: bold; font-family: Inter, sans-serif;">Order of Service Sequence</div>
-                    <div style="font-size: 0.85rem; color: #5b605c; margin-top: 5px; font-family: Inter, sans-serif;">Ceremony Date: ${new Date(activeClientState.date).toLocaleDateString()}</div>
-                </div>
-                <div style="max-width: 500px; margin: 0 auto;">
-                    ${stepsHTML}
-                </div>
-                <div style="text-align: center; margin-top: 40px; font-size: 0.75rem; color: #747872; font-family: Inter, sans-serif;">
-                    Thank you for letting us shape your landmark day. &copy; Lisa B Celebrant
-                </div>
-            `;
-
+            let html = activeClientState.orderOfService.map((i, idx) => `<div style="margin-bottom:20px"><strong>${idx+1}. ${i.title}</strong><br><em>${i.details}</em></div>`).join("");
+            document.getElementById('print-preview-content').innerHTML = `<h2 style="text-align:center">${activeClientState.names}</h2><hr>${html}`;
             document.getElementById('print-preview-modal').classList.remove('hidden');
         }
-
-        function closePrintPreview() {
-            document.getElementById('print-preview-modal').classList.add('hidden');
-        }
-
-        function triggerSystemPrint() {
-            const printContents = document.getElementById('print-preview-content').innerHTML;
-            document.body.innerHTML = printContents;
-            window.print();
-            document.location.reload();
-        }
-
-        function handleContactSubmit(event) {
-            event.preventDefault();
-            showNotification(`Enquiry received! Lisa B Celebrant will check the calendar dates and reply shortly.`, 'success');
-            event.target.reset();
-        }
-
+        function closePrintPreview() { document.getElementById('print-preview-modal').classList.add('hidden'); }
+        function triggerSystemPrint() { document.body.innerHTML = document.getElementById('print-preview-content').innerHTML; window.print(); document.location.reload(); }
+        function handleContactSubmit(e) { e.preventDefault(); showNotification("Enquiry received!", "success"); e.target.reset(); }
         function switchPortalTab(tabName) {
             if (window.innerWidth >= 1024) return;
-
-            const sections = document.querySelectorAll('.portal-section');
-            sections.forEach(sec => {
-                sec.classList.add('hidden');
-            });
-
-            let targetSecId = null;
-            if (tabName === 'checklist') targetSecId = 'portal-checklist-section';
-            else if (tabName === 'questionnaire') targetSecId = 'portal-questionnaire-section';
-            else if (tabName === 'vault') targetSecId = 'portal-vault-section';
-            else if (tabName === 'script') targetSecId = 'portal-script-section';
-            else if (tabName === 'oos') targetSecId = 'portal-oos-section';
-
-            const activeSec = document.getElementById(targetSecId);
-            if (activeSec) {
-                activeSec.classList.remove('hidden');
-            }
-
-            const tabButtons = document.querySelectorAll('.portal-tab-btn');
-            tabButtons.forEach(btn => {
-                const isCurrent = btn.getAttribute('data-tab') === tabName;
-                if (isCurrent) {
-                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-primary text-white text-xs font-semibold rounded-full shadow-sm";
-                } else {
-                    btn.className = "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-surface-container-lowest text-brand-on-surface-variant text-xs font-semibold rounded-full border border-brand-outline-variant/30 hover:bg-brand-surface-container-low transition";
-                }
-            });
+            document.querySelectorAll('.portal-section').forEach(sec => sec.classList.add('hidden'));
+            const ids = { checklist: 'portal-checklist-section', questionnaire: 'portal-questionnaire-section', vault: 'portal-vault-section', script: 'portal-script-section', oos: 'portal-oos-section' };
+            document.getElementById(ids[tabName]).classList.remove('hidden');
+            document.querySelectorAll('.portal-tab-btn').forEach(btn => btn.className = btn.getAttribute('data-tab') === tabName ? "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-primary text-white text-xs font-semibold rounded-full shadow-sm" : "portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-surface-container-lowest text-brand-on-surface-variant text-xs font-semibold rounded-full border border-brand-outline-variant/30");
         }
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1024) document.querySelectorAll('.portal-section').forEach(sec => sec.classList.remove('hidden')); });
 
-        window.addEventListener('resize', () => {
-            const sections = document.querySelectorAll('.portal-section');
-            if (window.innerWidth >= 1024) {
-                sections.forEach(sec => sec.classList.remove('hidden'));
-            } else {
-                const activeTabBtn = document.querySelector('.portal-tab-btn.bg-brand-primary');
-                if (activeTabBtn) {
-                    switchPortalTab(activeTabBtn.getAttribute('data-tab'));
-                } else {
-                    switchPortalTab('checklist');
-                }
-            }
-        });
-
-        // Global functions bindings to ensure clean inline HTML event targets
-        window.showSection = showSection;
-        window.scrollToSection = scrollToSection;
-        window.toggleMobileMenu = toggleMobileMenu;
-        window.toggleFaqAccordion = toggleFaqAccordion;
-        window.openPortalAuthModal = openPortalAuthModal;
-        window.closePortalAuthModal = closePortalAuthModal;
-        window.openAdminAuthModal = openAdminAuthModal;
-        window.closeAdminAuthModal = closeAdminAuthModal;
-        window.handleAdminLoginSubmit = handleAdminLoginSubmit;
-        window.logoutAdmin = logoutAdmin;
-        window.autoLoadAdminTemplates = autoLoadAdminTemplates;
-        window.handleProvisionClient = handleProvisionClient;
-        window.openPrivacyModal = openPrivacyModal;
-        window.closePrivacyModal = closePrivacyModal;
-        window.openServiceDetails = openServiceDetails;
-        window.closeServiceDetailsModal = closeServiceDetailsModal;
-        window.handlePortalLogin = handlePortalLogin;
-        window.simulatePortalLogin = simulatePortalLogin;
-        window.logoutPortal = logoutPortal;
-        window.toggleTask = toggleTask;
-        window.resetChecklist = resetChecklist;
-        window.triggerFileInput = triggerFileInput;
-        window.handleFileSelection = handleFileSelection;
-        window.simulateFileDownload = simulateFileDownload;
-        window.handleCommentPost = handleCommentPost;
-        window.saveQuestionnaireProgress = saveQuestionnaireProgress;
-        window.clearStoryAnswers = clearStoryAnswers;
-        window.approveCeremonyScript = approveCeremonyScript;
-        window.updateOOSItem = updateOOSItem;
-        window.moveOOSItem = moveOOSItem;
-        window.deleteOOSItem = deleteOOSItem;
-        window.addOrderOfServiceStep = addOrderOfServiceStep;
-        window.printOrderOfService = printOrderOfService;
-        window.closePrintPreview = closePrintPreview;
-        window.triggerSystemPrint = triggerSystemPrint;
-        window.handleContactSubmit = handleContactSubmit;
-        window.switchPortalTab = switchPortalTab;
-
+        window.showSection = showSection; window.scrollToSection = scrollToSection; window.toggleMobileMenu = toggleMobileMenu; window.toggleFaqAccordion = toggleFaqAccordion; window.openPortalAuthModal = openPortalAuthModal; window.closePortalAuthModal = closePortalAuthModal; window.openPrivacyModal = openPrivacyModal; window.closePrivacyModal = closePrivacyModal; window.openServiceDetails = openServiceDetails; window.closeServiceDetailsModal = closeServiceDetailsModal; window.handlePortalLogin = handlePortalLogin; window.simulatePortalLogin = simulatePortalLogin; window.logoutPortal = logoutPortal; window.triggerFileInput = triggerFileInput; window.handleFileSelection = handleFileSelection; window.handleCommentPost = handleCommentPost; window.saveQuestionnaireProgress = saveQuestionnaireProgress; window.approveCeremonyScript = approveCeremonyScript; window.printOrderOfService = printOrderOfService; window.closePrintPreview = closePrintPreview; window.triggerSystemPrint = triggerSystemPrint; window.handleContactSubmit = handleContactSubmit; window.switchPortalTab = switchPortalTab;
+        
         initAuth();
     </script>
 </body>
