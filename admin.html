@@ -127,8 +127,7 @@
                                 <span class="text-[10px] text-brand-secondary uppercase tracking-widest font-bold font-sans">Inbound Leads</span>
                                 <h4 class="font-serif text-3xl font-bold text-brand-primary mt-1" id="stat-leads-count">0</h4>
                             </div>
-                            <div class="w-11 h-11 bg-brand-surface border border-brand-outline-variant rounded-full flex items-center justify-center text-brand-primary shadow-inner relative">
-                                <i class="fa-solid fa-bell"></i>
+                            <div class="w-11 h-11 bg-brand-surface border border-brand-outline-variant rounded-full flex items-center justify-center text-brand-primary shadow-inner relative"><i class="fa-solid fa-bell"></i>
                                 <span id="leads-bell-dot" class="hidden absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
                             </div>
                         </div>
@@ -268,10 +267,10 @@
                                             <!-- Comments stream dynamically in here -->
                                         </div>
                                         
-                                        <!-- Post Reply Input Form -->
-                                        <form onsubmit="handleAdminCommentPost(event)" class="flex gap-2 flex-shrink-0">
-                                            <input id="admin-comment-input" type="text" class="flex-grow px-3 py-2.5 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary font-sans" placeholder="Reply or suggest revision...">
-                                            <button type="submit" class="px-4 py-2 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm active:scale-95">Post</button>
+                                        <!-- Post Reply Input Form (Modified layout parameters to resolve button wrap spill over) -->
+                                        <form onsubmit="handleAdminCommentPost(event)" class="flex items-center gap-2 flex-shrink-0 w-full">
+                                            <input id="admin-comment-input" type="text" class="flex-grow flex-1 min-w-0 px-3 py-2.5 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary font-sans" placeholder="Reply or suggest revision...">
+                                            <button type="submit" class="flex-shrink-0 px-4 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm active:scale-95">Post</button>
                                         </form>
                                     </div>
 
