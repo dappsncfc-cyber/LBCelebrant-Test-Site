@@ -168,7 +168,14 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
                         <div class="lg:col-span-4 bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                             <h3 class="font-serif text-lg font-bold text-brand-on-surface mb-1">Select Client File</h3>
-                            <p class="text-[11px] text-brand-on-surface-variant mb-4">Click a client profile to view, modify checklists, timeline logs, and draft wordings.</p>
+                            <p class="text-[11px] text-brand-on-surface-variant mb-3">Click a client profile to view, modify checklists, timeline logs, and draft wordings.</p>
+                            
+                            <!-- Toggle Archived Visibility -->
+                            <div class="flex items-center space-x-2 mb-4 text-xs">
+                                <input type="checkbox" id="show-archived-toggle" onchange="renderClientSidebar()" class="h-4 w-4 rounded border-brand-outline text-brand-primary focus:ring-brand-primary cursor-pointer">
+                                <label for="show-archived-toggle" class="text-brand-on-surface-variant font-medium cursor-pointer select-none">Show Archived Workspaces</label>
+                            </div>
+
                             <div id="admin-client-list" class="space-y-2 mb-6 max-h-[300px] overflow-y-auto custom-scrollbar">
                                 <p class="text-xs text-brand-on-surface-variant italic">Waiting for connection...</p>
                             </div>
@@ -183,6 +190,10 @@
                                     <div>
                                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Secure Contact Email</label>
                                         <input id="onboard-email" type="email" required class="w-full p-2.5 bg-brand-surface border border-brand-outline-variant rounded" placeholder="name@domain.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Secure Telephone Number</label>
+                                        <input id="onboard-phone" type="tel" class="w-full p-2.5 bg-brand-surface border border-brand-outline-variant rounded" placeholder="e.g. 07700 900077">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Ceremony Classification</label>
@@ -228,6 +239,9 @@
                                     <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
                                         <button onclick="openEditDetailsModal()" class="px-3.5 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1.5 active:scale-95">
                                             <i class="fa-solid fa-sliders text-brand-primary"></i> <span>Edit Client Settings</span>
+                                        </button>
+                                        <button id="admin-archive-btn" onclick="toggleArchiveActiveClient()" class="px-3.5 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1.5 active:scale-95">
+                                            <i class="fa-solid fa-box-archive text-amber-600"></i> <span id="admin-archive-text">Archive Project</span>
                                         </button>
                                         <button onclick="deleteActiveClient()" class="px-3.5 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-semibold rounded shadow-sm transition flex items-center gap-1.5 active:scale-95">
                                             <i class="fa-solid fa-trash-can"></i> <span>Delete Project</span>
@@ -383,6 +397,10 @@
                     <div>
                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Names</label>
                         <input id="edit-details-names" type="text" required class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Secure Telephone Number</label>
+                        <input id="edit-details-phone" type="tel" class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded" placeholder="e.g. 07700 900077">
                     </div>
                     <div>
                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Ceremony Classification</label>
@@ -603,7 +621,10 @@
                     activeClientList.push({ id: doc.id, ...doc.data() });
                 });
                 renderClientSidebar();
-                document.getElementById('stat-active-workspaces').innerText = activeClientList.length;
+                
+                // Count active non-archived files for top display metrics
+                const activeCount = activeClientList.filter(c => c.status !== "Archived").length;
+                document.getElementById('stat-active-workspaces').innerText = activeCount;
             }, (error) => {
                 console.error("Firestore ceremonies load failed:", error);
                 showNotification("Error syncing ceremonies collection.", "error");
@@ -624,10 +645,11 @@
 
         function loadMockOfflineClients() {
             activeClientList = [
-                { id: "sarahjamesweddingcom", names: "Sarah & James", email: "sarah@jameswedding.com", ceremonyType: "Wedding", date: "2026-08-20", checklist: [], script: "<h2>Wedding Script</h2>", orderOfService: [], questionPrompts: ["Prompt 1", "Prompt 2"], questions: { q1: "", q2: "" }, comments: [] }
+                { id: "sarahjamesweddingcom", names: "Sarah & James", email: "sarah@jameswedding.com", phone: "07700 900077", ceremonyType: "Wedding", date: "2026-08-20", status: "Under Review", checklist: [], script: "<h2>Wedding Script</h2>", orderOfService: [], questionPrompts: ["Prompt 1", "Prompt 2"], questions: { q1: "", q2: "" }, comments: [] }
             ];
             renderClientSidebar();
-            document.getElementById('stat-active-workspaces').innerText = activeClientList.length;
+            const activeCount = activeClientList.filter(c => c.status !== "Archived").length;
+            document.getElementById('stat-active-workspaces').innerText = activeCount;
         }
 
         // Render Inbound Leads Panel
@@ -716,6 +738,7 @@
                         uid: "cl-" + Math.random().toString(36).substr(2, 9),
                         email: email,
                         names: names,
+                        phone: "",
                         ceremonyType: mappedType,
                         ceremonyIcon: mappedType === 'Funeral' ? 'fa-cloud-sun text-slate-500' : 'fa-heart text-brand-primary',
                         date: cleanDate,
@@ -757,35 +780,49 @@
             }
         }
 
-        // Render Sidebar Lists
-        function renderClientSidebar() {
+        // Render Sidebar Lists with custom active / archived toggles
+        window.renderClientSidebar = function() {
             const container = document.getElementById('admin-client-list');
-            if (activeClientList.length === 0) {
-                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic">No client files found. Use form or approve leads above.</p>`;
+            const showArchived = document.getElementById('show-archived-toggle') ? document.getElementById('show-archived-toggle').checked : false;
+
+            // Filter active files based on toggles
+            const filteredClients = activeClientList.filter(client => {
+                const isArchived = client.status === "Archived";
+                return showArchived ? true : !isArchived;
+            });
+
+            if (filteredClients.length === 0) {
+                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic">No client files found matching query filters.</p>`;
                 return;
             }
             container.innerHTML = "";
-            activeClientList.forEach(client => {
+            filteredClients.forEach(client => {
                 const btn = document.createElement('button');
                 const isSelected = client.id === activeSelectedEmailKey;
+                const isArchived = client.status === "Archived";
                 btn.className = `w-full text-left p-3 rounded border text-xs transition duration-150 active:scale-95 flex flex-col gap-1 ${isSelected ? 'bg-brand-primary text-white border-brand-outline-variant/50 shadow-sm' : 'bg-brand-surface border-brand-outline-variant/30 text-brand-on-surface hover:bg-brand-surface-container-low'}`;
                 btn.innerHTML = `
                     <div class="flex justify-between items-center w-full">
-                        <span class="font-bold">${client.names}</span>
+                        <span class="font-bold flex items-center gap-1.5">
+                            ${client.names}
+                            ${isArchived ? '<span class="px-1.5 py-0.5 text-[8px] bg-amber-100 text-amber-800 rounded font-bold uppercase tracking-wider">Archived</span>' : ''}
+                        </span>
                         <span class="text-[9px] uppercase font-bold tracking-wider opacity-90">${client.ceremonyType}</span>
                     </div>
                     <span class="text-[9px] font-mono select-all opacity-80">${client.email}</span>
+                    ${client.phone ? `<span class="text-[9px] opacity-80"><i class="fa-solid fa-phone text-[8px] mr-1"></i>${client.phone}</span>` : ''}
                 `;
                 btn.onclick = () => loadClientWorkspace(client.id);
                 container.appendChild(btn);
             });
         }
 
-        // Onboard client from the sidebar form
+        // Onboard client from the sidebar form with new telephone parameters
         window.handleOnboardSubmit = async function(event) {
             event.preventDefault();
             const names = document.getElementById('onboard-names').value.trim();
             const email = document.getElementById('onboard-email').value.trim();
+            const phone = document.getElementById('onboard-phone').value.trim();
             const type = document.getElementById('onboard-type').value;
             const dateVal = document.getElementById('onboard-date').value;
 
@@ -796,6 +833,7 @@
                 uid: "cl-" + Math.random().toString(36).substr(2, 9),
                 email: email,
                 names: names,
+                phone: phone || '',
                 ceremonyType: type,
                 ceremonyIcon: type === 'Funeral' ? 'fa-cloud-sun text-slate-500' : 'fa-heart text-brand-primary',
                 date: new Date(dateVal).toISOString(),
@@ -865,6 +903,13 @@
             document.getElementById('admin-title-names').innerText = activeSelectedState.names;
             document.getElementById('admin-vault-email').innerText = activeSelectedState.email;
             document.getElementById('admin-badge-type').innerText = activeSelectedState.ceremonyType;
+            
+            // Toggle Archive Button Metadata Status Label
+            const isCurrentlyArchived = activeSelectedState.status === "Archived";
+            const archiveBtnText = document.getElementById('admin-archive-text');
+            if (archiveBtnText) {
+                archiveBtnText.innerText = isCurrentlyArchived ? "Restore Project" : "Archive Project";
+            }
             
             // Textarea value mapping
             document.getElementById('admin-script-textarea').value = activeSelectedState.script;
@@ -1147,7 +1192,7 @@
             }
         }
 
-        // Printable Layout Generator for Order of Service
+        // Printable Layout Generator
         window.printOrderOfServiceAdmin = function() {
             if (!activeSelectedState) return;
             const content = document.getElementById('print-preview-content');
@@ -1159,7 +1204,7 @@
             document.getElementById('print-preview-modal').classList.remove('hidden');
         }
 
-        // Printable Layout Generator for Wording/Script (NEW!)
+        // Printable Layout Generator for Wording/Script
         window.printScriptAdmin = function() {
             if (!activeSelectedState) return;
             const content = document.getElementById('print-preview-content');
@@ -1184,6 +1229,7 @@
         window.openEditDetailsModal = function() {
             if (!activeSelectedState) return;
             document.getElementById('edit-details-names').value = activeSelectedState.names;
+            document.getElementById('edit-details-phone').value = activeSelectedState.phone || "";
             document.getElementById('edit-details-type').value = activeSelectedState.ceremonyType;
             document.getElementById('edit-details-date').value = activeSelectedState.date.split('T')[0];
             document.getElementById('admin-edit-details-modal').classList.remove('hidden');
@@ -1193,10 +1239,12 @@
         window.handleEditDetailsSubmit = async function(event) {
             event.preventDefault();
             const names = document.getElementById('edit-details-names').value.trim();
+            const phone = document.getElementById('edit-details-phone').value.trim();
             const type = document.getElementById('edit-details-type').value;
             const date = document.getElementById('edit-details-date').value;
 
             activeSelectedState.names = names;
+            activeSelectedState.phone = phone;
             activeSelectedState.ceremonyType = type;
             activeSelectedState.date = new Date(date).toISOString();
 
@@ -1208,6 +1256,7 @@
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
                     await updateDoc(docRef, {
                         names: names,
+                        phone: phone,
                         ceremonyType: type,
                         date: activeSelectedState.date
                     });
@@ -1218,6 +1267,54 @@
                 }
             } else {
                 renderWorkspaceView();
+            }
+        }
+
+        // Archive Project option (NEW!)
+        window.archiveActiveClient = async function() {
+            if (!activeSelectedState || !activeSelectedEmailKey) return;
+            const isCurrentlyArchived = activeSelectedState.status === "Archived";
+            const newStatus = isCurrentlyArchived ? "Under Review" : "Archived";
+            const actionText = isCurrentlyArchived ? "unarchive" : "archive";
+            
+            const confirmed = window.confirm(`Are you sure you want to ${actionText} the workspace for ${activeSelectedState.names}?`);
+            if (!confirmed) return;
+
+            showNotification(`${isCurrentlyArchived ? 'Unarchiving' : 'Archiving'} client registry...`, "info");
+
+            if (useFirebase && db) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
+                    await updateDoc(docRef, { status: newStatus });
+                    showNotification(`File ${isCurrentlyArchived ? 'restored' : 'archived'} successfully.`, "success");
+                    
+                    const showArchived = document.getElementById('show-archived-toggle').checked;
+                    if (!showArchived && newStatus === "Archived") {
+                        activeSelectedEmailKey = null;
+                        activeSelectedState = null;
+                        document.getElementById('admin-workspace-panel').classList.add('hidden');
+                        document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
+                    }
+                } catch (err) {
+                    showNotification("Archiving registry denied.", "error");
+                }
+            } else {
+                activeSelectedState.status = newStatus;
+                const localClient = activeClientList.find(c => c.id === activeSelectedEmailKey);
+                if (localClient) localClient.status = newStatus;
+                
+                showNotification(`Local file ${isCurrentlyArchived ? 'restored' : 'archived'}.`, "success");
+                renderClientSidebar();
+                
+                const showArchived = document.getElementById('show-archived-toggle').checked;
+                if (!showArchived && newStatus === "Archived") {
+                    activeSelectedEmailKey = null;
+                    activeSelectedState = null;
+                    document.getElementById('admin-workspace-panel').classList.add('hidden');
+                    document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
+                } else {
+                    renderWorkspaceView();
+                }
             }
         }
 
