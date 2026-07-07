@@ -815,6 +815,7 @@
                 const btn = document.createElement('button');
                 const isSelected = client.id === activeSelectedEmailKey;
                 const isArchived = client.status === "Archived";
+                const hasUpdate = client.clientUpdated === true;
                 
                 // Resilient fallback logic for undefined metadata properties (Fixes Screenshot undefined visual bugs)
                 const clientName = client.names || "Unnamed Client";
@@ -828,6 +829,7 @@
                         <span class="font-bold flex items-center gap-1.5">
                             ${clientName}
                             ${isArchived ? '<span class="px-1.5 py-0.5 text-[8px] bg-amber-100 text-amber-800 rounded font-bold uppercase tracking-wider">Archived</span>' : ''}
+                            ${hasUpdate ? '<span class="w-2.5 h-2.5 bg-rose-500 rounded-full animate-pulse shadow-sm" title="New client activity detected"></span>' : ''}
                         </span>
                         <span class="text-[9px] uppercase font-bold tracking-wider opacity-90">${clientType}</span>
                     </div>
@@ -906,6 +908,12 @@
                     if (snap.exists()) {
                         activeSelectedState = snap.data();
                         
+                        // Clear unread client activity state when viewed by Lisa
+                        if (activeSelectedState.clientUpdated === true) {
+                            activeSelectedState.clientUpdated = false;
+                            updateDoc(docRef, { clientUpdated: false }).catch(err => console.error("Error clearing unread state:", err));
+                        }
+                        
                         // Close workspace panel if the client gets archived and toggling is hidden
                         const showArchived = document.getElementById('show-archived-toggle').checked;
                         if (activeSelectedState.status === "Archived" && !showArchived) {
@@ -924,6 +932,9 @@
                 });
             } else {
                 activeSelectedState = activeClientList.find(c => c.id === emailKey);
+                if (activeSelectedState && activeSelectedState.clientUpdated === true) {
+                    activeSelectedState.clientUpdated = false;
+                }
                 renderWorkspaceView();
             }
         }
