@@ -166,47 +166,46 @@
 
                     <!-- Client Selector and Onboarding Section -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
-                        
-                        <!-- Left-Hand Sidebar Panel (lg:col-span-4) -->
                         <div class="lg:col-span-4 bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                             <h3 class="font-serif text-lg font-bold text-brand-on-surface mb-1">Select Client File</h3>
-                            <p class="text-[11px] text-brand-on-surface-variant mb-3">Click a client profile to view, modify checklists, timeline logs, and draft wordings.</p>
+                            <p class="text-[11px] text-brand-on-surface-variant mb-4">Click a client profile to view, modify checklists, timeline logs, and draft wordings.</p>
                             
-                            <!-- Toggle Archived Visibility -->
-                            <div class="flex items-center space-x-2 mb-4 text-xs">
-                                <input type="checkbox" id="show-archived-toggle" onchange="renderClientSidebar()" class="h-4 w-4 rounded border-brand-outline text-brand-primary focus:ring-brand-primary cursor-pointer">
-                                <label for="show-archived-toggle" class="text-brand-on-surface-variant font-medium cursor-pointer select-none">Show Archived Workspaces</label>
+                            <!-- Search & Filter Controls -->
+                            <div class="space-y-3 mb-4">
+                                <div class="relative">
+                                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-xs text-brand-secondary"></i>
+                                    <input id="sidebar-search" oninput="renderClientSidebar()" type="text" class="w-full pl-9 pr-4 py-2.5 bg-brand-surface border border-brand-outline-variant/60 rounded text-xs focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="Search files by name...">
+                                </div>
+                                <div class="flex items-center space-x-2 bg-brand-surface p-2.5 rounded border border-brand-outline-variant/30">
+                                    <input type="checkbox" id="show-archived-toggle" onchange="renderClientSidebar()" class="h-4 w-4 rounded">
+                                    <label for="show-archived-toggle" class="text-[10px] font-bold text-brand-on-surface uppercase tracking-wider cursor-pointer">Show Archived Workspaces</label>
+                                </div>
                             </div>
 
-                            <div class="mb-4 relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <i class="fa-solid fa-magnifying-glass text-brand-outline text-xs"></i>
-                                </span>
-                                <input type="text" id="admin-search-input" oninput="renderClientSidebar()" placeholder="Search clients by name..." class="w-full pl-9 pr-3 py-2.5 bg-brand-surface border border-brand-outline-variant rounded text-xs focus:outline-none focus:ring-1 focus:ring-brand-primary placeholder-brand-outline">
-                            </div>
-
+                            <!-- List -->
                             <div id="admin-client-list" class="space-y-2 mb-6 max-h-[300px] overflow-y-auto custom-scrollbar">
                                 <p class="text-xs text-brand-on-surface-variant italic">Waiting for connection...</p>
                             </div>
                             
+                            <!-- Manual Onboarding Form -->
                             <div class="border-t border-brand-outline-variant/30 pt-4">
                                 <h4 class="font-serif text-sm font-bold text-brand-on-surface mb-3 flex items-center gap-1.5"><i class="fa-solid fa-user-plus text-brand-primary"></i> Onboard New Client</h4>
                                 <form onsubmit="handleOnboardSubmit(event)" class="space-y-3 text-xs font-sans">
                                     <div>
                                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Client Name(s)</label>
-                                        <input id="onboard-names" type="text" required class="w-full p-2.5 bg-brand-surface border border-brand-outline-variant rounded" placeholder="John & Jane">
+                                        <input id="onboard-names" type="text" required class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded" placeholder="John & Jane">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Secure Contact Email</label>
-                                        <input id="onboard-email" type="email" required class="w-full p-2.5 bg-brand-surface border border-brand-outline-variant rounded" placeholder="name@domain.com">
+                                        <input id="onboard-email" type="email" required class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded" placeholder="name@domain.com">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Secure Telephone Number</label>
-                                        <input id="onboard-phone" type="tel" class="w-full p-2.5 bg-brand-surface border border-brand-outline-variant rounded" placeholder="e.g. 07700 900077">
+                                        <input id="onboard-phone" type="tel" required class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded" placeholder="e.g. 07700 900077">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Ceremony Classification</label>
-                                        <select id="onboard-type" class="w-full p-2.5 bg-brand-surface border border-brand-outline-variant rounded">
+                                        <select id="onboard-type" class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded">
                                             <option value="Wedding">Wedding Ceremony</option>
                                             <option value="Funeral">Funeral or Memorial Tribute</option>
                                             <option value="Naming Day">Naming Ceremony</option>
@@ -216,7 +215,7 @@
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Ceremony Launch Date</label>
-                                        <input id="onboard-date" type="date" required class="w-full p-2.5 bg-brand-surface border border-brand-outline-variant rounded">
+                                        <input id="onboard-date" type="date" required class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded">
                                     </div>
                                     <button type="submit" class="w-full py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded tracking-wide uppercase transition shadow-sm active:scale-95">
                                         Launch Workspace & File
@@ -225,7 +224,7 @@
                             </div>
                         </div>
 
-                        <!-- Right-Hand Workspace Details Control Center (lg:col-span-8) -->
+                        <!-- Workspace Details Control Center -->
                         <div class="lg:col-span-8 space-y-6">
                             
                             <!-- Closed state placeholder -->
@@ -244,16 +243,21 @@
                                         <span class="text-[10px] uppercase tracking-[0.15em] text-brand-primary font-bold font-sans" id="admin-badge-type">Wedding</span>
                                         <h2 class="font-serif text-2xl font-bold text-brand-on-surface mt-1" id="admin-title-names">Names Placeholder</h2>
                                         <p class="text-xs text-brand-on-surface-variant mt-1">Client Vault Email key: <span class="font-mono text-brand-primary select-all font-semibold" id="admin-vault-email">email@domain.com</span></p>
+                                        <p class="text-xs text-brand-on-surface-variant mt-0.5">Telephone contact: <span class="font-sans font-bold text-brand-on-surface" id="admin-vault-phone">No number</span></p>
                                     </div>
-                                    <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
-                                        <button onclick="openEditDetailsModal()" class="px-3.5 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1.5 active:scale-95">
-                                            <i class="fa-solid fa-sliders text-brand-primary"></i> <span>Edit Client Settings</span>
+                                    <!-- Added dynamic flex layout with the Send Email Update button -->
+                                    <div class="flex items-center space-x-2 w-full md:w-auto justify-end flex-wrap gap-2">
+                                        <button onclick="sendEmailUpdate()" class="px-3 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1 active:scale-95">
+                                            <i class="fa-regular fa-envelope text-brand-primary"></i> <span>Send Email Update</span>
                                         </button>
-                                        <button id="admin-archive-btn" onclick="toggleArchiveActiveClient()" class="px-3.5 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1.5 active:scale-95">
-                                            <i class="fa-solid fa-box-archive text-amber-600"></i> <span id="admin-archive-text">Archive Project</span>
+                                        <button onclick="openEditDetailsModal()" class="px-3 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1 active:scale-95">
+                                            <i class="fa-solid fa-sliders text-brand-primary"></i> <span>Edit Settings</span>
                                         </button>
-                                        <button onclick="deleteActiveClient()" class="px-3.5 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-semibold rounded shadow-sm transition flex items-center gap-1.5 active:scale-95">
-                                            <i class="fa-solid fa-trash-can"></i> <span>Delete Project</span>
+                                        <button onclick="toggleArchiveActiveClient()" class="px-3 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1 active:scale-95" id="archive-workspace-btn">
+                                            <i class="fa-solid fa-box-archive text-brand-primary"></i> <span>Archive Project</span>
+                                        </button>
+                                        <button onclick="deleteActiveClient()" class="px-3 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-semibold rounded shadow-sm transition flex items-center gap-1 active:scale-95">
+                                            <i class="fa-solid fa-trash-can"></i> <span>Delete</span>
                                         </button>
                                     </div>
                                 </div>
@@ -268,7 +272,6 @@
                                                 <h4 class="font-serif text-lg text-brand-on-surface font-bold">Collaborative Wording Editor</h4>
                                                 <p class="text-brand-on-surface-variant text-[11px]">Write ceremony content or paste layout markups.</p>
                                             </div>
-                                            <!-- Responsive Button Actions Container -->
                                             <div class="flex flex-wrap items-center gap-2 mt-2 sm:mt-0">
                                                 <button onclick="printScriptAdmin()" class="px-4 py-2.5 bg-brand-surface hover:bg-brand-surface-container-high border border-brand-outline text-brand-on-surface-variant font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95 flex items-center gap-1.5">
                                                     <i class="fa-solid fa-print text-brand-primary"></i> Print Script
@@ -278,7 +281,6 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <!-- Unified to match typography criteria -->
                                         <textarea id="admin-script-textarea" class="w-full flex-grow p-6 font-serif text-sm leading-relaxed text-brand-on-surface bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary custom-scrollbar shadow-inner resize-none whitespace-pre-wrap" placeholder="Paste ceremony layout paragraphs here..."></textarea>
                                     </div>
 
@@ -293,9 +295,7 @@
                                         </div>
                                         
                                         <!-- Messages Scroll Frame -->
-                                        <div id="admin-comments-container" class="flex-grow overflow-y-auto mb-4 space-y-3 pr-2 custom-scrollbar flex flex-col justify-start">
-                                            <!-- Comments stream dynamically in here -->
-                                        </div>
+                                        <div id="admin-comments-container" class="flex-grow overflow-y-auto mb-4 space-y-3 pr-2 custom-scrollbar flex flex-col justify-start"></div>
                                         
                                         <!-- Post Reply Input Form -->
                                         <form onsubmit="handleAdminCommentPost(event)" class="flex items-center gap-2 flex-shrink-0 w-full">
@@ -316,9 +316,7 @@
                                                 <h4 class="font-serif text-base text-brand-on-surface font-bold">Client Planner Checklist</h4>
                                                 <span class="text-[10px] uppercase tracking-wider text-brand-secondary font-bold font-sans">Lisa B Admin Mode</span>
                                             </div>
-                                            <div id="admin-checklist-tasks-container" class="space-y-3 max-h-[290px] overflow-y-auto custom-scrollbar">
-                                                <!-- Dynamic list with toggleable delete markers -->
-                                            </div>
+                                            <div id="admin-checklist-tasks-container" class="space-y-3 max-h-[290px] overflow-y-auto custom-scrollbar"></div>
                                         </div>
                                         <div class="mt-4 pt-4 border-t border-brand-outline-variant/30">
                                             <form onsubmit="handleAddChecklistItem(event)" class="flex gap-2 text-xs">
@@ -371,9 +369,7 @@
                                             <i class="fa-solid fa-print"></i> Generate Printable layout
                                         </button>
                                     </div>
-                                    <div class="space-y-3 mb-6" id="admin-oos-list-container">
-                                        <!-- Dynamic sequencing lists -->
-                                    </div>
+                                    <div class="space-y-3 mb-6" id="admin-oos-list-container"></div>
                                     
                                     <div class="border-t border-brand-outline-variant/30 pt-4 mt-4">
                                         <h5 class="font-bold text-xs text-brand-on-surface mb-3 uppercase tracking-wide">Add New Sequence Line</h5>
@@ -408,8 +404,8 @@
                         <input id="edit-details-names" type="text" required class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Secure Telephone Number</label>
-                        <input id="edit-details-phone" type="tel" class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded" placeholder="e.g. 07700 900077">
+                        <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Secure Contact Phone</label>
+                        <input id="edit-details-phone" type="tel" required class="w-full p-2.5 bg-brand-surface border border-brand-outline rounded">
                     </div>
                     <div>
                         <label class="block text-[10px] font-semibold text-brand-on-surface-variant uppercase mb-1">Ceremony Classification</label>
@@ -460,18 +456,16 @@
     <!-- Firebase SDK Setup -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, query, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Firebase Configuration (Same as index.html)
         const firebaseConfig = {
             apiKey: "AIzaSyCMvCOMT1PTpPYYYXxDaJwwYfCjKaiglnw",
             authDomain: "lisa-b-celebrant.firebaseapp.com",
             projectId: "lisa-b-celebrant",
             storageBucket: "lisa-b-celebrant.firebasestorage.app",
             messagingSenderId: "818517298391",
-            appId: "1:818517298391:web:c16f25d2bf274b99373492",
-            measurementId: "G-RHDG8K8VVP"
+            appId: "1:818517298391:web:c16f25d2bf274b99373492"
         };
         
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -631,9 +625,9 @@
                 });
                 renderClientSidebar();
                 
-                // Count active non-archived files for top display metrics
-                const activeCount = activeClientList.filter(c => c.status !== "Archived").length;
-                document.getElementById('stat-active-workspaces').innerText = activeCount;
+                // Exclude archived from primary summary card
+                const nonArchived = activeClientList.filter(c => c.status !== 'Archived');
+                document.getElementById('stat-active-workspaces').innerText = nonArchived.length;
             }, (error) => {
                 console.error("Firestore ceremonies load failed:", error);
                 showNotification("Error syncing ceremonies collection.", "error");
@@ -654,11 +648,10 @@
 
         function loadMockOfflineClients() {
             activeClientList = [
-                { id: "sarahjamesweddingcom", names: "Sarah & James", email: "sarah@jameswedding.com", phone: "07700 900077", ceremonyType: "Wedding", date: "2026-08-20", status: "Under Review", checklist: [], script: "<h2>Wedding Script</h2>", orderOfService: [], questionPrompts: ["Prompt 1", "Prompt 2"], questions: { q1: "", q2: "" }, comments: [] }
+                { id: "sarahjamesweddingcom", names: "Sarah & James", email: "sarah@jameswedding.com", ceremonyType: "Wedding", date: "2026-08-20", checklist: [], script: "<h2>Wedding Script</h2>", orderOfService: [], questionPrompts: ["Prompt 1", "Prompt 2"], questions: { q1: "", q2: "" }, comments: [] }
             ];
             renderClientSidebar();
-            const activeCount = activeClientList.filter(c => c.status !== "Archived").length;
-            document.getElementById('stat-active-workspaces').innerText = activeCount;
+            document.getElementById('stat-active-workspaces').innerText = activeClientList.length;
         }
 
         // Render Inbound Leads Panel
@@ -746,8 +739,8 @@
                     await setDoc(workspaceRef, {
                         uid: "cl-" + Math.random().toString(36).substr(2, 9),
                         email: email,
+                        phone: "Not specified",
                         names: names,
-                        phone: "",
                         ceremonyType: mappedType,
                         ceremonyIcon: mappedType === 'Funeral' ? 'fa-cloud-sun text-slate-500' : 'fa-heart text-brand-primary',
                         date: cleanDate,
@@ -789,59 +782,54 @@
             }
         }
 
-        // Render Sidebar Lists with custom active / archived toggles and fallback for undefined fields
-        window.renderClientSidebar = function() {
+        // Render Sidebar Lists
+        function renderClientSidebar() {
             const container = document.getElementById('admin-client-list');
-            const showArchived = document.getElementById('show-archived-toggle') ? document.getElementById('show-archived-toggle').checked : false;
-            const searchQuery = document.getElementById('admin-search-input') ? document.getElementById('admin-search-input').value.trim().toLowerCase() : "";
+            const searchQuery = document.getElementById('sidebar-search').value.toLowerCase().trim();
+            const showArchived = document.getElementById('show-archived-toggle').checked;
 
-            // Filter active files based on toggles and search query
-            const filteredClients = activeClientList.filter(client => {
-                const isArchived = client.status === "Archived";
-                const matchesArchive = showArchived ? true : !isArchived;
-                
-                const clientName = (client.names || "Unnamed Client").toLowerCase();
-                const matchesSearch = clientName.includes(searchQuery);
-
-                return matchesArchive && matchesSearch;
-            });
-
-            if (filteredClients.length === 0) {
-                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic">No client files found matching query filters.</p>`;
+            if (activeClientList.length === 0) {
+                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic">No client files found. Use form or approve leads above.</p>`;
                 return;
             }
             container.innerHTML = "";
-            filteredClients.forEach(client => {
-                const btn = document.createElement('button');
-                const isSelected = client.id === activeSelectedEmailKey;
-                const isArchived = client.status === "Archived";
-                const hasUpdate = client.clientUpdated === true;
-                
-                // Resilient fallback logic for undefined metadata properties (Fixes Screenshot undefined visual bugs)
-                const clientName = client.names || "Unnamed Client";
-                const clientEmail = client.email || `${client.id}@domain.com`;
-                const clientPhone = client.phone || "";
-                const clientType = client.ceremonyType || "Wedding";
+            let renderedCount = 0;
 
-                btn.className = `w-full text-left p-3 rounded border text-xs transition duration-150 active:scale-95 flex flex-col gap-1 ${isSelected ? 'bg-brand-primary text-white border-brand-outline-variant/50 shadow-sm' : 'bg-brand-surface border-brand-outline-variant/30 text-brand-on-surface hover:bg-brand-surface-container-low'}`;
+            activeClientList.forEach(client => {
+                const email = client.email || client.id;
+                const names = client.names || "No name specified";
+                const status = client.status || "Under Review";
+                const type = client.ceremonyType || "Ceremony";
+
+                if (status === 'Archived' && !showArchived) return;
+                if (searchQuery !== "" && !names.toLowerCase().includes(searchQuery)) return;
+
+                renderedCount++;
+                const isSelected = client.id === activeSelectedEmailKey;
+                const hasUpdates = client.clientUpdated === true;
+
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-3 rounded border text-xs transition duration-150 active:scale-95 flex items-center justify-between gap-3 ${isSelected ? 'bg-brand-primary text-white border-brand-outline-variant/50 shadow-sm' : 'bg-brand-surface border-brand-outline-variant/30 text-brand-on-surface hover:bg-brand-surface-container-low'}`;
                 btn.innerHTML = `
-                    <div class="flex justify-between items-center w-full">
-                        <span class="font-bold flex items-center gap-1.5">
-                            ${clientName}
-                            ${isArchived ? '<span class="px-1.5 py-0.5 text-[8px] bg-amber-100 text-amber-800 rounded font-bold uppercase tracking-wider">Archived</span>' : ''}
-                            ${hasUpdate ? '<span class="w-2.5 h-2.5 bg-rose-500 rounded-full animate-pulse shadow-sm" title="New client activity detected"></span>' : ''}
-                        </span>
-                        <span class="text-[9px] uppercase font-bold tracking-wider opacity-90">${clientType}</span>
+                    <div class="flex-grow min-w-0">
+                        <div class="flex justify-between items-center w-full mb-0.5">
+                            <span class="font-bold truncate pr-2">${names}</span>
+                            <span class="text-[9px] uppercase font-bold tracking-wider opacity-90 flex-shrink-0">${type}</span>
+                        </div>
+                        <div class="text-[9px] font-mono select-all opacity-80 truncate">${email}</div>
                     </div>
-                    <span class="text-[9px] font-mono select-all opacity-80">${clientEmail}</span>
-                    ${clientPhone ? `<span class="text-[9px] opacity-80"><i class="fa-solid fa-phone text-[8px] mr-1"></i>${clientPhone}</span>` : ''}
+                    ${hasUpdates ? `<span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse flex-shrink-0" title="Client updated portal"></span>` : ''}
                 `;
                 btn.onclick = () => loadClientWorkspace(client.id);
                 container.appendChild(btn);
             });
+
+            if (renderedCount === 0) {
+                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic p-3 text-center">No matching files found.</p>`;
+            }
         }
 
-        // Onboard client from the sidebar form with new telephone parameters
+        // Onboard client from the sidebar form
         window.handleOnboardSubmit = async function(event) {
             event.preventDefault();
             const names = document.getElementById('onboard-names').value.trim();
@@ -856,8 +844,8 @@
             const payload = {
                 uid: "cl-" + Math.random().toString(36).substr(2, 9),
                 email: email,
+                phone: phone,
                 names: names,
-                phone: phone || '',
                 ceremonyType: type,
                 ceremonyIcon: type === 'Funeral' ? 'fa-cloud-sun text-slate-500' : 'fa-heart text-brand-primary',
                 date: new Date(dateVal).toISOString(),
@@ -908,23 +896,12 @@
                     if (snap.exists()) {
                         activeSelectedState = snap.data();
                         
-                        // Clear unread client activity state when viewed by Lisa
+                        // Clear pulsing red notification dot immediately once Lisa loads file
                         if (activeSelectedState.clientUpdated === true) {
-                            activeSelectedState.clientUpdated = false;
-                            updateDoc(docRef, { clientUpdated: false }).catch(err => console.error("Error clearing unread state:", err));
+                            updateDoc(docRef, { clientUpdated: false }).catch(err => console.warn(err));
                         }
                         
-                        // Close workspace panel if the client gets archived and toggling is hidden
-                        const showArchived = document.getElementById('show-archived-toggle').checked;
-                        if (activeSelectedState.status === "Archived" && !showArchived) {
-                            activeSelectedEmailKey = null;
-                            activeSelectedState = null;
-                            document.getElementById('admin-workspace-panel').classList.add('hidden');
-                            document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
-                            renderClientSidebar();
-                        } else {
-                            renderWorkspaceView();
-                        }
+                        renderWorkspaceView();
                     }
                 }, (error) => {
                     console.error("Workspace sync error:", error);
@@ -932,9 +909,6 @@
                 });
             } else {
                 activeSelectedState = activeClientList.find(c => c.id === emailKey);
-                if (activeSelectedState && activeSelectedState.clientUpdated === true) {
-                    activeSelectedState.clientUpdated = false;
-                }
                 renderWorkspaceView();
             }
         }
@@ -944,22 +918,19 @@
             document.getElementById('admin-workspace-placeholder').classList.add('hidden');
             document.getElementById('admin-workspace-panel').classList.remove('hidden');
 
-            // Robust metadata render fallbacks (Fixes undefined label crash bugs shown in Screenshot)
-            const activeNames = activeSelectedState.names || "Unnamed Client";
-            const activeEmail = activeSelectedState.email || `${activeSelectedEmailKey}@domain.com`;
-            const activeType = activeSelectedState.ceremonyType || "Wedding";
-
-            document.getElementById('admin-title-names').innerText = activeNames;
-            document.getElementById('admin-vault-email').innerText = activeEmail;
-            document.getElementById('admin-badge-type').innerText = activeType;
+            document.getElementById('admin-title-names').innerText = activeSelectedState.names || "No Names";
+            document.getElementById('admin-vault-email').innerText = activeSelectedState.email || "No Email";
+            document.getElementById('admin-vault-phone').innerText = activeSelectedState.phone || "No Telephone number specified";
+            document.getElementById('admin-badge-type').innerText = activeSelectedState.ceremonyType || "Ceremony";
             
-            // Toggle Archive Button Metadata Status Label
-            const isCurrentlyArchived = activeSelectedState.status === "Archived";
-            const archiveBtnText = document.getElementById('admin-archive-text');
-            if (archiveBtnText) {
-                archiveBtnText.innerText = isCurrentlyArchived ? "Restore Project" : "Archive Project";
+            // Toggle Archive Action Button Labels
+            const archiveBtn = document.getElementById('archive-workspace-btn');
+            if (activeSelectedState.status === "Archived") {
+                archiveBtn.innerHTML = `<i class="fa-solid fa-box-open text-brand-primary"></i> <span>Restore Project</span>`;
+            } else {
+                archiveBtn.innerHTML = `<i class="fa-solid fa-box-archive text-brand-primary"></i> <span>Archive Project</span>`;
             }
-            
+
             // Textarea value mapping
             document.getElementById('admin-script-textarea').value = activeSelectedState.script || "";
             
@@ -1113,13 +1084,12 @@
         function renderAdminChecklist() {
             const container = document.getElementById('admin-checklist-tasks-container');
             container.innerHTML = "";
-            const checklistArray = activeSelectedState.checklist || [];
-            checklistArray.forEach((task, index) => {
+            activeSelectedState.checklist.forEach((task, index) => {
                 const tr = document.createElement('div');
                 tr.className = "flex items-center justify-between bg-brand-surface p-2.5 rounded border border-brand-outline-variant/30 text-xs shadow-sm";
                 tr.innerHTML = `
                     <div class="flex items-center space-x-2">
-                        <input type="checkbox" ${task.done ? 'checked' : ''} id="adm-chk-${task.id}" class="h-4 w-4 rounded cursor-pointer">
+                        <input type="checkbox" ${task.done ? 'checked' : ''} id="adm-chk-${task.id}" class="h-4 w-4 rounded">
                         <span class="${task.done ? 'line-through text-brand-secondary' : 'text-brand-on-surface font-semibold'}">${task.title}</span>
                     </div>
                     <button onclick="deleteChecklistItem('${task.id}')" class="text-red-500 hover:text-red-700 font-bold px-2" title="Delete Task"><i class="fa-solid fa-trash-can"></i></button>
@@ -1137,10 +1107,6 @@
             const input = document.getElementById('new-checklist-item-title');
             const title = input.value.trim();
             if (title === "") return;
-
-            if (!activeSelectedState.checklist) {
-                activeSelectedState.checklist = [];
-            }
 
             const newTask = {
                 id: "tk-" + Date.now(),
@@ -1173,16 +1139,15 @@
         function renderAdminOOSList() {
             const container = document.getElementById('admin-oos-list-container');
             container.innerHTML = "";
-            const oosArray = activeSelectedState.orderOfService || [];
-            oosArray.forEach((item, index) => {
+            activeSelectedState.orderOfService.forEach((item, index) => {
                 const div = document.createElement('div');
                 div.className = "flex items-center justify-between p-3.5 bg-brand-surface border border-brand-outline-variant/30 rounded shadow-sm text-xs";
                 div.innerHTML = `
                     <div class="flex space-x-3 w-full">
                         <div class="font-bold text-brand-primary mt-0.5">${index + 1}</div>
                         <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            <input type="text" value="${item.title || ''}" id="oos-title-${index}" class="p-1 bg-transparent font-bold text-brand-on-surface focus:outline-none focus:ring-1 rounded" onchange="updateOOSStep(${index})">
-                            <input type="text" value="${item.details || ''}" id="oos-details-${index}" class="p-1 bg-transparent text-brand-on-surface-variant focus:outline-none focus:ring-1 rounded" onchange="updateOOSStep(${index})">
+                            <input type="text" value="${item.title}" id="oos-title-${index}" class="p-1 bg-transparent font-bold text-brand-on-surface focus:outline-none focus:ring-1 rounded" onchange="updateOOSStep(${index})">
+                            <input type="text" value="${item.details}" id="oos-details-${index}" class="p-1 bg-transparent text-brand-on-surface-variant focus:outline-none focus:ring-1 rounded" onchange="updateOOSStep(${index})">
                         </div>
                     </div>
                     <div class="flex items-center space-x-1.5 ml-2">
@@ -1208,10 +1173,6 @@
             const title = document.getElementById('new-step-title').value.trim();
             const details = document.getElementById('new-step-details').value.trim();
             if (title === "") return;
-
-            if (!activeSelectedState.orderOfService) {
-                activeSelectedState.orderOfService = [];
-            }
 
             activeSelectedState.orderOfService.push({
                 step: activeSelectedState.orderOfService.length + 1,
@@ -1251,16 +1212,15 @@
             }
         }
 
-        // Printable Layout Generator
+        // Printable Layout Generator for Order of Service
         window.printOrderOfServiceAdmin = function() {
             if (!activeSelectedState) return;
             const content = document.getElementById('print-preview-content');
             let stepsHTML = "";
-            const oosArray = activeSelectedState.orderOfService || [];
-            oosArray.forEach((item, index) => {
-                stepsHTML += `<div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #e5e7eb;"><div style="font-weight: bold; font-size: 1.1rem; color: #526253; font-family: Playfair Display, serif;">${index + 1}. ${item.title || 'General Flow Step'}</div><div style="font-size: 0.9rem; color: #4b5563; font-style: italic; margin-top: 4px;">${item.details || ''}</div></div>`;
+            activeSelectedState.orderOfService.forEach((item, index) => {
+                stepsHTML += `<div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #e5e7eb;"><div style="font-weight: bold; font-size: 1.1rem; color: #526253; font-family: Playfair Display, serif;">${index + 1}. ${item.title}</div><div style="font-size: 0.9rem; color: #4b5563; font-style: italic; margin-top: 4px;">${item.details || 'General Flow Step'}</div></div>`;
             });
-            content.innerHTML = `<div style="text-align:center; margin-bottom:30px;"><h2 style="font-family: Playfair Display, serif; color: #526253;">Lisa B Celebrant</h2><h1>${activeSelectedState.names || 'Names Placeholder'}</h1><div style="text-transform:uppercase; font-size:0.8rem; font-weight:bold; color:#655d4e;">Order of Service</div></div><div style="max-width:500px; margin:0 auto;">${stepsHTML}</div>`;
+            content.innerHTML = `<div style="text-align:center; margin-bottom:30px;"><h2 style="font-family: Playfair Display, serif; color: #526253;">Lisa B Celebrant</h2><h1>${activeSelectedState.names}</h1><div style="text-transform:uppercase; font-size:0.8rem; font-weight:bold; color:#655d4e;">Order of Service</div></div><div style="max-width:500px; margin:0 auto;">${stepsHTML}</div>`;
             document.getElementById('print-preview-modal').classList.remove('hidden');
         }
 
@@ -1272,7 +1232,7 @@
             content.innerHTML = `
                 <div style="text-align:center; margin-bottom:30px;">
                     <h2 style="font-family: Playfair Display, serif; color: #526253;">Lisa B Celebrant</h2>
-                    <h1 style="font-family: Playfair Display, serif; font-size: 2rem; color: #1a1c1a; margin-bottom: 5px;">${activeSelectedState.names || 'Names Placeholder'}</h1>
+                    <h1 style="font-family: Playfair Display, serif; font-size: 2rem; color: #1a1c1a; margin-bottom: 5px;">${activeSelectedState.names}</h1>
                     <div style="text-transform:uppercase; font-size:0.8rem; font-weight:bold; color:#655d4e; letter-spacing: 0.1em;">Ceremony Script Draft</div>
                 </div>
                 <div style="max-width:650px; margin:0 auto; font-family: Playfair Display, serif; white-space: pre-wrap; line-height: 1.8; font-size: 1.05rem; color: #1a1c1a;">
@@ -1288,9 +1248,9 @@
         // Workspace Metadata Configuration Modals
         window.openEditDetailsModal = function() {
             if (!activeSelectedState) return;
-            document.getElementById('edit-details-names').value = activeSelectedState.names || "";
+            document.getElementById('edit-details-names').value = activeSelectedState.names;
             document.getElementById('edit-details-phone').value = activeSelectedState.phone || "";
-            document.getElementById('edit-details-type').value = activeSelectedState.ceremonyType || "Wedding";
+            document.getElementById('edit-details-type').value = activeSelectedState.ceremonyType;
             document.getElementById('edit-details-date').value = activeSelectedState.date ? activeSelectedState.date.split('T')[0] : "";
             document.getElementById('admin-edit-details-modal').classList.remove('hidden');
         }
@@ -1330,51 +1290,35 @@
             }
         }
 
-        // Archive Project option
+        // Toggle Client File Archive Status
         window.toggleArchiveActiveClient = async function() {
             if (!activeSelectedState || !activeSelectedEmailKey) return;
-            const isCurrentlyArchived = activeSelectedState.status === "Archived";
-            const newStatus = isCurrentlyArchived ? "Under Review" : "Archived";
-            const actionText = isCurrentlyArchived ? "unarchive" : "archive";
+            const currentStatus = activeSelectedState.status;
+            const targetStatus = currentStatus === "Archived" ? "Under Review" : "Archived";
             
-            const confirmed = window.confirm(`Are you sure you want to ${actionText} the workspace for ${activeSelectedState.names}?`);
-            if (!confirmed) return;
-
-            showNotification(`${isCurrentlyArchived ? 'Unarchiving' : 'Archiving'} client registry...`, "info");
+            showNotification(targetStatus === "Archived" ? "Archiving active registry..." : "Restoring project registry...", "info");
 
             if (useFirebase && db) {
                 try {
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
-                    await updateDoc(docRef, { status: newStatus });
-                    showNotification(`File ${isCurrentlyArchived ? 'restored' : 'archived'} successfully.`, "success");
+                    await updateDoc(docRef, { status: targetStatus });
+                    showNotification(targetStatus === "Archived" ? "Workspace archived." : "Workspace restored.", "success");
                     
+                    // Auto-hide panel immediately upon archiving if Lisa has "Show Archived" checkbox unchecked
                     const showArchived = document.getElementById('show-archived-toggle').checked;
-                    if (!showArchived && newStatus === "Archived") {
+                    if (targetStatus === "Archived" && !showArchived) {
                         activeSelectedEmailKey = null;
                         activeSelectedState = null;
                         document.getElementById('admin-workspace-panel').classList.add('hidden');
                         document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
                     }
                 } catch (err) {
-                    showNotification("Archiving registry denied.", "error");
+                    showNotification("Failed to update project status.", "error");
                 }
             } else {
-                activeSelectedState.status = newStatus;
-                const localClient = activeClientList.find(c => c.id === activeSelectedEmailKey);
-                if (localClient) localClient.status = newStatus;
-                
-                showNotification(`Local file ${isCurrentlyArchived ? 'restored' : 'archived'}.`, "success");
+                activeSelectedState.status = targetStatus;
                 renderClientSidebar();
-                
-                const showArchived = document.getElementById('show-archived-toggle').checked;
-                if (!showArchived && newStatus === "Archived") {
-                    activeSelectedEmailKey = null;
-                    activeSelectedState = null;
-                    document.getElementById('admin-workspace-panel').classList.add('hidden');
-                    document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
-                } else {
-                    renderWorkspaceView();
-                }
+                renderWorkspaceView();
             }
         }
 
@@ -1408,6 +1352,15 @@
                 showNotification("Local project deleted.", "success");
             }
         }
+
+        // Email update notification trigger
+        window.sendEmailUpdate = function() {
+            if (!activeSelectedState) return;
+            const email = activeSelectedState.email || "";
+            const subject = encodeURIComponent("You have an update from Lisa B Celebrant");
+            const body = encodeURIComponent("Please visit our website (https://lb-celebrant.co.uk) and log in to view.");
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        };
     </script>
 </body>
 </html>
