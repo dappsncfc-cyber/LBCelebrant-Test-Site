@@ -1049,6 +1049,8 @@
 
         async function saveStateToFirestore() {
             if (!useFirebase || !db || !currentClientType || !activeClientState) return;
+            // Mark unread client activity so Lisa sees an instant notification on her admin console
+            activeClientState.clientUpdated = true;
             const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', currentClientType);
             try {
                 await setDoc(docRef, activeClientState);
