@@ -158,7 +158,6 @@
 
                         <!-- Leads Container -->
                         <div id="leads-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Inbound leads will render dynamically here -->
                             <div class="col-span-full py-8 text-center text-brand-on-surface-variant text-xs italic">
                                 <i class="fa-solid fa-inbox text-2xl mb-2 text-brand-outline-variant block"></i>
                                 No inbound contact leads currently logged.
@@ -237,21 +236,48 @@
                                     </div>
                                 </div>
 
-                                <!-- Editable Script Editor Text Area (REPLACED CONTENTEDITABLE WITH TEXTAREA FOR SOLID WRITES) -->
-                                <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
-                                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-brand-outline-variant/20 pb-3">
-                                        <div>
-                                            <h4 class="font-serif text-lg text-brand-on-surface font-bold">Collaborative Wording Editor</h4>
-                                            <p class="text-brand-on-surface-variant text-[11px]">Write ceremony content or paste layout markups. Changes reflect on the client's screen immediately upon saving.</p>
+                                <!-- Collaborative Script Editor & Live Revision Log Layout -->
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                                    
+                                    <!-- Editable Script Text Area -->
+                                    <div class="lg:col-span-8 bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col h-[500px]">
+                                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-brand-outline-variant/20 pb-3 flex-shrink-0">
+                                            <div>
+                                                <h4 class="font-serif text-lg text-brand-on-surface font-bold">Collaborative Wording Editor</h4>
+                                                <p class="text-brand-on-surface-variant text-[11px]">Write ceremony content or paste layout markups.</p>
+                                            </div>
+                                            <button onclick="saveWordingToDB()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95 flex items-center gap-2">
+                                                <i class="fa-solid fa-cloud-arrow-up"></i> Save Ceremony Wording to DB
+                                            </button>
                                         </div>
-                                        <button onclick="saveWordingToDB()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95 flex items-center gap-2">
-                                            <i class="fa-solid fa-cloud-arrow-up"></i> Save Ceremony Wording to DB
-                                        </button>
+                                        <textarea id="admin-script-textarea" class="w-full flex-grow p-4 font-mono text-xs text-brand-on-surface bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary custom-scrollbar shadow-inner resize-none" placeholder="Paste ceremony layout paragraphs here..."></textarea>
                                     </div>
-                                    <textarea id="admin-script-textarea" rows="12" class="w-full p-4 font-mono text-xs text-brand-on-surface bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary custom-scrollbar shadow-inner" placeholder="Paste ceremony layout paragraphs here..."></textarea>
+
+                                    <!-- Live Revision Log Chat Box -->
+                                    <div class="lg:col-span-4 bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col h-[500px]">
+                                        <div class="border-b border-brand-outline-variant/20 pb-3 mb-4 flex-shrink-0">
+                                            <h4 class="font-serif text-lg text-brand-on-surface font-bold flex items-center gap-2">
+                                                <i class="fa-solid fa-comments text-brand-primary"></i>
+                                                <span>Script Revision Logs</span>
+                                            </h4>
+                                            <p class="text-brand-on-surface-variant text-[11px]">Direct co-editing threads and client suggestions.</p>
+                                        </div>
+                                        
+                                        <!-- Messages Scroll Frame -->
+                                        <div id="admin-comments-container" class="flex-grow overflow-y-auto mb-4 space-y-3 pr-2 custom-scrollbar flex flex-col justify-start">
+                                            <!-- Comments stream dynamically in here -->
+                                        </div>
+                                        
+                                        <!-- Post Reply Input Form -->
+                                        <form onsubmit="handleAdminCommentPost(event)" class="flex gap-2 flex-shrink-0">
+                                            <input id="admin-comment-input" type="text" class="flex-grow px-3 py-2.5 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary font-sans" placeholder="Reply or suggest revision...">
+                                            <button type="submit" class="px-4 py-2 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm active:scale-95">Post</button>
+                                        </form>
+                                    </div>
+
                                 </div>
 
-                                <!-- Checklist Editor and Question Prompts Editor -->
+                                <!-- Checklist Editor and Live Question Responses Editor -->
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     
                                     <!-- Dynamic Checklist Manager -->
@@ -261,7 +287,7 @@
                                                 <h4 class="font-serif text-base text-brand-on-surface font-bold">Client Planner Checklist</h4>
                                                 <span class="text-[10px] uppercase tracking-wider text-brand-secondary font-bold font-sans">Lisa B Admin Mode</span>
                                             </div>
-                                            <div id="admin-checklist-tasks-container" class="space-y-3 max-h-[220px] overflow-y-auto custom-scrollbar">
+                                            <div id="admin-checklist-tasks-container" class="space-y-3 max-h-[290px] overflow-y-auto custom-scrollbar">
                                                 <!-- Dynamic list with toggleable delete markers -->
                                             </div>
                                         </div>
@@ -273,26 +299,36 @@
                                         </div>
                                     </div>
 
-                                    <!-- Question Prompt Configuration Customiser -->
+                                    <!-- Questionnaire Story Responses & Prompts Configuration -->
                                     <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between">
                                         <div>
-                                            <h4 class="font-serif text-base text-brand-on-surface font-bold mb-1">Tailor Questionnaire Prompts</h4>
-                                            <p class="text-[10px] text-brand-on-surface-variant mb-4">Customize the story questions you require the couple to answer inside their portal.</p>
-                                            <div class="space-y-3 text-xs">
-                                                <div>
-                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">First Story Prompt Question</label>
-                                                    <textarea id="admin-prompt-input-1" class="w-full p-2 bg-brand-surface border border-brand-outline rounded" rows="2" placeholder="First reflection question..."></textarea>
+                                            <h4 class="font-serif text-base text-brand-on-surface font-bold mb-1">Story Responses & Prompts</h4>
+                                            <p class="text-[10px] text-brand-on-surface-variant mb-4">Read live responses from the client portal and customise prompt questions.</p>
+                                            
+                                            <div class="space-y-4">
+                                                <!-- Prompt 1 Block -->
+                                                <div class="bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20">
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Story Prompt Question 1</label>
+                                                    <input id="admin-prompt-input-1" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="First reflection question...">
+                                                    
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
+                                                    <div id="admin-response-display-1" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] whitespace-pre-wrap">No answer submitted yet.</div>
                                                 </div>
-                                                <div>
-                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Second Story Prompt Question</label>
-                                                    <textarea id="admin-prompt-input-2" class="w-full p-2 bg-brand-surface border border-brand-outline rounded" rows="2" placeholder="Second reflection question..."></textarea>
+                                                <!-- Prompt 2 Block -->
+                                                <div class="bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20">
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Story Prompt Question 2</label>
+                                                    <input id="admin-prompt-input-2" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="Second reflection question...">
+                                                    
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
+                                                    <div id="admin-response-display-2" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] whitespace-pre-wrap">No answer submitted yet.</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <button onclick="savePromptsToDB()" class="w-full mt-4 py-2 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-on-surface border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center justify-center gap-1.5 shadow-sm">
-                                            <i class="fa-solid fa-save"></i> Save Question Prompts
+                                            <i class="fa-solid fa-save"></i> Save Custom Prompts
                                         </button>
                                     </div>
+
                                 </div>
 
                                 <!-- Dynamic Order of Service Builder -->
@@ -425,6 +461,7 @@
         let activeSelectedState = null;
         let clientUnsubscribeListener = null;
         let leadsUnsubscribeListener = null;
+        let workspaceUnsubscribeListener = null;
 
         // Custom template models
         const TEMPLATE_CEREMONIES = {
@@ -531,6 +568,11 @@
             activeAdminSession = false;
             if (clientUnsubscribeListener) clientUnsubscribeListener();
             if (leadsUnsubscribeListener) leadsUnsubscribeListener();
+            if (workspaceUnsubscribeListener) workspaceUnsubscribeListener();
+            
+            clientUnsubscribeListener = null;
+            leadsUnsubscribeListener = null;
+            workspaceUnsubscribeListener = null;
             
             document.getElementById('admin-dashboard').classList.add('hidden');
             document.getElementById('admin-auth-panel').classList.remove('hidden');
@@ -561,7 +603,7 @@
                 showNotification("Error syncing ceremonies collection.", "error");
             });
 
-            // Real-Time Listener 2: Inbound Public Leads (NEW!)
+            // Real-Time Listener 2: Inbound Public Leads
             const leadsCol = collection(db, 'artifacts', appId, 'public', 'data', 'leads');
             leadsUnsubscribeListener = onSnapshot(leadsCol, (snapshot) => {
                 const leads = [];
@@ -576,13 +618,13 @@
 
         function loadMockOfflineClients() {
             activeClientList = [
-                { id: "sarahjamesweddingcom", names: "Sarah & James", email: "sarah@jameswedding.com", ceremonyType: "Wedding", date: "2026-08-20", checklist: [], script: "<h2>Wedding Script</h2>", orderOfService: [], questionPrompts: ["Prompt 1", "Prompt 2"], questions: { q1: "", q2: "" } }
+                { id: "sarahjamesweddingcom", names: "Sarah & James", email: "sarah@jameswedding.com", ceremonyType: "Wedding", date: "2026-08-20", checklist: [], script: "<h2>Wedding Script</h2>", orderOfService: [], questionPrompts: ["Prompt 1", "Prompt 2"], questions: { q1: "", q2: "" }, comments: [] }
             ];
             renderClientSidebar();
             document.getElementById('stat-active-workspaces').innerText = activeClientList.length;
         }
 
-        // Render Inbound Leads Panel (NEW!)
+        // Render Inbound Leads Panel
         function renderLeadsInbox(leads) {
             const container = document.getElementById('leads-container');
             const unapprovedLeads = leads.filter(l => l.status === 'New');
@@ -644,11 +686,10 @@
             });
         }
 
-        // Action: Approve Lead and generate their Active Workspace Folder Automatically (NEW!)
+        // Action: Approve Lead and generate their Active Workspace Folder Automatically
         window.approveLeadAndCreate = async function(leadId, names, email, ceremonyType, date) {
             showNotification("Processing and converting lead...", "info");
             
-            // Map types from form to template classifications
             const typeMap = {
                 'wedding': 'Wedding',
                 'funeral': 'Funeral',
@@ -657,12 +698,10 @@
                 'planning': 'Planning Ahead'
             };
             const mappedType = typeMap[ceremonyType.toLowerCase()] || 'Wedding';
-            
             const emailKey = email.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 
             if (useFirebase && db) {
                 try {
-                    // Create workspace template content based on lead
                     const template = TEMPLATE_CEREMONIES[mappedType] || TEMPLATE_CEREMONIES.Wedding;
                     const cleanDate = date ? new Date(date).toISOString() : new Date().toISOString();
 
@@ -684,7 +723,6 @@
                         comments: []
                     });
 
-                    // Mark lead as Approved in Firestore
                     const leadRef = doc(db, 'artifacts', appId, 'public', 'data', 'leads', leadId);
                     await updateDoc(leadRef, { status: 'Approved' });
 
@@ -786,20 +824,26 @@
             }
         }
 
-        // Active Workspace Loaders
+        // Real-Time Active Workspace Listener Loader
         function loadClientWorkspace(emailKey) {
             activeSelectedEmailKey = emailKey;
-            
-            // Re-render sidebar to highlight selected client
             renderClientSidebar();
+
+            if (workspaceUnsubscribeListener) {
+                workspaceUnsubscribeListener();
+                workspaceUnsubscribeListener = null;
+            }
 
             if (useFirebase && db) {
                 const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', emailKey);
-                getDoc(docRef).then(snap => {
+                workspaceUnsubscribeListener = onSnapshot(docRef, (snap) => {
                     if (snap.exists()) {
                         activeSelectedState = snap.data();
                         renderWorkspaceView();
                     }
+                }, (error) => {
+                    console.error("Workspace sync error:", error);
+                    showNotification("Real-time folder sync disconnected.", "error");
                 });
             } else {
                 activeSelectedState = activeClientList.find(c => c.id === emailKey);
@@ -819,17 +863,38 @@
             // Textarea value mapping
             document.getElementById('admin-script-textarea').value = activeSelectedState.script;
             
-            // Prompt mapping
+            // Prompt config mapping
             document.getElementById('admin-prompt-input-1').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[0] : "";
             document.getElementById('admin-prompt-input-2').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[1] : "";
 
+            // Client Response Render
+            const resp1 = document.getElementById('admin-response-display-1');
+            const resp2 = document.getElementById('admin-response-display-2');
+            
+            if (activeSelectedState.questions && activeSelectedState.questions.q1) {
+                resp1.innerText = activeSelectedState.questions.q1;
+                resp1.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] whitespace-pre-wrap";
+            } else {
+                resp1.innerText = "No response submitted yet.";
+                resp1.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] opacity-60";
+            }
+
+            if (activeSelectedState.questions && activeSelectedState.questions.q2) {
+                resp2.innerText = activeSelectedState.questions.q2;
+                resp2.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] whitespace-pre-wrap";
+            } else {
+                resp2.innerText = "No response submitted yet.";
+                resp2.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] opacity-60";
+            }
+
             renderAdminChecklist();
             renderAdminOOSList();
+            renderAdminCommentsLog();
         }
 
         // Script Wordings Editor
         window.saveWordingToDB = async function() {
-            if (!activeSelectedState) return;
+            if (!activeSelectedState || !activeSelectedEmailKey) return;
             const updatedScript = document.getElementById('admin-script-textarea').value;
             activeSelectedState.script = updatedScript;
 
@@ -846,11 +911,88 @@
             }
         }
 
+        // Render Script Revision Logs (Chat Box)
+        function renderAdminCommentsLog() {
+            const container = document.getElementById('admin-comments-container');
+            if (!container) return;
+            container.innerHTML = "";
+            
+            const commentsArray = activeSelectedState.comments || [];
+            if (commentsArray.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center p-4">
+                        <i class="fa-solid fa-comments text-2xl mb-2 text-brand-outline-variant"></i>
+                        <p class="text-[11px] text-brand-secondary italic">No revision comments logged yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            commentsArray.forEach(comment => {
+                const commentBox = document.createElement('div');
+                const isCelebrant = comment.name === "Lisa B Celebrant";
+                
+                if (isCelebrant) {
+                    commentBox.className = "flex flex-col p-3 rounded-xl max-w-[85%] bg-brand-primary text-white self-end ml-auto shadow-sm";
+                } else {
+                    commentBox.className = "flex flex-col p-3 rounded-xl max-w-[85%] bg-brand-surface border border-brand-outline-variant/40 text-brand-on-surface self-start mr-auto shadow-sm";
+                }
+
+                commentBox.innerHTML = `
+                    <div class="flex justify-between items-center gap-4 mb-1">
+                        <span class="text-[9px] font-bold uppercase tracking-wider">${comment.name}</span>
+                        <span class="text-[9px] text-brand-secondary font-medium font-sans">${comment.time || 'Just now'}</span>
+                    </div>
+                    <p class="text-xs leading-relaxed font-sans">${comment.text}</p>
+                `;
+                container.appendChild(commentBox);
+            });
+            
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Handle Admin Comment Replies
+        window.handleAdminCommentPost = async function(event) {
+            event.preventDefault();
+            if (!activeSelectedState || !activeSelectedEmailKey) return;
+            
+            const input = document.getElementById('admin-comment-input');
+            const commentText = input.value.trim();
+            if (commentText === "") return;
+
+            const timeLabel = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) + ' ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+            
+            const newComment = {
+                name: "Lisa B Celebrant",
+                text: commentText,
+                time: timeLabel
+            };
+
+            if (!activeSelectedState.comments) {
+                activeSelectedState.comments = [];
+            }
+            
+            activeSelectedState.comments.push(newComment);
+            input.value = "";
+            renderAdminCommentsLog();
+
+            if (useFirebase && db) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
+                    await updateDoc(docRef, { comments: activeSelectedState.comments });
+                } catch (err) {
+                    showNotification("Failed to sync comment thread to database.", "error");
+                }
+            } else {
+                showNotification("Comment logged in sandbox registry.", "success");
+            }
+        }
+
         // Prompt Configurations
         window.savePromptsToDB = async function() {
             if (!activeSelectedState) return;
-            const p1 = document.getElementById('admin-prompt-input-1').value;
-            const p2 = document.getElementById('admin-prompt-input-2').value;
+            const p1 = document.getElementById('admin-prompt-input-1').value.trim();
+            const p2 = document.getElementById('admin-prompt-input-2').value.trim();
             const updatedPrompts = [p1, p2];
             activeSelectedState.questionPrompts = updatedPrompts;
 
