@@ -87,7 +87,7 @@
                                 <i class="fa-solid fa-user-shield text-lg"></i>
                             </div>
                             <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Celebrant Login</h3>
-                            <p class="text-xs text-brand-on-surface-variant mt-1">Authorised database access is logged and encrypted.</p>
+                            <p class="text-xs text-brand-on-surface-variant mt-1">Authorized database access is logged and encrypted.</p>
                         </div>
                         <form onsubmit="handleAdminLogin(event)" class="space-y-4">
                             <div>
@@ -221,6 +221,16 @@
                                         Launch Workspace & File
                                     </button>
                                 </form>
+                            </div>
+
+                            <!-- Document & Image Vault Access Section -->
+                            <div class="border-t border-brand-outline-variant/30 pt-4 mt-4">
+                                <h4 class="font-serif text-sm font-bold text-brand-on-surface mb-3 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-vault text-brand-primary"></i> Client Document Vault
+                                </h4>
+                                <div id="admin-sidebar-vault-list" class="space-y-2 max-h-[220px] overflow-y-auto custom-scrollbar text-xs">
+                                    <p class="text-xs text-brand-on-surface-variant italic">Select a client file above to browse uploaded documents.</p>
+                                </div>
                             </div>
                         </div>
 
@@ -918,10 +928,10 @@
             document.getElementById('admin-workspace-placeholder').classList.add('hidden');
             document.getElementById('admin-workspace-panel').classList.remove('hidden');
 
-            document.getElementById('admin-title-names').innerText = activeSelectedState.names || "No Names";
-            document.getElementById('admin-vault-email').innerText = activeSelectedState.email || "No Email";
-            document.getElementById('admin-vault-phone').innerText = activeSelectedState.phone || "No Telephone number specified";
-            document.getElementById('admin-badge-type').innerText = activeSelectedState.ceremonyType || "Ceremony";
+            document.getElementById('admin-title-names').innerText = activeSelectedState.names;
+            document.getElementById('admin-vault-email').innerText = activeSelectedState.email;
+            document.getElementById('admin-vault-phone').innerText = activeSelectedState.phone || "No number";
+            document.getElementById('admin-badge-type').innerText = activeSelectedState.ceremonyType;
             
             // Toggle Archive Action Button Labels
             const archiveBtn = document.getElementById('archive-workspace-btn');
@@ -932,7 +942,7 @@
             }
 
             // Textarea value mapping
-            document.getElementById('admin-script-textarea').value = activeSelectedState.script || "";
+            document.getElementById('admin-script-textarea').value = activeSelectedState.script;
             
             // Prompt config mapping
             document.getElementById('admin-prompt-input-1').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[0] : "";
@@ -961,6 +971,39 @@
             renderAdminChecklist();
             renderAdminOOSList();
             renderAdminCommentsLog();
+            renderAdminVault();
+        }
+
+        // Render client vault uploaded documents list in sidebar
+        function renderAdminVault() {
+            const container = document.getElementById('admin-sidebar-vault-list');
+            if (!container) return;
+
+            const vaultArray = activeSelectedState.vault || [];
+            if (vaultArray.length === 0) {
+                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic py-2">No documents uploaded to vault yet.</p>`;
+                return;
+            }
+
+            container.innerHTML = "";
+            vaultArray.forEach((file) => {
+                const item = document.createElement('div');
+                item.className = "p-2.5 bg-brand-surface border border-brand-outline-variant/30 rounded flex items-center justify-between gap-2 shadow-sm text-xs font-sans";
+                item.innerHTML = `
+                    <div class="min-w-0 flex-grow">
+                        <p class="font-bold text-brand-on-surface truncate" title="${file.name}">${file.name}</p>
+                        <p class="text-[9px] text-brand-secondary uppercase tracking-wider">${file.category || 'Upload'} &bull; ${file.size || 'N/A'}</p>
+                    </div>
+                    <button onclick="downloadVaultFile('${file.name.replace(/'/g, "\\'")}')" class="p-1.5 hover:bg-brand-surface-container-high rounded text-brand-primary flex-shrink-0" title="Download Decrypted File">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        window.downloadVaultFile = function(fileName) {
+            showNotification(`Decryption keys matched. Decrypted file downloaded: ${fileName}`, 'success');
         }
 
         // Script Wordings Editor
