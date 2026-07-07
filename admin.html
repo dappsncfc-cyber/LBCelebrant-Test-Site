@@ -178,6 +178,13 @@
                                 <label for="show-archived-toggle" class="text-brand-on-surface-variant font-medium cursor-pointer select-none">Show Archived Workspaces</label>
                             </div>
 
+                            <div class="mb-4 relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <i class="fa-solid fa-magnifying-glass text-brand-outline text-xs"></i>
+                                </span>
+                                <input type="text" id="admin-search-input" oninput="renderClientSidebar()" placeholder="Search clients by name..." class="w-full pl-9 pr-3 py-2.5 bg-brand-surface border border-brand-outline-variant rounded text-xs focus:outline-none focus:ring-1 focus:ring-brand-primary placeholder-brand-outline">
+                            </div>
+
                             <div id="admin-client-list" class="space-y-2 mb-6 max-h-[300px] overflow-y-auto custom-scrollbar">
                                 <p class="text-xs text-brand-on-surface-variant italic">Waiting for connection...</p>
                             </div>
@@ -786,11 +793,17 @@
         window.renderClientSidebar = function() {
             const container = document.getElementById('admin-client-list');
             const showArchived = document.getElementById('show-archived-toggle') ? document.getElementById('show-archived-toggle').checked : false;
+            const searchQuery = document.getElementById('admin-search-input') ? document.getElementById('admin-search-input').value.trim().toLowerCase() : "";
 
-            // Filter active files based on toggles
+            // Filter active files based on toggles and search query
             const filteredClients = activeClientList.filter(client => {
                 const isArchived = client.status === "Archived";
-                return showArchived ? true : !isArchived;
+                const matchesArchive = showArchived ? true : !isArchived;
+                
+                const clientName = (client.names || "Unnamed Client").toLowerCase();
+                const matchesSearch = clientName.includes(searchQuery);
+
+                return matchesArchive && matchesSearch;
             });
 
             if (filteredClients.length === 0) {
