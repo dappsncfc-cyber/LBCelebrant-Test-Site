@@ -245,9 +245,15 @@
                                                 <h4 class="font-serif text-lg text-brand-on-surface font-bold">Collaborative Wording Editor</h4>
                                                 <p class="text-brand-on-surface-variant text-[11px]">Write ceremony content or paste layout markups.</p>
                                             </div>
-                                            <button onclick="saveWordingToDB()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95 flex items-center gap-2">
-                                                <i class="fa-solid fa-cloud-arrow-up"></i> Save Ceremony Wording to DB
-                                            </button>
+                                            <!-- Responsive Button Actions Container -->
+                                            <div class="flex flex-wrap items-center gap-2 mt-2 sm:mt-0">
+                                                <button onclick="printScriptAdmin()" class="px-4 py-2.5 bg-brand-surface hover:bg-brand-surface-container-high border border-brand-outline text-brand-on-surface-variant font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95 flex items-center gap-1.5">
+                                                    <i class="fa-solid fa-print text-brand-primary"></i> Print Script
+                                                </button>
+                                                <button onclick="saveWordingToDB()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider shadow-sm transition active:scale-95 flex items-center gap-2">
+                                                    <i class="fa-solid fa-cloud-arrow-up"></i> Save Ceremony Wording to DB
+                                                </button>
+                                            </div>
                                         </div>
                                         <!-- (UPDATED TO font-serif, text-sm, leading-relaxed AND whitespace-pre-wrap to exactly replicate client layout) -->
                                         <textarea id="admin-script-textarea" class="w-full flex-grow p-6 font-serif text-sm leading-relaxed text-brand-on-surface bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary custom-scrollbar shadow-inner resize-none whitespace-pre-wrap" placeholder="Paste ceremony layout paragraphs here..."></textarea>
@@ -1141,7 +1147,7 @@
             }
         }
 
-        // Printable Layout Generator
+        // Printable Layout Generator for Order of Service
         window.printOrderOfServiceAdmin = function() {
             if (!activeSelectedState) return;
             const content = document.getElementById('print-preview-content');
@@ -1152,6 +1158,25 @@
             content.innerHTML = `<div style="text-align:center; margin-bottom:30px;"><h2 style="font-family: Playfair Display, serif; color: #526253;">Lisa B Celebrant</h2><h1>${activeSelectedState.names}</h1><div style="text-transform:uppercase; font-size:0.8rem; font-weight:bold; color:#655d4e;">Order of Service</div></div><div style="max-width:500px; margin:0 auto;">${stepsHTML}</div>`;
             document.getElementById('print-preview-modal').classList.remove('hidden');
         }
+
+        // Printable Layout Generator for Wording/Script (NEW!)
+        window.printScriptAdmin = function() {
+            if (!activeSelectedState) return;
+            const content = document.getElementById('print-preview-content');
+            const scriptText = document.getElementById('admin-script-textarea').value;
+            content.innerHTML = `
+                <div style="text-align:center; margin-bottom:30px;">
+                    <h2 style="font-family: Playfair Display, serif; color: #526253;">Lisa B Celebrant</h2>
+                    <h1 style="font-family: Playfair Display, serif; font-size: 2rem; color: #1a1c1a; margin-bottom: 5px;">${activeSelectedState.names}</h1>
+                    <div style="text-transform:uppercase; font-size:0.8rem; font-weight:bold; color:#655d4e; letter-spacing: 0.1em;">Ceremony Script Draft</div>
+                </div>
+                <div style="max-width:650px; margin:0 auto; font-family: Playfair Display, serif; white-space: pre-wrap; line-height: 1.8; font-size: 1.05rem; color: #1a1c1a;">
+                    ${scriptText}
+                </div>
+            `;
+            document.getElementById('print-preview-modal').classList.remove('hidden');
+        }
+
         window.closePrintPreview = function() { document.getElementById('print-preview-modal').classList.add('hidden'); }
         window.triggerSystemPrint = function() { document.body.innerHTML = document.getElementById('print-preview-content').innerHTML; window.print(); document.location.reload(); }
 
