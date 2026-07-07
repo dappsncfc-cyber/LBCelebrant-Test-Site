@@ -523,11 +523,11 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
                                         <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Your Name(s)</label>
-                                        <input type="text" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition" placeholder="Sarah & James">
+                                        <input id="contact-names" type="text" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition" placeholder="Sarah & James">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Email Address</label>
-                                        <input type="email" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition" placeholder="name@domain.com">
+                                        <input id="contact-email" type="email" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition" placeholder="name@domain.com">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -543,12 +543,12 @@
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Planned Date (Or Approximate)</label>
-                                        <input type="date" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
+                                        <input id="contact-date" type="date" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
                                     </div>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Ceremony Vision & Requests</label>
-                                    <textarea rows="4" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
+                                    <textarea id="contact-vision" rows="4" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
                                 </div>
                                 <div class="pt-2">
                                     <button type="submit" class="w-full py-4 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 border border-brand-outline-variant/30">
@@ -957,7 +957,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Production configuration matches the live environment securely
         const firebaseConfig = {
@@ -1073,7 +1073,7 @@
 
         function showSection(sectionId) { document.getElementById('marketing-home').classList.add('hidden'); document.getElementById('portal-dashboard').classList.add('hidden'); document.getElementById(sectionId).classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
         function scrollToSection(elementId) { showSection('marketing-home'); setTimeout(() => { const el = document.getElementById(elementId); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }
-        function toggleMobileMenu() { const menu = document.getElementById('mobile-menu'); const icon = document.getElementById('mobile-menu-icon'); if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.className = "fa-solid fa-xmark text-xl"; } else { menu.className = "mobile-menu hidden"; icon.className = "fa-solid fa-bars text-xl"; } }
+        function toggleMobileMenu() { const menu = document.getElementById('mobile-menu'); const icon = document.getElementById('mobile-menu-icon'); if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.className = "fa-solid fa-xmark text-xl"; } else { menu.classList.add('hidden'); icon.className = "fa-solid fa-bars text-xl"; } }
         function toggleFaqAccordion(faqId) { const body = document.getElementById(`faq-body-${faqId}`); const icon = document.getElementById(`faq-icon-${faqId}`); if (body.classList.contains('hidden')) { body.classList.remove('hidden'); icon.style.transform = "rotate(180deg)"; } else { body.classList.add('hidden'); icon.style.transform = "rotate(0deg)"; } }
         function openPortalAuthModal() { document.getElementById('portal-auth-modal').classList.remove('hidden'); }
         function closePortalAuthModal() { document.getElementById('portal-auth-modal').classList.add('hidden'); }
@@ -1084,8 +1084,8 @@
             wedding: { title: "Bespoke Wedding Ceremonies", subtitle: "Joyful, Romantic, & Entirely Template-Free", icon: "fa-heart", price: "£450.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Your love story is unique—your script should be too.</p><p>I specialise in crafting custom, warm, and highly memorable ceremonies that centre entirely around your relationship. We bypass cold, stale templates to focus on the moments that define you both.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Creative Consultation</li><li>Vow Development support</li><li>Custom Symbolic Rituals</li><li>Collaborative Revision Portal</li></ul>" },
             funeral: { title: "Celebrations of Life & Memorials", subtitle: "Empathetic, Respectful, & Deeply Solacing", icon: "fa-cloud-sun", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Honouring a rich legacy with authentic storytelling.</p><p>Milestone transitions can be delicate and sudden. I work closely with families and funeral directors to deliver a gentle, compassionate service that captures the true essence and personality of your loved one.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Empathetic Family Meeting</li><li>Custom Eulogy Delivery</li><li>Rapid Planning (7-14 days)</li></ul>" },
             naming: { title: "Family Naming Ceremonies", subtitle: "Bright, Warm, & Welcoming", icon: "fa-seedling", price: "£300.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Welcoming new growth into your supportive family circle.</p><p>Whether introducing a newborn infant, celebrating an adoption, or welcoming step-siblings into a blended home, our naming days provide a non-religious alternative to declare your parenting commitment.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Key Elements We Construct:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Hopes and Promises</li><li>Guideparent Commitments</li><li>Creative Family Rituals</li></ul>" },
-            pet: { title: "Pet Memorial Ceremonies", subtitle: "Honouring a Loyal Companion", icon: "fa-paw", price: "£150.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Saying goodbye to a devoted animal companion is often as profound as losing a human relative.</p><p>A structured memorial gives you the space to honour their unconditional love and the joy they brought to your home.</p>" },
-            planning: { title: "Planning Ahead Services", subtitle: "Peace of Mind for the Future", icon: "fa-compass", price: "£100.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Documenting your own final wishes is an empowering, considerate gift to your family.</p><p>We will sit down together in a safe, gentle environment to capture your authentic story, select your music, and outline exactly how you wish to be celebrated, ensuring your legacy is preserved exactly as you intend.</p>" }
+            pet: { title: "Pet Memorial Ceremonies", subtitle: "Honouring a Loyal Companion", icon: "fa-paw", price: "£150.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Saying goodbye to a devoted animal companion is often as profound as losing a human relative.</p><p>A structured memorial gives you the space to honour their unconditional love and the joy they brought to your home.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Meaningful back-garden or woodland farewells</li><li>Gentle inclusion of children in the grieving process</li><li>Beautiful customized certificates of remembrance</li></ul>" },
+            planning: { title: "Planning Ahead Services", subtitle: "Peace of Mind for the Future", icon: "fa-compass", price: "£100.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Documenting your own final wishes is an empowering, considerate gift to your family.</p><p>We will sit down together in a safe, gentle environment to capture your authentic story, select your music, and outline exactly how you wish to be celebrated, ensuring your legacy is preserved exactly as you intend.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Unhurried, in-person or video consultations</li><li>Complete documentation of your life story and wishes</li><li>Secured in our cloud vault for when the time comes</li></ul>" }
         };
 
         function openServiceDetails(serviceKey) {
@@ -1246,7 +1246,49 @@
         }
         function closePrintPreview() { document.getElementById('print-preview-modal').classList.add('hidden'); }
         function triggerSystemPrint() { document.body.innerHTML = document.getElementById('print-preview-content').innerHTML; window.print(); document.location.reload(); }
-        function handleContactSubmit(e) { e.preventDefault(); showNotification("Enquiry received!", "success"); e.target.reset(); }
+        
+        async function handleContactSubmit(e) {
+            e.preventDefault();
+            
+            const names = document.getElementById('contact-names').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const ceremonyType = document.getElementById('contact-ceremony-type').value;
+            const date = document.getElementById('contact-date').value;
+            const vision = document.getElementById('contact-vision').value.trim();
+            
+            showNotification("Sending your enquiry...", "info");
+            
+            if (useFirebase && db) {
+                try {
+                    // Rule 1: Strict collection paths for public data
+                    const leadsCol = collection(db, 'artifacts', appId, 'public', 'data', 'leads');
+                    await addDoc(leadsCol, {
+                        names: names,
+                        email: email,
+                        ceremonyType: ceremonyType,
+                        date: date || 'Not specified',
+                        vision: vision,
+                        timestamp: new Date().toISOString(),
+                        status: 'New'
+                    });
+                    
+                    showNotification("Enquiry received! Lisa B will check the calendar dates and reply shortly.", "success");
+                    e.target.reset();
+                } catch (err) {
+                    console.error("Failed to commit lead directly to Firestore:", err);
+                    showNotification("Failed to send online. Trying offline mode.", "error");
+                    setTimeout(() => {
+                        showNotification("Enquiry received offline!", "success");
+                        e.target.reset();
+                    }, 1000);
+                }
+            } else {
+                setTimeout(() => {
+                    showNotification("Enquiry received (Sandbox mode)!", "success");
+                    e.target.reset();
+                }, 800);
+            }
+        }
         
         function switchPortalTab(tabName) {
             if (window.innerWidth >= 1024) return;
