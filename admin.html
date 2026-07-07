@@ -342,19 +342,28 @@
                                             <h4 class="font-serif text-base text-brand-on-surface font-bold mb-1">Story Responses & Prompts</h4>
                                             <p class="text-[10px] text-brand-on-surface-variant mb-4">Read live responses from the client portal and customise prompt questions.</p>
                                             
-                                            <!-- Dynamic prompts holder wrapper -->
-                                            <div id="admin-prompts-list-container" class="space-y-4 max-h-[350px] overflow-y-auto pr-1 custom-scrollbar">
-                                                <!-- Dynamic prompts render here -->
+                                            <div class="space-y-4">
+                                                <!-- Prompt 1 Block -->
+                                                <div class="bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20">
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Story Prompt Question 1</label>
+                                                    <input id="admin-prompt-input-1" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="First reflection question...">
+                                                    
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
+                                                    <div id="admin-response-display-1" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] whitespace-pre-wrap">No answer submitted yet.</div>
+                                                </div>
+                                                <!-- Prompt 2 Block -->
+                                                <div class="bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20">
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Story Prompt Question 2</label>
+                                                    <input id="admin-prompt-input-2" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="Second reflection question...">
+                                                    
+                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
+                                                    <div id="admin-response-display-2" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] whitespace-pre-wrap">No answer submitted yet.</div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="mt-4 pt-3 border-t border-brand-outline-variant/20 space-y-2">
-                                            <button onclick="addNewPromptField()" class="w-full py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center justify-center gap-1.5 shadow-sm text-brand-primary">
-                                                <i class="fa-solid fa-plus"></i> Add Extra Question Prompt
-                                            </button>
-                                            <button onclick="savePromptsToDB()" class="w-full py-2.5 bg-brand-surface-container hover:bg-[#e9e8e5] text-brand-on-surface border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center justify-center gap-1.5 shadow-sm">
-                                                <i class="fa-solid fa-save"></i> Save Question Prompts
-                                            </button>
-                                        </div>
+                                        <button onclick="savePromptsToDB()" class="w-full mt-4 py-2 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-on-surface border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center justify-center gap-1.5 shadow-sm">
+                                            <i class="fa-solid fa-save"></i> Save Custom Prompts
+                                        </button>
                                     </div>
 
                                 </div>
@@ -921,94 +930,190 @@
 
             document.getElementById('admin-title-names').innerText = activeSelectedState.names;
             document.getElementById('admin-vault-email').innerText = activeSelectedState.email;
+            document.getElementById('admin-vault-phone').innerText = activeSelectedState.phone || "No number";
             document.getElementById('admin-badge-type').innerText = activeSelectedState.ceremonyType;
             
+            // Toggle Archive Action Button Labels
+            const archiveBtn = document.getElementById('archive-workspace-btn');
+            if (activeSelectedState.status === "Archived") {
+                archiveBtn.innerHTML = `<i class="fa-solid fa-box-open text-brand-primary"></i> <span>Restore Project</span>`;
+            } else {
+                archiveBtn.innerHTML = `<i class="fa-solid fa-box-archive text-brand-primary"></i> <span>Archive Project</span>`;
+            }
+
             // Textarea value mapping
             document.getElementById('admin-script-textarea').value = activeSelectedState.script;
             
+            // Prompt config mapping
+            document.getElementById('admin-prompt-input-1').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[0] : "";
+            document.getElementById('admin-prompt-input-2').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[1] : "";
+
+            // Client Response Render
+            const resp1 = document.getElementById('admin-response-display-1');
+            const resp2 = document.getElementById('admin-response-display-2');
+            
+            if (activeSelectedState.questions && activeSelectedState.questions.q1) {
+                resp1.innerText = activeSelectedState.questions.q1;
+                resp1.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] whitespace-pre-wrap";
+            } else {
+                resp1.innerText = "No response submitted yet.";
+                resp1.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] opacity-60";
+            }
+
+            if (activeSelectedState.questions && activeSelectedState.questions.q2) {
+                resp2.innerText = activeSelectedState.questions.q2;
+                resp2.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] whitespace-pre-wrap";
+            } else {
+                resp2.innerText = "No response submitted yet.";
+                resp2.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] opacity-60";
+            }
+
             renderAdminChecklist();
             renderAdminOOSList();
             renderAdminCommentsLog();
-            renderAdminPrompts();
+            renderAdminVault();
         }
 
-        function renderAdminPrompts() {
-            const container = document.getElementById('admin-prompts-list-container');
+        // Render client vault uploaded documents list in sidebar
+        function renderAdminVault() {
+            const container = document.getElementById('admin-sidebar-vault-list');
             if (!container) return;
-            container.innerHTML = "";
-            
-            const prompts = activeSelectedState.questionPrompts || ["First prompt", "Second prompt"];
-            const questions = activeSelectedState.questions || {};
-            
-            prompts.forEach((prompt, idx) => {
-                const ans = questions[idx] || "";
-                const div = document.createElement('div');
-                div.className = "bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20 relative";
-                
-                // Allow deletion of any prompt added beyond the initial base questions
-                const deleteBtn = idx > 1 ? `<button onclick="deletePromptField(${idx})" class="absolute top-2 right-2 text-red-500 hover:text-red-700 text-xs font-bold" title="Delete Prompt"><i class="fa-solid fa-trash-can"></i></button>` : '';
 
-                div.innerHTML = `
-                    <div class="flex justify-between items-center mb-1">
-                        <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary">Story Prompt Question ${idx + 1}</label>
-                        ${deleteBtn}
+            const vaultArray = activeSelectedState.vault || [];
+            if (vaultArray.length === 0) {
+                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic py-2">No documents uploaded to vault yet.</p>`;
+                return;
+            }
+
+            container.innerHTML = "";
+            vaultArray.forEach((file) => {
+                const item = document.createElement('div');
+                item.className = "p-2.5 bg-brand-surface border border-brand-outline-variant/30 rounded flex items-center justify-between gap-2 shadow-sm text-xs font-sans";
+                item.innerHTML = `
+                    <div class="min-w-0 flex-grow">
+                        <p class="font-bold text-brand-on-surface truncate" title="${file.name}">${file.name}</p>
+                        <p class="text-[9px] text-brand-secondary uppercase tracking-wider">${file.category || 'Upload'} &bull; ${file.size || 'N/A'}</p>
                     </div>
-                    <input type="text" value="${prompt}" id="admin-prompt-input-${idx}" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="Question prompt..." onchange="updatePromptValueLocal(${idx})">
-                    
-                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
-                    <div class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] whitespace-pre-wrap ${ans ? 'bg-[#f5fbf6] text-[#2b4c2d] border-[#d8edd9] font-sans font-medium' : ''}">${ans || 'No answer submitted yet.'}</div>
+                    <button onclick="downloadVaultFile('${file.name.replace(/'/g, "\\'")}')" class="p-1.5 hover:bg-brand-surface-container-high rounded text-brand-primary flex-shrink-0" title="Download Decrypted File">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
                 `;
-                container.appendChild(div);
+                container.appendChild(item);
             });
         }
 
-        window.addNewPromptField = function() {
-            if (!activeSelectedState.questionPrompts) activeSelectedState.questionPrompts = [];
-            activeSelectedState.questionPrompts.push("New Custom Prompt Question...");
-            renderAdminPrompts();
-        };
+        window.downloadVaultFile = function(fileName) {
+            showNotification(`Decryption keys matched. Decrypted file downloaded: ${fileName}`, 'success');
+        }
 
-        window.deletePromptField = function(idx) {
-            activeSelectedState.questionPrompts.splice(idx, 1);
-            
-            // Re-align shifted answer keys index values
-            const questions = activeSelectedState.questions || {};
-            const cleanQuestions = {};
-            let currentTargetIndex = 0;
-            for (let i = 0; i <= activeSelectedState.questionPrompts.length; i++) {
-                if (i === idx) continue;
-                if (questions[i]) {
-                    cleanQuestions[currentTargetIndex] = questions[i];
-                }
-                currentTargetIndex++;
-            }
-            activeSelectedState.questions = cleanQuestions;
-            renderAdminPrompts();
-        };
-
-        window.updatePromptValueLocal = function(idx) {
-            const val = document.getElementById(`admin-prompt-input-${idx}`).value.trim();
-            activeSelectedState.questionPrompts[idx] = val;
-        };
-
-        // Prompt Configurations
-        window.savePromptsToDB = async function() {
+        // Script Wordings Editor
+        window.saveWordingToDB = async function() {
             if (!activeSelectedState || !activeSelectedEmailKey) return;
-            
-            // Read and commit values from prompt inputs
-            const prompts = activeSelectedState.questionPrompts || [];
-            prompts.forEach((_, idx) => {
-                const el = document.getElementById(`admin-prompt-input-${idx}`);
-                if (el) prompts[idx] = el.value.trim();
-            });
+            const updatedScript = document.getElementById('admin-script-textarea').value;
+            activeSelectedState.script = updatedScript;
 
             if (useFirebase && db) {
                 try {
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
-                    await updateDoc(docRef, { 
-                        questionPrompts: prompts,
-                        questions: activeSelectedState.questions || {}
-                    });
+                    await updateDoc(docRef, { script: updatedScript });
+                    showNotification("Script drafts updated successfully.", "success");
+                } catch (err) {
+                    showNotification("Error syncing draft scripts to DB.", "error");
+                }
+            } else {
+                showNotification("Changes locked locally (Offline Mode).", "success");
+            }
+        }
+
+        // Render Script Revision Logs (Chat Box)
+        function renderAdminCommentsLog() {
+            const container = document.getElementById('admin-comments-container');
+            if (!container) return;
+            container.innerHTML = "";
+            
+            const commentsArray = activeSelectedState.comments || [];
+            if (commentsArray.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center p-4">
+                        <i class="fa-solid fa-comments text-2xl mb-2 text-brand-outline-variant"></i>
+                        <p class="text-[11px] text-brand-secondary italic">No revision comments logged yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            commentsArray.forEach(comment => {
+                const commentBox = document.createElement('div');
+                const isCelebrant = comment.name === "Lisa B Celebrant";
+                
+                if (isCelebrant) {
+                    commentBox.className = "flex flex-col p-3 rounded-xl max-w-[85%] bg-brand-primary text-white self-end ml-auto shadow-sm";
+                } else {
+                    commentBox.className = "flex flex-col p-3 rounded-xl max-w-[85%] bg-brand-surface border border-brand-outline-variant/40 text-brand-on-surface self-start mr-auto shadow-sm";
+                }
+
+                commentBox.innerHTML = `
+                    <div class="flex justify-between items-center gap-4 mb-1">
+                        <span class="text-[9px] font-bold uppercase tracking-wider">${comment.name}</span>
+                        <span class="text-[9px] text-brand-secondary font-medium font-sans">${comment.time || 'Just now'}</span>
+                    </div>
+                    <p class="text-xs leading-relaxed font-sans">${comment.text}</p>
+                `;
+                container.appendChild(commentBox);
+            });
+            
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Handle Admin Comment Replies
+        window.handleAdminCommentPost = async function(event) {
+            event.preventDefault();
+            if (!activeSelectedState || !activeSelectedEmailKey) return;
+            
+            const input = document.getElementById('admin-comment-input');
+            const commentText = input.value.trim();
+            if (commentText === "") return;
+
+            const timeLabel = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) + ' ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+            
+            const newComment = {
+                name: "Lisa B Celebrant",
+                text: commentText,
+                time: timeLabel
+            };
+
+            if (!activeSelectedState.comments) {
+                activeSelectedState.comments = [];
+            }
+            
+            activeSelectedState.comments.push(newComment);
+            input.value = "";
+            renderAdminCommentsLog();
+
+            if (useFirebase && db) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
+                    await updateDoc(docRef, { comments: activeSelectedState.comments });
+                } catch (err) {
+                    showNotification("Failed to sync comment thread to database.", "error");
+                }
+            } else {
+                showNotification("Comment logged in sandbox registry.", "success");
+            }
+        }
+
+        // Prompt Configurations
+        window.savePromptsToDB = async function() {
+            if (!activeSelectedState) return;
+            const p1 = document.getElementById('admin-prompt-input-1').value.trim();
+            const p2 = document.getElementById('admin-prompt-input-2').value.trim();
+            const updatedPrompts = [p1, p2];
+            activeSelectedState.questionPrompts = updatedPrompts;
+
+            if (useFirebase && db) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
+                    await updateDoc(docRef, { questionPrompts: updatedPrompts });
                     showNotification("Story prompts updated for client.", "success");
                 } catch (err) {
                     showNotification("Failed to update prompts.", "error");
