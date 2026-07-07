@@ -948,24 +948,24 @@
             document.getElementById('admin-prompt-input-1').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[0] : "";
             document.getElementById('admin-prompt-input-2').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[1] : "";
 
-            // Client Response Render
+            // Client Response Render with dynamic height configuration (UPDATED!)
             const resp1 = document.getElementById('admin-response-display-1');
             const resp2 = document.getElementById('admin-response-display-2');
             
             if (activeSelectedState.questions && activeSelectedState.questions.q1) {
                 resp1.innerText = activeSelectedState.questions.q1;
-                resp1.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] whitespace-pre-wrap";
+                resp1.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all";
             } else {
                 resp1.innerText = "No response submitted yet.";
-                resp1.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] opacity-60";
+                resp1.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all";
             }
 
             if (activeSelectedState.questions && activeSelectedState.questions.q2) {
                 resp2.innerText = activeSelectedState.questions.q2;
-                resp2.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] whitespace-pre-wrap";
+                resp2.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all";
             } else {
                 resp2.innerText = "No response submitted yet.";
-                resp2.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] opacity-60";
+                resp2.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all";
             }
 
             renderAdminChecklist();
