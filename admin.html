@@ -256,7 +256,7 @@
                                         <p class="text-xs text-brand-on-surface-variant mt-0.5">Telephone contact: <span class="font-sans font-bold text-brand-on-surface" id="admin-vault-phone">No number</span></p>
                                         <p class="text-xs text-brand-on-surface-variant mt-0.5">Ceremony Date: <span class="font-sans font-bold text-brand-on-surface" id="admin-vault-date">No date specified</span></p>
                                     </div>
-                                    <!-- Added dynamic flex layout with the Send Email Update button -->
+                                    <!-- Dynamic flex layout with the Send Email Update button -->
                                     <div class="flex items-center space-x-2 w-full md:w-auto justify-end flex-wrap gap-2">
                                         <button onclick="sendEmailUpdate()" class="px-3 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1 active:scale-95">
                                             <i class="fa-regular fa-envelope text-brand-primary"></i> <span>Send Email Update</span>
@@ -340,26 +340,15 @@
                                     <!-- Questionnaire Story Responses & Prompts Configuration -->
                                     <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between">
                                         <div>
-                                            <h4 class="font-serif text-base text-brand-on-surface font-bold mb-1">Story Responses & Prompts</h4>
+                                            <div class="flex justify-between items-center mb-1">
+                                                <h4 class="font-serif text-base text-brand-on-surface font-bold">Story Responses & Prompts</h4>
+                                                <button onclick="addExtraPrompt()" class="text-[10px] font-bold uppercase tracking-wider text-brand-primary hover:text-brand-on-surface transition"><i class="fa-solid fa-plus"></i> Add Extra</button>
+                                            </div>
                                             <p class="text-[10px] text-brand-on-surface-variant mb-4">Read live responses from the client portal and customise prompt questions.</p>
                                             
-                                            <div class="space-y-4">
-                                                <!-- Prompt 1 Block -->
-                                                <div class="bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20">
-                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Story Prompt Question 1</label>
-                                                    <input id="admin-prompt-input-1" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="First reflection question...">
-                                                    
-                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
-                                                    <div id="admin-response-display-1" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 whitespace-pre-wrap transition-all h-auto min-h-0 w-full">No answer submitted yet.</div>
-                                                </div>
-                                                <!-- Prompt 2 Block -->
-                                                <div class="bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20">
-                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Story Prompt Question 2</label>
-                                                    <input id="admin-prompt-input-2" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="Second reflection question...">
-                                                    
-                                                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
-                                                    <div id="admin-response-display-2" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 whitespace-pre-wrap transition-all h-auto min-h-0 w-full">No answer submitted yet.</div>
-                                                </div>
+                                            <!-- Dynamic prompts container -->
+                                            <div id="admin-prompts-container" class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-1">
+                                                <!-- Javascript will build prompts here dynamically -->
                                             </div>
                                         </div>
                                         <button onclick="savePromptsToDB()" class="w-full mt-4 py-2 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-on-surface border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center justify-center gap-1.5 shadow-sm">
@@ -793,73 +782,79 @@
             }
         }
 
-        // Render Sidebar Lists with Dynamic Date Ordering & Fallbacks
+        // Render Sidebar Lists with Bulletproof Filtering and Sorting
         function renderClientSidebar() {
             const container = document.getElementById('admin-client-list');
             const searchQuery = document.getElementById('sidebar-search').value.toLowerCase().trim();
             const showArchived = document.getElementById('show-archived-toggle').checked;
 
             if (activeClientList.length === 0) {
-                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic">No client files found. Use form or approve leads above.</p>`;
+                container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic p-3 text-center">No client files found. Use form or approve leads above.</p>`;
                 return;
             }
 
-            // Chronological Sort (Ascending, soonest first) with robust blank/invalid date check parameters
-            const sortedList = [...activeClientList].sort((a, b) => {
-                let timeA = Infinity;
-                let timeB = Infinity;
+            // 1. Filter the list
+            const filteredList = activeClientList.filter(client => {
+                const names = client.names || "";
+                const status = client.status || "Under Review";
+                
+                if (status === 'Archived' && !showArchived) return false;
+                if (searchQuery !== "" && !names.toLowerCase().includes(searchQuery)) return false;
+                
+                return true;
+            });
 
-                if (a.date) {
-                    const parsedA = Date.parse(a.date);
-                    if (!isNaN(parsedA)) {
-                        timeA = parsedA;
-                    }
-                }
-                if (b.date) {
-                    const parsedB = Date.parse(b.date);
-                    if (!isNaN(parsedB)) {
-                        timeB = parsedB;
-                    }
-                }
-
-                return timeA - timeB;
+            // 2. Safely Sort the List (Chronological Ascending)
+            filteredList.sort((a, b) => {
+                const timeA = a.date ? new Date(a.date).getTime() : Number.MAX_SAFE_INTEGER;
+                const timeB = b.date ? new Date(b.date).getTime() : Number.MAX_SAFE_INTEGER;
+                
+                // Bulletproof check to avoid NaN mathematical crashes
+                const validA = isNaN(timeA) ? Number.MAX_SAFE_INTEGER : timeA;
+                const validB = isNaN(timeB) ? Number.MAX_SAFE_INTEGER : timeB;
+                
+                if (validA < validB) return -1;
+                if (validA > validB) return 1;
+                return 0;
             });
 
             container.innerHTML = "";
             let renderedCount = 0;
 
-            sortedList.forEach(client => {
+            filteredList.forEach(client => {
+                renderedCount++;
                 const email = client.email || client.id;
                 const names = client.names || "No name specified";
                 const status = client.status || "Under Review";
                 const type = client.ceremonyType || "Ceremony";
-
-                if (status === 'Archived' && !showArchived) return;
-                if (searchQuery !== "" && !names.toLowerCase().includes(searchQuery)) return;
-
-                renderedCount++;
                 const isSelected = client.id === activeSelectedEmailKey;
                 const hasUpdates = client.clientUpdated === true;
 
-                const dateRaw = client.date;
-                let sidebarDate = "";
-                if (dateRaw) {
-                    try {
-                        sidebarDate = new Date(dateRaw).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-                    } catch(e) {}
+                // Format the Date carefully
+                let dateLabel = "";
+                if (client.date) {
+                    const d = new Date(client.date);
+                    if (!isNaN(d.getTime())) {
+                        dateLabel = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+                    }
                 }
 
+                // Add visual styling for archived records
+                const isArchivedVisual = status === 'Archived' ? 'opacity-60' : '';
+                const archiveBadge = status === 'Archived' ? '<span class="text-red-500 font-bold ml-1 text-[9px] uppercase tracking-widest">[Archived]</span>' : '';
+
                 const btn = document.createElement('button');
-                btn.className = `w-full text-left p-3 rounded border text-xs transition duration-150 active:scale-95 flex items-center justify-between gap-3 ${isSelected ? 'bg-brand-primary text-white border-brand-outline-variant/50 shadow-sm' : 'bg-brand-surface border-brand-outline-variant/30 text-brand-on-surface hover:bg-brand-surface-container-low'}`;
+                btn.className = `w-full text-left p-3 rounded border text-xs transition duration-150 active:scale-95 flex items-center justify-between gap-3 ${isSelected ? 'bg-brand-primary text-white border-brand-outline-variant/50 shadow-sm' : 'bg-brand-surface border-brand-outline-variant/30 text-brand-on-surface hover:bg-brand-surface-container-low'} ${isArchivedVisual}`;
+                
                 btn.innerHTML = `
                     <div class="flex-grow min-w-0">
                         <div class="flex justify-between items-center w-full mb-0.5">
-                            <span class="font-bold truncate pr-2">${names}</span>
+                            <span class="font-bold truncate pr-2">${names} ${archiveBadge}</span>
                             <span class="text-[9px] uppercase font-bold tracking-wider opacity-90 flex-shrink-0">${type}</span>
                         </div>
                         <div class="flex justify-between items-center w-full text-[9px] font-mono select-all opacity-80">
                             <span class="truncate">${email}</span>
-                            ${sidebarDate ? `<span class="font-sans font-semibold text-brand-secondary whitespace-nowrap ml-2">${sidebarDate}</span>` : ''}
+                            ${dateLabel ? `<span class="font-sans font-semibold text-brand-secondary whitespace-nowrap ml-2">${dateLabel}</span>` : ''}
                         </div>
                     </div>
                     ${hasUpdates ? `<span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse flex-shrink-0" title="Client updated portal"></span>` : ''}
@@ -962,23 +957,20 @@
             document.getElementById('admin-workspace-placeholder').classList.add('hidden');
             document.getElementById('admin-workspace-panel').classList.remove('hidden');
 
-            document.getElementById('admin-title-names').innerText = activeSelectedState.names;
-            document.getElementById('admin-vault-email').innerText = activeSelectedState.email;
-            document.getElementById('admin-vault-phone').innerText = activeSelectedState.phone || "No number";
-            document.getElementById('admin-badge-type').innerText = activeSelectedState.ceremonyType;
-            
-            // Format and display Ceremony Date
-            const dateRaw = activeSelectedState.date;
+            document.getElementById('admin-title-names').innerText = activeSelectedState.names || "No Names";
+            document.getElementById('admin-vault-email').innerText = activeSelectedState.email || "No Email";
+            document.getElementById('admin-vault-phone').innerText = activeSelectedState.phone || "No Telephone number specified";
+            document.getElementById('admin-badge-type').innerText = activeSelectedState.ceremonyType || "Ceremony";
+
             let formattedDate = "No date specified";
-            if (dateRaw) {
-                try {
-                    formattedDate = new Date(dateRaw).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-                } catch (e) {
-                    formattedDate = dateRaw;
+            if (activeSelectedState.date) {
+                const d = new Date(activeSelectedState.date);
+                if (!isNaN(d.getTime())) {
+                    formattedDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
                 }
             }
             document.getElementById('admin-vault-date').innerText = formattedDate;
-
+            
             // Toggle Archive Action Button Labels
             const archiveBtn = document.getElementById('archive-workspace-btn');
             if (activeSelectedState.status === "Archived") {
@@ -988,32 +980,9 @@
             }
 
             // Textarea value mapping
-            document.getElementById('admin-script-textarea').value = activeSelectedState.script;
+            document.getElementById('admin-script-textarea').value = activeSelectedState.script || "";
             
-            // Prompt config mapping
-            document.getElementById('admin-prompt-input-1').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[0] : "";
-            document.getElementById('admin-prompt-input-2').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[1] : "";
-
-            // Client Response Render with dynamic height configuration
-            const resp1 = document.getElementById('admin-response-display-1');
-            const resp2 = document.getElementById('admin-response-display-2');
-            
-            if (activeSelectedState.questions && activeSelectedState.questions.q1) {
-                resp1.innerText = activeSelectedState.questions.q1;
-                resp1.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all w-full";
-            } else {
-                resp1.innerText = "No response submitted yet.";
-                resp1.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all w-full";
-            }
-
-            if (activeSelectedState.questions && activeSelectedState.questions.q2) {
-                resp2.innerText = activeSelectedState.questions.q2;
-                resp2.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all w-full";
-            } else {
-                resp2.innerText = "No response submitted yet.";
-                resp2.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all w-full";
-            }
-
+            renderAdminPrompts();
             renderAdminChecklist();
             renderAdminOOSList();
             renderAdminCommentsLog();
@@ -1148,12 +1117,46 @@
             }
         }
 
-        // Prompt Configurations
+        // Dynamic Prompt Configurations
+        function renderAdminPrompts() {
+            const container = document.getElementById('admin-prompts-container');
+            if (!container) return;
+            container.innerHTML = "";
+            
+            const prompts = activeSelectedState.questionPrompts || ["First reflection question...", "Second reflection question..."];
+            const questions = activeSelectedState.questions || {};
+            
+            prompts.forEach((prompt, index) => {
+                const div = document.createElement('div');
+                div.className = "bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20";
+                
+                // Maps gracefully to either old static q1/q2 or dynamic integer keys
+                const responseText = questions[`q${index+1}`] || questions[index] || "";
+                const displayResponse = responseText.trim() !== "" ? responseText : "No answer submitted yet.";
+                const responseClass = responseText.trim() !== "" 
+                    ? "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all w-full"
+                    : "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all w-full";
+
+                div.innerHTML = `
+                    <div class="flex justify-between items-center mb-1">
+                        <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary">Story Prompt ${index + 1}</label>
+                        ${index > 1 ? `<button onclick="deletePrompt(${index})" class="text-red-500 hover:text-red-700 text-[10px]" title="Delete extra prompt"><i class="fa-solid fa-trash"></i></button>` : ''}
+                    </div>
+                    <input id="admin-prompt-input-${index}" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" value="${prompt.replace(/"/g, '&quot;')}">
+                    
+                    <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
+                    <div class="${responseClass}">${displayResponse}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
         window.savePromptsToDB = async function() {
             if (!activeSelectedState) return;
-            const p1 = document.getElementById('admin-prompt-input-1').value.trim();
-            const p2 = document.getElementById('admin-prompt-input-2').value.trim();
-            const updatedPrompts = [p1, p2];
+            const prompts = activeSelectedState.questionPrompts || [];
+            const updatedPrompts = prompts.map((_, index) => {
+                return document.getElementById(`admin-prompt-input-${index}`).value.trim();
+            });
             activeSelectedState.questionPrompts = updatedPrompts;
 
             if (useFirebase && db) {
@@ -1167,6 +1170,30 @@
             } else {
                 showNotification("Changes locked offline.", "success");
             }
+        }
+
+        window.addExtraPrompt = function() {
+            if (!activeSelectedState) return;
+            if (!activeSelectedState.questionPrompts) {
+                activeSelectedState.questionPrompts = ["Prompt 1", "Prompt 2"];
+            }
+            activeSelectedState.questionPrompts.push("New Custom Prompt Question...");
+            renderAdminPrompts();
+            savePromptsToDB();
+        }
+
+        window.deletePrompt = function(index) {
+            if (!activeSelectedState) return;
+            activeSelectedState.questionPrompts.splice(index, 1);
+            
+            // Clean up the associated answer to keep data tidy
+            if (activeSelectedState.questions) {
+                delete activeSelectedState.questions[index];
+                delete activeSelectedState.questions[`q${index+1}`];
+            }
+            
+            renderAdminPrompts();
+            savePromptsToDB();
         }
 
         // Checklist Manager
@@ -1227,9 +1254,8 @@
         // Order of Service Sequencing
         function renderAdminOOSList() {
             const container = document.getElementById('admin-oos-list-container');
-            const oosArray = activeSelectedState.orderOfService || [];
             container.innerHTML = "";
-            oosArray.forEach((item, index) => {
+            activeSelectedState.orderOfService.forEach((item, index) => {
                 const div = document.createElement('div');
                 div.className = "flex items-center justify-between p-3.5 bg-brand-surface border border-brand-outline-variant/30 rounded shadow-sm text-xs";
                 div.innerHTML = `
@@ -1264,7 +1290,6 @@
             const details = document.getElementById('new-step-details').value.trim();
             if (title === "") return;
 
-            if (!activeSelectedState.orderOfService) activeSelectedState.orderOfService = [];
             activeSelectedState.orderOfService.push({
                 step: activeSelectedState.orderOfService.length + 1,
                 title: title,
@@ -1308,8 +1333,7 @@
             if (!activeSelectedState) return;
             const content = document.getElementById('print-preview-content');
             let stepsHTML = "";
-            const oosArray = activeSelectedState.orderOfService || [];
-            oosArray.forEach((item, index) => {
+            activeSelectedState.orderOfService.forEach((item, index) => {
                 stepsHTML += `<div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #e5e7eb;"><div style="font-weight: bold; font-size: 1.1rem; color: #526253; font-family: Playfair Display, serif;">${index + 1}. ${item.title}</div><div style="font-size: 0.9rem; color: #4b5563; font-style: italic; margin-top: 4px;">${item.details || 'General Flow Step'}</div></div>`;
             });
             content.innerHTML = `<div style="text-align:center; margin-bottom:30px;"><h2 style="font-family: Playfair Display, serif; color: #526253;">Lisa B Celebrant</h2><h1>${activeSelectedState.names}</h1><div style="text-transform:uppercase; font-size:0.8rem; font-weight:bold; color:#655d4e;">Order of Service</div></div><div style="max-width:500px; margin:0 auto;">${stepsHTML}</div>`;
@@ -1340,9 +1364,9 @@
         // Workspace Metadata Configuration Modals
         window.openEditDetailsModal = function() {
             if (!activeSelectedState) return;
-            document.getElementById('edit-details-names').value = activeSelectedState.names || "";
+            document.getElementById('edit-details-names').value = activeSelectedState.names;
             document.getElementById('edit-details-phone').value = activeSelectedState.phone || "";
-            document.getElementById('edit-details-type').value = activeSelectedState.ceremonyType || "Wedding";
+            document.getElementById('edit-details-type').value = activeSelectedState.ceremonyType;
             document.getElementById('edit-details-date').value = activeSelectedState.date ? activeSelectedState.date.split('T')[0] : "";
             document.getElementById('admin-edit-details-modal').classList.remove('hidden');
         }
@@ -1378,15 +1402,6 @@
                     showNotification("Error writing metadata adjustments.", "error");
                 }
             } else {
-                // Offline fallback update tracking
-                const client = activeClientList.find(c => c.id === activeSelectedEmailKey);
-                if (client) {
-                    client.names = names;
-                    client.phone = phone;
-                    client.date = activeSelectedState.date;
-                    client.ceremonyType = type;
-                }
-                renderClientSidebar();
                 renderWorkspaceView();
             }
         }
@@ -1419,10 +1434,7 @@
             } else {
                 activeSelectedState.status = targetStatus;
                 
-                // Offline local state sync
-                const client = activeClientList.find(c => c.id === activeSelectedEmailKey);
-                if (client) client.status = targetStatus;
-
+                // Hide panel if unchecked
                 const showArchived = document.getElementById('show-archived-toggle').checked;
                 if (targetStatus === "Archived" && !showArchived) {
                     activeSelectedEmailKey = null;
@@ -1430,7 +1442,7 @@
                     document.getElementById('admin-workspace-panel').classList.add('hidden');
                     document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
                 }
-
+                
                 renderClientSidebar();
                 renderWorkspaceView();
             }
