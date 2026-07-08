@@ -177,8 +177,8 @@
                                     <input id="sidebar-search" oninput="renderClientSidebar()" type="text" class="w-full pl-9 pr-4 py-2.5 bg-brand-surface border border-brand-outline-variant/60 rounded text-xs focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="Search files by name...">
                                 </div>
                                 <div class="flex items-center space-x-2 bg-brand-surface p-2.5 rounded border border-brand-outline-variant/30">
-                                    <input type="checkbox" id="show-archived-toggle" onchange="renderClientSidebar()" class="h-4 w-4 rounded">
-                                    <label for="show-archived-toggle" class="text-[10px] font-bold text-brand-on-surface uppercase tracking-wider cursor-pointer">Show Archived Workspaces</label>
+                                    <input type="checkbox" id="show-archived-toggle" onchange="renderClientSidebar()" class="h-4 w-4 rounded bg-brand-surface-container border-brand-outline-variant/60 cursor-pointer">
+                                    <label for="show-archived-toggle" class="text-[10px] font-bold text-brand-on-surface uppercase tracking-wider cursor-pointer select-none">Show Archived Workspaces</label>
                                 </div>
                             </div>
 
@@ -1000,18 +1000,18 @@
             
             if (activeSelectedState.questions && activeSelectedState.questions.q1) {
                 resp1.innerText = activeSelectedState.questions.q1;
-                resp1.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all";
+                resp1.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all w-full";
             } else {
                 resp1.innerText = "No response submitted yet.";
-                resp1.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all";
+                resp1.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all w-full";
             }
 
             if (activeSelectedState.questions && activeSelectedState.questions.q2) {
                 resp2.innerText = activeSelectedState.questions.q2;
-                resp2.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all";
+                resp2.className = "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all w-full";
             } else {
                 resp2.innerText = "No response submitted yet.";
-                resp2.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all";
+                resp2.className = "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all w-full";
             }
 
             renderAdminChecklist();
@@ -1383,8 +1383,8 @@
                 if (client) {
                     client.names = names;
                     client.phone = phone;
-                    client.ceremonyType = type;
                     client.date = activeSelectedState.date;
+                    client.ceremonyType = type;
                 }
                 renderClientSidebar();
                 renderWorkspaceView();
