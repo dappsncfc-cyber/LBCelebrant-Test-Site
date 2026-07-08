@@ -251,12 +251,12 @@
                                 <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div>
                                         <span class="text-[10px] uppercase tracking-[0.15em] text-brand-primary font-bold font-sans" id="admin-badge-type">Wedding</span>
-                                <h2 class="font-serif text-2xl font-bold text-brand-on-surface mt-1" id="admin-title-names">Names Placeholder</h2>
-                                <p class="text-xs text-brand-on-surface-variant mt-1">Client Vault Email key: <span class="font-mono text-brand-primary select-all font-semibold" id="admin-vault-email">email@domain.com</span></p>
-                                <p class="text-xs text-brand-on-surface-variant mt-0.5">Telephone contact: <span class="font-sans font-bold text-brand-on-surface" id="admin-vault-phone">No number</span></p>
-                                <p class="text-xs text-brand-on-surface-variant mt-0.5">Ceremony Date: <span class="font-sans font-bold text-brand-on-surface animate-fade-in" id="admin-vault-date">No date specified</span></p>
-                            </div>
-                            <!-- Added dynamic flex layout with the Send Email Update button -->
+                                        <h2 class="font-serif text-2xl font-bold text-brand-on-surface mt-1" id="admin-title-names">Names Placeholder</h2>
+                                        <p class="text-xs text-brand-on-surface-variant mt-1">Client Vault Email key: <span class="font-mono text-brand-primary select-all font-semibold" id="admin-vault-email">email@domain.com</span></p>
+                                        <p class="text-xs text-brand-on-surface-variant mt-0.5">Telephone contact: <span class="font-sans font-bold text-brand-on-surface" id="admin-vault-phone">No number</span></p>
+                                        <p class="text-xs text-brand-on-surface-variant mt-0.5">Ceremony Date: <span class="font-sans font-bold text-brand-on-surface" id="admin-vault-date">No date specified</span></p>
+                                    </div>
+                                    <!-- Added dynamic flex layout with the Send Email Update button -->
                                     <div class="flex items-center space-x-2 w-full md:w-auto justify-end flex-wrap gap-2">
                                         <button onclick="sendEmailUpdate()" class="px-3 py-2.5 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline text-brand-on-surface-variant text-xs font-semibold rounded shadow-sm transition flex items-center gap-1 active:scale-95">
                                             <i class="fa-regular fa-envelope text-brand-primary"></i> <span>Send Email Update</span>
@@ -350,7 +350,7 @@
                                                     <input id="admin-prompt-input-1" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="First reflection question...">
                                                     
                                                     <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
-                                                    <div id="admin-response-display-1" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] whitespace-pre-wrap">No answer submitted yet.</div>
+                                                    <div id="admin-response-display-1" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 whitespace-pre-wrap transition-all h-auto min-h-0 w-full">No answer submitted yet.</div>
                                                 </div>
                                                 <!-- Prompt 2 Block -->
                                                 <div class="bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20">
@@ -358,7 +358,7 @@
                                                     <input id="admin-prompt-input-2" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" placeholder="Second reflection question...">
                                                     
                                                     <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
-                                                    <div id="admin-response-display-2" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 min-h-[40px] whitespace-pre-wrap">No answer submitted yet.</div>
+                                                    <div id="admin-response-display-2" class="p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-on-surface italic leading-relaxed border border-brand-outline-variant/10 whitespace-pre-wrap transition-all h-auto min-h-0 w-full">No answer submitted yet.</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -793,7 +793,7 @@
             }
         }
 
-        // Render Sidebar Lists
+        // Render Sidebar Lists with Dynamic Date Ordering & Fallbacks
         function renderClientSidebar() {
             const container = document.getElementById('admin-client-list');
             const searchQuery = document.getElementById('sidebar-search').value.toLowerCase().trim();
@@ -803,10 +803,32 @@
                 container.innerHTML = `<p class="text-xs text-brand-on-surface-variant italic">No client files found. Use form or approve leads above.</p>`;
                 return;
             }
+
+            // Chronological Sort (Ascending, soonest first) with robust blank/invalid date check parameters
+            const sortedList = [...activeClientList].sort((a, b) => {
+                let timeA = Infinity;
+                let timeB = Infinity;
+
+                if (a.date) {
+                    const parsedA = Date.parse(a.date);
+                    if (!isNaN(parsedA)) {
+                        timeA = parsedA;
+                    }
+                }
+                if (b.date) {
+                    const parsedB = Date.parse(b.date);
+                    if (!isNaN(parsedB)) {
+                        timeB = parsedB;
+                    }
+                }
+
+                return timeA - timeB;
+            });
+
             container.innerHTML = "";
             let renderedCount = 0;
 
-            activeClientList.forEach(client => {
+            sortedList.forEach(client => {
                 const email = client.email || client.id;
                 const names = client.names || "No name specified";
                 const status = client.status || "Under Review";
@@ -972,7 +994,7 @@
             document.getElementById('admin-prompt-input-1').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[0] : "";
             document.getElementById('admin-prompt-input-2').value = activeSelectedState.questionPrompts ? activeSelectedState.questionPrompts[1] : "";
 
-            // Client Response Render with dynamic height configuration (UPDATED!)
+            // Client Response Render with dynamic height configuration
             const resp1 = document.getElementById('admin-response-display-1');
             const resp2 = document.getElementById('admin-response-display-2');
             
@@ -1205,8 +1227,9 @@
         // Order of Service Sequencing
         function renderAdminOOSList() {
             const container = document.getElementById('admin-oos-list-container');
+            const oosArray = activeSelectedState.orderOfService || [];
             container.innerHTML = "";
-            activeSelectedState.orderOfService.forEach((item, index) => {
+            oosArray.forEach((item, index) => {
                 const div = document.createElement('div');
                 div.className = "flex items-center justify-between p-3.5 bg-brand-surface border border-brand-outline-variant/30 rounded shadow-sm text-xs";
                 div.innerHTML = `
@@ -1241,6 +1264,7 @@
             const details = document.getElementById('new-step-details').value.trim();
             if (title === "") return;
 
+            if (!activeSelectedState.orderOfService) activeSelectedState.orderOfService = [];
             activeSelectedState.orderOfService.push({
                 step: activeSelectedState.orderOfService.length + 1,
                 title: title,
@@ -1284,7 +1308,8 @@
             if (!activeSelectedState) return;
             const content = document.getElementById('print-preview-content');
             let stepsHTML = "";
-            activeSelectedState.orderOfService.forEach((item, index) => {
+            const oosArray = activeSelectedState.orderOfService || [];
+            oosArray.forEach((item, index) => {
                 stepsHTML += `<div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px dashed #e5e7eb;"><div style="font-weight: bold; font-size: 1.1rem; color: #526253; font-family: Playfair Display, serif;">${index + 1}. ${item.title}</div><div style="font-size: 0.9rem; color: #4b5563; font-style: italic; margin-top: 4px;">${item.details || 'General Flow Step'}</div></div>`;
             });
             content.innerHTML = `<div style="text-align:center; margin-bottom:30px;"><h2 style="font-family: Playfair Display, serif; color: #526253;">Lisa B Celebrant</h2><h1>${activeSelectedState.names}</h1><div style="text-transform:uppercase; font-size:0.8rem; font-weight:bold; color:#655d4e;">Order of Service</div></div><div style="max-width:500px; margin:0 auto;">${stepsHTML}</div>`;
@@ -1315,9 +1340,9 @@
         // Workspace Metadata Configuration Modals
         window.openEditDetailsModal = function() {
             if (!activeSelectedState) return;
-            document.getElementById('edit-details-names').value = activeSelectedState.names;
+            document.getElementById('edit-details-names').value = activeSelectedState.names || "";
             document.getElementById('edit-details-phone').value = activeSelectedState.phone || "";
-            document.getElementById('edit-details-type').value = activeSelectedState.ceremonyType;
+            document.getElementById('edit-details-type').value = activeSelectedState.ceremonyType || "Wedding";
             document.getElementById('edit-details-date').value = activeSelectedState.date ? activeSelectedState.date.split('T')[0] : "";
             document.getElementById('admin-edit-details-modal').classList.remove('hidden');
         }
@@ -1353,6 +1378,15 @@
                     showNotification("Error writing metadata adjustments.", "error");
                 }
             } else {
+                // Offline fallback update tracking
+                const client = activeClientList.find(c => c.id === activeSelectedEmailKey);
+                if (client) {
+                    client.names = names;
+                    client.phone = phone;
+                    client.ceremonyType = type;
+                    client.date = activeSelectedState.date;
+                }
+                renderClientSidebar();
                 renderWorkspaceView();
             }
         }
@@ -1384,6 +1418,19 @@
                 }
             } else {
                 activeSelectedState.status = targetStatus;
+                
+                // Offline local state sync
+                const client = activeClientList.find(c => c.id === activeSelectedEmailKey);
+                if (client) client.status = targetStatus;
+
+                const showArchived = document.getElementById('show-archived-toggle').checked;
+                if (targetStatus === "Archived" && !showArchived) {
+                    activeSelectedEmailKey = null;
+                    activeSelectedState = null;
+                    document.getElementById('admin-workspace-panel').classList.add('hidden');
+                    document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
+                }
+
                 renderClientSidebar();
                 renderWorkspaceView();
             }
