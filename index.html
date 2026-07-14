@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script type="application/ld+json">
@@ -93,6 +92,7 @@
 
     <div class="w-full max-w-full overflow-x-hidden flex flex-col min-h-screen relative z-10">
 
+        <!-- Ambient glows -->
         <div class="absolute inset-0 max-w-full overflow-hidden pointer-events-none z-0">
             <div class="absolute top-20 left-0 -translate-x-1/4 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] rounded-full ambient-glow-1"></div>
             <div class="absolute top-[40%] right-0 translate-x-1/4 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] rounded-full ambient-glow-2"></div>
@@ -158,13 +158,13 @@
                     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                         <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-surface-container-lowest border border-brand-outline-variant/30 text-brand-primary text-[10px] uppercase tracking-[0.1em] font-semibold mb-8 shadow-sm">
                             <i class="fa-solid fa-leaf text-brand-primary"></i>
-                            <span>CELEBRATING LIFE • HONOURING LOVE • CHERISHING MEMORIES</span>
+                            <span>Heartfelt, Bespoke Storytelling</span>
                         </div>
                         <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl tracking-tight text-brand-on-surface mb-8 leading-[1.1] font-bold">
-                            Life is more than a collection of moments. It's the journey that gives <span class="text-brand-primary italic block sm:inline">each one meaning.</span>
+                            Crafting ceremonies that feel entirely, <span class="text-brand-primary italic block sm:inline">beautifully yours.</span>
                         </h2>
                         <p class="text-lg md:text-base lg:text-lg text-brand-on-surface-variant font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-                            Taking the time to tell your story beautifully. Honouring every journey through personal ceremonies created with warmth, dignity and authentic connection.
+                            Creating modern, meaningful, and deeply personal ceremonies across weddings, celebrations of life, and baby namings—honouring life's major milestones with warmth, dignity, and authentic connection.
                         </p>
                         <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
                             <button onclick="scrollToSection('services-showcase')" class="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-container text-white font-semibold py-4 px-8 rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 tracking-wide">
@@ -180,8 +180,8 @@
                 </div>
 
                 <div id="about-celebrant" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    <div class="lg:flex lg:items-center lg:space-x-16">
-                        <div class="lg:w-5/12 mb-10 lg:mb-0 relative">
+                    <div class="lg:flex lg:items-start lg:space-x-16">
+                        <div class="lg:w-5/12 mb-10 lg:mb-0 relative lg:sticky lg:top-28">
                             <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary-container/20 to-brand-surface-container-highest/30 rounded blur-xl opacity-25"></div>
                             <div class="relative bg-brand-surface-container-low rounded-2xl p-3 border border-brand-outline-variant/30 shadow-sm aspect-[4/5] w-full max-w-[450px] mx-auto lg:max-w-none overflow-hidden flex items-center justify-center">
                                 
@@ -203,17 +203,27 @@
                         </div>
                         <div class="lg:w-7/12">
                             <span class="text-brand-primary font-bold text-[12px] uppercase tracking-[0.1em] block mb-2">Hello, I'm Lisa B Celebrant</span>
-                            <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-6">Telling life stories that bring communities closer</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-6">Listening with heart. Creating with purpose.</h3>
                             
-                            <div class="bg-brand-surface-container-low rounded-xl p-6 border-l-4 border-brand-primary mb-8 italic text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed shadow-sm">
-                                "With over <strong class="text-brand-on-surface font-semibold">150+ bespoke ceremonies</strong> performed and a perfect <strong class="text-brand-on-surface font-semibold">5-star rating</strong> across Norfolk, Suffolk, Essex, and Cambridgeshire, we hold our service to an absolute standard of personalisation. Every script is created 100% template-free, written entirely from scratch to capture individual life journeys."
-                            </div>
-
-                            <p class="text-brand-on-surface-variant leading-relaxed mb-6 text-base md:text-sm">
-                                Life is structured by transitions—some joyous and planned, others delicate and sudden. As an independent, modern celebrant, I don't use stale, recycled templates. I spend time learning who you are, what values guide you, and what milestones define you.
+                            <p class="text-brand-on-surface-variant leading-relaxed mb-4 text-base md:text-sm font-semibold">
+                                It's okay not to know where to begin.
                             </p>
-                            <p class="text-brand-on-surface-variant leading-relaxed mb-8 text-base md:text-sm">
-                                Whether we are planning a wedding full of romance and laughter, a naming day welcoming your child into family circles, or a tribute honouring the deep legacy of a loved one—my goal is to deliver words that feel entirely, beautifully yours.
+                            <p class="text-brand-on-surface-variant leading-relaxed mb-4 text-base md:text-sm">
+                                Whether you're saying goodbye to someone you love, celebrating a wedding, welcoming a new child, renewing your vows, remembering a beloved pet or planning ahead for the future, you don't need to have all the answers or know exactly what you want to say.
+                            </p>
+                            <p class="text-brand-on-surface-variant leading-relaxed mb-4 text-base md:text-sm">
+                                That's what we'll discover together.<br>
+                                I never want our first meeting to feel like an interview. I want it to feel like a conversation over a cup of tea. There are no expectations and no pressure. You lead the way while I listen with curiosity, gently exploring the moments, memories and golden nuggets that make your story unlike anyone else's. From there, every carefully chosen word begins to come together, creating a ceremony that feels honest, personal and true to you.
+                            </p>
+                            <p class="text-brand-on-surface-variant leading-relaxed mb-4 text-base md:text-sm">
+                                It's often those unexpected moments that say the most. The story that makes everyone laugh. The memory that brings a tear. The little quirk, treasured tradition or everyday habit that captures the essence of a person, a relationship, a beloved pet or a family. Those are the moments that transform a ceremony from words on a page into something deeply personal and unforgettable.
+                            </p>
+                            <p class="text-brand-on-surface-variant leading-relaxed mb-4 text-base md:text-sm">
+                                I believe one of the greatest gifts we can offer one another is our presence. To truly listen without rushing. To understand without assumption. To create the time and space for stories to unfold naturally.<br>
+                                Every carefully chosen word, every pause and every detail is thoughtfully brought together to create a ceremony that truly reflects your story.
+                            </p>
+                            <p class="text-brand-primary italic font-semibold leading-relaxed mb-8 text-base md:text-sm">
+                                It would be an honour to take the time to tell your story beautifully.
                             </p>
                             
                             <div class="grid grid-cols-3 gap-2 sm:gap-4 border-t border-brand-outline-variant/30 pt-8">
@@ -237,9 +247,9 @@
                 <div id="services-showcase" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-brand-surface-container-low/30 border-t border-brand-outline-variant/20">
                     <div class="text-center max-w-3xl mx-auto mb-16">
                         <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.1em] block mb-2">Our Offerings</span>
-                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4">Milestone Ceremonies</h3>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4">Honouring Every Chapter of Life</h3>
                         <div class="w-16 h-0.5 bg-brand-primary mx-auto rounded mb-4"></div>
-                        <p class="text-brand-on-surface-variant text-sm">Every life chapter has its own rhythm and tone. Select a pathway below to see how we approach your specific landmark celebration.</p>
+                        <p class="text-brand-on-surface-variant text-sm">Every chapter of life deserves to be honoured in a way that feels meaningful, personal and true to you. Explore the ceremonies below to discover how we can create something that reflects that journey.</p>
                     </div>
 
                     <!-- Balanced 5-Card Layout, Centered Rows -->
@@ -255,19 +265,19 @@
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Weddings</h4>
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Where forever begins</h4>
                                     <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
-                                        Joyful, romantic, and completely bespoke. Perfect for couples who wish to bypass generic templates and create a custom script bursting with your unique love story and custom rituals.
+                                        Your wedding day is one of life's most meaningful celebrations. Together, we'll create a ceremony that reflects your love, your values and everything that makes your relationship uniquely yours.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Custom script-writing collaboration
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Bespoke ceremonies written just for you</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Support with custom vow structures
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Personal vows and meaningful rituals</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Symbolic handfasting or ring-warming
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>A relaxed, supportive experience from beginning to end</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -289,19 +299,19 @@
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Funerals & Memorials</h4>
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Remembering a Beautiful Life</h4>
                                     <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
-                                        Empathetic, deeply respectful, and comforting. Designed to capture the absolute essence of a loved one's unique personality and achievements, offering solace during delicate times.
+                                        Taking the time to reflect, remember and honour a life that will never be forgotten. Together, we'll create a personal farewell that captures the essence of the person you love with warmth, dignity and care.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Rapid planning alignment (7-14 days)
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Sharing the precious moments that matter most</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Liaison with Funeral Directors
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>A heartfelt tribute written especially for them</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Authentic eulogy & tribute delivery
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Gentle guidance every step of the way</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -323,19 +333,19 @@
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Naming Days</h4>
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">The Beginning of Belonging</h4>
                                     <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
-                                        Bright, welcoming, and family-focused. Created to officially introduce infants, adopted children, or older siblings to your loved ones, with meaningful guideparent commitments.
+                                        A naming celebration is a beautiful way to celebrate a new beginning and the love that surrounds it. Together, we'll create something that reflects the promises you make and the future you're celebrating.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Heartwarming custom promises
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Personal promises, readings and meaningful rituals</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Symbolic wish-tree or sand ritual
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Created around the people who matter most</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Commemorative naming certificates
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>A celebration filled with love, hope and new chapters</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -357,19 +367,19 @@
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Pet Memorials</h4>
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">More than a pet</h4>
                                     <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
-                                        Compassionate, heartfelt farewells for your beloved animal companions. Acknowledging the deep bond you shared with a dedicated space to grieve and celebrate their life.
+                                        Some companions leave paw prints that never fade. This is a chance to celebrate the joy, loyalty and unconditional love they brought into your life.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Meaningful back-garden or woodland farewells
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>A personal farewell to honour a life well loved</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Gentle inclusion of children in the grieving process
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Space to share the moments that made them so special</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Beautiful customized certificates of remembrance
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>A gentle place to say goodbye</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -391,19 +401,19 @@
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">Planning Ahead</h4>
+                                    <h4 class="font-serif text-2xl text-brand-on-surface font-bold mb-3">The Gift of Your Own Story</h4>
                                     <p class="text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed mb-4">
-                                        Gentle, guided consultations to outline your own future memorial or funeral wishes. Ensuring your story is told exactly as you envision, bringing peace of mind to you and your family.
+                                        Planning ahead gives you the opportunity to tell your story in your own words, creating something deeply personal for the people you love.
                                     </p>
                                     <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Unhurried, in-person or video consultations
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>A relaxed conversation at your own pace</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Complete documentation of your life story and wishes
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>Your story recorded in your own words</span>
                                         </li>
-                                        <li class="flex items-center text-brand-tertiary text-sm md:text-xs">
-                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 text-[10px]"></i> Secured in our cloud vault for when the time comes
+                                        <li class="flex items-start text-brand-tertiary text-sm md:text-xs">
+                                            <i class="fa-solid fa-leaf text-brand-primary mr-2 mt-1 text-[10px] flex-shrink-0"></i> <span>A lasting gift for the people you love</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -566,7 +576,6 @@
             <section id="portal-dashboard" class="hidden transition-all duration-300 min-h-screen py-6 sm:py-10">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     
-                    <!-- Client Portal Top Info Banner -->
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-brand-surface-container-low rounded-2xl p-6 sm:p-8 border border-brand-outline-variant/30 shadow-sm mb-8">
                         <div class="flex items-center space-x-4 mb-4 md:mb-0">
                             <div class="w-14 h-14 rounded-full bg-brand-primary border border-brand-outline-variant flex items-center justify-center text-white text-xl shadow-sm">
@@ -589,7 +598,6 @@
                         </div>
                     </div>
 
-                    <!-- Mobile Navigation Bar for Dashboard Sections -->
                     <div class="lg:hidden flex overflow-x-auto space-x-2 pb-4 mb-6 border-b border-brand-outline-variant/30 scrollbar-none scroll-smooth">
                         <button data-tab="checklist" onclick="switchPortalTab('checklist')" class="portal-tab-btn whitespace-nowrap px-4 py-2.5 bg-brand-primary text-white text-xs font-semibold rounded-full shadow-sm">
                             <i class="fa-solid fa-list-check mr-1"></i> Planner Tasks
@@ -612,7 +620,6 @@
                         
                         <div class="lg:col-span-4 space-y-6">
                             
-                            <!-- Tasks -->
                             <div id="portal-checklist-section" class="portal-section bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between">
                                 <div>
                                     <div class="flex justify-between items-center mb-4">
@@ -629,29 +636,20 @@
                                 </div>
                             </div>
 
-                            <!-- Questionnaire -->
                             <div id="portal-questionnaire-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <h4 class="font-serif text-lg text-brand-on-surface font-bold mb-1">Story Questionnaire</h4>
                                 <p class="text-brand-on-surface-variant text-xs mb-4">Reflective prompts that help shape your final script. Progress saves as you type.</p>
-                                <div class="space-y-4">
-                                    <div>
-                                        <label id="q-prompt-1" class="block text-xs font-semibold text-brand-on-surface-variant mb-1.5 leading-relaxed font-sans">Prompt 1</label>
-                                        <textarea id="q-ans-1" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" rows="3" placeholder="Write your thoughts here..."></textarea>
-                                    </div>
-                                    <div>
-                                        <label id="q-prompt-2" class="block text-xs font-semibold text-brand-on-surface-variant mb-1.5 leading-relaxed font-sans">Prompt 2</label>
-                                        <textarea id="q-ans-2" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" rows="3" placeholder="Write details here..."></textarea>
-                                    </div>
-                                    <div class="flex items-center justify-between text-[10px] text-brand-primary font-bold pt-1 font-sans">
-                                        <span><i class="fa-solid fa-circle-check text-brand-primary mr-1"></i> Saved to Cloud Firestore</span>
-                                    </div>
+                                <div id="portal-questionnaire-container" class="space-y-4">
+                                    <!-- Dynamic Questions inserted here via JS -->
+                                </div>
+                                <div class="flex items-center justify-between text-[10px] text-brand-primary font-bold pt-4 mt-2 font-sans">
+                                    <span><i class="fa-solid fa-circle-check text-brand-primary mr-1"></i> Saved to Cloud Firestore</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="lg:col-span-8 space-y-6">
                             
-                            <!-- Vault -->
                             <div id="portal-vault-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
                                     <div>
@@ -697,7 +695,6 @@
                                 </div>
                             </div>
 
-                            <!-- Script -->
                             <div id="portal-script-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                                     <div>
@@ -710,7 +707,6 @@
                                     <div class="flex items-center gap-2" id="script-status-container"></div>
                                 </div>
 
-                                <!-- Read-only Script Display (Respects Whitespace and Pre-Wrap Line breaks perfectly) -->
                                 <div class="bg-brand-surface rounded-xl border border-brand-outline-variant/30 p-6 sm:p-8 max-h-[380px] overflow-y-auto custom-scrollbar font-serif text-sm leading-relaxed text-brand-on-surface whitespace-pre-wrap mb-6" id="script-draft-body"></div>
 
                                 <div class="border-t border-brand-outline-variant/30 pt-6">
@@ -741,7 +737,6 @@
                                 </div>
                             </div>
 
-                            <!-- OOS -->
                             <div id="portal-oos-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex justify-between items-center mb-6">
                                     <div>
@@ -797,7 +792,7 @@
 
     </div>
 
-    <!-- Authentication Modal (Passwordless Email Flow) -->
+    <!-- Auth Modal -->
     <div id="portal-auth-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-brand-surface/90 backdrop-blur-md w-full max-w-md rounded-2xl border border-brand-outline-variant/30 shadow-lg p-6 relative overflow-hidden">
             <button onclick="closePortalAuthModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
@@ -857,63 +852,52 @@
         </div>
     </div>
 
-    <!-- Privacy Policy Glassmorphic Pop-up Modal -->
+    <!-- Privacy Policy Modal -->
     <div id="privacy-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/25 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-brand-surface/90 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[80vh] flex flex-col">
-            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <div class="text-center mb-6">
+        <div class="bg-brand-surface/95 backdrop-blur-xl w-full max-w-3xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
+            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <div class="text-center mb-6 border-b border-brand-outline-variant/30 pb-4">
                 <div class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm"><i class="fa-solid fa-shield-halved text-lg"></i></div>
-                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Privacy Policy</h3>
-                <p class="text-xs text-brand-on-surface-variant mt-1">UK GDPR & Data Protection Act 2018 Compliance Statement</p>
+                <h3 class="font-serif text-2xl font-bold text-brand-on-surface">Privacy Policy & Data Protection</h3>
+                <p class="text-xs text-brand-on-surface-variant mt-1 font-semibold">UK GDPR & Data Protection Act 2018 Compliance Statement</p>
             </div>
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm leading-relaxed space-y-4">
-                <p class="font-semibold text-brand-on-surface">Last Updated: July 2026</p>
-                <p>At Lisa B Celebrant, we take the privacy and security of your personal data extremely seriously. This Privacy Policy details how we collect, process, and protect your data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018 (DPA 2018).</p>
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-3 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-5">
+                <p>At <strong>Lisa B Celebrant</strong>, we take your privacy and the security of your most personal stories seriously. This policy outlines how we collect, process, and protect your data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
                 
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">1. Information We Collect</h4>
-                <p>We process personal data that you provide directly to us through our contact forms, consultations, emails, and client portals. This includes:</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>Contact & Identity Data:</strong> Your full name, email address, physical address, and telephone number.</li>
-                    <li><strong>Ceremony Planning Data:</strong> Ceremony type, date, location details, Order of Service flows, music choices, and uploaded documents.</li>
-                    <li><strong>Special Category Data (Bespoke Stories):</strong> Answers to our story questionnaires, which may contain sensitive details about your relationships, family life, philosophical or religious beliefs, and personal histories.</li>
-                </ul>
+                <div>
+                    <h4 class="font-bold text-brand-on-surface mb-1">1. Information We Collect</h4>
+                    <p>To provide you with a bespoke celebrancy service, we collect personal details (names, contact emails, phone numbers) and highly sensitive personal data (relationship stories, family histories, and personal reflections) submitted through our Secure Client Portal.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-brand-on-surface mb-1">2. Lawful Basis for Processing</h4>
+                    <p>We process your standard personal data under the lawful basis of <em>Contractual Necessity</em> (to fulfill our celebrancy agreement). For sensitive personal stories, we process this data strictly under your <em>Explicit Consent</em>, which is granted when you engage our services and submit answers to your portal.</p>
+                </div>
 
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">2. Lawful Bases for Processing</h4>
-                <p>Under the UK GDPR, we rely on the following legal bases to process your information:</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>Contractual Obligation:</strong> To prepare, coordinate, and perform the bespoke ceremony services you have booked.</li>
-                    <li><strong>Consent & Explicit Consent:</strong> For processing special category data (personal background, beliefs, or relationships) shared with us during story questionnaires or consultations to draft your ceremony. You can withdraw your consent at any time.</li>
-                    <li><strong>Legitimate Interests:</strong> To run our business, secure our client portals, and process enquiries securely.</li>
-                </ul>
+                <div>
+                    <h4 class="font-bold text-brand-on-surface mb-1">3. Cloud Security & Storage Boundaries</h4>
+                    <p>Your client portal is built upon Google Firebase cloud infrastructure. All data—including script drafts, uploaded readings, and photographs in the Document Vault—is encrypted both in transit (TLS) and at rest. We utilise strict Firebase Security Rules to ensure that your files can only be accessed by you (via authenticated magic link) and Lisa B Celebrant.</p>
+                </div>
 
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">3. Data Storage, Security, & Transfers</h4>
-                <p>Your data is processed and stored securely inside encrypted cloud environments provided by Google Firebase (hosted within the European Economic Area/UK regions). We apply robust access control rules, ensuring client files are strictly isolated. We do not sell, rent, or distribute your personal data to third parties. We only share details with third-party service providers (like funeral directors or stationery printers) when explicitly agreed and necessary for your ceremony.</p>
+                <div>
+                    <h4 class="font-bold text-brand-on-surface mb-1">4. Data Retention Schedule</h4>
+                    <p>We do not hold your data indefinitely. Following the completion of your ceremony, your digital workspace, including all uploaded documents and script drafts, will be securely archived and permanently deleted from our active cloud servers after 12 months, allowing you time to download your final files.</p>
+                </div>
 
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">4. Data Retention</h4>
-                <p>Active planning documents and vault files are stored for the duration of our engagement. Unless requested otherwise, we retain client records and final scripts for 3 years post-ceremony for administrative, verification, or memorial reference purposes, after which they are securely and permanently deleted.</p>
-
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">5. Your Legal Rights</h4>
-                <p>Under the UK GDPR, you have the following rights over your data:</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>The right to be informed of how your data is used.</li>
-                    <li>The right to access the data we hold on you.</li>
-                    <li>The right to rectify inaccurate or incomplete records.</li>
-                    <li>The right to request erasure ("the right to be forgotten").</li>
-                    <li>The right to restrict or object to certain processing activities.</li>
-                    <li>The right to data portability.</li>
-                </ul>
-                <p>To exercise any of these rights, please email us at <span class="text-brand-primary underline">lisa@lb-celebrant.co.uk</span>.</p>
-
-                <h4 class="font-serif text-brand-primary font-bold text-base mt-4">6. Complaints & Regulatory Authority</h4>
-                <p>If you are unhappy with how we process your personal data, we request that you contact us directly first so we can resolve your concerns. You also maintain the absolute right to log a complaint with the UK supervisory authority, the <strong>Information Commissioner's Office (ICO)</strong>, at <a href="https://ico.org.uk" target="_blank" class="text-brand-primary underline">ico.org.uk</a>.</p>
+                <div>
+                    <h4 class="font-bold text-brand-on-surface mb-1">5. Your Legal Rights</h4>
+                    <p>Under the UK GDPR, you hold the right to Access (requesting a copy of your data), Rectification (correcting errors), and Erasure (the "right to be forgotten" before the standard retention period ends). To exercise these rights, please contact us directly via email.</p>
+                </div>
+                
+                <p class="text-xs italic text-brand-secondary border-t border-brand-outline-variant/30 pt-3">If you are unsatisfied with our data handling, you have the right to lodge a complaint with the UK supervisory authority, the Information Commissioner's Office (ICO).</p>
             </div>
-            <div class="flex justify-end pt-4 border-t border-brand-outline-variant/30 mt-4 font-sans">
-                <button onclick="closePrivacyModal()" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition active:scale-95">I Understand</button>
+            <div class="flex justify-end pt-5 border-t border-brand-outline-variant/30 mt-4 font-sans">
+                <button onclick="closePrivacyModal()" class="px-6 py-3 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition active:scale-95 shadow-sm">I Understand & Agree</button>
             </div>
         </div>
     </div>
 
-    <!-- Glassmorphic Services Details Pop-up Modal -->
+    <!-- Service Details Modal -->
     <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-brand-surface/90 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
             <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -931,7 +915,7 @@
             </div>
             <div class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-brand-outline-variant/30 mt-4 gap-4 font-sans">
                 <div class="text-left w-full sm:w-auto">
-                    <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block">Price From</span>
+                    <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block">Prices from</span>
                     <span id="service-modal-price" class="font-serif text-lg font-bold text-brand-primary">£450.00</span>
                 </div>
                 <div class="flex space-x-2 w-full sm:w-auto justify-end">
@@ -942,7 +926,6 @@
         </div>
     </div>
 
-    <!-- Firebase SDK Imports (No Analytics to prevent adblocker crash) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -1002,7 +985,6 @@
         async function saveStateToFirestore() {
             if (!useFirebase || !db || !currentClientType || !activeClientState) return;
             try { 
-                // Set update notifier so Lisa sees the red notification dot on her console list
                 activeClientState.clientUpdated = true;
                 await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', currentClientType), activeClientState); 
             } catch (err) { console.error("DB Save failed.", err); }
@@ -1032,11 +1014,11 @@
         function closePrivacyModal() { document.getElementById('privacy-modal').classList.add('hidden'); }
 
         const SERVICE_MODAL_DETAILS = {
-            wedding: { title: "Bespoke Wedding Ceremonies", subtitle: "Joyful, Romantic, & Entirely Template-Free", icon: "fa-heart", price: "£450.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Your love story is unique—your script should be too.</p><p>I specialise in crafting custom, warm, and highly memorable ceremonies that centre entirely around your relationship. We bypass cold, stale templates to focus on the moments that define you both.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Creative Consultation</li><li>Vow Development support</li><li>Custom Symbolic Rituals</li><li>Collaborative Revision Portal</li></ul>" },
-            funeral: { title: "Celebrations of Life & Memorials", subtitle: "Empathetic, Respectful, & Deeply Solacing", icon: "fa-cloud-sun", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Honouring a rich legacy with authentic storytelling.</p><p>Milestone transitions can be delicate and sudden. I work closely with families and funeral directors to deliver a gentle, compassionate service that captures the true essence and personality of your loved one.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Empathetic Family Meeting</li><li>Custom Eulogy Delivery</li><li>Rapid Planning (7-14 days)</li></ul>" },
-            naming: { title: "Family Naming Ceremonies", subtitle: "Bright, Warm, & Welcoming", icon: "fa-seedling", price: "£300.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Welcoming new growth into your supportive family circle.</p><p>Whether introducing a newborn infant, celebrating an adoption, or welcoming step-siblings into a blended home, our naming days provide a non-religious alternative to declare your parenting commitment.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Key Elements We Construct:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Hopes and Promises</li><li>Guideparent Commitments</li><li>Creative Family Rituals</li></ul>" },
-            pet: { title: "Pet Memorial Ceremonies", subtitle: "Honouring a Loyal Companion", icon: "fa-paw", price: "£150.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Saying goodbye to a devoted animal companion is often as profound as losing a human relative.</p><p>A structured memorial gives you the space to honour their unconditional love and the joy they brought to your home.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Meaningful back-garden or woodland farewells</li><li>Gentle inclusion of children in the grieving process</li><li>Beautiful customized certificates of remembrance</li></ul>" },
-            planning: { title: "Planning Ahead Services", subtitle: "Peace of Mind for the Future", icon: "fa-compass", price: "£100.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface'>Documenting your own final wishes is an empowering, considerate gift to your family.</p><p>We will sit down together in a safe, gentle environment to capture your authentic story, select your music, and outline exactly how you wish to be celebrated, ensuring your legacy is preserved exactly as you intend.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>Our Approach:</h5><ul class='list-disc pl-5 space-y-1.5'><li>Unhurried, in-person or video consultations</li><li>Complete documentation of your life story and wishes</li><li>Secured in our cloud vault for when the time comes</li></ul>" }
+            wedding: { title: "Two Lives. One Celebration.", subtitle: "Meaningful. Authentic. Created for You.", icon: "fa-heart", price: "£850.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>An endless circle. A lifelong promise. A love worth celebrating.</p><p>Your wedding day is one of life's most meaningful celebrations. Together, we'll create a ceremony that reflects your love, your vision and everything that makes your relationship uniquely yours.</p><p>Whether you have every detail planned or don't know where to begin, I'll guide you with warmth, care and creativity, crafting a ceremony that's written entirely for you.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed consultation to get to know you both</li><li>A bespoke ceremony written entirely for you</li><li>Support with personal vows, readings and meaningful beautiful rituals</li><li>Guidance and revisions until everything feels just right</li></ul>" },
+            funeral: { title: "A Life, Beautifully Told", subtitle: "Meaningful. Personal. Heartfelt.", icon: "fa-cloud-sun", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>The echo of a beautiful life lives on in the hearts of those who loved them.</p><p>Every farewell begins with a conversation. Together, we'll gently reflect on the stories, the laughter and the love that made your loved one so special, creating a ceremony that feels personal, heartfelt and true to the life they lived. Whether you're planning a funeral or a memorial, I'll guide you with warmth, compassion and care, ensuring every detail reflects the person you're remembering.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A safe space where every emotion is welcome</li><li>Listening with an open heart and understanding</li><li>Finding the gold in your loved one's story, even in the smallest details</li><li>A tribute lovingly written to honour the person they were</li><li>Music, readings and meaningful personal touches woven throughout the ceremony</li><li>Working alongside your funeral director, taking care of every detail</li><li>Walking beside you with compassion from our first conversation to the final farewell</li></ul>" },
+            naming: { title: "Every Journey Begins with a Name", subtitle: "Love. Hope. Promises.", icon: "fa-seedling", price: "£300.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>Every new beginning deserves to be welcomed with love</p><p>Whether you're welcoming a new life, bringing families together, celebrating a chosen name or marking a new beginning, every reason for being here is worthy of celebration.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed consultation to explore your ideas and wishes</li><li>Personal promises, readings and meaningful rituals</li><li>Written around the people who matter most</li><li>Guidance and revisions until everything feels just right</li></ul>" },
+            pet: { title: "Paw Prints on the Heart", subtitle: "Love. Loyalty. Forever.", icon: "fa-paw", price: "£175.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>Because they were never just a pet—they were family.</p><p>The love we share with our animals is unlike any other. Whether they've been by your side for years or only a short while, the love they leave behind deserves to be honoured with the same love they gave so freely.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed conversation to share your adventures together</li><li>A heartfelt farewell that reflects the bond you shared</li><li>Music, readings and personal touches that celebrate their life</li><li>A personalised urn to honour their memory</li><li>Time and space to remember, reflect and say goodbye</li></ul>" },
+            planning: { title: "Your Story. Your Way.", subtitle: "Told by the person who lived it", icon: "fa-compass", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>The greatest story you'll ever leave behind is your own.</p><p>One day, the people you love may wish they could hear your voice just one more time. While no recording can replace that, your own words can become a lasting gift they'll treasure forever.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed conversation at your own pace</li><li>Meeting you where you feel most comfortable</li><li>Your voice, in your own words</li><li>Capturing the essence of your life</li><li>Music, readings and personal wishes for your farewell</li><li>A lasting gift for the people you love</li></ul>" }
         };
 
         function openServiceDetails(serviceKey) {
@@ -1118,15 +1100,43 @@
             const daysLeft = Math.ceil((new Date(activeClientState.date) - new Date()) / (1000 * 60 * 60 * 24));
             document.getElementById('portal-countdown-display').innerText = daysLeft > 0 ? `${daysLeft} Days to go` : "Ceremony Complete";
             document.getElementById('script-draft-body').innerHTML = activeClientState.script;
-            document.getElementById('q-prompt-1').innerText = activeClientState.questionPrompts ? activeClientState.questionPrompts[0] : "Prompt 1";
-            document.getElementById('q-prompt-2').innerText = activeClientState.questionPrompts ? activeClientState.questionPrompts[1] : "Prompt 2";
-            document.getElementById('q-ans-1').value = activeClientState.questions.q1 || "";
-            document.getElementById('q-ans-2').value = activeClientState.questions.q2 || "";
+            
+            // Dynamic render of questions
+            const qContainer = document.getElementById('portal-questionnaire-container');
+            qContainer.innerHTML = "";
+            const prompts = activeClientState.questionPrompts || ["Prompt 1", "Prompt 2"];
+            const answers = activeClientState.questions || {};
+            
+            prompts.forEach((promptText, index) => {
+                const answerKey = answers[`q${index+1}`] !== undefined ? `q${index+1}` : index;
+                const answerVal = answers[answerKey] || "";
+                
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <label class="block text-xs font-semibold text-brand-on-surface-variant mb-1.5 leading-relaxed font-sans">${promptText}</label>
+                    <textarea id="q-ans-${index}" oninput="saveQuestionnaireProgress()" class="w-full p-3 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary h-auto min-h-[80px]" placeholder="Write your thoughts here...">${answerVal}</textarea>
+                `;
+                qContainer.appendChild(div);
+            });
+
             updateScriptStatusUI(); renderChecklist(); renderFilesVault(); renderCommentsLog(); renderOrderOfService();
         }
 
         let saveTimeout = null;
-        function saveQuestionnaireProgress() { if (!activeClientState) return; activeClientState.questions.q1 = document.getElementById('q-ans-1').value; activeClientState.questions.q2 = document.getElementById('q-ans-2').value; clearTimeout(saveTimeout); saveTimeout = setTimeout(() => { saveStateToFirestore(); }, 1000); }
+        function saveQuestionnaireProgress() { 
+            if (!activeClientState) return; 
+            const prompts = activeClientState.questionPrompts || ["Prompt 1", "Prompt 2"];
+            
+            // Wipe old mappings and resync dynamically
+            activeClientState.questions = {};
+            prompts.forEach((_, index) => {
+                const area = document.getElementById(`q-ans-${index}`);
+                if (area) activeClientState.questions[index] = area.value;
+            });
+            
+            clearTimeout(saveTimeout); 
+            saveTimeout = setTimeout(() => { saveStateToFirestore(); }, 1000); 
+        }
 
         function renderChecklist() {
             const container = document.getElementById('portal-tasks-container'); container.innerHTML = ""; let completed = 0;
