@@ -86,6 +86,22 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #526253; border-radius: 4px; }
         .ambient-glow-1 { background: radial-gradient(circle, rgba(82,98,83,0.05) 0%, rgba(250,249,246,0) 70%); }
         .ambient-glow-2 { background: radial-gradient(circle, rgba(101,93,78,0.04) 0%, rgba(250,249,246,0) 70%); }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: flex;
+            width: max-content;
+            animation: ticker 35s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+        .mask-gradient-x {
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
     </style>
 </head>
 <body class="bg-brand-background text-brand-tertiary font-sans min-h-screen flex flex-col relative overflow-x-hidden w-full max-w-full">
@@ -179,8 +195,9 @@
                     </div>
                 </div>
 
+                <!-- About section containing client bio text and our sliding 5-star customer feedback marquee -->
                 <div id="about-celebrant" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    <div class="lg:flex lg:items-start lg:space-x-16 animate-fadeIn">
+                    <div class="lg:flex lg:items-start lg:space-x-16">
                         <div class="lg:w-5/12 mb-10 lg:mb-0 relative lg:sticky lg:top-28">
                             <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary-container/20 to-brand-surface-container-highest/30 rounded blur-xl opacity-25"></div>
                             <div class="relative bg-brand-surface-container-low rounded-2xl p-3 border border-brand-outline-variant/30 shadow-sm aspect-[4/5] w-full max-w-[450px] mx-auto lg:max-w-none overflow-hidden flex items-center justify-center">
@@ -230,27 +247,127 @@
                                 It would be an honour to take the time to tell your story beautifully.
                             </p>
                             
-                            <div class="grid grid-cols-3 gap-2 sm:gap-4 border-t border-brand-outline-variant/30 pt-8 mt-8">
-                                <div>
-                                    <h5 class="font-serif text-2xl sm:text-3xl text-brand-primary font-bold">150+</h5>
-                                    <p class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] mt-1.5 font-bold">Unique Ceremonies</p>
+                            <!-- 5 Star Review Marquee Ticker replacement -->
+                            <div class="border-t border-brand-outline-variant/30 pt-8 mt-8 overflow-hidden w-full relative">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-[10px] text-brand-secondary uppercase tracking-[0.15em] font-bold">Kind Words from Clients</span>
+                                    <span class="text-[10px] text-brand-primary font-bold flex items-center font-sans"><i class="fa-solid fa-star mr-1 text-amber-500"></i> 5.0 Google Rating</span>
                                 </div>
-                                <div class="border-l border-brand-outline-variant/30 pl-3 sm:pl-8">
-                                    <h5 class="font-serif text-2xl sm:text-3xl text-brand-primary font-bold">100%</h5>
-                                    <p class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] mt-1.5 font-bold">Bespoke Scripts</p>
-                                </div>
-                                <div class="border-l border-brand-outline-variant/30 pl-3 sm:pl-8">
-                                    <h5 class="font-serif text-2xl sm:text-3xl text-brand-primary font-bold">5★</h5>
-                                    <p class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] mt-1.5 font-bold">Google Rated</p>
+                                <div class="relative w-full overflow-hidden mask-gradient-x select-none">
+                                    <div class="animate-ticker flex gap-6">
+                                        <!-- Review 1 -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa made our wedding feel incredibly personal. Every guest commented on how 'us' the ceremony felt!"</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Sarah & James</span>
+                                        </div>
+                                        <!-- Review 2 -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Her warmth and gentle guidance made saying goodbye to our Mum comforting and profoundly beautiful."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— The Thompson Family</span>
+                                        </div>
+                                        <!-- Review 3 -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"A truly magical baby naming day. Lisa's words captured our hopes for Leo perfectly."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Clara & Mark</span>
+                                        </div>
+                                        <!-- Review 4 -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa listened with so much patience and care. The ceremony script was absolutely flawless."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— David & Emily</span>
+                                        </div>
+                                        <!-- Review 5 -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"We planned ahead with Lisa and it gave our family so much peace of mind. Exceptional service."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Arthur P.</span>
+                                        </div>
+
+                                        <!-- Seamless looping duplicates -->
+                                        <!-- Review 1 Duplicate -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa made our wedding feel incredibly personal. Every guest commented on how 'us' the ceremony felt!"</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Sarah & James</span>
+                                        </div>
+                                        <!-- Review 2 Duplicate -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Her warmth and gentle guidance made saying goodbye to our Mum comforting and profoundly beautiful."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— The Thompson Family</span>
+                                        </div>
+                                        <!-- Review 3 Duplicate -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"A truly magical baby naming day. Lisa's words captured our hopes for Leo perfectly."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Clara & Mark</span>
+                                        </div>
+                                        <!-- Review 4 Duplicate -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa listened with so much patience and care. The ceremony script was absolutely flawless."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— David & Emily</span>
+                                        </div>
+                                        <!-- Review 5 Duplicate -->
+                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                            <div>
+                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"We planned ahead with Lisa and it gave our family so much peace of mind. Exceptional service."</p>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Arthur P.</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Showcase portfolio cards utilizing local images and distinct color schemes -->
                 <div id="services-showcase" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-brand-surface-container-low/30 border-t border-brand-outline-variant/20">
                     <div class="text-center max-w-3xl mx-auto mb-16">
-                        <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.1em] block mb-2">Our Offerings</span>
+                        <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.15em] block mb-2">Our Offerings</span>
                         <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4 font-serif">Honouring Every Chapter of Life</h3>
                         <div class="w-16 h-0.5 bg-brand-primary mx-auto rounded mb-4"></div>
                         <p class="text-brand-on-surface-variant text-sm">Every chapter of life deserves to be honoured in a way that feels meaningful, personal and true to you. Explore the ceremonies below to discover how we can create something that reflects that journey.</p>
@@ -915,6 +1032,7 @@
         </div>
     </div>
 
+    <!-- Script Block containing Firebase integration and state engine logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -1090,7 +1208,7 @@
             
             const qContainer = document.getElementById('portal-questionnaire-container');
             qContainer.innerHTML = "";
-            const prompts = activeClientState.questionPrompts || ["Prompt 1", "Prompt 2"];
+            const prompts = activeClientState.questionPrompts || ["Where did you first meet?", "What values matter most?"];
             const answers = activeClientState.questions || {};
             
             prompts.forEach((promptText, index) => {
@@ -1111,7 +1229,7 @@
         let saveTimeout = null;
         function saveQuestionnaireProgress() { 
             if (!activeClientState) return; 
-            const prompts = activeClientState.questionPrompts || ["Prompt 1", "Prompt 2"];
+            const prompts = activeClientState.questionPrompts || ["Where did you first meet?", "What values matter most?"];
             
             activeClientState.questions = {};
             prompts.forEach((_, index) => {
