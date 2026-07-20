@@ -152,13 +152,13 @@
 
             <div id="mobile-menu" class="hidden md:hidden bg-brand-surface-container/95 backdrop-blur-lg border-t border-brand-outline-variant/30 text-brand-on-surface shadow-lg">
                 <div class="px-4 pt-2 pb-6 space-y-3">
-                    <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20 font-sans">Home</button>
-                    <button onclick="scrollToSection('about-celebrant'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20 font-sans">About</button>
-                    <button onclick="scrollToSection('services-showcase'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20 font-sans">Ceremonies</button>
-                    <button onclick="scrollToSection('faq-accordion-section'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20 font-sans">FAQs</button>
-                    <button onclick="scrollToSection('contact-form'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20 font-sans">Contact</button>
+                    <button onclick="showSection('marketing-home'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Home</button>
+                    <button onclick="scrollToSection('about-celebrant'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">About</button>
+                    <button onclick="scrollToSection('services-showcase'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Ceremonies</button>
+                    <button onclick="scrollToSection('faq-accordion-section'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">FAQs</button>
+                    <button onclick="scrollToSection('contact-form'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-on-surface-variant hover:text-brand-primary font-medium border-b border-brand-outline-variant/20">Contact</button>
                     <div class="py-2"></div>
-                    <button onclick="openPortalAuthModal(); toggleMobileMenu()" class="w-full flex items-center justify-center space-x-2 bg-brand-primary text-white py-3.5 rounded shadow font-semibold font-sans">
+                    <button onclick="openPortalAuthModal(); toggleMobileMenu()" class="w-full flex items-center justify-center space-x-2 bg-brand-primary text-white py-3.5 rounded shadow font-semibold">
                         <i class="fa-solid fa-lock text-brand-surface-dim"></i>
                         <span>Secure Client Portal</span>
                     </button>
@@ -166,7 +166,7 @@
             </div>
         </header>
 
-        <main class="flex-grow z-10 relative font-sans">
+        <main class="flex-grow z-10 relative">
             
             <section id="marketing-home" class="block transition-all duration-300">
                 
@@ -183,11 +183,11 @@
                             Creating modern, meaningful, and deeply personal ceremonies across weddings, celebrations of life, and baby namings—honouring life's major milestones with warmth, dignity, and authentic connection.
                         </p>
                         <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-                            <button onclick="scrollToSection('services-showcase')" class="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-container text-white font-semibold py-4 px-8 rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 tracking-wide text-xs uppercase tracking-wider">
+                            <button onclick="scrollToSection('services-showcase')" class="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-container text-white font-semibold py-4 px-8 rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 tracking-wide">
                                 <span>Explore Ceremonies</span>
                                 <i class="fa-solid fa-arrow-down text-brand-surface"></i>
                             </button>
-                            <button onclick="openPortalAuthModal()" class="w-full sm:w-auto bg-brand-surface-container-lowest hover:bg-brand-surface-container border border-brand-outline text-brand-tertiary font-semibold py-4 px-8 rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 tracking-wide text-xs uppercase tracking-wider">
+                            <button onclick="openPortalAuthModal()" class="w-full sm:w-auto bg-brand-surface-container-lowest hover:bg-brand-surface-container border border-brand-outline text-brand-tertiary font-semibold py-4 px-8 rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 tracking-wide">
                                 <i class="fa-solid fa-lock text-brand-primary"></i>
                                 <span>Enter Client Portal</span>
                             </button>
@@ -195,7 +195,6 @@
                     </div>
                 </div>
 
-                <!-- About section containing client bio text and our sliding 5-star customer feedback marquee -->
                 <div id="about-celebrant" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div class="lg:flex lg:items-start lg:space-x-16">
                         <div class="lg:w-5/12 mb-10 lg:mb-0 relative lg:sticky lg:top-28">
@@ -218,8 +217,8 @@
                                      class="w-full h-full object-cover object-center rounded-xl shadow-inner relative z-10 transition-opacity duration-300 opacity-0">
                             </div>
                         </div>
-                        <div class="lg:w-7/12 font-sans">
-                            <span class="text-brand-primary font-bold text-[12px] uppercase tracking-[0.15em] block mb-2">Hello, I'm Lisa B Celebrant</span>
+                        <div class="lg:w-7/12">
+                            <span class="text-brand-primary font-bold text-[12px] uppercase tracking-[0.1em] block mb-2">Hello, I'm Lisa B Celebrant</span>
                             <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-6">Listening with heart. Creating with purpose.</h3>
                             
                             <p class="text-brand-on-surface italic text-lg leading-relaxed mb-6 font-serif">
@@ -243,132 +242,131 @@
                             <p class="text-brand-on-surface-variant leading-relaxed mb-4 text-base md:text-sm">
                                 Every carefully chosen word, every pause and every detail is thoughtfully brought together to create a ceremony that truly reflects your story.
                             </p>
-                            <p class="text-brand-on-surface italic font-bold leading-relaxed mb-8 text-lg font-serif mt-6">
+                            <p class="text-brand-on-surface italic font-bold leading-relaxed mb-4 text-lg font-serif mt-6">
                                 It would be an honour to take the time to tell your story beautifully.
                             </p>
-                            
-                            <!-- 5 Star Review Marquee Ticker replacement -->
-                            <div class="border-t border-brand-outline-variant/30 pt-8 mt-8 overflow-hidden w-full relative">
-                                <div class="flex justify-between items-center mb-4">
-                                    <span class="text-[10px] text-brand-secondary uppercase tracking-[0.15em] font-bold">Kind Words from Clients</span>
-                                    <span class="text-[10px] text-brand-primary font-bold flex items-center font-sans"><i class="fa-solid fa-star mr-1 text-amber-500"></i> 5.0 Google Rating</span>
-                                </div>
-                                <div class="relative w-full overflow-hidden mask-gradient-x select-none">
-                                    <div class="animate-ticker flex gap-6">
-                                        <!-- Review 1 -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa made our wedding feel incredibly personal. Every guest commented on how 'us' the ceremony felt!"</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Sarah & James</span>
-                                        </div>
-                                        <!-- Review 2 -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Her warmth and gentle guidance made saying goodbye to our Mum comforting and profoundly beautiful."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— The Thompson Family</span>
-                                        </div>
-                                        <!-- Review 3 -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"A truly magical baby naming day. Lisa's words captured our hopes for Leo perfectly."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Clara & Mark</span>
-                                        </div>
-                                        <!-- Review 4 -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa listened with so much patience and care. The ceremony script was absolutely flawless."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— David & Emily</span>
-                                        </div>
-                                        <!-- Review 5 -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"We planned ahead with Lisa and it gave our family so much peace of mind. Exceptional service."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Arthur P.</span>
-                                        </div>
+                        </div>
+                    </div>
+                </div>
 
-                                        <!-- Seamless looping duplicates -->
-                                        <!-- Review 1 Duplicate -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa made our wedding feel incredibly personal. Every guest commented on how 'us' the ceremony felt!"</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Sarah & James</span>
-                                        </div>
-                                        <!-- Review 2 Duplicate -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Her warmth and gentle guidance made saying goodbye to our Mum comforting and profoundly beautiful."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— The Thompson Family</span>
-                                        </div>
-                                        <!-- Review 3 Duplicate -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"A truly magical baby naming day. Lisa's words captured our hopes for Leo perfectly."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Clara & Mark</span>
-                                        </div>
-                                        <!-- Review 4 Duplicate -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"Lisa listened with so much patience and care. The ceremony script was absolutely flawless."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— David & Emily</span>
-                                        </div>
-                                        <!-- Review 5 Duplicate -->
-                                        <div class="w-[280px] bg-brand-surface-container-low p-4 rounded-xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
-                                            <div>
-                                                <div class="text-amber-500 text-xs mb-2 flex gap-0.5">
-                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <p class="text-[11px] text-brand-on-surface-variant italic leading-relaxed mb-3">"We planned ahead with Lisa and it gave our family so much peace of mind. Exceptional service."</p>
-                                            </div>
-                                            <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Arthur P.</span>
-                                        </div>
+                <!-- Infinite 5-Star Review Ticker (Full Screen Width) -->
+                <div class="w-full bg-brand-surface-container-low/50 py-10 border-t border-b border-brand-outline-variant/30 overflow-hidden relative select-none z-10">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 flex justify-between items-center">
+                        <span class="text-[10px] text-brand-secondary uppercase tracking-[0.15em] font-bold">Kind Words from Clients</span>
+                        <span class="text-[10px] text-brand-primary font-bold flex items-center font-sans"><i class="fa-solid fa-star mr-1 text-amber-500"></i> 5.0 Google Rating</span>
+                    </div>
+                    <div class="relative w-full overflow-hidden mask-gradient-x">
+                        <div class="animate-ticker flex gap-6">
+                            <!-- Review 1 -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"Lisa made our wedding feel incredibly personal. Every guest commented on how 'us' the ceremony felt!"</p>
                                 </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Sarah & James</span>
+                            </div>
+                            <!-- Review 2 -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"Her warmth and gentle guidance made saying goodbye to our Mum comforting and profoundly beautiful."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— The Thompson Family</span>
+                            </div>
+                            <!-- Review 3 -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"A truly magical baby naming day. Lisa's words captured our hopes for Leo perfectly."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Clara & Mark</span>
+                            </div>
+                            <!-- Review 4 -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"Lisa listened with so much patience and care. The ceremony script was absolutely flawless."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— David & Emily</span>
+                            </div>
+                            <!-- Review 5 -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"We planned ahead with Lisa and it gave our family so much peace of mind. Exceptional service."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Arthur P.</span>
+                            </div>
+
+                            <!-- Seamless looping duplicates -->
+                            <!-- Review 1 Duplicate -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"Lisa made our wedding feel incredibly personal. Every guest commented on how 'us' the ceremony felt!"</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Sarah & James</span>
+                            </div>
+                            <!-- Review 2 Duplicate -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"Her warmth and gentle guidance made saying goodbye to our Mum comforting and profoundly beautiful."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— The Thompson Family</span>
+                            </div>
+                            <!-- Review 3 Duplicate -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"A truly magical baby naming day. Lisa's words captured our hopes for Leo perfectly."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Clara & Mark</span>
+                            </div>
+                            <!-- Review 4 Duplicate -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"Lisa listened with so much patience and care. The ceremony script was absolutely flawless."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— David & Emily</span>
+                            </div>
+                            <!-- Review 5 Duplicate -->
+                            <div class="w-[280px] bg-brand-surface-container-lowest p-5 rounded-2xl border border-brand-outline-variant/20 flex flex-col justify-between shrink-0 shadow-sm">
+                                <div>
+                                    <div class="text-amber-500 text-xs mb-3 flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs text-brand-on-surface-variant italic leading-relaxed mb-4">"We planned ahead with Lisa and it gave our family so much peace of mind. Exceptional service."</p>
+                                </div>
+                                <span class="text-[9px] font-bold text-brand-secondary uppercase tracking-wider font-sans">— Arthur P.</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Showcase portfolio cards utilizing local images and distinct color schemes -->
                 <div id="services-showcase" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-brand-surface-container-low/30 border-t border-brand-outline-variant/20">
                     <div class="text-center max-w-3xl mx-auto mb-16">
                         <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.15em] block mb-2">Our Offerings</span>
-                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4 font-serif">Honouring Every Chapter of Life</h3>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4">Honouring Every Chapter of Life</h3>
                         <div class="w-16 h-0.5 bg-brand-primary mx-auto rounded mb-4"></div>
                         <p class="text-brand-on-surface-variant text-sm">Every chapter of life deserves to be honoured in a way that feels meaningful, personal and true to you. Explore the ceremonies below to discover how we can create something that reflects that journey.</p>
                     </div>
@@ -591,8 +589,8 @@
 
                 <section id="faq-accordion-section" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-brand-outline-variant/30">
                     <div class="text-center mb-16">
-                        <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.1em] block mb-2 font-sans">Answering Your Questions</span>
-                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4 font-serif">Frequently Asked Questions</h3>
+                        <span class="text-brand-primary font-bold text-xs uppercase tracking-[0.1em] block mb-2">Answering Your Questions</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-brand-on-surface font-bold mb-4">Frequently Asked Questions</h3>
                         <div class="w-16 h-0.5 bg-brand-primary mx-auto rounded"></div>
                     </div>
                     
@@ -668,7 +666,7 @@
                                     <textarea id="contact-vision" rows="4" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
                                 </div>
                                 <div class="pt-2">
-                                    <button type="submit" class="w-full py-4 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 border border-brand-outline-variant/30 text-xs uppercase tracking-wider font-bold">
+                                    <button type="submit" class="w-full py-4 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 border border-brand-outline-variant/30">
                                         <i class="fa-regular fa-paper-plane text-brand-surface"></i>
                                         <span>Send Consultation Enquiry</span>
                                     </button>
@@ -698,7 +696,7 @@
                                 <span class="text-[10px] text-brand-secondary uppercase tracking-[0.1em] block font-bold font-sans">Timeline Remaining</span>
                                 <span class="font-serif text-base sm:text-lg font-bold text-brand-primary" id="portal-countdown-display">Calculating...</span>
                             </div>
-                            <button onclick="logoutPortal()" class="px-4 py-2.5 text-brand-on-surface-variant hover:text-brand-primary hover:bg-brand-surface rounded text-xs font-semibold transition duration-150 border border-brand-outline-variant flex items-center space-x-1.5 active:scale-95 bg-brand-surface-container-lowest font-sans">
+                            <button onclick="logoutPortal()" class="px-4 py-2.5 text-brand-on-surface-variant hover:text-brand-primary hover:bg-brand-surface rounded text-xs font-semibold transition duration-150 border border-brand-outline-variant flex items-center space-x-1.5 active:scale-95 bg-brand-surface-container-lowest">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Exit Portal</span>
                             </button>
                         </div>
@@ -726,7 +724,7 @@
                         
                         <div class="lg:col-span-4 space-y-6">
                             
-                            <div id="portal-checklist-section" class="portal-section bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between animate-fadeIn">
+                            <div id="portal-checklist-section" class="portal-section bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between">
                                 <div>
                                     <div class="flex justify-between items-center mb-4">
                                         <h4 class="font-serif text-lg text-brand-on-surface font-bold">Your Planning Tasks</h4>
@@ -742,7 +740,7 @@
                                 </div>
                             </div>
 
-                            <div id="portal-questionnaire-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm animate-fadeIn">
+                            <div id="portal-questionnaire-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <h4 class="font-serif text-lg text-brand-on-surface font-bold mb-1">Story Questionnaire</h4>
                                 <p class="text-brand-on-surface-variant text-xs mb-4">Reflective prompts that help shape your final script. Progress saves as you type.</p>
                                 <div id="portal-questionnaire-container" class="space-y-4">
@@ -756,7 +754,7 @@
 
                         <div class="lg:col-span-8 space-y-6">
                             
-                            <div id="portal-vault-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm animate-fadeIn">
+                            <div id="portal-vault-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
                                     <div>
                                         <h4 class="font-serif text-lg text-brand-on-surface font-bold flex items-center gap-2">
@@ -801,7 +799,7 @@
                                 </div>
                             </div>
 
-                            <div id="portal-script-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm animate-fadeIn">
+                            <div id="portal-script-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                                     <div>
                                         <h4 class="font-serif text-lg text-brand-on-surface font-bold flex items-center gap-2">
@@ -815,7 +813,7 @@
 
                                 <div class="bg-brand-surface rounded-xl border border-brand-outline-variant/30 p-6 sm:p-8 max-h-[380px] overflow-y-auto custom-scrollbar font-serif text-sm leading-relaxed text-brand-on-surface whitespace-pre-wrap mb-6" id="script-draft-body"></div>
 
-                                <div class="border-t border-brand-outline-variant/30 pt-6 font-sans">
+                                <div class="border-t border-brand-outline-variant/30 pt-6">
                                     <h5 class="text-[10px] uppercase tracking-[0.1em] text-brand-on-surface font-bold mb-4 flex items-center gap-1 font-sans">
                                         <i class="fa-solid fa-comments text-brand-primary"></i>
                                         <span>Script Revision Logs</span>
@@ -823,7 +821,7 @@
                                     <div id="comments-container" class="space-y-4 max-h-[220px] overflow-y-auto mb-4 pr-2 custom-scrollbar flex flex-col"></div>
                                     <form onsubmit="handleCommentPost(event)" class="flex gap-3">
                                         <input id="new-comment-input" type="text" class="flex-grow px-4 py-2.5 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="Type a comment or suggest paragraph modifications...">
-                                        <button type="submit" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95">Post</button>
+                                        <button type="submit" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95 font-sans">Post</button>
                                     </form>
                                 </div>
 
@@ -843,7 +841,7 @@
                                 </div>
                             </div>
 
-                            <div id="portal-oos-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm animate-fadeIn animate-delay-75">
+                            <div id="portal-oos-section" class="portal-section hidden lg:block bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                                 <div class="flex justify-between items-center mb-6">
                                     <div>
                                         <h4 class="font-serif text-lg text-brand-on-surface font-bold flex items-center gap-2">
@@ -852,7 +850,7 @@
                                         </h4>
                                         <p class="text-brand-on-surface-variant text-xs">Organise sequences and music cues for wedding planners or layout designers.</p>
                                     </div>
-                                    <button onclick="printOrderOfService()" class="px-4 py-2 bg-brand-surface hover:bg-brand-surface-container text-brand-on-surface border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-sm font-sans">
+                                    <button onclick="printOrderOfService()" class="px-4 py-2 bg-brand-surface hover:bg-brand-surface-container text-brand-on-surface border border-brand-outline-variant rounded font-semibold text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-sm">
                                         <i class="fa-solid fa-print text-brand-primary"></i> Print Layout
                                     </button>
                                 </div>
@@ -864,7 +862,7 @@
             </section>
         </main>
 
-        <footer class="bg-brand-surface-container border-t border-brand-outline-variant/30 py-12 relative z-10 font-sans">
+        <footer class="bg-brand-surface-container border-t border-brand-outline-variant/30 py-12 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
                 <div class="flex flex-col sm:flex-row justify-between items-center border-b border-brand-outline-variant/30 pb-8 mb-8 gap-4">
                     <div class="flex items-center space-x-3">
@@ -915,10 +913,10 @@
             <form onsubmit="handlePortalLogin(event)" class="space-y-4 font-sans">
                 <div>
                     <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Registered Email Address</label>
-                    <input id="portal-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary font-sans" placeholder="name@domain.com">
+                    <input id="portal-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="name@domain.com">
                 </div>
-                <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-widest transition shadow-sm active:scale-95 font-sans">
-                    <i class="fa-solid fa-magic mr-1 text-brand-surface font-sans"></i> Access Workspace
+                <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded text-xs uppercase tracking-widest transition shadow-sm active:scale-95">
+                    <i class="fa-solid fa-magic mr-1 text-brand-surface"></i> Access Workspace
                 </button>
             </form>
 
@@ -928,15 +926,15 @@
             </div>
 
             <div class="space-y-2 font-sans">
-                <button onclick="simulatePortalLogin('wedding')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm font-sans">
+                <button onclick="simulatePortalLogin('wedding')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
                     <span><i class="fa-solid fa-heart text-rose-500 mr-2"></i> Sarah & James (Wedding)</span>
                     <i class="fa-solid fa-arrow-right text-brand-secondary"></i>
                 </button>
-                <button onclick="simulatePortalLogin('funeral')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm font-sans">
+                <button onclick="simulatePortalLogin('funeral')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
                     <span><i class="fa-solid fa-cloud-sun text-brand-secondary mr-2"></i> Eleanor Thompson (Funeral)</span>
                     <i class="fa-solid fa-arrow-right text-brand-secondary"></i>
                 </button>
-                <button onclick="simulatePortalLogin('naming')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm font-sans">
+                <button onclick="simulatePortalLogin('naming')" class="w-full py-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant text-brand-on-surface-variant text-xs font-semibold rounded flex items-center justify-between px-4 transition active:scale-95 shadow-sm">
                     <span><i class="fa-solid fa-seedling text-teal-600 mr-2"></i> Baby Leo's Welcome (Naming Day)</span>
                     <i class="fa-solid fa-arrow-right text-brand-secondary"></i>
                 </button>
@@ -959,7 +957,7 @@
     </div>
 
     <!-- Privacy Policy Modal -->
-    <div id="privacy-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/25 backdrop-blur-md flex items-center justify-center p-4 font-sans">
+    <div id="privacy-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/25 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-brand-surface/95 backdrop-blur-xl w-full max-w-3xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
             <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
             <div class="text-center mb-6 border-b border-brand-outline-variant/30 pb-4">
@@ -971,31 +969,31 @@
                 <p>At <strong>Lisa B Celebrant</strong>, we take your privacy and the security of your most personal stories seriously. This policy outlines how we collect, process, and protect your data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
                 
                 <div>
-                    <h4 class="font-bold text-brand-on-surface mb-1 font-sans">1. Information We Collect</h4>
+                    <h4 class="font-bold text-brand-on-surface mb-1">1. Information We Collect</h4>
                     <p>To provide you with a bespoke celebrancy service, we collect personal details (names, contact emails, phone numbers) and highly sensitive personal data (relationship stories, family histories, and personal reflections) submitted through our Secure Client Portal.</p>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-brand-on-surface mb-1 font-sans">2. Lawful Basis for Processing</h4>
+                    <h4 class="font-bold text-brand-on-surface mb-1">2. Lawful Basis for Processing</h4>
                     <p>We process your standard personal data under the lawful basis of <em>Contractual Necessity</em> (to fulfill our celebrancy agreement). For sensitive personal stories, we process this data strictly under your <em>Explicit Consent</em>, which is granted when you engage our services and submit answers to your portal.</p>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-brand-on-surface mb-1 font-sans">3. Cloud Security & Storage Boundaries</h4>
+                    <h4 class="font-bold text-brand-on-surface mb-1">3. Cloud Security & Storage Boundaries</h4>
                     <p>Your client portal is built upon Google Firebase cloud infrastructure. All data—including script drafts, uploaded readings, and photographs in the Document Vault—is encrypted both in transit (TLS) and at rest. We utilise strict Firebase Security Rules to ensure that your files can only be accessed by you (via authenticated magic link) and Lisa B Celebrant.</p>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-brand-on-surface mb-1 font-sans">4. Data Retention Schedule</h4>
+                    <h4 class="font-bold text-brand-on-surface mb-1">4. Data Retention Schedule</h4>
                     <p>We do not hold your data indefinitely. Following the completion of your ceremony, your digital workspace, including all uploaded documents and script drafts, will be securely archived and permanently deleted from our active cloud servers after 12 months, allowing you time to download your final files.</p>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-brand-on-surface mb-1 font-sans">5. Your Legal Rights</h4>
+                    <h4 class="font-bold text-brand-on-surface mb-1">5. Your Legal Rights</h4>
                     <p>Under the UK GDPR, you hold the right to Access (requesting a copy of your data), Rectification (correcting errors), and Erasure (the "right to be forgotten" before the standard retention period ends). To exercise these rights, please contact us directly via email.</p>
                 </div>
                 
-                <p class="text-xs italic text-brand-secondary border-t border-brand-outline-variant/30 pt-3 font-sans">If you are unsatisfied with our data handling, you have the right to lodge a complaint with the UK supervisory authority, the Information Commissioner's Office (ICO).</p>
+                <p class="text-xs italic text-brand-secondary border-t border-brand-outline-variant/30 pt-3">If you are unsatisfied with our data handling, you have the right to lodge a complaint with the UK supervisory authority, the Information Commissioner's Office (ICO).</p>
             </div>
             <div class="flex justify-end pt-5 border-t border-brand-outline-variant/30 mt-4 font-sans">
                 <button onclick="closePrivacyModal()" class="px-6 py-3 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition active:scale-95 shadow-sm">I Understand & Agree</button>
@@ -1005,7 +1003,7 @@
 
     <!-- Service Details Modal -->
     <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-brand-surface/90 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col font-sans">
+        <div class="bg-brand-surface/90 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
             <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
             <div class="flex items-center space-x-4 mb-6 border-b border-brand-outline-variant/30 pb-4">
                 <div id="service-modal-icon-container" class="w-12 h-12 rounded-full bg-brand-surface-container text-brand-primary flex items-center justify-center text-xl shadow-sm flex-shrink-0">
@@ -1026,13 +1024,12 @@
                 </div>
                 <div class="flex space-x-2 w-full sm:w-auto justify-end">
                     <button onclick="closeServiceDetailsModal()" class="px-5 py-2.5 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-tertiary font-bold rounded text-xs uppercase tracking-wider transition">Back</button>
-                    <button id="service-modal-enquire-btn" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95">Enquire Now</button>
+                    <button id="service-modal-enquire-btn" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95 font-sans">Enquire Now</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Script Block containing Firebase integration and state engine logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -1121,11 +1118,11 @@
         function closePrivacyModal() { document.getElementById('privacy-modal').classList.add('hidden'); }
 
         const SERVICE_MODAL_DETAILS = {
-            wedding: { title: "Two Lives. One Celebration.", subtitle: "Meaningful. Authentic. Created for You.", icon: "fa-heart", price: "£850.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>An endless circle. A lifelong promise. A love worth celebrating.</p><p>Your wedding day is one of life's most meaningful celebrations. Together, we'll create a ceremony that reflects your love, your vision and everything that makes your relationship uniquely yours.</p><p>Whether you have every detail planned or don't know where to begin, I'll guide you with warmth, care and creativity, crafting a ceremony that's written entirely for you.</p><h5 class='font-serif text-brand-primary font-bold mt-4 font-serif'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed consultation to get to know you both</li><li>A bespoke ceremony written entirely for you</li><li>Support with personal vows, readings and meaningful beautiful rituals</li><li>Guidance and revisions until everything feels just right</li></ul>" },
-            funeral: { title: "A Life, Beautifully Told", subtitle: "Meaningful. Personal. Heartfelt.", icon: "fa-cloud-sun", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>The echo of a beautiful life lives on in the hearts of those who loved them.</p><p>Every farewell begins with a conversation. Together, we'll gently reflect on the stories, the laughter and the love that made your loved one so special, creating a ceremony that feels personal, heartfelt and true to the life they lived. Whether you're planning a funeral or a memorial, I'll guide you with warmth, compassion and care, ensuring every detail reflects the person you're remembering.</p><h5 class='font-serif text-brand-primary font-bold mt-4 font-serif'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A safe space where every emotion is welcome</li><li>Listening with an open heart and understanding</li><li>Finding the gold in your loved one's story, even in the smallest details</li><li>A tribute lovingly written to honour the person they were</li><li>Music, readings and meaningful personal touches woven throughout the ceremony</li><li>Working alongside your funeral director, taking care of every detail</li><li>Walking beside you with compassion from our first conversation to the final farewell</li></ul>" },
-            naming: { title: "Every Journey Begins with a Name", subtitle: "Love. Hope. Promises.", icon: "fa-seedling", price: "£300.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>Every new beginning deserves to be welcomed with love</p><p>Whether you're welcoming a new life, bringing families together, celebrating a chosen name or marking a new beginning, every reason for being here is worthy of celebration.</p><h5 class='font-serif text-brand-primary font-bold mt-4 font-serif'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed consultation to explore your ideas and wishes</li><li>Personal promises, readings and meaningful rituals</li><li>Written around the people who matter most</li><li>Guidance and revisions until everything feels just right</li></ul>" },
-            pet: { title: "Paw Prints on the Heart", subtitle: "Love. Loyalty. Forever.", icon: "fa-paw", price: "£175.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>Because they were never just a pet—they were family.</p><p>The love we share with our animals is unlike any other. Whether they've been by your side for years or only a short while, the love they leave behind deserves to be honoured with the same love they gave so freely.</p><h5 class='font-serif text-brand-primary font-bold mt-4 font-serif'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed conversation to share your adventures together</li><li>A heartfelt farewell that reflects the bond you shared</li><li>Music, readings and personal touches that celebrate their life</li><li>A personalised urn to honour their memory</li><li>Time and space to remember, reflect and say goodbye</li></ul>" },
-            planning: { title: "Your Story. Your Way.", subtitle: "Told by the person who lived it", icon: "fa-compass", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>The greatest story you'll ever leave behind is your own.</p><p>One day, the people you love may wish they could hear your voice just one more time. While no recording can replace that, your own words can become a lasting gift they'll treasure forever.</p><h5 class='font-serif text-brand-primary font-bold mt-4 font-serif'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed conversation at your own pace</li><li>Meeting you where you feel most comfortable</li><li>Your voice, in your own words</li><li>Capturing the essence of your life</li><li>Music, readings and personal wishes for your farewell</li><li>A lasting gift for the people you love</li></ul>" }
+            wedding: { title: "Two Lives. One Celebration.", subtitle: "Meaningful. Authentic. Created for You.", icon: "fa-heart", price: "£850.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>An endless circle. A lifelong promise. A love worth celebrating.</p><p>Your wedding day is one of life's most meaningful celebrations. Together, we'll create a ceremony that reflects your love, your vision and everything that makes your relationship uniquely yours.</p><p>Whether you have every detail planned or don't know where to begin, I'll guide you with warmth, care and creativity, crafting a ceremony that's written entirely for you.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed consultation to get to know you both</li><li>A bespoke ceremony written entirely for you</li><li>Support with personal vows, readings and meaningful beautiful rituals</li><li>Guidance and revisions until everything feels just right</li></ul>" },
+            funeral: { title: "A Life, Beautifully Told", subtitle: "Meaningful. Personal. Heartfelt.", icon: "fa-cloud-sun", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>The echo of a beautiful life lives on in the hearts of those who loved them.</p><p>Every farewell begins with a conversation. Together, we'll gently reflect on the stories, the laughter and the love that made your loved one so special, creating a ceremony that feels personal, heartfelt and true to the life they lived. Whether you're planning a funeral or a memorial, I'll guide you with warmth, compassion and care, ensuring every detail reflects the person you're remembering.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A safe space where every emotion is welcome</li><li>Listening with an open heart and understanding</li><li>Finding the gold in your loved one's story, even in the smallest details</li><li>A tribute lovingly written to honour the person they were</li><li>Music, readings and meaningful personal touches woven throughout the ceremony</li><li>Working alongside your funeral director, taking care of every detail</li><li>Walking beside you with compassion from our first conversation to the final farewell</li></ul>" },
+            naming: { title: "Every Journey Begins with a Name", subtitle: "Love. Hope. Promises.", icon: "fa-seedling", price: "£300.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>Every new beginning deserves to be welcomed with love</p><p>Whether you're welcoming a new life, bringing families together, celebrating a chosen name or marking a new beginning, every reason for being here is worthy of celebration.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed consultation to explore your ideas and wishes</li><li>Personal promises, readings and meaningful rituals</li><li>Written around the people who matter most</li><li>Guidance and revisions until everything feels just right</li></ul>" },
+            pet: { title: "Paw Prints on the Heart", subtitle: "Love. Loyalty. Forever.", icon: "fa-paw", price: "£175.00", colorClass: "text-brand-primary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>Because they were never just a pet—they were family.</p><p>The love we share with our animals is unlike any other. Whether they've been by your side for years or only a short while, the love they leave behind deserves to be honoured with the same love they gave so freely.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed conversation to share your adventures together</li><li>A heartfelt farewell that reflects the bond you shared</li><li>Music, readings and personal touches that celebrate their life</li><li>A personalised urn to honour their memory</li><li>Time and space to remember, reflect and say goodbye</li></ul>" },
+            planning: { title: "Your Story. Your Way.", subtitle: "Told by the person who lived it", icon: "fa-compass", price: "£250.00", colorClass: "text-brand-secondary bg-brand-surface-container", description: "<p class='font-semibold text-brand-on-surface italic'>The greatest story you'll ever leave behind is your own.</p><p>One day, the people you love may wish they could hear your voice just one more time. While no recording can replace that, your own words can become a lasting gift they'll treasure forever.</p><h5 class='font-serif text-brand-primary font-bold mt-4'>What's Included:</h5><ul class='list-disc pl-5 space-y-1.5'><li>A relaxed conversation at your own pace</li><li>Meeting you where you feel most comfortable</li><li>Your voice, in your own words</li><li>Capturing the essence of your life</li><li>Music, readings and personal wishes for your farewell</li><li>A lasting gift for the people you love</li></ul>" }
         };
 
         function openServiceDetails(serviceKey) {
