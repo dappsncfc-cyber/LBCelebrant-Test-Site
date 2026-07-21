@@ -249,6 +249,7 @@
                     </div>
                 </div>
 
+                <!-- Full Width 5-Star Review Ticker -->
                 <div class="w-full bg-brand-surface-container-low/50 py-10 border-t border-b border-brand-outline-variant/30 overflow-hidden relative select-none z-10">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 flex justify-between items-center">
                         <span class="text-[10px] text-brand-secondary uppercase tracking-[0.15em] font-bold">Kind Words from Clients</span>
@@ -679,7 +680,6 @@
             <section id="portal-dashboard" class="hidden transition-all duration-300 min-h-screen py-6 sm:py-10">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     
-                    <!-- CRITICAL FIX: The invalid HTML IDs that were crashing JavaScript have been securely removed. -->
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-brand-surface-container-low rounded-2xl p-6 sm:p-8 border border-brand-outline-variant/30 shadow-sm mb-8 font-sans">
                         <div class="flex items-center space-x-4 mb-4 md:mb-0">
                             <div class="w-14 h-14 rounded-full bg-brand-primary border border-brand-outline-variant flex items-center justify-center text-white text-xl shadow-sm">
@@ -808,7 +808,6 @@
                                         </h4>
                                         <p class="text-brand-on-surface-variant text-xs">Review draft iterations and collaborate directly via the paragraph log below.</p>
                                     </div>
-                                    <!-- CRITICAL FIX: Removed malformed styling tag inside ID to fix JavaScript lock crashes -->
                                     <div class="flex items-center gap-2" id="script-status-container"></div>
                                 </div>
 
@@ -826,7 +825,7 @@
                                     </form>
                                 </div>
 
-                                <div id="script-approval-drawer" class="mt-8 bg-brand-surface border border-brand-outline-variant/30 rounded-xl p-5 sm:p-6 flex flex-col md:flex-row justify-between items-center gap-4 font-sans font-sans">
+                                <div id="script-approval-drawer" class="mt-8 bg-brand-surface border border-brand-outline-variant/30 rounded-xl p-5 sm:p-6 flex flex-col md:flex-row justify-between items-center gap-4 font-sans">
                                     <div class="flex items-start space-x-3 text-center md:text-left">
                                         <div class="w-8 h-8 rounded-full bg-brand-surface-container-low border border-brand-outline-variant/30 flex items-center justify-center text-brand-primary flex-shrink-0 mx-auto md:mx-0 shadow-sm">
                                             <i class="fa-solid fa-signature"></i>
@@ -877,8 +876,10 @@
                             </div>
                         </div>
                         <div class="h-8 w-[1px] bg-brand-outline-variant/30 hidden sm:block"></div>
-                        <!-- Increased Logo Size -->
-                        <img src="icpclogo.png" alt="ICPC Member Logo" class="h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" onerror="this.style.display='none';">
+                        <div class="flex items-center space-x-4">
+                            <img src="icpclogo.png" alt="ICPC Member Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" onerror="this.style.display='none';">
+                            <img src="logo-the-celebrant-accord.jpg" alt="The Funeral Celebrant Accord Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" onerror="this.style.display='none';">
+                        </div>
                     </div>
                     <div class="flex items-center space-x-6 text-xs text-brand-on-surface-variant font-sans">
                         <button onclick="showSection('marketing-home'); scrollToSection('services-showcase')" class="hover:text-brand-primary font-semibold">Services</button>
@@ -886,7 +887,6 @@
                         <button onclick="openPortalAuthModal()" class="hover:text-brand-primary font-semibold">Client Portal</button>
                         <div class="h-4 w-[1px] bg-brand-outline-variant hidden sm:block"></div>
                         <a href="https://www.instagram.com/lisabcelebrant_/" target="_blank" rel="noopener noreferrer" class="text-base text-brand-on-surface-variant hover:text-brand-primary transition-colors duration-150 flex items-center" title="Follow Lisa B Celebrant on Instagram">
-                            <!-- Fixed font-awesome display -->
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </div>
@@ -1192,7 +1192,6 @@
             
             showNotification(`Verifying security records...`, 'info');
 
-            // CRITICAL FIX: Intercept demo sandbox emails instantly and process offline
             const mockKeys = {
                 'sarahjamesweddingcom': 'wedding',
                 'eleanorthompsonmemorialcouk': 'funeral',
@@ -1212,7 +1211,7 @@
                 try {
                     const snap = await getDoc(docRef);
                     if (snap.exists()) {
-                        activeClientState = snap.data(); // CRITICAL FIX: Establish state synchronously before rendering
+                        activeClientState = snap.data();
                         currentClientType = cleanEmail;
                         renderPortalDashboard();
                         closePortalAuthModal();
