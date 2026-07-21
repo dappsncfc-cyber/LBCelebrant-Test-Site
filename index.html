@@ -864,23 +864,33 @@
 
         <footer class="bg-brand-surface-container border-t border-brand-outline-variant/30 py-12 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-                <div class="flex flex-col sm:flex-row justify-between items-center border-b border-brand-outline-variant/30 pb-8 mb-8 gap-4">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center border border-brand-outline-variant shadow-sm">
-                                <span class="font-serif text-xs text-white font-bold">LB</span>
-                            </div>
-                            <div>
-                                <h4 class="font-serif text-lg tracking-wide text-brand-on-surface font-bold">Lisa B Celebrant</h4>
-                                <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block font-sans">Modern Custom Ceremonies</span>
-                            </div>
+                <div class="flex flex-col lg:flex-row justify-between items-center border-b border-brand-outline-variant/30 pb-8 mb-8 gap-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-primary flex items-center justify-center border border-brand-outline-variant shadow-sm">
+                            <span class="font-serif text-sm text-white font-bold">LB</span>
                         </div>
-                        <div class="h-8 w-[1px] bg-brand-outline-variant/30 hidden sm:block"></div>
-                        <div class="flex items-center space-x-4">
-                            <img src="icpclogo.png" alt="ICPC Member Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" onerror="this.style.display='none';">
-                            <img src="logo-the-celebrant-accord.jpg" alt="The Funeral Celebrant Accord Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" onerror="this.style.display='none';">
+                        <div>
+                            <h4 class="font-serif text-xl tracking-wide text-brand-on-surface font-bold">Lisa B Celebrant</h4>
+                            <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block font-sans">Modern Custom Ceremonies</span>
                         </div>
                     </div>
+
+                    <!-- Prominent Accreditation Logos -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 my-4 lg:my-0">
+                        <div class="p-2.5 bg-brand-surface-container-lowest rounded-xl border border-brand-outline-variant/30 shadow-sm flex items-center justify-center">
+                            <img src="icpclogo.png" 
+                                 alt="ICPC Member Logo" 
+                                 class="h-24 sm:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/220x100/efeeeb/526253?text=ICPC+Member+Logo';">
+                        </div>
+                        <div class="p-2.5 bg-brand-surface-container-lowest rounded-xl border border-brand-outline-variant/30 shadow-sm flex items-center justify-center">
+                            <img src="logo-the-celebrant-accord.jpg" 
+                                 alt="The Funeral Celebrant Accord Logo" 
+                                 class="h-24 sm:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/220x100/efeeeb/526253?text=Celebrant+Accord+Logo';">
+                        </div>
+                    </div>
+
                     <div class="flex items-center space-x-6 text-xs text-brand-on-surface-variant font-sans">
                         <button onclick="showSection('marketing-home'); scrollToSection('services-showcase')" class="hover:text-brand-primary font-semibold">Services</button>
                         <button onclick="showSection('marketing-home'); scrollToSection('about-celebrant')" class="hover:text-brand-primary font-semibold">About Me</button>
