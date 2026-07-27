@@ -629,24 +629,26 @@
                                 <p class="text-brand-on-surface-variant text-xs sm:text-sm">Connect with me to lock in your ceremony date across Norfolk, Suffolk, Essex, Cambridgeshire, and surrounding East Anglia regions.</p>
                             </div>
                             <form onsubmit="handleContactSubmit(event)" class="space-y-6">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Your Name(s)</label>
-                                        <input id="contact-names" type="text" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition font-sans" placeholder="Sarah & James">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="flex flex-col">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans min-h-[1.25rem] flex items-end">Your Name(s)</label>
+                                        <input id="contact-names" type="text" required class="w-full h-12 px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition font-sans box-border" placeholder="Sarah & James">
                                     </div>
-                                    <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Email Address</label>
-                                        <input id="contact-email" type="email" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition font-sans" placeholder="name@domain.com">
+                                    <div class="flex flex-col">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans min-h-[1.25rem] flex items-end">Email Address</label>
+                                        <input id="contact-email" type="email" required class="w-full h-12 px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition font-sans box-border" placeholder="name@domain.com">
                                     </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 font-sans">
-                                    <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Telephone Number</label>
-                                        <input id="contact-phone" type="tel" required class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition font-sans" placeholder="07700 900077">
+                                    <div class="flex flex-col">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans min-h-[1.25rem] flex items-end">Telephone Number</label>
+                                        <input id="contact-phone" type="tel" required class="w-full h-12 px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition font-sans box-border" placeholder="07700 900077">
                                     </div>
-                                    <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Ceremony Type</label>
-                                        <select id="contact-ceremony-type" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
+                                    <div class="flex flex-col">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans min-h-[1.25rem] flex items-end">Planned Date (Or Approximate)</label>
+                                        <input id="contact-date" type="date" class="w-full h-12 px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant font-sans box-border">
+                                    </div>
+                                    <div class="flex flex-col md:col-span-2">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans min-h-[1.25rem] flex items-end">Ceremony Type</label>
+                                        <select id="contact-ceremony-type" class="w-full h-12 px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant font-sans box-border">
                                             <option value="wedding">Wedding Ceremony</option>
                                             <option value="funeral">Funeral or Memorial Tribute</option>
                                             <option value="naming">Naming Ceremony</option>
@@ -654,14 +656,10 @@
                                             <option value="planning">Planning Ahead</option>
                                         </select>
                                     </div>
-                                    <div>
-                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Planned Date (Or Approximate)</label>
-                                        <input id="contact-date" type="date" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant">
+                                    <div class="flex flex-col md:col-span-2">
+                                        <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans min-h-[1.25rem] flex items-end">Ceremony Vision & Requests</label>
+                                        <textarea id="contact-vision" rows="4" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant font-sans box-border" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
                                     </div>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2 font-sans">Ceremony Vision & Requests</label>
-                                    <textarea id="contact-vision" rows="4" class="w-full px-4 py-3 text-base md:text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-transparent transition text-brand-on-surface-variant font-sans" placeholder="Share any music thoughts, structural goals, or unique elements..."></textarea>
                                 </div>
                                 <div class="pt-2">
                                     <button type="submit" class="w-full py-4 bg-brand-primary hover:bg-brand-primary-container text-white font-semibold rounded transition duration-300 shadow-sm flex items-center justify-center space-x-2 border border-brand-outline-variant/30 font-sans">
