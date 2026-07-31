@@ -92,7 +92,7 @@
                         <form onsubmit="handleAdminLogin(event)" class="space-y-4">
                             <div>
                                 <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Lisa's Registered Email</label>
-                                <input id="admin-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="lisa@lb-celebrant.co.uk">
+                                <input id="admin-email-input" type="email" required class="w-full px-4 py-3 text-sm bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary" placeholder="lisa@lisabcelebrant.co.uk">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-semibold text-brand-on-surface-variant uppercase tracking-[0.1em] mb-2">Admin Password</label>
@@ -102,9 +102,6 @@
                                 <i class="fa-solid fa-unlock-keyhole mr-1.5 text-brand-surface"></i> Unlock Console
                             </button>
                         </form>
-                        <div class="mt-4 text-center">
-                            <p class="text-[10px] text-brand-secondary">Demo Credentials: <strong class="text-brand-on-surface">lisa@lb-celebrant.co.uk</strong> / <strong class="text-brand-on-surface">password1984</strong></p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -577,7 +574,7 @@
             const email = document.getElementById('admin-email-input').value.trim();
             const password = document.getElementById('admin-password-input').value;
 
-            if (email === "lisa@lb-celebrant.co.uk" && password === "password1984") {
+            if (email === "lisa@lisabcelebrant.co.uk" && password === "Freddie@1234") {
                 activeAdminSession = true;
                 document.getElementById('admin-auth-panel').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
