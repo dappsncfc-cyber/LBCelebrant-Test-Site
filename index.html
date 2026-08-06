@@ -1137,7 +1137,7 @@
                 </div>
                 <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-on-surface-variant gap-4 font-sans">
                     <p>
-                        &copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-brand-primary hover:underline transition-colors font-medium">Lisa B Celebrant</a> - All rights reserved. 
+                        &copy; <a href="https://www.offscriptlabs.co.uk" target="_blank" class="hover:text-brand-primary hover:underline transition-colors font-medium">Offscript Labs 2026</a> - All rights reserved. 
                         &bull; <button onclick="openPrivacyModal()" class="hover:text-brand-primary hover:underline transition-colors font-medium ml-1">Privacy Policy</button>
                     </p>
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3 font-medium text-[11px]">
@@ -1263,29 +1263,29 @@
     </div>
 
     <!-- Service Details Modal -->
-    <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-brand-surface/90 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 sm:p-8 relative max-h-[85vh] flex flex-col">
-            <button onclick="closeServiceDetailsModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <div class="flex items-center space-x-4 mb-6 border-b border-brand-outline-variant/30 pb-4">
-                <div id="service-modal-icon-container" class="w-12 h-12 rounded-full bg-brand-surface-container text-brand-primary flex items-center justify-center text-xl shadow-sm flex-shrink-0">
+    <div id="service-details-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-brand-surface/95 backdrop-blur-xl w-full max-w-2xl rounded-2xl border border-brand-outline-variant/40 shadow-lg p-4 sm:p-8 relative max-h-[90vh] sm:max-h-[85vh] flex flex-col">
+            <button onclick="closeServiceDetailsModal()" class="absolute top-3 right-3 sm:top-4 sm:right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface/50 rounded-full transition-all duration-150 z-10"><i class="fa-solid fa-xmark text-lg sm:text-xl"></i></button>
+            <div class="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6 border-b border-brand-outline-variant/30 pb-3 sm:pb-4 pr-8">
+                <div id="service-modal-icon-container" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-surface-container text-brand-primary flex items-center justify-center text-lg sm:text-xl shadow-sm flex-shrink-0">
                     <i id="service-modal-icon" class="fa-solid fa-heart font-sans"></i>
                 </div>
-                <div>
-                    <h3 id="service-modal-title" class="font-serif text-2xl font-bold text-brand-on-surface font-sans">Service Title</h3>
-                    <p id="service-modal-subtitle" class="text-xs text-brand-primary font-bold uppercase tracking-[0.1em] font-sans">Service Subtitle</p>
+                <div class="min-w-0">
+                    <h3 id="service-modal-title" class="font-serif text-xl sm:text-2xl font-bold text-brand-on-surface font-sans truncate">Service Title</h3>
+                    <p id="service-modal-subtitle" class="text-[10px] sm:text-xs text-brand-primary font-bold uppercase tracking-[0.1em] font-sans truncate">Service Subtitle</p>
                 </div>
             </div>
-            <div class="overflow-y-auto custom-scrollbar flex-grow pr-2 font-sans text-brand-on-surface-variant text-sm md:text-xs sm:text-sm leading-relaxed space-y-4">
-                <div id="service-modal-long-description" class="space-y-4"></div>
+            <div class="overflow-y-auto custom-scrollbar flex-grow pr-1.5 sm:pr-2 font-sans text-brand-on-surface-variant text-sm leading-relaxed space-y-3.5 sm:space-y-4 touch-pan-y">
+                <div id="service-modal-long-description" class="space-y-3.5 sm:space-y-4 text-sm sm:text-sm text-brand-on-surface-variant"></div>
             </div>
-            <div class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-brand-outline-variant/30 mt-4 gap-4 font-sans font-sans">
-                <div class="text-left w-full sm:w-auto">
-                    <span class="text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block">Prices from</span>
-                    <span id="service-modal-price" class="font-serif text-lg font-bold text-brand-primary">£450.00</span>
+            <div class="flex flex-row justify-between items-center pt-3 sm:pt-4 border-t border-brand-outline-variant/30 mt-3 sm:mt-4 gap-3 font-sans">
+                <div class="text-left">
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-brand-secondary font-bold block">Prices from</span>
+                    <span id="service-modal-price" class="font-serif text-base sm:text-lg font-bold text-brand-primary">£450.00</span>
                 </div>
-                <div class="flex space-x-2 w-full sm:w-auto justify-end">
-                    <button onclick="closeServiceDetailsModal()" class="px-5 py-2.5 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-tertiary font-bold rounded text-xs uppercase tracking-wider transition">Back</button>
-                    <button id="service-modal-enquire-btn" class="px-5 py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95 font-sans font-sans">Enquire Now</button>
+                <div class="flex space-x-2 justify-end">
+                    <button onclick="closeServiceDetailsModal()" class="px-3.5 sm:px-5 py-2 sm:py-2.5 bg-brand-surface-container hover:bg-brand-surface-container-high text-brand-tertiary font-bold rounded text-xs uppercase tracking-wider transition">Back</button>
+                    <button id="service-modal-enquire-btn" class="px-3.5 sm:px-5 py-2 sm:py-2.5 bg-brand-primary hover:bg-brand-primary-container text-white font-bold rounded text-xs uppercase tracking-wider transition shadow-sm active:scale-95 font-sans">Enquire Now</button>
                 </div>
             </div>
         </div>
