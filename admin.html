@@ -427,6 +427,86 @@
             </div>
         </div>
 
+        <!-- Email Client Selector Modal -->
+        <div id="email-client-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-brand-surface w-full max-w-lg rounded-2xl border border-brand-outline-variant/40 shadow-lg p-6 relative">
+                <button onclick="closeEmailClientModal()" class="absolute top-4 right-4 text-brand-secondary hover:text-brand-on-surface focus:outline-none p-2 hover:bg-brand-surface-container rounded-full">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+                <div class="mb-5">
+                    <div class="w-10 h-10 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-2">
+                        <i class="fa-regular fa-paper-plane text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-on-surface">Choose Email Service</h3>
+                    <p class="text-xs text-brand-on-surface-variant mt-1">Select how you would like to send this update <span id="email-modal-recipient" class="font-semibold text-brand-primary"></span>.</p>
+                </div>
+
+                <!-- Preview Box -->
+                <div class="bg-brand-surface-container-low border border-brand-outline-variant/30 rounded-xl p-3.5 mb-5 max-h-40 overflow-y-auto custom-scrollbar text-xs font-sans text-brand-on-surface-variant space-y-1">
+                    <p><strong>Subject:</strong> <span id="email-modal-subject"></span></p>
+                    <div class="border-t border-brand-outline-variant/20 my-1.5"></div>
+                    <div id="email-modal-body-preview" class="whitespace-pre-wrap text-[11px] leading-relaxed"></div>
+                </div>
+
+                <div class="space-y-2.5 text-xs font-sans">
+                    <button onclick="sendViaMailto()" class="w-full p-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant/60 rounded-xl flex items-center justify-between transition group shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="text-left">
+                                <p class="font-bold text-brand-on-surface">Default Email App / Phone Mail</p>
+                                <p class="text-[10px] text-brand-secondary">Opens Apple Mail, Outlook app, or default mail client</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-brand-secondary group-hover:translate-x-0.5 transition-transform"></i>
+                    </button>
+
+                    <button onclick="sendViaTitan()" class="w-full p-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant/60 rounded-xl flex items-center justify-between transition group shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-600 text-white flex items-center justify-center"><i class="fa-solid fa-at"></i></div>
+                            <div class="text-left">
+                                <p class="font-bold text-brand-on-surface">Titan Email Webmail (lisa@lisabcelebrant.co.uk)</p>
+                                <p class="text-[10px] text-brand-secondary">Copies body & opens app.titan.email Webmail compose</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-brand-secondary group-hover:translate-x-0.5 transition-transform"></i>
+                    </button>
+
+                    <button onclick="sendViaGmail()" class="w-full p-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant/60 rounded-xl flex items-center justify-between transition group shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center"><i class="fa-brands fa-google"></i></div>
+                            <div class="text-left">
+                                <p class="font-bold text-brand-on-surface">Gmail Webmail</p>
+                                <p class="text-[10px] text-brand-secondary">Opens compose window in browser on Gmail</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-brand-secondary group-hover:translate-x-0.5 transition-transform"></i>
+                    </button>
+
+                    <button onclick="sendViaOutlookWeb()" class="w-full p-3 bg-brand-surface hover:bg-brand-surface-container border border-brand-outline-variant/60 rounded-xl flex items-center justify-between transition group shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center"><i class="fa-brands fa-microsoft"></i></div>
+                            <div class="text-left">
+                                <p class="font-bold text-brand-on-surface">Outlook Webmail</p>
+                                <p class="text-[10px] text-brand-secondary">Opens Outlook live.com compose window</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-brand-secondary group-hover:translate-x-0.5 transition-transform"></i>
+                    </button>
+
+                    <button onclick="copyEmailToClipboard()" class="w-full p-3 bg-brand-surface-container-high hover:bg-brand-surface-container border border-brand-outline-variant/60 rounded-xl flex items-center justify-between transition group shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-secondary text-white flex items-center justify-center"><i class="fa-regular fa-copy"></i></div>
+                            <div class="text-left">
+                                <p class="font-bold text-brand-on-surface">Copy Text to Clipboard</p>
+                                <p class="text-[10px] text-brand-secondary">Copy recipient & message body to paste manually</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-check text-brand-secondary opacity-0 id-copy-check"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Print Preview System -->
         <div id="print-preview-modal" class="hidden fixed inset-0 z-50 bg-brand-tertiary/20 backdrop-blur-sm flex items-center justify-center p-4">
             <div class="bg-brand-surface w-full max-w-2xl rounded-2xl border shadow-lg p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
@@ -1481,10 +1561,12 @@
         }
 
         // Email update notification trigger
+        let currentEmailPayload = { recipient: "", subject: "", bodyText: "" };
+
         window.sendEmailUpdate = function() {
             if (!activeSelectedState) return;
             const email = activeSelectedState.email || "";
-            const subject = encodeURIComponent("You have an update from Lisa B Celebrant");
+            const subjectText = "You have an update from Lisa B Celebrant";
             const emailBodyText = `Hi,
 
 Thank you for choosing Lisa B Celebrant.
@@ -1499,8 +1581,68 @@ Lisa B Celebrant
 📞 07792 288295
 📧 lisa@lisabcelebrant.co.uk
 Honouring life. Celebrating love. Remembering always. ❤️`;
-            const body = encodeURIComponent(emailBodyText);
-            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+            currentEmailPayload = {
+                recipient: email,
+                subject: subjectText,
+                bodyText: emailBodyText
+            };
+
+            document.getElementById('email-modal-recipient').innerText = email ? `to ${email}` : "";
+            document.getElementById('email-modal-subject').innerText = subjectText;
+            document.getElementById('email-modal-body-preview').innerText = emailBodyText;
+
+            document.getElementById('email-client-modal').classList.remove('hidden');
+        };
+
+        window.closeEmailClientModal = function() {
+            document.getElementById('email-client-modal').classList.add('hidden');
+        };
+
+        window.sendViaMailto = function() {
+            const subject = encodeURIComponent(currentEmailPayload.subject);
+            const body = encodeURIComponent(currentEmailPayload.bodyText);
+            window.location.href = `mailto:${currentEmailPayload.recipient}?subject=${subject}&body=${body}`;
+            closeEmailClientModal();
+        };
+
+        window.sendViaTitan = function() {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(currentEmailPayload.bodyText).catch(() => {});
+            }
+            showNotification("Email body copied! Redirecting to Titan Webmail...", "info");
+            window.open("https://app.titan.email/", "_blank");
+            closeEmailClientModal();
+        };
+
+        window.sendViaGmail = function() {
+            const subject = encodeURIComponent(currentEmailPayload.subject);
+            const body = encodeURIComponent(currentEmailPayload.bodyText);
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(currentEmailPayload.recipient)}&su=${subject}&body=${body}`;
+            window.open(gmailUrl, "_blank");
+            closeEmailClientModal();
+        };
+
+        window.sendViaOutlookWeb = function() {
+            const subject = encodeURIComponent(currentEmailPayload.subject);
+            const body = encodeURIComponent(currentEmailPayload.bodyText);
+            const outlookUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(currentEmailPayload.recipient)}&subject=${subject}&body=${body}`;
+            window.open(outlookUrl, "_blank");
+            closeEmailClientModal();
+        };
+
+        window.copyEmailToClipboard = function() {
+            const fullContent = `To: ${currentEmailPayload.recipient}\nSubject: ${currentEmailPayload.subject}\n\n${currentEmailPayload.bodyText}`;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(fullContent).then(() => {
+                    showNotification("Recipient & email content copied to clipboard!", "success");
+                }).catch(() => {
+                    showNotification("Failed to copy automatically.", "error");
+                });
+            } else {
+                showNotification("Clipboard feature unavailable in browser.", "error");
+            }
+            closeEmailClientModal();
         };
     </script>
 </body>
