@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lisa B Celebrant - Secure Admin Console</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,7 +33,7 @@
             }
         }
     </script>
-    
+
     <style>
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #faf9f6; border-radius: 4px; }
@@ -77,7 +77,7 @@
         </header>
 
         <main class="flex-grow z-10 relative">
-            
+
             <!-- Auth Login Panel (Password-Protected for Lisa only) -->
             <section id="admin-auth-panel" class="py-16 flex items-center justify-center min-h-[70vh]">
                 <div class="w-full max-w-md mx-auto px-4">
@@ -109,7 +109,7 @@
             <!-- Main Interactive Admin Console Dashboard -->
             <section id="admin-dashboard" class="hidden py-8 sm:py-12">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
+
                     <!-- Top Summary Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         <div class="bg-brand-surface-container-low rounded-xl p-5 border border-brand-outline-variant/30 shadow-sm flex items-center justify-between">
@@ -166,7 +166,7 @@
                         <div class="lg:col-span-4 bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm">
                             <h3 class="font-serif text-lg font-bold text-brand-on-surface mb-1">Select Client File</h3>
                             <p class="text-[11px] text-brand-on-surface-variant mb-4">Click a client profile to view, modify checklists, timeline logs, and draft wordings.</p>
-                            
+
                             <!-- Search & Filter Controls -->
                             <div class="space-y-3 mb-4">
                                 <div class="relative">
@@ -183,7 +183,7 @@
                             <div id="admin-client-list" class="space-y-2 mb-6 max-h-[300px] overflow-y-auto custom-scrollbar">
                                 <p class="text-xs text-brand-on-surface-variant italic">Waiting for connection...</p>
                             </div>
-                            
+
                             <!-- Manual Onboarding Form -->
                             <div class="border-t border-brand-outline-variant/30 pt-4">
                                 <h4 class="font-serif text-sm font-bold text-brand-on-surface mb-3 flex items-center gap-1.5"><i class="fa-solid fa-user-plus text-brand-primary"></i> Onboard New Client</h4>
@@ -233,7 +233,7 @@
 
                         <!-- Workspace Details Control Center -->
                         <div class="lg:col-span-8 space-y-6">
-                            
+
                             <!-- Closed state placeholder -->
                             <div id="admin-workspace-placeholder" class="bg-brand-surface-container-low rounded-2xl p-16 border border-brand-outline-variant/30 text-center shadow-sm">
                                 <i class="fa-solid fa-laptop-file text-5xl text-brand-primary/40 mb-4 block"></i>
@@ -243,7 +243,7 @@
 
                             <!-- Interactive Editing Console -->
                             <div id="admin-workspace-panel" class="hidden space-y-6">
-                                
+
                                 <!-- Client Workspace Header Banner -->
                                 <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div>
@@ -272,9 +272,9 @@
 
                                 <!-- Collaborative Script Editor & Live Revision Log Layout -->
                                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                                    
+
                                     <!-- Editable Script Text Area -->
-                                    <div class="lg:col-span-8 bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col h-[500px]">
+                                    <div class="lg:col-span-8 bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col h-[750px]">
                                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-brand-outline-variant/20 pb-3 flex-shrink-0">
                                             <div>
                                                 <h4 class="font-serif text-lg text-brand-on-surface font-bold">Collaborative Wording Editor</h4>
@@ -289,7 +289,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <textarea id="admin-script-textarea" class="w-full flex-grow p-6 font-serif text-sm leading-relaxed text-brand-on-surface bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary custom-scrollbar shadow-inner resize-none whitespace-pre-wrap" placeholder="Paste ceremony layout paragraphs here..."></textarea>
+                                        <textarea id="admin-script-textarea" class="w-full flex-grow p-6 font-serif text-sm font-bold leading-relaxed text-brand-on-surface bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary custom-scrollbar shadow-inner resize-none whitespace-pre-wrap" placeholder="Paste ceremony layout paragraphs here..."></textarea>
                                     </div>
 
                                     <!-- Live Revision Log Chat Box -->
@@ -301,10 +301,10 @@
                                             </h4>
                                             <p class="text-brand-on-surface-variant text-[11px]">Direct co-editing threads and client suggestions.</p>
                                         </div>
-                                        
+
                                         <!-- Messages Scroll Frame -->
                                         <div id="admin-comments-container" class="flex-grow overflow-y-auto mb-4 space-y-3 pr-2 custom-scrollbar flex flex-col justify-start"></div>
-                                        
+
                                         <!-- Post Reply Input Form -->
                                         <form onsubmit="handleAdminCommentPost(event)" class="flex items-center gap-2 flex-shrink-0 w-full">
                                             <input id="admin-comment-input" type="text" class="flex-grow flex-1 min-w-0 px-3 py-2.5 text-xs bg-brand-surface border border-brand-outline-variant rounded focus:outline-none focus:ring-1 focus:ring-brand-primary font-sans" placeholder="Reply or suggest revision...">
@@ -316,7 +316,7 @@
 
                                 <!-- Checklist Editor and Live Question Responses Editor -->
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    
+
                                     <!-- Dynamic Checklist Manager -->
                                     <div class="bg-brand-surface-container-low rounded-2xl p-6 border border-brand-outline-variant/30 shadow-sm flex flex-col justify-between">
                                         <div>
@@ -342,7 +342,7 @@
                                                 <button onclick="addExtraPrompt()" class="text-[10px] font-bold uppercase tracking-wider text-brand-primary hover:text-brand-on-surface transition"><i class="fa-solid fa-plus"></i> Add Extra</button>
                                             </div>
                                             <p class="text-[10px] text-brand-on-surface-variant mb-4">Read live responses from the client portal and customise prompt questions.</p>
-                                            
+
                                             <!-- Dynamic prompts container -->
                                             <div id="admin-prompts-container" class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-1">
                                                 <!-- Javascript will build prompts here dynamically -->
@@ -367,7 +367,7 @@
                                         </button>
                                     </div>
                                     <div class="space-y-3 mb-6" id="admin-oos-list-container"></div>
-                                    
+
                                     <div class="border-t border-brand-outline-variant/30 pt-4 mt-4">
                                         <h5 class="font-bold text-xs text-brand-on-surface mb-3 uppercase tracking-wide">Add New Sequence Line</h5>
                                         <form onsubmit="handleAddOOSStep(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
@@ -464,7 +464,7 @@
             messagingSenderId: "818517298391",
             appId: "1:818517298391:web:c16f25d2bf274b99373492"
         };
-        
+
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
         let app = null, auth = null, db = null, useFirebase = false;
@@ -559,7 +559,7 @@
             const toast = document.createElement('div');
             let bgClass = 'bg-brand-tertiary border-brand-outline-variant';
             let iconClass = 'fa-circle-info text-brand-primary';
-            if (type === 'success') { bgClass = 'bg-brand-primary border-brand-outline-variant/50'; iconClass = 'fa-circle-check text-brand-surface'; } 
+            if (type === 'success') { bgClass = 'bg-brand-primary border-brand-outline-variant/50'; iconClass = 'fa-circle-check text-brand-surface'; }
             else if (type === 'error') { bgClass = 'bg-brand-on-surface border-red-500'; iconClass = 'fa-triangle-exclamation text-red-500'; }
             toast.className = `${bgClass} text-white border-l-4 px-4 py-3.5 rounded shadow flex items-center space-x-3 pointer-events-auto transition-all duration-300 transform translate-y-2 opacity-0`;
             toast.innerHTML = `<i class="fa-solid ${iconClass}"></i><span class="text-xs font-semibold tracking-wide font-sans">${message}</span>`;
@@ -580,7 +580,7 @@
                 document.getElementById('admin-dashboard').classList.remove('hidden');
                 document.getElementById('header-logout-btn-container').classList.remove('hidden');
                 showNotification("Console authorized successfully.", "success");
-                
+
                 // Initialize Listeners
                 startAdminDatabaseListeners();
             } else {
@@ -593,15 +593,15 @@
             if (clientUnsubscribeListener) clientUnsubscribeListener();
             if (leadsUnsubscribeListener) leadsUnsubscribeListener();
             if (workspaceUnsubscribeListener) workspaceUnsubscribeListener();
-            
+
             clientUnsubscribeListener = null;
             leadsUnsubscribeListener = null;
             workspaceUnsubscribeListener = null;
-            
+
             document.getElementById('admin-dashboard').classList.add('hidden');
             document.getElementById('admin-auth-panel').classList.remove('hidden');
             document.getElementById('header-logout-btn-container').classList.add('hidden');
-            
+
             showNotification("Secure administrative session terminated.", "info");
         }
 
@@ -621,7 +621,7 @@
                     activeClientList.push({ id: doc.id, ...doc.data() });
                 });
                 window.renderClientSidebar();
-                
+
                 // Exclude archived from primary summary card
                 const nonArchived = activeClientList.filter(c => c.status !== 'Archived');
                 document.getElementById('stat-active-workspaces').innerText = nonArchived.length;
@@ -655,10 +655,10 @@
         function renderLeadsInbox(leads) {
             const container = document.getElementById('leads-container');
             const unapprovedLeads = leads.filter(l => l.status === 'New');
-            
+
             document.getElementById('stat-leads-count').innerText = unapprovedLeads.length;
             document.getElementById('leads-badge-count').innerText = `${unapprovedLeads.length} New Leads`;
-            
+
             const bellDot = document.getElementById('leads-bell-dot');
             if (unapprovedLeads.length > 0) {
                 bellDot.classList.remove('hidden');
@@ -680,7 +680,7 @@
             unapprovedLeads.forEach(lead => {
                 const dateLabel = lead.date ? new Date(lead.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : 'No specific date';
                 const formattedTime = new Date(lead.timestamp).toLocaleDateString('en-GB') + ' ' + new Date(lead.timestamp).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-                
+
                 // Construct safe phone output displaying fallback text if omitted
                 const phoneDisplay = lead.phone ? `<a href="tel:${lead.phone}" class="text-brand-primary select-all font-semibold">${lead.phone}</a>` : '<span class="italic opacity-70">Not provided</span>';
 
@@ -720,7 +720,7 @@
         // Action: Approve Lead and generate their Active Workspace Folder Automatically
         window.approveLeadAndCreate = async function(leadId, names, email, phone, ceremonyType, date) {
             showNotification("Processing and converting lead...", "info");
-            
+
             const typeMap = {
                 'wedding': 'Wedding',
                 'funeral': 'Funeral',
@@ -798,10 +798,10 @@
             const filteredList = activeClientList.filter(client => {
                 const names = client.names || "";
                 const status = (client.status || "Under Review").toLowerCase();
-                
+
                 if (status === 'archived' && !showArchived) return false;
                 if (searchQuery !== "" && !names.toLowerCase().includes(searchQuery)) return false;
-                
+
                 return true;
             });
 
@@ -809,11 +809,11 @@
             filteredList.sort((a, b) => {
                 const timeA = a.date ? new Date(a.date).getTime() : Number.MAX_SAFE_INTEGER;
                 const timeB = b.date ? new Date(b.date).getTime() : Number.MAX_SAFE_INTEGER;
-                
+
                 // Bulletproof check to avoid NaN mathematical crashes
                 const validA = isNaN(timeA) ? Number.MAX_SAFE_INTEGER : timeA;
                 const validB = isNaN(timeB) ? Number.MAX_SAFE_INTEGER : timeB;
-                
+
                 if (validA < validB) return -1;
                 if (validA > validB) return 1;
                 return 0;
@@ -846,7 +846,7 @@
 
                 const btn = document.createElement('button');
                 btn.className = `w-full text-left p-3 rounded border text-xs transition duration-150 active:scale-95 flex items-center justify-between gap-3 ${isSelected ? 'bg-brand-primary text-white border-brand-outline-variant/50 shadow-sm' : 'bg-brand-surface border-brand-outline-variant/30 text-brand-on-surface hover:bg-brand-surface-container-low'} ${isArchivedVisual}`;
-                
+
                 btn.innerHTML = `
                     <div class="flex-grow min-w-0">
                         <div class="flex justify-between items-center w-full mb-0.5">
@@ -935,12 +935,12 @@
                 workspaceUnsubscribeListener = onSnapshot(docRef, (snap) => {
                     if (snap.exists()) {
                         activeSelectedState = snap.data();
-                        
+
                         // Clear pulsing red notification dot immediately once Lisa loads file
                         if (activeSelectedState.clientUpdated === true) {
                             updateDoc(docRef, { clientUpdated: false }).catch(err => console.warn(err));
                         }
-                        
+
                         renderWorkspaceView();
                     }
                 }, (error) => {
@@ -971,7 +971,7 @@
                 }
             }
             document.getElementById('admin-vault-date').innerText = formattedDate;
-            
+
             // Toggle Archive Action Button Labels
             const archiveBtn = document.getElementById('archive-workspace-btn');
             if (activeSelectedState.status === "Archived") {
@@ -982,7 +982,7 @@
 
             // Textarea value mapping
             document.getElementById('admin-script-textarea').value = activeSelectedState.script || "";
-            
+
             renderAdminPrompts();
             renderAdminChecklist();
             renderAdminOOSList();
@@ -1046,7 +1046,7 @@
             const container = document.getElementById('admin-comments-container');
             if (!container) return;
             container.innerHTML = "";
-            
+
             const commentsArray = activeSelectedState.comments || [];
             if (commentsArray.length === 0) {
                 container.innerHTML = `
@@ -1061,7 +1061,7 @@
             commentsArray.forEach(comment => {
                 const commentBox = document.createElement('div');
                 const isCelebrant = comment.name === "Lisa B Celebrant";
-                
+
                 if (isCelebrant) {
                     commentBox.className = "flex flex-col p-3 rounded-xl max-w-[85%] bg-brand-primary text-white self-end ml-auto shadow-sm";
                 } else {
@@ -1077,7 +1077,7 @@
                 `;
                 container.appendChild(commentBox);
             });
-            
+
             container.scrollTop = container.scrollHeight;
         }
 
@@ -1085,13 +1085,13 @@
         window.handleAdminCommentPost = async function(event) {
             event.preventDefault();
             if (!activeSelectedState || !activeSelectedEmailKey) return;
-            
+
             const input = document.getElementById('admin-comment-input');
             const commentText = input.value.trim();
             if (commentText === "") return;
 
             const timeLabel = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) + ' ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-            
+
             const newComment = {
                 name: "Lisa B Celebrant",
                 text: commentText,
@@ -1101,7 +1101,7 @@
             if (!activeSelectedState.comments) {
                 activeSelectedState.comments = [];
             }
-            
+
             activeSelectedState.comments.push(newComment);
             input.value = "";
             renderAdminCommentsLog();
@@ -1123,18 +1123,18 @@
             const container = document.getElementById('admin-prompts-container');
             if (!container) return;
             container.innerHTML = "";
-            
+
             const prompts = activeSelectedState.questionPrompts || ["First reflection question...", "Second reflection question..."];
             const questions = activeSelectedState.questions || {};
-            
+
             prompts.forEach((prompt, index) => {
                 const div = document.createElement('div');
                 div.className = "bg-brand-surface p-3 rounded-xl border border-brand-outline-variant/20";
-                
+
                 // Maps gracefully to either old static q1/q2 or dynamic integer keys
                 const responseText = questions[`q${index+1}`] || questions[index] || "";
                 const displayResponse = responseText.trim() !== "" ? responseText : "No answer submitted yet.";
-                const responseClass = responseText.trim() !== "" 
+                const responseClass = responseText.trim() !== ""
                     ? "p-2.5 bg-[#f5fbf6] rounded text-xs text-[#2b4c2d] font-sans border border-[#d8edd9] h-auto min-h-0 whitespace-pre-wrap transition-all w-full"
                     : "p-2.5 bg-brand-surface-container-low rounded text-xs text-brand-secondary italic leading-relaxed border border-brand-outline-variant/10 h-auto min-h-0 opacity-60 transition-all w-full";
 
@@ -1144,7 +1144,7 @@
                         ${index > 1 ? `<button onclick="deletePrompt(${index})" class="text-red-500 hover:text-red-700 text-[10px]" title="Delete extra prompt"><i class="fa-solid fa-trash"></i></button>` : ''}
                     </div>
                     <input id="admin-prompt-input-${index}" type="text" class="w-full p-2 text-xs bg-brand-surface-container border border-brand-outline-variant rounded mb-2 font-semibold focus:outline-none" value="${prompt.replace(/"/g, '&quot;')}">
-                    
+
                     <label class="block text-[10px] uppercase font-bold tracking-wider text-brand-secondary mb-1">Client Live Response</label>
                     <div class="${responseClass}">${displayResponse}</div>
                 `;
@@ -1186,13 +1186,13 @@
         window.deletePrompt = function(index) {
             if (!activeSelectedState) return;
             activeSelectedState.questionPrompts.splice(index, 1);
-            
+
             // Clean up the associated answer to keep data tidy
             if (activeSelectedState.questions) {
                 delete activeSelectedState.questions[index];
                 delete activeSelectedState.questions[`q${index+1}`];
             }
-            
+
             renderAdminPrompts();
             savePromptsToDB();
         }
@@ -1412,7 +1412,7 @@
             if (!activeSelectedState || !activeSelectedEmailKey) return;
             const currentStatus = activeSelectedState.status;
             const targetStatus = currentStatus === "Archived" ? "Under Review" : "Archived";
-            
+
             showNotification(targetStatus === "Archived" ? "Archiving active registry..." : "Restoring project registry...", "info");
 
             if (useFirebase && db) {
@@ -1420,7 +1420,7 @@
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
                     await updateDoc(docRef, { status: targetStatus });
                     showNotification(targetStatus === "Archived" ? "Workspace archived." : "Workspace restored.", "success");
-                    
+
                     // Auto-hide panel immediately upon archiving if Lisa has "Show Archived" checkbox unchecked
                     const showArchived = document.getElementById('show-archived-toggle').checked;
                     if (targetStatus === "Archived" && !showArchived) {
@@ -1434,7 +1434,7 @@
                 }
             } else {
                 activeSelectedState.status = targetStatus;
-                
+
                 // Hide panel if unchecked
                 const showArchived = document.getElementById('show-archived-toggle').checked;
                 if (targetStatus === "Archived" && !showArchived) {
@@ -1443,7 +1443,7 @@
                     document.getElementById('admin-workspace-panel').classList.add('hidden');
                     document.getElementById('admin-workspace-placeholder').classList.remove('hidden');
                 }
-                
+
                 window.renderClientSidebar();
                 renderWorkspaceView();
             }
@@ -1460,7 +1460,7 @@
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'ceremonies', activeSelectedEmailKey);
                     await deleteDoc(docRef);
                     showNotification("File purged successfully.", "success");
-                    
+
                     // Reset Active Screen View
                     activeSelectedEmailKey = null;
                     activeSelectedState = null;
