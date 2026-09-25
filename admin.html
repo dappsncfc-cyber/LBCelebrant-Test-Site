@@ -341,7 +341,7 @@
                                                 <h4 class="font-serif text-base text-brand-on-surface font-bold">Story Responses & Prompts</h4>
                                                 <button onclick="addExtraPrompt()" class="text-[10px] font-bold uppercase tracking-wider text-brand-primary hover:text-brand-on-surface transition"><i class="fa-solid fa-plus"></i> Add Extra</button>
                                             </div>
-                                            <p class="text-[10px] text-brand-on-surface-variant mb-4">Read live responses from the client portal and customise prompt questions.</p>
+                                            <p class="text-[10px] text-brand-on-surface-variant mb-4">Read live responses from the family portal and customise prompt questions.</p>
 
                                             <!-- Dynamic prompts container -->
                                             <div id="admin-prompts-container" class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-1">
@@ -1485,7 +1485,21 @@
             if (!activeSelectedState) return;
             const email = activeSelectedState.email || "";
             const subject = encodeURIComponent("You have an update from Lisa B Celebrant");
-            const body = encodeURIComponent("Please visit our website (https://lb-celebrant.co.uk) and log in to view.");
+            const emailBodyText = `Hi,
+
+Thank you for choosing Lisa B Celebrant.
+To access your private Family Portal, please visit my website and select “Family Portal”. This is where you can securely share the details, thoughts and wishes that will help me create your ceremony.
+Whenever you're ready, you can add your memories, photographs, music choices, readings and anything else you'd like me to know. There’s no need to complete everything at once — take your time and come back whenever you're ready.
+Every detail you share helps me understand what matters most to you, so I can create something that feels genuinely personal and meaningful.
+If you have any questions along the way, please don't hesitate to get in touch. I'm here to help.
+
+With warmest wishes,
+Lisa Birch
+Lisa B Celebrant
+📞 07792 288295
+📧 lisa@lisabcelebrant.co.uk
+Honouring life. Celebrating love. Remembering always. ❤️`;
+            const body = encodeURIComponent(emailBodyText);
             window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
         };
     </script>
